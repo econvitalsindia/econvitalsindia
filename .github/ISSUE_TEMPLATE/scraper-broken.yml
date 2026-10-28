@@ -1,0 +1,11 @@
+name: Scraper broken
+description: A series failed to fetch, parse or validate (usually opened automatically)
+labels: [scraper-broken]
+body:
+  - type: input
+    id: series_id
+    attributes: {label: Series id}
+    validations: {required: true}
+  - type: textarea
+    id: error
+    attributes: {label: Error / workflow run link}

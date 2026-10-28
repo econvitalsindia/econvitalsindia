@@ -1,0 +1,20 @@
+# Series yaml schema
+
+`scripts/validate_registry.py` enforces this. Required fields:
+
+| Field | Type | Allowed |
+|---|---|---|
+| id | str | lower_snake, equals the filename, unique |
+| title, short_title | str | non-empty |
+| area | str | growth, inflation, jobs, activity, money, markets, fiscal, external, states |
+| source.agency, source.dataset, source.module | str | module path exists once implemented |
+| licence | str | `GODL`, `show-only`, or `other:<text>` |
+| downloadable | bool | must be false when licence is `show-only` |
+| fetch | str | auto, manual |
+| frequency | str | D, W, F, M, Q, A |
+| unit | str | non-empty |
+| transforms | list | from 02-conventions.md |
+| release.calendar, release.rule, release.lag_days | str/str/int | |
+| validation.range | [min, max] | |
+| pages | list of {page, section} | page must exist in docs/guidebook/05-pages/ |
+| verified_against | list | must be non-empty before a series goes live |

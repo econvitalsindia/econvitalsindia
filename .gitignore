@@ -1,0 +1,22 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+
+# Node / Astro
+node_modules/
+site/dist/
+site/.astro/
+
+# Raw downloads are archived as GitHub Release assets, never committed
+data/raw/
+*.tmp
+
+# Secrets
+.env
+.env.*
+
+# OS
+.DS_Store

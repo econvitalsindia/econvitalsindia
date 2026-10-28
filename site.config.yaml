@@ -1,0 +1,53 @@
+# ---------------------------------------------------------------------------
+# SINGLE SOURCE OF TRUTH for the site's identity.
+# The site name must appear ONLY in this file. Code, templates and docs read
+# it from here (or say "the site"). `make check` fails if the name is
+# hard-coded anywhere else. To rename: see docs/guidebook/09-rebranding.md.
+# ---------------------------------------------------------------------------
+site:
+  name: "Econvitals India"
+  short_name: "EVI"
+  tagline: "A running read on the health of the Indian economy"
+  description: >-
+    The latest data on India's growth, prices, jobs, money, markets, public
+    finances and external sector, in one place, updated as the numbers come out.
+  url: ""                 # set at launch (custom domain or *.pages.dev)
+  language: "en-IN"
+  timezone: "Asia/Kolkata"
+
+credit:
+  inspired_by_name: "Econvitals"
+  inspired_by_url: "https://econvitals.org"
+  inspired_by_text: >-
+    Inspired by Econvitals, Jason Furman's dashboard of the U.S. economy.
+    This is an independent project, not affiliated with Econvitals.
+
+brand:
+  colors:
+    primary: "#1F2A6B"    # deep indigo
+    accent: "#E8892B"     # saffron accent (not flag saffron, deliberately)
+    ink: "#1A1A1A"
+    paper: "#FBFAF7"
+  logo_mark: "assets/brand/mark.svg"   # name-independent mark
+  fonts:
+    serif: "Literata"
+    sans: "Inter"
+
+conventions:
+  fiscal_year_start_month: 4          # April
+  fy_label: "FY{yy_end}"              # 2025-26 -> FY26
+  quarter_label: "Q{q} FY{yy_end}"    # Apr-Jun 2026 -> Q1 FY27
+  money_unit_domestic: "lakh_crore"   # ₹ lakh crore for fiscal/money aggregates
+  money_unit_external: "usd_bn"       # US$ bn for external sector
+
+contact:
+  feedback_email: ""      # set before launch
+  social: {}
+
+newsletter:
+  provider: ""            # buttondown | brevo — decided in Phase 3
+  enabled: false
+
+briefings:
+  require_human_approval: true        # AI drafts -> PR -> human merge publishes
+  llm_model: ""                       # chosen after the Phase 3 benchmark

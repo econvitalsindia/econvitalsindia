@@ -1,0 +1,31 @@
+# Inflation
+
+**Purpose:** Is inflation close to RBI's 4% target, what is driving it, and what is the underlying trend?
+
+## Must include
+- [ ] Table: CPI headline, food and beverages, fuel and light, core (Original), housing, rural, urban. Columns: 1-month, 3-month avg y/y, 12-month y/y, and m/m momentum
+- [ ] Chart: CPI headline and core y/y, with the 4% target line and the shaded 2–6% band
+- [ ] Chart: contributions to headline CPI by group (weights from the 2024 base)
+- [ ] Chart: momentum vs base effect decomposition of the change in y/y inflation (Original)
+- [ ] WPI headline, WPI food, WPI manufactured products
+- [ ] CPI-IW (Labour Bureau)
+- [ ] RBI household inflation expectations (3-month and 1-year ahead)
+- [ ] RBI's CPI projections (latest MPC) vs outturn
+- [ ] Food watch link (monsoon and essential-commodity prices, Phase 4)
+- [ ] State-wise CPI y/y map (links to States, Phase 4)
+- [ ] Clear definition of core: CPI excluding food and beverages, and fuel and light (and the variant also excluding petrol, diesel and gold, if we publish it). Weights and method in `08-original-measures.md`
+- [ ] Detail page `/inflation/detail`: all CPI groups and subgroups, item-level for vegetables, pulses, cereals
+
+## Must NOT include
+- Unlinked 2012-base and 2024-base CPI on one axis
+- "Core" without saying which exclusion definition it is
+- Seasonally adjusted momentum unless labelled Original with the method linked
+
+## Series (planned)
+cpi_headline_index, cpi_food_index, cpi_fuel_index, cpi_core_index, cpi_rural_index, cpi_urban_index, cpi_housing_index, wpi_headline_index, wpi_food_index, wpi_mfg_index, cpi_iw_index, rbi_hh_infl_exp_3m, rbi_hh_infl_exp_1y, rbi_cpi_projection
+
+## Done when
+Headline, food and the rural/urban y/y figures match the MoSPI press release. The core computation reproduces published third-party core figures within 0.1 pp for the last 12 months (sanity check, not a source).
+
+## Phase
+1 (headline, core, WPI), 2 (page)

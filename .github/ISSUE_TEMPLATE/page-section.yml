@@ -1,0 +1,21 @@
+name: Page section
+description: Build a section of a page from its guidebook checklist
+labels: [page]
+body:
+  - type: input
+    id: page
+    attributes: {label: Page file, placeholder: docs/guidebook/05-pages/inflation.md}
+    validations: {required: true}
+  - type: textarea
+    id: items
+    attributes: {label: Checklist items covered (copy from the page file)}
+    validations: {required: true}
+  - type: checkboxes
+    id: done
+    attributes:
+      label: Done when
+      options:
+        - label: All series exist in the registry
+        - label: Follows 02-conventions.md (units, footers, reference lines, download/cite)
+        - label: qa-site playbook run, screenshots attached
+        - label: Page checklist ticked with PR number

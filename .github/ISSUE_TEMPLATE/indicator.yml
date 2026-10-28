@@ -1,0 +1,26 @@
+name: New indicator
+description: Add a series to the site (follows docs/guidebook/playbooks/add-indicator.md)
+labels: [indicator]
+body:
+  - type: input
+    id: series_id
+    attributes: {label: Proposed series id, placeholder: cpi_food_index}
+    validations: {required: true}
+  - type: input
+    id: source
+    attributes: {label: Source (agency + dataset), placeholder: "MoSPI CPI (base 2024)"}
+    validations: {required: true}
+  - type: input
+    id: page
+    attributes: {label: Page and section, placeholder: "inflation / summary-table"}
+  - type: checkboxes
+    id: done
+    attributes:
+      label: Definition of done (docs/guidebook/04-adding-an-indicator.md)
+      options:
+        - label: Source scouted in 03-data-sources.md
+        - label: registry yaml complete
+        - label: Parser + fixture test pinning 3 official values
+        - label: Verified against the official release (verified_against filled)
+        - label: Wired to page + page checklist ticked
+        - label: Removed from registry/backlog.yaml

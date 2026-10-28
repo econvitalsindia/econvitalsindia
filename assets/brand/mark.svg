@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Logo mark: a pulse line whose peak forms the rupee sign">
+  <!-- v0 concept: pulse line rising into a rupee-style stroke. Name-independent. -->
+  <rect width="64" height="64" rx="14" fill="#1F2A6B"/>
+  <path d="M8 38 H20 L25 28 L30 46 L35 20" fill="none" stroke="#FBFAF7" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M35 20 H52 M35 27 H52 M40 20 C49 20 49 33 40 33 H37 L50 46" fill="none" stroke="#E8892B" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

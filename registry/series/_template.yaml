@@ -1,0 +1,33 @@
+# Copy to registry/series/<id>.yaml and fill EVERY field. Schema: _schema.md
+id: cpi_headline_index
+title: "Consumer Price Index, all-India, general (combined)"
+short_title: "CPI"
+area: inflation                 # growth|inflation|jobs|activity|money|markets|fiscal|external|states
+source:
+  agency: "MoSPI (NSO)"
+  dataset: "CPI (base 2024)"
+  url: ""                       # landing page of the release
+  module: "pipelines/sources/mospi/cpi.py"
+licence: GODL                   # GODL | show-only | other:<text>
+downloadable: true              # false for show-only sources
+fetch: auto                     # auto (GitHub Actions) | manual (make india-update from India)
+frequency: M                    # D | W | F | M | Q | A
+unit: "index"                   # index | percent | inr_lakh_crore | inr_crore | usd_bn | bp | count | ...
+base_year: "2024=100"
+seasonal_adjustment: none       # none | agency | ours
+transforms: [yoy, mom]          # see 02-conventions.md
+release:
+  calendar: mospi               # registry/calendar/<name>.yaml
+  rule: "12th of month, 16:00 IST, for previous month"
+  lag_days: 45                  # healthcheck flags overdue after period_end + lag_days
+validation:
+  range: [50, 500]              # plausible level range
+  revision_alert: 0.5           # % change in a past value that opens a large-revision issue
+pages:
+  - {page: home, section: key-indicators}
+  - {page: inflation, section: summary-table}
+original: false                 # true if we construct it (method in 08-original-measures.md)
+discontinued: null              # date when superseded (e.g. old base year)
+owner: ""                       # GitHub handle responsible
+verified_against: []            # [{url, checked_on, by}]
+notes: ""
