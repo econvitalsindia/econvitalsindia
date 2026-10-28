@@ -26,7 +26,7 @@ update-auto:
 # Run from a machine in India: fetches every `fetch: manual` series and opens a PR.
 india-update:
 	$(PY) -m pipelines.run --fetch manual; \
-	git add data/series data/meta data/revisions data/status.json; \
+	git add data; \
 	if git diff --cached --quiet; then echo "no changes"; exit 0; fi; \
 	branch=india-update-$$(date +%Y%m%d-%H%M); \
 	git switch -c $$branch && \
