@@ -70,7 +70,7 @@ Data is refreshed by **data bots**, modelled on econvitals' data repo: one workf
 
 **Adding a source:** put its name in one bot in `registry/bots.yaml`; derived measures go in the bot that fetches their inputs. **Adding a bot:** add it to `registry/bots.yaml` and copy one `bot-*.yml` with a staggered time.
 
-**Free-tier budget.** A private repo gets 2,000 Action-minutes a month, and the planned load is about 600–900. The bots plus deploys come to roughly 600–700 minutes a month (markets runs take about half a minute). Track actual use in the repo's Settings → Billing. Public repos (after launch) are unlimited.
+**Free-tier budget.** A private repo gets 2,000 Action-minutes a month,. The bots plus deploys come to roughly 600–700 minutes a month (markets runs take about half a minute). Track actual use in the repo's Settings → Billing. Public repos (after launch) are unlimited.
 
 ## The foreign-IP fallback
 
