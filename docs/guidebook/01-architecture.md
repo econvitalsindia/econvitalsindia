@@ -53,16 +53,24 @@ Revisions that move a past value by more than the series' `revision_alert` thres
 
 ## Schedules (all IST; Actions cron is written in UTC)
 
+Data is refreshed by **data bots**, modelled on econvitals' data repo: one workflow per group of publishers, each committing under its own name. The roster lives in `registry/bots.yaml`, and a test checks that every `fetch: auto` source belongs to exactly one bot.
+
 | Workflow | When (IST) | Does |
 |---|---|---|
-| `markets.yml` | Mon–Fri 17:00 | Index levels, USD/INR, G-sec, crude, gold |
-| `daily.yml` | Daily 18:30 | Today's calendar releases + a sweep of all `fetch: auto` series |
-| `rbi-weekly.yml` | Fri 19:30 | RBI weekly statistical supplement, FX reserves, bank credit (fortnightly) |
-| `healthcheck.yml` | Daily 08:00 | Lists overdue series vs calendar, opens issues |
-| `build.yml` | On push to `main` | Build + deploy |
-| `briefing.yml` | Weekday 19:30 + after major releases | Drafts the briefing PR (Phase 3) |
+| `bot-markets.yml` (markets-bot) | Mon–Fri 10:00, 12:00, 14:00, 16:00, 18:00 | RBI home-page rates, rupee, Nifty/Sensex/VIX, Brent, gold, Brent in ₹ |
+| `bot-mospi.yml` (mospi-bot) | Mon–Sat 17:00 | CPI, core CPI, IIP, GDP, PLFS, state panels, CPI-IW |
+| `bot-rbi.yml` (rbi-bot) | Mon–Sat 18:30 | WSS, BoP, services trade, surveys, IESH, MPC minutes, FBIL |
+| `bot-ministries.yml` (ministries-bot) | Mon–Sat 19:30 | Trade, GST, CGA accounts and tax heads, WPI, core industries, PPAC, SIAM |
+| `briefing.yml` (briefing-bot) | Mon–Sat 20:30 | Drafts release notes (review PR); auto-publishes the daily note |
+| `newsletter.yml` | Sun 10:00 | Weekly digest as a provider draft (when enabled) |
+| `deploy.yml` | On push to `main`, and when a bot or briefing-bot commits | Build + upload to Cloudflare Pages |
+| `update-data.yml` | By hand only | Every auto source in one run (after an outage or a big fix) |
 
-**Free-tier budget.** A private repo gets 2,000 Action-minutes a month, and the planned load is about 600–900. Track actual use on the Status page. Public repos (after launch) are unlimited.
+**How a bot works.** `bot.yml` holds the shared steps: `pipelines.run --bot <name>`, then failure issues, then `scripts/bot_commit.py <name>`. The commit script commits only when series or panels changed, and the message names the new values (e.g. "markets: USD/INR 95.23, Nifty 50 22,699"). A run that only touched timestamps makes no commit. After a commit the bot starts `deploy.yml`, because pushes made with `GITHUB_TOKEN` don't trigger other workflows. All bots share the concurrency group `data-bots`, so they take turns. If a push is still rejected, the script rebases and retries; on a clash in `data/status.json` it keeps the newer fetch.
+
+**Adding a source:** put its name in one bot in `registry/bots.yaml`; derived measures go in the bot that fetches their inputs. **Adding a bot:** add it to `registry/bots.yaml` and copy one `bot-*.yml` with a staggered time.
+
+**Free-tier budget.** A private repo gets 2,000 Action-minutes a month, and the planned load is about 600–900. The bots plus deploys come to roughly 600–700 minutes a month (markets runs take about half a minute). Track actual use in the repo's Settings → Billing. Public repos (after launch) are unlimited.
 
 ## The foreign-IP fallback
 
