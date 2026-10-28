@@ -17,7 +17,7 @@
   "last_period": "2026-10-28",
   "last_value": 22698.85,
   "observations": 2466,
-  "updated_at": "2026-10-28T11:42:15+00:00",
+  "updated_at": "2026-10-28T13:10:51+00:00",
   "fetched_from": [
     "yfinance:BZ=F?period=1mo",
     "yfinance:GC=F?period=1mo",
@@ -26,10 +26,10 @@
     "yfinance:^NSEI?period=1mo"
   ],
   "raw_files": [
-    "data/raw/yahoo_markets/20261028T114214-31dfc325f8.json",
-    "data/raw/yahoo_markets/20261028T114214-01a28be520.json",
-    "data/raw/yahoo_markets/20261028T114214-79eaf85e40.json",
-    "data/raw/yahoo_markets/20261028T114214-8f3d267796.json",
-    "data/raw/yahoo_markets/20261028T114215-f89b139975.json"
+    "data/raw/yahoo_markets/20261028T131051-31dfc325f8.json",
+    "data/raw/yahoo_markets/20261028T131051-01a28be520.json",
+    "data/raw/yahoo_markets/20261028T131051-79eaf85e40.json",
+    "data/raw/yahoo_markets/20261028T131051-7253bdab6e.json",
+    "data/raw/yahoo_markets/20261028T131051-cc4089928a.json"
   ]
 }
