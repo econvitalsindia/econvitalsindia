@@ -1,7 +1,11 @@
-# Playbook: draft a briefing (Phase 3)
+# Playbook: draft a briefing
 
-1. `python -m pipelines.briefings.ledger --product <daily|release|weekly> --date <YYYY-MM-DD>` writes `ledger.json`.
-2. `python -m pipelines.briefings.draft --ledger ledger.json` makes an LLM draft that uses tokens only.
-3. `python -m pipelines.briefings.check <draft.md>` must pass. If it fails, re-draft (max 2 retries), then hand over to a human.
-4. Open a PR into `site/src/content/briefings/`. Put the cost and model in the PR body.
-5. **Never merge it yourself.** A human reviews and merges.
+Release notes (live):
+1. `make briefings` (or `uv run python -m pipelines.briefings.draft --date YYYY-MM-DD`) drafts every template whose trigger series got a new observation that day. Use `--force cpi gdp` to draft specific templates.
+2. Drafts land in `site/src/content/briefings/` and their ledgers in `data/briefings/`. Read them; never edit a number by hand. If wording is wrong, fix the **template** (`registry/briefings/`) and redraft.
+3. On GitHub the `briefing` workflow does this automatically and opens a pull request. **Never merge it yourself as an agent**; a person reviews and merges.
+
+New template:
+1. Copy an existing `registry/briefings/*.md`, set `trigger` and `views`.
+2. No digits in the body, only tokens. Facts are listed in `pipelines/briefings/ledger.py`.
+3. `uv run python -m pipelines.briefings.draft --check-only`, then `--force <name>` to read the output. Move the test output out of the repo before committing (it must reach `main` only via a reviewed PR).

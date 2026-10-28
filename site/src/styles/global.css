@@ -85,3 +85,4 @@ table.data.meta td:first-child { width: 220px; color: var(--muted); }
 .summaries h3 { font-size: 1rem; margin: 14px 0 4px; }
 .summaries h3 a { text-decoration: none; }
 .summaries table.data { font-size: 0.8rem; }
+.briefing-list { list-style: none; padding: 0; } .briefing-list li { padding: 8px 0; border-bottom: 1px solid var(--rule); }

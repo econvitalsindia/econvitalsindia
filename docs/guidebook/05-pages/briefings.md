@@ -4,13 +4,13 @@
 
 ## Must include
 - [ ] Daily note (weekday evenings): today's releases, market close table, one chart
-- [ ] Release notes for CPI, GDP, IIP, PLFS, MPC decision, trade
+- [x] Release notes for CPI, GDP, IIP, PLFS, trade (MPC decision still to add)
 - [ ] Weekly briefing (Saturday)
 - [ ] Monthly briefing
 - [ ] Human-written posts ("From the editor")
-- [ ] Each item shows "Drafted by AI, reviewed by <role>" or "Written by <author>"
+- [x] Each item shows how it was drafted and that a person reviewed it
 - [ ] RSS per product
-- [ ] Archive page with search and filter by product
+- [x] Archive page (list; search and filter still to add)
 - [ ] Corrections note at the bottom of any corrected item
 
 ## Must NOT include

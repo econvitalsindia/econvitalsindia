@@ -9,19 +9,17 @@
 
 ## The ledger
 
-For each briefing, `pipelines/briefings/ledger.py` builds `ledger.json`. Each entry looks like:
+Implemented in `pipelines/briefings/` (Phase 3, live).
 
-```json
-{"key": "cpi.headline.yoy.latest", "series_id": "cpi_headline_index", "transform": "yoy",
- "period": "2026-09-01", "value": 3.7, "display": "3.7%", "source_url": "...", "vintage": "2026-10-12"}
-```
+- **Templates** live in `registry/briefings/<name>.md`: front matter (`name`, `title`, `trigger` series, `views`) and a body with **no digits**. Every number is a token: `{{<series_id>[:<transform>].<fact>}}`, e.g. `{{cpi_headline_inflation.latest}}`, `{{cpi_core_index:yoy.change_phrase}}`. Fixed facts such as RBI's target come from `registry/briefings/constants.yaml` as `{{const.<name>}}`, each with a source.
+- **Facts** per view (`ledger.py`): `latest`, `latest_period`, `prev`, `prev_period`, `year_ago`, `year_ago_period`, `change`, `change_yoy`, `direction` (rose/fell/was unchanged), `change_phrase` ("up 0.71 percentage points" / "unchanged"), `change_phrase_yoy`. Precision follows the publisher's (CPI 2 decimals, GDP 1).
+- **Ledger file:** each draft saves `data/briefings/<date>-<name>.json`, giving for every token the series, transform, period and source.
+- **Checker (`check.py`):** fails a template or draft if any digit appears outside a token, or a token is not in the ledger. `make check` runs it on every template.
+- **Direction words** come from tokens (`direction`, `change_phrase`), so they cannot contradict the numbers. Write sentences that read correctly whichever way the data moved.
 
-The draft uses tokens: `Headline inflation was {{cpi.headline.yoy.latest}} in {{cpi.headline.period.latest}}.` The build resolves them.
+## Workflow
 
-**Checker (`pipelines/briefings/check.py`) fails the draft if:**
-- any digit appears in prose outside a token (allow-list: years, dates, "Q1", "FY27", "MPC's 4% target" → use tokens for targets too),
-- a token isn't in the ledger,
-- a comparative word ("rose", "fell", "highest since") contradicts the ledger values (e.g. "rose" while the value fell).
+`briefing.yml` runs after each daily update. A template is drafted when its trigger series has an observation first recorded that day. The drafts are committed to a `briefing/<date>-<run>` branch and a pull request is opened with the reviewer checklist. **Merging is the approval that publishes.** If the repository does not allow Actions to open pull requests, the workflow opens an issue with a link to create one. Drafts are currently template-only (no AI). An LLM drafting step can be added later behind the same checker (`site.config.yaml → briefings.llm_model`).
 
 ## Tone
 

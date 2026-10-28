@@ -1,0 +1,13 @@
+---
+import Base from "../../layouts/Base.astro";
+import { loadBriefings } from "../../lib/briefings.js";
+import { period } from "../../lib/format.js";
+const items = loadBriefings();
+---
+<Base current="briefings" title="Briefings">
+  <h1>Briefings</h1>
+  <p class="lede">Short notes on each major data release. Each note is drafted automatically from the data on this site (every number comes from a stored series, never typed in) and reviewed by a person before it is published.</p>
+  {items.length ? (
+    <ul class="briefing-list">{items.map((b) => <li><span class="chart-sub">{period(b.date, "D")}</span> <a href={`/briefings/${b.slug}/`}>{b.title}</a></li>)}</ul>
+  ) : <p class="chart-sub">No briefings published yet. The first ones appear after the next major release is drafted and approved.</p>}
+</Base>

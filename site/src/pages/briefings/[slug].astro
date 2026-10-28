@@ -1,0 +1,17 @@
+---
+import Base from "../../layouts/Base.astro";
+import { loadBriefings } from "../../lib/briefings.js";
+import { period } from "../../lib/format.js";
+import { marked } from "marked";
+
+export function getStaticPaths() {
+  return loadBriefings().map((b) => ({ params: { slug: b.slug }, props: { b } }));
+}
+const { b } = Astro.props;
+---
+<Base current="briefings" title={b.title}>
+  <p class="chart-sub"><a href="/briefings/">← Briefings</a> · {period(b.date, "D")}</p>
+  <h1>{b.title}</h1>
+  <article class="prose" set:html={marked.parse(b.body)} />
+  <p class="chart-sub">Drafted from this site's data by {b.drafted_by}; reviewed by a person before publication. Every number links back to a stored series; the full record is <code>{b.ledger}</code> in the repository.</p>
+</Base>

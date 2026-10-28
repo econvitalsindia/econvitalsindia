@@ -1,0 +1,7 @@
+# Fixed facts briefings may cite, each with its source (tokens: {{const.<name>}}).
+rbi_inflation_target:
+  text: "4%"
+  source: "RBI Act s.45ZA; flexible inflation target notified by the Government of India (CPI, 4% +/- 2%)"
+rbi_tolerance_band:
+  text: "2–6%"
+  source: "RBI Act s.45ZA; flexible inflation target notified by the Government of India (CPI, 4% +/- 2%)"

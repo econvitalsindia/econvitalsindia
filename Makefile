@@ -1,7 +1,7 @@
 # See AGENTS.md → Commands.
 PY ?= uv run python
 
-.PHONY: setup check test update update-auto india-update build dev archive-raw
+.PHONY: setup check test update update-auto india-update build dev archive-raw briefings
 
 setup:
 	uv sync
@@ -10,6 +10,7 @@ setup:
 check:
 	$(PY) scripts/validate_registry.py
 	$(PY) scripts/check_name.py
+	$(PY) -m pipelines.briefings.draft --check-only
 	uv run pytest -q
 
 test:
@@ -44,3 +45,7 @@ dev:
 
 archive-raw:
 	@echo "not implemented yet: monthly bundle of data/raw/ as a GitHub Release asset"
+
+# Draft release notes for today's releases (the briefing workflow does this on GitHub).
+briefings:
+	$(PY) -m pipelines.briefings.draft

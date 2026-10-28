@@ -1,0 +1,69 @@
+name: briefing
+# After each daily data update, draft release notes for releases that arrived today and
+# open a pull request for review. Merging the PR is the human approval that publishes them
+# (docs/guidebook/07-editorial-policy.md). Agents never merge briefing PRs.
+on:
+  workflow_run:
+    workflows: [update-data]
+    types: [completed]
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Template names to draft regardless of trigger (space-separated)"
+        required: false
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+concurrency: briefing
+jobs:
+  draft:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: astral-sh/setup-uv@v5
+      - run: uv sync
+      - name: Draft release notes (IST date)
+        id: draft
+        env:
+          FORCE: ${{ github.event.inputs.force }}
+        run: |
+          DAY=$(TZ=Asia/Kolkata date +%F)
+          echo "day=$DAY" >> "$GITHUB_OUTPUT"
+          if [ -n "$FORCE" ]; then uv run python -m pipelines.briefings.draft --date "$DAY" --force $FORCE
+          else uv run python -m pipelines.briefings.draft --date "$DAY"; fi
+          if [ -n "$(git status --porcelain site/src/content/briefings data/briefings)" ]; then
+            echo "new=true" >> "$GITHUB_OUTPUT"; fi
+      - name: Open a pull request for review
+        if: steps.draft.outputs.new == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DAY: ${{ steps.draft.outputs.day }}
+        run: |
+          BRANCH="briefing/$DAY-$GITHUB_RUN_ID"
+          git config user.name "briefing-bot"
+          git config user.email "briefing-bot@users.noreply.github.com"
+          git switch -c "$BRANCH"
+          git add site/src/content/briefings data/briefings
+          git commit -m "briefing drafts for $DAY"
+          git push -u origin "$BRANCH"
+          BODY=$(cat <<'MD'
+          Release notes drafted from the data (no typed numbers: every figure is a ledger token, see `data/briefings/*.json`).
+
+          **Reviewer checklist** (docs/guidebook/07-editorial-policy.md)
+          - [ ] Checker passed (this workflow fails otherwise)
+          - [ ] Spot-check three numbers against the official press release
+          - [ ] No claims beyond the data and official text
+          - [ ] Wording reads correctly whichever way the numbers moved
+
+          Merge to publish. Close without merging to discard.
+          MD
+          )
+          if ! gh pr create --base main --head "$BRANCH" --title "Briefings for $DAY (review to publish)" --label briefing --body "$BODY"; then
+            URL="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/compare/main...$BRANCH?expand=1"
+            gh issue create --label briefing --title "Briefings for $DAY: open a PR to review" \
+              --body "Actions may not open pull requests in this repository yet (Settings → Actions → General → allow GitHub Actions to create pull requests). Drafts are on branch \`$BRANCH\`: [open the pull request]($URL)."
+          fi
