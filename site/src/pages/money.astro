@@ -4,6 +4,7 @@ import LineChart from "../components/LineChart.astro";
 import PeriodTable from "../components/PeriodTable.astro";
 import { series, latest } from "../lib/data.js";
 import { num, period } from "../lib/format.js";
+import { config } from "../lib/config.js";
 const repo = latest(series("repo_rate"));
 const credit = latest(series("scb_credit_growth"));
 ---
@@ -31,6 +32,11 @@ const credit = latest(series("scb_credit_growth"));
     { id: "tbill_91d_weekly" }, { id: "tbill_182d_weekly" }, { id: "tbill_364d_weekly" }, { id: "gsec_10y_par_fbil" },
   ]} freq="D" />
 
+  <h2>MPC Speak</h2>
+  <LineChart title="How hawkish is the MPC?" subtitle="Average tone of the six members' statements in the minutes; above zero leans hawkish, below zero dovish"
+    lines={[{ id: "mpc_committee_tone", label: "Committee average" }]} reference={{ target: 0 }} years={11} />
+  <p class="chart-sub">An original measure on {config.site.name}: phrase counts in each member's statement in the RBI minutes. <a href="/money/mpc-speak/">Member by member, and how the score works →</a></p>
+
   <h2>Still to come on this page</h2>
-  <p class="chart-sub">LAF liquidity, sectoral credit, money supply (M3), MPC decisions and vote splits, MPC Speak. Checklist: docs/guidebook/05-pages/money-banking.md.</p>
+  <p class="chart-sub">LAF liquidity, sectoral credit, money supply (M3), a table of MPC decisions and vote splits. Checklist: docs/guidebook/05-pages/money-banking.md.</p>
 </Base>

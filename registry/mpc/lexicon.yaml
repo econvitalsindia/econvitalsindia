@@ -1,0 +1,49 @@
+# MPC Speak lexicon: phrases counted in each MPC member's statement in the RBI minutes.
+# Method: docs/guidebook/08-original-measures.md ("MPC Speak"). Matching is case-insensitive
+# on whole words; each entry is a regular expression. Score = (hawkish - dovish) /
+# (hawkish + dovish + 2): above 0 leans hawkish, below 0 dovish; the +2 keeps a statement
+# with one or two matching phrases near 0.
+#
+# Rules for editing: add a phrase only if it clearly leans one way in the RBI's usage; keep
+# ambiguous mandate words out ("price stability", "inflation expectations" alone, "growth"
+# alone). Every change re-scores the whole history (the source rebuilds the panel), so note
+# the change and date in the changelog at the bottom.
+version: 1
+hawkish:
+  - 'upside risks? to (?:the )?(?:headline |core |food )?inflation'
+  - 'downside risks? to (?:the )?growth (?:have|has) (?:receded|eased|diminished)'
+  - 'inflationary pressures?'
+  - 'second[- ]round effects?'
+  - '(?:de|un)-?anchor(?:ing|ed)? (?:of )?(?:inflation )?expectations'
+  - 'remain(?:s|ing)? vigilant'
+  - 'vigilance'
+  - 'withdrawal of accommodation'
+  - 'tighten(?:ing)?'
+  - 'rate hikes?'
+  - '(?:increase|raise|raising|hike) (?:in )?the (?:policy )?(?:repo )?rate'
+  - 'premature(?:ly)?'
+  - 'durable (?:alignment|disinflation)'
+  - 'persistent inflation'
+  - 'elevated inflation'
+  - 'inflation (?:remains |is )?(?:well )?above (?:the )?target'
+  - 'sticky'
+  - 'disinflation (?:is|has been) (?:slow|incomplete)'
+dovish:
+  - 'downside risks? to (?:the )?(?:growth|inflation)'
+  - 'upside risks? to (?:the )?growth'
+  - '(?:support|supporting|supports) (?:to )?growth'
+  - 'growth[- ]supportive'
+  - 'accommodative'
+  - 'rate cuts?'
+  - '(?:reduce|reducing|reduction in|cut in|cut) the (?:policy )?(?:repo )?rate'
+  - '(?:monetary |policy )?easing'
+  - 'policy space'
+  - 'negative output gap'
+  - 'slack'
+  - 'benign'
+  - '(?:softening|moderation) (?:of|in) (?:headline )?inflation'
+  - 'inflation (?:remains |is )?(?:well )?below (?:the )?target'
+  - 'undershoot(?:ing)?'
+  - 'real (?:policy )?rates? (?:is|are|remains?) (?:too )?high'
+changelog:
+  - '2026-10-28 v1: first list, before seeing any scores (to avoid fitting the list to an expected answer).'

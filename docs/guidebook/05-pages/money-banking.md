@@ -12,7 +12,7 @@
 - [ ] Sectoral deployment of credit (monthly): industry, services, personal loans, agriculture
 - [ ] Money supply M3 growth, reserve money
 - [x] T-bill yields (91d, 182d, 364d) (CP and CD rates still to add)
-- [ ] MPC Speak link (Phase 4)
+- [x] MPC Speak section and link (committee tone chart; member page at /money/mpc-speak/)
 
 ## Must NOT include
 - Fed-style "market-implied path" unless we have a free, redistributable OIS source (we probably don't; leave it out)

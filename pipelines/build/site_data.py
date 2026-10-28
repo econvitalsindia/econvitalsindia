@@ -286,11 +286,14 @@ def panel_payload(series_id: str, spec: dict, min_entities: int = 20) -> dict | 
     counts = df.groupby("period")["entity"].nunique()
     ref = counts[counts >= min(min_entities, counts.max())].index.max()
     wide = df.pivot_table(index="entity", columns="period", values="value")
+    noted = df[df["note"].fillna("") != ""]
+    cell_notes = {e: dict(zip(g["period"], g["note"])) for e, g in noted.groupby("entity")}
     return {"id": series_id, "title": spec["title"], "short_title": spec["short_title"], "unit": spec["unit"],
             "frequency": spec["frequency"], "source": spec["source"], "notes": spec.get("notes", ""),
             "periods": sorted(df["period"].unique().tolist()), "ref_period": ref,
             "rows": [{"entity": e, "values": {p: (None if pd.isna(v) else round(float(v), 3)) for p, v in r.items()}}
-                     for e, r in wide.iterrows()]}
+                     for e, r in wide.iterrows()],
+            "cell_notes": cell_notes}
 
 
 def first_last(sid: str, payloads: dict, panels: dict) -> tuple[str | None, str | None]:

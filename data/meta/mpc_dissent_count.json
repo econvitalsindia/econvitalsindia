@@ -1,0 +1,25 @@
+{
+  "id": "mpc_dissent_count",
+  "title": "Number of MPC members voting against the policy rate resolution",
+  "short_title": "MPC dissents",
+  "unit": "count",
+  "frequency": "M",
+  "base_year": null,
+  "source": {
+    "agency": "Reserve Bank of India",
+    "dataset": "Minutes of the Monetary Policy Committee meetings (press releases)",
+    "url": "https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx",
+    "module": "pipelines/sources/derived/mpc_committee.py"
+  },
+  "licence": "GODL",
+  "downloadable": true,
+  "first_period": "2016-10-01",
+  "last_period": "2026-10-01",
+  "last_value": 0.0,
+  "observations": 62,
+  "updated_at": "2026-10-28T15:11:09+00:00",
+  "fetched_from": [
+    "derived: derived_mpc_committee"
+  ],
+  "raw_files": []
+}

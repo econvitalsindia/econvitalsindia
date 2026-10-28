@@ -1,0 +1,71 @@
+---
+// MPC Speak: tone of each MPC member's statement in the RBI minutes (original measure).
+// Method: docs/guidebook/08-original-measures.md; lexicon: registry/mpc/lexicon.yaml.
+import Base from "../../layouts/Base.astro";
+import LineChart from "../../components/LineChart.astro";
+import { series, latest } from "../../lib/data.js";
+import { num, signed, period } from "../../lib/format.js";
+import fs from "node:fs";
+import yaml from "js-yaml";
+
+const panel = (id) => JSON.parse(fs.readFileSync(`src/data/generated/panels/${id}.json`, "utf8"));
+const tone = panel("mpc_member_tone"), dissent = panel("mpc_member_dissent");
+const lexicon = yaml.load(fs.readFileSync("../registry/mpc/lexicon.yaml", "utf8"));
+const committee = latest(series("mpc_committee_tone"));
+
+const meetings = tone.periods.slice(-8);
+const last = meetings.at(-1);
+const valueOf = (p, e, per) => p.rows.find((r) => r.entity === e)?.values[per] ?? null;
+// Members who sat in any of the last eight meetings, current members first.
+const members = tone.rows.map((r) => r.entity)
+  .filter((e) => meetings.some((m) => valueOf(tone, e, m) !== null))
+  .sort((a, b) => (valueOf(tone, b, last) !== null) - (valueOf(tone, a, last) !== null)
+    || meetings.findLastIndex((m) => valueOf(tone, b, m) !== null) - meetings.findLastIndex((m) => valueOf(tone, a, m) !== null));
+const current = members.filter((e) => valueOf(tone, e, last) !== null);
+const lean = (v) => (v > 0.1 ? "hawkish" : v < -0.1 ? "dovish" : "neutral");
+---
+<Base current="money" title="MPC Speak">
+  <p class="chart-sub"><a href="/money/">Money &amp; banking</a> / MPC Speak</p>
+  <h1>MPC Speak</h1>
+  <p class="lede">How hawkish or dovish is each member of the Monetary Policy Committee? Every member writes a statement in the minutes, published about two weeks after each meeting. We count phrases that lean hawkish (worry about inflation, a case for tighter policy) or dovish (worry about growth, a case for easier policy) in each statement. At the {period(last, "M")} meeting the committee's average score was {signed(committee.value, 2)}, which leans {lean(committee.value)}.</p>
+
+  <LineChart title="Committee tone at each meeting" subtitle="Average of the six members' scores; above zero leans hawkish, below zero dovish"
+    lines={[{ id: "mpc_committee_tone", label: "Committee average" }]} reference={{ target: 0 }} years={11} />
+
+  <h2>Members at the latest meeting ({period(last, "M")})</h2>
+  <div class="scroll"><table class="data">
+    <thead><tr><th>Member</th><th>Score</th><th>Lean</th><th>Phrases counted</th><th>Rate vote</th></tr></thead>
+    <tbody>
+      {current.map((e) => {
+        const v = valueOf(tone, e, last);
+        return <tr><td>{e}</td><td>{signed(v, 2)}</td><td>{lean(v)}</td>
+          <td>{tone.cell_notes?.[e]?.[last] ?? ""}</td><td>{valueOf(dissent, e, last) ? "against" : "for"}</td></tr>;
+      })}
+    </tbody>
+  </table></div>
+
+  <h2>Recent meetings</h2>
+  <div class="scroll"><table class="data">
+    <thead><tr><th>Member</th>{meetings.map((m) => <th>{period(m, "M")}</th>)}</tr></thead>
+    <tbody>
+      {members.map((e) => <tr><td>{e}</td>{meetings.map((m) => {
+        const v = valueOf(tone, e, m);
+        return <td>{v === null ? "" : signed(v, 2)}{valueOf(dissent, e, m) ? " †" : ""}</td>;
+      })}</tr>)}
+    </tbody>
+  </table></div>
+  <p class="chart-sub">† voted against the rate resolution. A blank cell means the person was not a member at that meeting. The vote table in the minutes does not say which way a dissenting member wanted the rate to move; read their statement for that.</p>
+
+  <h2>How the score works</h2>
+  <p>Score = (hawkish phrases − dovish phrases) / (hawkish phrases + dovish phrases + 2). The +2 keeps a statement with only one or two matching phrases close to zero, so a single phrase scores ±0.33 rather than ±1. The phrase lists are fixed in advance and the same for every member and meeting. No language model is involved, so anyone can reproduce a score from the minutes and the lists below.</p>
+  <p>What it is not: a model of what members believe, or a forecast. Phrase counts miss negation and context ("we no longer see upside risks to inflation" counts as hawkish), and statements differ in length and style from member to member. The score is most useful for changes over time in the same member and for the committee as a whole. Checks against the committee's own decisions are on the <a href="/methods/">Methods</a> page.</p>
+  <details>
+    <summary>Phrase lists (version {lexicon.version})</summary>
+    <div class="grid2">
+      <div><p><strong>Hawkish</strong></p><ul>{lexicon.hawkish.map((p) => <li><code>{p}</code></li>)}</ul></div>
+      <div><p><strong>Dovish</strong></p><ul>{lexicon.dovish.map((p) => <li><code>{p}</code></li>)}</ul></div>
+    </div>
+    <p class="chart-sub">Regular expressions, matched case-insensitively on whole words. Changes are logged in registry/mpc/lexicon.yaml and re-score the full history.</p>
+  </details>
+  <p class="chart-sub">Source: Reserve Bank of India, minutes of the Monetary Policy Committee meetings since October 2016; site calculations. Downloads: <a href="/data/">Data</a> (mpc_member_tone, mpc_member_dissent, mpc_committee_tone).</p>
+</Base>

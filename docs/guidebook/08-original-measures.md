@@ -45,9 +45,17 @@ Every measure we construct, rather than copy from an agency, is listed here and 
 ### Activity and inflation surprise composites (Phase 4)
 - **What:** z-scores of each indicator's latest reading vs its own history (rolling 10y), averaged into an activity composite and an inflation composite. India's version of econvitals' "relative to past performance".
 
-### MPC Speak (Phase 4)
-- **What:** an LLM-scored hawk–dove score for each MPC member's statement in each set of minutes.
-- **Method:** published rubric and prompt, temperature 0, two models scoring for agreement, and a human check on a 10% sample. The score is shown next to the text.
+### MPC Speak (live)
+- **What:** a hawk–dove score for each MPC member's statement in each set of RBI minutes, since October 2016, plus the committee average (`mpc_member_tone`, `mpc_committee_tone`) and each member's vote on the rate resolution (`mpc_member_dissent`, `mpc_dissent_count`).
+- **Method:** each statement is split out of the minutes by matching the "Statement by" headings to the names in the vote table. We count phrases from a fixed lexicon (`registry/mpc/lexicon.yaml`, version 1; regular expressions, case-insensitive, whole words). Score = (hawkish − dovish) / (hawkish + dovish + 2), so above zero leans hawkish and below zero leans dovish. The +2 keeps a statement with one or two hits near zero. No language model is used. That replaces the earlier plan for an LLM-scored rubric, for cost and so that anyone can reproduce a score from the text.
+- **How it was built:** lexicon v1 was written before any scores were seen. The +2 shrinkage was added after looking at the hit counts of one meeting (August 2026, one to five phrases per statement), before the full history was scored.
+- **Checks (28 Oct 2026, 62 meetings, using only the minutes themselves):** the decision comes from each rate resolution's wording ("to reduce / keep / increase").
+  - **Committee average by decision:** −0.55 at the 13 meetings that cut, −0.10 at the 40 holds and +0.39 at the 9 hikes.
+  - **Correlation with decisions:** 0.72 with the direction decided at the same meeting and 0.58 with the next meeting's.
+  - **Dissenters:** among dissents whose statement says they wanted a cut (6 cases, by a simple "I vote to reduce/cut" match), the dissenter scored on average 0.30 below the median of the other members.
+  - **Caveat on the checks:** a statement is written to justify the vote, so these checks show the score reads statements sensibly, not that it predicts anything.
+- **Limits:** no negation handling ("no longer see upside risks to inflation" counts as hawkish). Members differ in length and style, so compare a member with themselves over time rather than members with each other. The vote table does not record which way a dissenter wanted the rate to move.
+- **Changing the lexicon:** edit the yaml, bump `version`, add a changelog line, then run `MPC_RESCAN=1 make update SOURCE=rbi_mpc_minutes` (about 3 minutes) and `make update SOURCE=derived_mpc_committee`. Every changed score is logged in `data/revisions/`. Rerun the checks above and update them here.
 
 ### RBI policy rule (Phase 4)
 - To be specified.
