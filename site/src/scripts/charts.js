@@ -9,13 +9,14 @@ const palette = [css.getPropertyValue("--primary").trim(), css.getPropertyValue(
 function drawStacked(el, spec) {
   const rows = spec.rows.map((r) => ({ ...r, date: new Date(r.period) }));
   const marks = [
-    Plot.rectY(rows, { x: "date", y: "pp", fill: "component", interval: "month", inset: 1, tip: true }),
+    Plot.rectY(rows, { x: "date", y: "pp", fill: "component", interval: spec.interval ?? "month", inset: 1, tip: true }),
     Plot.ruleY([0], { stroke: "currentColor", strokeOpacity: 0.4 }),
   ];
   if (spec.total) {
     const tot = spec.total.map(([d, v]) => ({ date: new Date(d), value: v }));
     // Centre the dots on the month bars.
-    const mid = tot.map((r) => ({ ...r, date: new Date(r.date.getTime() + 15 * 864e5) }));
+    const halfDays = spec.interval === "3 months" ? 45 : 15;
+    const mid = tot.map((r) => ({ ...r, date: new Date(r.date.getTime() + halfDays * 864e5) }));
     marks.push(Plot.dot(mid, { x: "date", y: "value", fill: "currentColor", r: 3.5 }));
     marks.push(Plot.text(mid, { x: "date", y: "value", text: (d) => d.value.toFixed(2), dy: -9, fontSize: 10 }));
   }

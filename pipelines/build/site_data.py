@@ -184,6 +184,34 @@ def cpi_division_contributions(specs: dict) -> list[dict]:
     return contributions({division_label(specs[sid]): (sid, wt) for sid, wt in w.items()})
 
 
+def gdp_contributions() -> list[dict]:
+    """Percentage-point contributions to real GDP growth (y/y) by spending component.
+
+    contribution_k = 100 * (X_k(t) - X_k(t-4q)) / GDP(t-4q), with imports entering
+    negatively. "Other" is the residual (change in stocks, valuables, discrepancies),
+    so the bars add up to GDP growth computed from the same levels.
+    """
+    parts = {"Private consumption": "pfce_real_level", "Government consumption": "gfce_real_level",
+             "Fixed investment": "gfcf_real_level", "Exports": "exports_real_level",
+             "Imports (negative)": "imports_real_level"}
+    gdp = load("gdp_real_level").set_index("period")["value"]
+    gdp_prior = gdp.reindex(gdp.index - pd.DateOffset(years=1)).values
+    total = pd.Series(100 * (gdp.values - gdp_prior) / gdp_prior, index=gdp.index).dropna()
+    rows, explained = [], pd.Series(0.0, index=total.index)
+    for label, sid in parts.items():
+        s = load(sid).set_index("period")["value"].reindex(gdp.index)
+        sign = -1 if sid.startswith("imports") else 1
+        c = (sign * 100 * (s.values - s.reindex(gdp.index - pd.DateOffset(years=1)).values) / gdp_prior)
+        c = pd.Series(c, index=gdp.index).reindex(total.index)
+        explained = explained + c.fillna(0)
+        rows += [{"period": p.strftime("%Y-%m-%d"), "component": label, "pp": round(v, 3)}
+                 for p, v in c.dropna().items()]
+    rows += [{"period": p.strftime("%Y-%m-%d"), "component": "Other (stocks, valuables, discrepancies)",
+              "pp": round(v, 3)} for p, v in (total - explained).items()]
+    totals = [[p.strftime("%Y-%m-%d"), round(v, 2)] for p, v in total.items()]
+    return {"rows": rows, "total": totals}
+
+
 def division_label(spec: dict) -> str:
     """'CPI food & beverages' -> 'Food & beverages'."""
     s = spec["short_title"].removeprefix("CPI ")
@@ -228,6 +256,7 @@ def main() -> int:
     write_json(OUT / "home.json", {"tiles": tiles, "questions": questions})
     write_json(OUT / "cpi_contributions.json", cpi_contributions())
     write_json(OUT / "cpi_division_contributions.json", cpi_division_contributions(specs))
+    write_json(OUT / "gdp_contributions.json", gdp_contributions())
 
     catalogue = [{"id": sid, "title": spec["title"], "short_title": spec["short_title"],
                   "area": spec["area"], "agency": spec["source"]["agency"],

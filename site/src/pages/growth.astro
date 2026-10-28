@@ -2,6 +2,8 @@
 import Base from "../layouts/Base.astro";
 import LineChart from "../components/LineChart.astro";
 import PeriodTable from "../components/PeriodTable.astro";
+import StackedBars from "../components/StackedBars.astro";
+import fs from "node:fs";
 import { series, latest } from "../lib/data.js";
 import { num, period } from "../lib/format.js";
 
@@ -11,6 +13,8 @@ const nominal = series("gdp_nominal_level");
 const sectors = ["agri", "mining", "mfg", "utilities", "construction", "trade", "finance", "public"];
 const components = ["pfce", "gfce", "gfcf", "exports", "imports"];
 const lastLevel = latest(nominal);
+const contrib = JSON.parse(fs.readFileSync("src/data/generated/gdp_contributions.json", "utf8"));
+const other = contrib.rows.filter((r) => r.component.startsWith("Other")).at(-1);
 ---
 <Base current="growth" title="Growth">
   <h1>Growth</h1>
@@ -36,6 +40,10 @@ const lastLevel = latest(nominal);
     { id: "imports_real_level", how: "yoy", indent: true },
   ]} />
   <p class="chart-sub">Computed from MoSPI's quarterly levels on the 2022-23 base (site calculations), so they can differ from published growth rates by rounding. GDP also includes change in stocks, valuables and discrepancies, which are not shown.</p>
+
+  <StackedBars title="Contributions to real GDP growth" subtitle="Percentage points of the year-on-year growth rate; dots show growth computed from the same quarterly levels"
+    rows={contrib.rows} total={contrib.total} interval="3 months" source="MoSPI national accounts (base 2022-23); site calculations." />
+  <p class="chart-sub">Contribution = change in the component over four quarters ÷ GDP four quarters earlier; imports subtract from GDP. "Other" is what the spending components do not explain: change in stocks, valuables and the statistical discrepancy. It was {num(other.pp, 1)} percentage points in {period(other.period, "Q")}, which is large: read growth by component with that in mind.</p>
 
   <h2>Nominal and real</h2>
   <LineChart title="Nominal and real GDP growth" subtitle="% change on a year earlier, as published; the gap is GDP deflator inflation"
