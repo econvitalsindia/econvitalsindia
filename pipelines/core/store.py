@@ -15,6 +15,7 @@ SERIES = DATA / "series"
 META = DATA / "meta"
 RAW = DATA / "raw"            # git-ignored; archived monthly as Release assets
 REVISIONS = DATA / "revisions"
+PANELS = DATA / "panels"            # entity x period data (e.g. states)
 STATUS = DATA / "status.json"
 COLUMNS = ["period", "value", "vintage", "note"]
 
@@ -135,3 +136,30 @@ def update_status(series_id: str, ok: bool, error: str | None = None,
         entry.update(stale=True, last_error=error)
     status[series_id] = entry
     STATUS.write_text(json.dumps(dict(sorted(status.items())), indent=2))
+
+
+PANEL_COLUMNS = ["entity", "period", "value", "vintage", "note"]
+
+
+def load_panel(series_id: str) -> pd.DataFrame:
+    path = PANELS / f"{series_id}.csv"
+    if not path.exists():
+        return pd.DataFrame(columns=PANEL_COLUMNS)
+    return pd.read_csv(path, dtype={"entity": str, "period": str, "vintage": str, "note": str},
+                       keep_default_na=False, na_values={"value": [""]})[PANEL_COLUMNS]
+
+
+def upsert_panel(series_id: str, new: pd.DataFrame, vintage: str) -> pd.DataFrame:
+    """Like upsert(), keyed on (entity, period). Unchanged rows keep their first vintage."""
+    old = load_panel(series_id).set_index(["entity", "period"])
+    inc = new.assign(vintage=vintage, note=new.get("note", "")).fillna({"note": ""})
+    inc = inc.set_index(["entity", "period"])[["value", "vintage", "note"]]
+    same = old.index.intersection(inc.index)
+    same = same[old.loc[same, "value"].astype(float).round(10).values == inc.loc[same, "value"].astype(float).round(10).values]
+    merged = pd.concat([old.drop(index=inc.index.intersection(old.index)), inc.drop(index=same), old.loc[same]])
+    return merged.reset_index().sort_values(["entity", "period"])[PANEL_COLUMNS]
+
+
+def write_panel(series_id: str, df: pd.DataFrame) -> None:
+    PANELS.mkdir(parents=True, exist_ok=True)
+    df.to_csv(PANELS / f"{series_id}.csv", index=False)

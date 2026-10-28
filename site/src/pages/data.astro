@@ -14,7 +14,7 @@ const licence = { GODL: "Open (NDSAP/GODL)", "show-only": "Shown with attributio
       <tbody>
         {rows.map((r) => (
           <tr>
-            <td><b><a href={`/data/${r.id}/`}>{r.short_title}</a></b><br /><span class="chart-sub">{r.title} · <code>{r.id}</code></span>{r.notes && <><br /><span class="chart-sub">{r.notes}</span></>}</td>
+            <td><b>{r.panel ? <a href="/states/">{r.short_title}</a> : <a href={`/data/${r.id}/`}>{r.short_title}</a>}</b>{r.panel && <span class="badge"> by state</span>}<br /><span class="chart-sub">{r.title} · <code>{r.id}</code></span>{r.notes && <><br /><span class="chart-sub">{r.notes}</span></>}</td>
             <td>{r.source_url ? <a href={r.source_url}>{r.agency}</a> : r.agency}</td>
             <td>{r.frequency}</td>
             <td>{r.unit}{r.base_year && r.base_year !== "null" ? ` (${r.base_year})` : ""}</td>

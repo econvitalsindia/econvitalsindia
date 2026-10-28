@@ -7,7 +7,7 @@ import { config } from "../../lib/config.js";
 import { num, period } from "../../lib/format.js";
 
 export function getStaticPaths() {
-  return catalogue().filter((r) => r.observations > 0).map((r) => ({ params: { id: r.id } }));
+  return catalogue().filter((r) => r.observations > 0 && !r.panel).map((r) => ({ params: { id: r.id } }));
 }
 const { id } = Astro.params;
 const s = series(id);

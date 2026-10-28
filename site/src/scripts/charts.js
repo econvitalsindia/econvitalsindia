@@ -30,9 +30,30 @@ function drawStacked(el, spec) {
   }));
 }
 
+function drawHbar(el, spec) {
+  // Ranked horizontal bars (e.g. states), with an optional reference line (all-India).
+  const rows = [...spec.rows].sort((a, b) => b.value - a.value);
+  const width = el.clientWidth || 600;
+  const marks = [
+    Plot.barX(rows, { x: "value", y: "label", fill: (d) => (d.highlight ? palette[1] : palette[0]), sort: { y: "-x" } }),
+    Plot.text(rows, { x: "value", y: "label", text: (d) => d.value.toFixed(spec.decimals ?? 1), dx: 4, textAnchor: "start", fontSize: 10 }),
+    Plot.ruleX([0], { stroke: "currentColor", strokeOpacity: 0.4 }),
+  ];
+  if (spec.reference !== undefined && spec.reference !== null) {
+    marks.push(Plot.ruleX([spec.reference], { stroke: palette[1], strokeDasharray: "4,3" }));
+    marks.push(Plot.text([spec.reference], { x: (d) => d, frameAnchor: "top", dy: -4, text: () => `${spec.referenceLabel} ${spec.reference.toFixed(spec.decimals ?? 1)}`, fill: palette[1], fontSize: 10 }));
+  }
+  el.replaceChildren(Plot.plot({
+    width, height: Math.max(260, rows.length * 16 + 50), marginLeft: Math.min(230, width * 0.42), marginRight: 40, marginTop: 24,
+    style: { fontFamily: "Inter, system-ui, sans-serif", fontSize: "11px", background: "transparent" },
+    x: { grid: true, label: spec.xLabel ?? null }, y: { label: null }, marks,
+  }));
+}
+
 function draw(el) {
   const spec = JSON.parse(el.dataset.chart);
   if (spec.kind === "stacked") return drawStacked(el, spec);
+  if (spec.kind === "hbar") return drawHbar(el, spec);
   const rows = spec.series.flatMap((s) => s.points.map(([d, v]) => ({ date: new Date(d), value: v, label: s.label })));
   const last = rows.reduce((m, r) => (r.date > m ? r.date : m), new Date(0));
   const start = new Date(last); start.setFullYear(start.getFullYear() - spec.years);

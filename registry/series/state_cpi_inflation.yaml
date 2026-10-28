@@ -1,0 +1,37 @@
+id: state_cpi_inflation
+title: CPI inflation by state, y/y, as published
+short_title: State CPI inflation
+area: states
+source:
+  agency: MoSPI (NSO)
+  dataset: CPI, base 2024
+  url: https://esankhyiki.mospi.gov.in/
+  module: pipelines/sources/mospi/states.py
+licence: GODL
+downloadable: true
+fetch: auto
+frequency: M
+unit: percent
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+release:
+  calendar: mospi
+  rule: with the national release
+  lag_days: 45
+validation:
+  range:
+  - -20
+  - 40
+  revision_alert: 5
+pages:
+- page: states
+  section: overview
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: Published from January 2026.
+panel: true
+entity: state

@@ -1,0 +1,38 @@
+id: state_gsdp_growth
+title: Real GSDP growth by state (constant 2011-12 prices)
+short_title: State GSDP growth
+area: states
+source:
+  agency: MoSPI (NSO)
+  dataset: State domestic product (NAS indicator 26), base 2011-12
+  url: https://esankhyiki.mospi.gov.in/
+  module: pipelines/sources/mospi/states.py
+licence: GODL
+downloadable: true
+fetch: auto
+frequency: A
+unit: percent
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+release:
+  calendar: mospi
+  rule: with the national release
+  lag_days: 500
+validation:
+  range:
+  - -40
+  - 60
+  revision_alert: 5
+pages:
+- page: states
+  section: overview
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: Base 2011-12 (no state series on the 2022-23 base yet); recent years are estimates
+  and many states report late.
+panel: true
+entity: state

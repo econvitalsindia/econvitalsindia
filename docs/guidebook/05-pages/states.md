@@ -4,9 +4,9 @@
 
 ## Must include
 - [ ] State selector, plus choropleth maps of all-India
-- [ ] GSDP growth (real) and per-capita NSDP, latest available year
-- [ ] State CPI y/y (monthly)
-- [ ] PLFS unemployment by state (quarterly/annual, with sample-size caveat)
+- [x] GSDP growth (real), latest year with at least twenty states (per-capita NSDP still to add)
+- [x] State CPI y/y (monthly)
+- [x] PLFS unemployment by state (annual, calendar year, with sample-size caveat)
 - [ ] State fiscal deficit, debt, interest/revenue receipts (% GSDP)
 - [ ] State profile page `/states/<state>` with all of the above in one place
 - [ ] Map uses official boundaries from Survey of India–consistent GeoJSON (check the licence)

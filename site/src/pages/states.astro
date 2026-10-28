@@ -1,0 +1,47 @@
+---
+import Base from "../layouts/Base.astro";
+import RankedBars from "../components/RankedBars.astro";
+import { series, valueAt } from "../lib/data.js";
+import { num, period } from "../lib/format.js";
+import fs from "node:fs";
+
+const panel = (id) => JSON.parse(fs.readFileSync(`src/data/generated/panels/${id}.json`, "utf8"));
+const cpi = panel("state_cpi_inflation"), ur = panel("state_ur_cy"), lfpr = panel("state_lfpr_cy"), gsdp = panel("state_gsdp_growth");
+const at = (p, ent, per) => p.rows.find((r) => r.entity === ent)?.values[per] ?? null;
+const short = JSON.parse(fs.readFileSync("src/data/generated/state_short_names.json", "utf8"));
+const bars = (p, per) => p.rows.filter((r) => r.values[per] !== null && r.values[per] !== undefined).map((r) => ({ label: short[r.entity] ?? r.entity, value: r.values[per] }));
+const prevPeriod = (p) => p.periods[p.periods.indexOf(p.ref_period) - 1];
+const cpiAllIndia = valueAt(series("cpi_headline_inflation"), "level", cpi.ref_period);
+const urAllIndia = valueAt(series("plfs_ur_usual_cy"), "level", ur.ref_period);
+const fyLabel = (iso) => `${iso.slice(0, 4)}-${String(Number(iso.slice(0, 4)) + 1).slice(2)}`;
+const entities = [...new Set([...cpi.rows, ...ur.rows, ...gsdp.rows].map((r) => r.entity))].sort();
+---
+<Base current="states" title="States">
+  <h1>States</h1>
+  <p class="lede">How do India's states and union territories compare on prices, jobs and growth? Inflation from MoSPI's state CPI, unemployment and participation from the annual PLFS, and growth from state domestic product estimates.</p>
+
+  <div class="grid2">
+    <RankedBars title={`CPI inflation by state, ${period(cpi.ref_period, "M")}`} subtitle="% change on a year earlier, as published; dashed line = all India"
+      rows={bars(cpi, cpi.ref_period)} reference={cpiAllIndia} decimals={2} source="MoSPI, CPI (base 2024)." />
+    <RankedBars title={`Unemployment rate by state, ${ur.ref_period.slice(0, 4)}`} subtitle="% of the labour force, 15+, usual status, calendar year; dashed line = all India"
+      rows={bars(ur, ur.ref_period)} reference={urAllIndia} source="MoSPI, PLFS annual report." />
+  </div>
+  <RankedBars title={`Real GSDP growth by state, ${fyLabel(gsdp.ref_period)}`} subtitle="% change on the previous year, constant 2011-12 prices (latest year with at least twenty states reporting)"
+    rows={bars(gsdp, gsdp.ref_period)} source="MoSPI, state domestic product (base 2011-12)." />
+  <p class="chart-sub">Small states and union territories have small survey samples, so their unemployment rates move a lot from year to year. State GDP is still on the 2011-12 base and is reported late by many states; the latest year shown is the most recent one with at least twenty states.</p>
+
+  <h2>All states and union territories</h2>
+  <div class="scroll">
+    <table class="data">
+      <thead><tr><th>State / UT</th><th>CPI inflation, {period(cpi.ref_period, "M")}</th><th>Previous month</th><th>Unemployment {ur.ref_period.slice(0, 4)}</th><th>LFPR {lfpr.ref_period.slice(0, 4)}</th><th>Real GSDP growth {fyLabel(gsdp.ref_period)}</th></tr></thead>
+      <tbody>
+        {entities.map((e) => (
+          <tr><td>{e}</td><td>{num(at(cpi, e, cpi.ref_period), 2)}</td><td>{num(at(cpi, e, prevPeriod(cpi)), 2)}</td>
+            <td>{num(at(ur, e, ur.ref_period), 1)}</td><td>{num(at(lfpr, e, lfpr.ref_period), 1)}</td><td>{num(at(gsdp, e, gsdp.ref_period), 1)}</td></tr>
+        ))}
+        <tr><td><b>All India</b></td><td><b>{num(cpiAllIndia, 2)}</b></td><td></td><td><b>{num(urAllIndia, 1)}</b></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="chart-sub">Per cent. "–" means not reported for that period. Downloads: <a href="/data/">Data</a> (state panels are listed there). A map view will follow once we have a boundary file whose licence and official boundaries we have checked.</p>
+</Base>

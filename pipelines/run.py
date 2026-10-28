@@ -62,6 +62,9 @@ def run_source(src: Source) -> list[dict]:
             store.update_status(s, ok=False, error=err)
         return [{"series_id": s, "source": src.name, "error": err} for s in src.series_ids]
 
+    if src.panel:
+        return run_panel(src, parsed, specs)
+
     failures = []
     vintage = date.today().isoformat()
     for sid in src.series_ids:
@@ -91,6 +94,38 @@ def run_source(src: Source) -> list[dict]:
               f"latest {merged['period'].iloc[-1]} = {merged['value'].iloc[-1]}")
         if not big.empty:
             print(f"  NOTE {sid}: {len(big)} revisions above {spec['validation']['revision_alert']}%")
+    return failures
+
+
+def run_panel(src: Source, parsed, specs: dict) -> list[dict]:
+    """Validate and publish entity x period panels (data/panels/<id>.csv)."""
+    failures = []
+    vintage = date.today().isoformat()
+    for sid in src.series_ids:
+        spec = specs[sid]
+        new = parsed[parsed["series_id"] == sid].drop(columns="series_id")
+        problems = []
+        if new.empty:
+            problems.append(f"{sid}: parser returned no rows")
+        elif new.duplicated(["entity", "period"]).any():
+            problems.append(f"{sid}: duplicate (entity, period) rows")
+        else:
+            lo, hi = spec["validation"]["range"]
+            bad = new[(new["value"] < lo) | (new["value"] > hi)]
+            if len(bad):
+                problems.append(f"{sid}: {len(bad)} values outside [{lo}, {hi}], e.g. "
+                                f"{bad.head(3)[['entity', 'period', 'value']].values.tolist()}")
+        if problems:
+            err = "; ".join(problems)
+            store.update_status(sid, ok=False, error=err)
+            failures.append({"series_id": sid, "source": src.name, "error": err})
+            print(f"  FAIL {sid}: {err}")
+            continue
+        merged = store.upsert_panel(sid, new, vintage)
+        store.write_panel(sid, merged)
+        store.update_status(sid, ok=True, last_period=merged["period"].max())
+        print(f"  ok   {sid}: {merged['entity'].nunique()} entities, {len(merged)} rows, "
+              f"latest {merged['period'].max()}")
     return failures
 
 

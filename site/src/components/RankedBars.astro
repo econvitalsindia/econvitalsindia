@@ -1,0 +1,13 @@
+---
+// Ranked horizontal bars across entities (states), from a panel JSON; drawn by charts.js.
+const { title, subtitle, rows, reference = null, referenceLabel = "All India", source, decimals = 1 } = Astro.props;
+---
+<figure class="chart">
+  <p class="chart-title">{title}</p>
+  {subtitle && <p class="chart-sub">{subtitle}</p>}
+  <div class="plot" data-chart={JSON.stringify({ kind: "hbar", rows, reference, referenceLabel, decimals })}></div>
+  <figcaption><span>Source: {source}</span></figcaption>
+</figure>
+<script>
+  import "../scripts/charts.js";
+</script>

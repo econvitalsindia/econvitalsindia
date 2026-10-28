@@ -1,0 +1,38 @@
+id: state_lfpr_cy
+title: Labour force participation rate by state, usual status (PS+SS), 15+, calendar
+  year
+short_title: State LFPR
+area: states
+source:
+  agency: MoSPI (NSO)
+  dataset: PLFS annual (calendar year)
+  url: https://esankhyiki.mospi.gov.in/
+  module: pipelines/sources/mospi/states.py
+licence: GODL
+downloadable: true
+fetch: auto
+frequency: A
+unit: percent
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+release:
+  calendar: mospi
+  rule: with the national release
+  lag_days: 400
+validation:
+  range:
+  - 10
+  - 90
+  revision_alert: 5
+pages:
+- page: states
+  section: overview
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: Small states have small samples.
+panel: true
+entity: state

@@ -41,6 +41,9 @@ class Source(ABC):
     series_ids: tuple[str, ...] = ()
     # Derived sources compute from stored series instead of downloading; they run last.
     derived: bool = False
+    # Panel sources return an extra "entity" column (e.g. state) and are stored in
+    # data/panels/<id>.csv keyed on (entity, period).
+    panel: bool = False
 
     @abstractmethod
     def fetch(self) -> list[Raw]:

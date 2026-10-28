@@ -36,6 +36,10 @@ Everything reads from `registry/`:
 
 Pages, the calendar, the Data & Methods page, freshness checks and the briefing ledger are all generated from it. **If it isn't in the registry, it doesn't exist.**
 
+## Panels (entity x period)
+
+State-level data are **panels**: a source with `panel = True` returns an `entity` column. They are stored in `data/panels/<id>.csv` keyed on (entity, period), and their registry yaml sets `panel: true, entity: state`. State names are mapped to `registry/states.yaml` (aliases, plus short chart labels), and an unknown name fails loudly. The build writes `site/src/data/generated/panels/<id>.json`, with a `ref_period` (the latest period that at least twenty states have reported).
+
 ## Failure handling
 
 A source that fails to fetch, parse or validate:

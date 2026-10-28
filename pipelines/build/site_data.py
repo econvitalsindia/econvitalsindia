@@ -276,6 +276,39 @@ def open_issues() -> list[dict] | None:
             if keep & {lb["name"] for lb in i["labels"]}]
 
 
+def panel_payload(series_id: str, spec: dict, min_entities: int = 20) -> dict | None:
+    """Entity x period panel for the site. `ref_period` is the latest period that at least
+    `min_entities` entities have reported (late reporters otherwise skew rankings)."""
+    df = store.load_panel(series_id)
+    if df.empty:
+        return None
+    df["value"] = df["value"].astype(float)
+    counts = df.groupby("period")["entity"].nunique()
+    ref = counts[counts >= min(min_entities, counts.max())].index.max()
+    wide = df.pivot_table(index="entity", columns="period", values="value")
+    return {"id": series_id, "title": spec["title"], "short_title": spec["short_title"], "unit": spec["unit"],
+            "frequency": spec["frequency"], "source": spec["source"], "notes": spec.get("notes", ""),
+            "periods": sorted(df["period"].unique().tolist()), "ref_period": ref,
+            "rows": [{"entity": e, "values": {p: (None if pd.isna(v) else round(float(v), 3)) for p, v in r.items()}}
+                     for e, r in wide.iterrows()]}
+
+
+def first_last(sid: str, payloads: dict, panels: dict) -> tuple[str | None, str | None]:
+    if sid in payloads:
+        return payloads[sid]["data"][0][0], payloads[sid]["data"][-1][0]
+    if panels.get(sid):
+        return panels[sid]["periods"][0], panels[sid]["periods"][-1]
+    return None, None
+
+
+def observations(sid: str, payloads: dict, panels: dict) -> int:
+    if sid in payloads:
+        return len(payloads[sid]["data"])
+    if panels.get(sid):
+        return sum(v is not None for r in panels[sid]["rows"] for v in r["values"].values())
+    return 0
+
+
 def write_json(path, obj) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(obj, indent=1))
@@ -290,6 +323,15 @@ def main() -> int:
             continue
         payloads[sid] = series_payload(sid, spec, df)
         write_json(OUT / "series" / f"{sid}.json", payloads[sid])
+
+    panels = {}
+    for sid, spec in specs.items():
+        if spec.get("panel"):
+            panels[sid] = panel_payload(sid, spec)
+            if panels[sid]:
+                write_json(OUT / "panels" / f"{sid}.json", panels[sid])
+    write_json(OUT / "state_short_names.json",
+               yaml.safe_load((store.ROOT / "registry" / "states.yaml").read_text()).get("short", {}))
 
     pages = {f.stem: yaml.safe_load(f.read_text()) for f in sorted(PAGES.glob("*.yaml"))}
     tiles = [tile(t, payloads[t["series"]]) for t in pages.get("home", {}).get("tiles", [])
@@ -308,9 +350,10 @@ def main() -> int:
                   "unit": spec["unit"], "base_year": spec.get("base_year"),
                   "licence": spec["licence"], "downloadable": spec["downloadable"],
                   "fetch": spec["fetch"], "notes": spec.get("notes", ""),
-                  "first_period": payloads[sid]["data"][0][0] if sid in payloads else None,
-                  "last_period": payloads[sid]["data"][-1][0] if sid in payloads else None,
-                  "observations": len(payloads[sid]["data"]) if sid in payloads else 0}
+                  "panel": bool(spec.get("panel")),
+                  "first_period": first_last(sid, payloads, panels)[0],
+                  "last_period": first_last(sid, payloads, panels)[1],
+                  "observations": observations(sid, payloads, panels)}
                  for sid, spec in specs.items()]
     write_json(OUT / "catalogue.json", catalogue)
 
@@ -343,6 +386,8 @@ def main() -> int:
     for sid, spec in specs.items():
         if spec["downloadable"] and sid in payloads:
             (PUBLIC / f"{sid}.csv").write_bytes((store.SERIES / f"{sid}.csv").read_bytes())
+        elif spec["downloadable"] and panels.get(sid):
+            (PUBLIC / f"{sid}.csv").write_bytes((store.PANELS / f"{sid}.csv").read_bytes())
     leaked = [f.name for f in PUBLIC.glob("*.csv")
               if f.stem not in specs or not specs[f.stem]["downloadable"]]
     if leaked:
