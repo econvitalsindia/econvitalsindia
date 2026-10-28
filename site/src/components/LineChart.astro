@@ -6,8 +6,9 @@ import { t } from "../lib/i18n.js";
 
 const { title, subtitle, lines, reference = null, years = 5, yLabel = "" } = Astro.props;
 const loaded = lines.map((l) => ({ ...l, s: load(l.id) }));
-const payload = loaded.map(({ s, how = "level", label }) => ({
+const payload = loaded.map(({ s, how = "level", label, step = false }) => ({
   label: label ?? s.short_title,
+  curve: step ? "step-after" : "linear",
   points: (how === "level" ? s.data : s.transforms[how]).map((p) => [p[0], p[1]]),
 }));
 const sources = [...new Set(loaded.map(({ s }) => s.source.agency))].join("; ");

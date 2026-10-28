@@ -6,7 +6,8 @@ source:
   agency: RBI
   dataset: Current rates panel, RBI home page
   url: https://www.rbi.org.in/
-  module: pipelines/sources/rbi/home_rates.py
+  module: pipelines/sources/rbi/home_rates.py (daily snapshot); pipelines/sources/rbi/wss.py
+    (weekly history)
 licence: unverified
 downloadable: false
 fetch: auto
@@ -32,4 +33,5 @@ original: false
 discontinued: null
 owner: ''
 verified_against: []
-notes: ''
+notes: Daily snapshot from the RBI home page plus week-ended values from the RBI Weekly
+  Statistical Supplement (history from the WSS backfill).

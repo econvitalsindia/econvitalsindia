@@ -3,15 +3,15 @@
 **Purpose:** What is the RBI's policy stance, how tight is liquidity, and how fast are credit and deposits growing?
 
 ## Must include
-- [ ] Policy corridor chart: repo, SDF, MSF, with WACR overlaid (daily)
+- [x] Policy corridor chart: repo, SDF, MSF, with WACR overlaid (weekly from WSS; daily snapshots since 28 Oct 2026)
 - [ ] Table of MPC decisions: date, decision, vote split, stance wording (from statements)
 - [ ] Next MPC date and countdown
 - [ ] Net LAF liquidity (₹ lakh crore, + = surplus)
-- [ ] CRR and SLR with change dates
-- [ ] Scheduled commercial bank credit and deposit growth y/y (fortnightly), credit–deposit ratio
+- [x] CRR and SLR with change dates
+- [x] Scheduled commercial bank credit and deposit growth y/y (fortnightly) (credit–deposit ratio still to add)
 - [ ] Sectoral deployment of credit (monthly): industry, services, personal loans, agriculture
 - [ ] Money supply M3 growth, reserve money
-- [ ] T-bill yields (91d, 182d, 364d), CP and CD rates
+- [x] T-bill yields (91d, 182d, 364d) (CP and CD rates still to add)
 - [ ] MPC Speak link (Phase 4)
 
 ## Must NOT include

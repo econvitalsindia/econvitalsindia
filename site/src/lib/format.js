@@ -14,7 +14,9 @@ export function signed(v, digits = 1, suffix = "") {
 }
 
 export function byFmt(v, fmt) {
-  const map = { pct1: [1, "%"], pct2: [2, "%"], num0: [0, ""], num2: [2, ""] };
+  if (fmt === "usd_bn1") return `$${num(v, 1)} bn`;
+  if (fmt === "inr_lc1") return `₹${num(v, 1)} lakh cr`;
+  const map = { pct1: [1, "%"], pct2: [2, "%"], num0: [0, ""], num1: [1, ""], num2: [2, ""] };
   const [d, suf] = map[fmt] ?? [1, ""];
   return num(v, d) + suf;
 }

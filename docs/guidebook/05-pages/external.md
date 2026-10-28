@@ -6,7 +6,7 @@
 - [ ] Monthly merchandise exports, imports and trade balance (US$ bn, y/y), oil vs non-oil, gold imports
 - [ ] Services exports and imports (monthly estimate)
 - [ ] Current account balance (quarterly, US$ bn and % GDP)
-- [ ] FX reserves (weekly) and import cover in months
+- [x] FX reserves (weekly) (import cover needs monthly imports)
 - [ ] REER and NEER (40-currency), y/y
 - [ ] Net FDI, FPI, ECB flows
 - [ ] Remittances (quarterly BoP)

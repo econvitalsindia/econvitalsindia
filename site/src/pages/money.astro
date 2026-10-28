@@ -1,0 +1,36 @@
+---
+import Base from "../layouts/Base.astro";
+import LineChart from "../components/LineChart.astro";
+import PeriodTable from "../components/PeriodTable.astro";
+import { series, latest } from "../lib/data.js";
+import { num, period } from "../lib/format.js";
+const repo = latest(series("repo_rate"));
+const credit = latest(series("scb_credit_growth"));
+---
+<Base current="money" title="Money & banking">
+  <h1>Money &amp; banking</h1>
+  <p class="lede">What is RBI's policy stance, where are money-market rates, and how fast are bank credit and deposits growing? The policy repo rate is {num(repo.value, 2)}% ({period(repo.period, "D")}); bank credit grew {num(credit.value, 1)}% on a year earlier in the fortnight to {period(credit.period, "D")}.</p>
+
+  <LineChart title="Policy corridor and the call rate" subtitle="Per cent; the call rate (WACR) normally trades between the SDF floor and the MSF ceiling"
+    lines={[{ id: "msf_rate", label: "MSF (ceiling)", step: true }, { id: "repo_rate", label: "Repo", step: true }, { id: "sdf_rate", label: "SDF (floor)", step: true }, { id: "wacr", label: "Call rate (WACR)" }]} years={1} />
+  <p class="chart-sub">Week-ended values from RBI's Weekly Statistical Supplement, plus daily readings of RBI's home page since 28 Oct 2026.</p>
+
+  <h2>Bank credit and deposits</h2>
+  <div class="grid2">
+    <LineChart title="Bank credit and deposit growth, as published" subtitle="Scheduled commercial banks, % change on a year earlier"
+      lines={[{ id: "scb_credit_growth", label: "Credit" }, { id: "scb_deposits_growth", label: "Deposits" }]} years={1} />
+    <LineChart title="Outstanding" subtitle="₹ lakh crore, scheduled commercial banks"
+      lines={[{ id: "scb_deposits", label: "Deposits" }, { id: "scb_credit", label: "Credit" }]} years={1} />
+  </div>
+  <p class="chart-sub">RBI notes that these data include the effect of a non-bank merging into a bank, which lifts year-on-year growth; see the note in the WSS table.</p>
+
+  <h2>Rates, recent weeks</h2>
+  <PeriodTable heading="Per cent, week ended" n={6} digits={2} rows={[
+    { id: "repo_rate" }, { id: "sdf_rate", indent: true }, { id: "msf_rate", indent: true },
+    { id: "crr" }, { id: "slr" }, { id: "wacr" },
+    { id: "tbill_91d_weekly" }, { id: "tbill_182d_weekly" }, { id: "tbill_364d_weekly" }, { id: "gsec_10y_par_fbil" },
+  ]} freq="D" />
+
+  <h2>Still to come on this page</h2>
+  <p class="chart-sub">LAF liquidity, sectoral credit, money supply (M3), MPC decisions and vote splits, MPC Speak. Checklist: docs/guidebook/05-pages/money-banking.md.</p>
+</Base>

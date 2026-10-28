@@ -15,7 +15,7 @@
   - [x] Nifty 50 and Sensex (% YTD)
   - [x] USD/INR (FBIL reference, % YTD)
   - [ ] Brent in ₹ per barrel (% YTD)
-  - [ ] FX reserves (US$ bn, weekly)
+  - [x] FX reserves (US$ bn, weekly)
   - [ ] GST collections (₹ lakh crore, % y/y)
 - [~] "India in four questions" cards (3 of 4 live: inflation, growth, jobs; external waits for reserves/CAD), each with 2–3 numbers and a link:
   1. Is inflation near 4%? (CPI y/y, core y/y, 3-month momentum, the 2–6% band)

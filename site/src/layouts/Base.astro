@@ -8,7 +8,7 @@ import { period } from "../lib/format.js";
 const { title, description, current } = Astro.props;
 const s = site();
 const c = config.brand.colors;
-const nav = [["home", "/"], ["growth", "/growth/"], ["inflation", "/inflation/"], ["jobs", "/jobs/"], ["activity", "/activity/"], ["markets", "/markets/"], ["data", "/data/"], ["about", "/about/"]];
+const nav = [["home", "/"], ["growth", "/growth/"], ["inflation", "/inflation/"], ["jobs", "/jobs/"], ["activity", "/activity/"], ["money", "/money/"], ["markets", "/markets/"], ["external", "/external/"], ["data", "/data/"], ["about", "/about/"]];
 const pageTitle = title ? `${title} · ${config.site.name}` : config.site.name;
 ---
 <!doctype html>

@@ -41,9 +41,15 @@ function draw(el) {
   // Zero line only when the data reach zero; level series (e.g. USD/INR) keep a tight axis.
   const lo = Math.min(...data.map((r) => r.value));
   if (lo <= 0 || ref) marks.push(Plot.ruleY([0], { stroke: "currentColor", strokeOpacity: 0.25 }));
-  marks.push(Plot.lineY(data, { x: "date", y: "value", stroke: "label", strokeWidth: 1.8 }));
+  // One line mark per series so each can have its own curve (policy rates are steps).
+  // Colours are assigned explicitly: a label such as "Gold" is also a CSS colour name,
+  // and Plot would otherwise draw it in that colour.
+  const colour = Object.fromEntries(spec.series.map((s, i) => [s.label, palette[i % palette.length]]));
+  for (const s of spec.series) {
+    marks.push(Plot.lineY(data.filter((r) => r.label === s.label), { x: "date", y: "value", stroke: colour[s.label], strokeWidth: 1.8, curve: s.curve ?? "linear" }));
+  }
   const lastPoints = spec.series.map((s) => data.filter((r) => r.label === s.label).at(-1)).filter(Boolean);
-  marks.push(Plot.dot(lastPoints, { x: "date", y: "value", fill: "label", r: 3 }));
+  marks.push(Plot.dot(lastPoints, { x: "date", y: "value", fill: (d) => colour[d.label], r: 3 }));
   // End labels: same decimals as the data (5.0, not 5); skip a label that would sit on top of
   // another (within 4% of the y-range) - the tooltip and table still give every value.
   const decimals = Math.min(2, Math.max(...data.slice(-50).map((r) => (String(r.value).split(".")[1] ?? "").length)));
@@ -53,16 +59,19 @@ function draw(el) {
     if (labelled.every((q) => Math.abs(q.value - p.value) > span * 0.04)) labelled.push(p);
   }
   marks.push(Plot.text(labelled, { x: "date", y: "value", text: (d) => d.value.toLocaleString("en-US", { minimumFractionDigits: decimals, maximumFractionDigits: decimals }), dx: 6, textAnchor: "start", fontSize: 11 }));
-  marks.push(Plot.tip(data, Plot.pointerX({ x: "date", y: "value", stroke: "label", title: (d) => `${d.label}\n${d.date.toISOString().slice(0, 10)}: ${d.value.toLocaleString("en-US", { maximumFractionDigits: 2 })}` })));
+  marks.push(Plot.tip(data, Plot.pointerX({ x: "date", y: "value", stroke: (d) => colour[d.label], title: (d) => `${d.label}\n${d.date.toISOString().slice(0, 10)}: ${d.value.toLocaleString("en-US", { maximumFractionDigits: 2 })}` })));
   const width = el.clientWidth || 600;
   const plot = Plot.plot({
     width, height: Math.max(240, Math.min(340, width * 0.55)), marginRight: 48,
     style: { fontFamily: "Inter, system-ui, sans-serif", fontSize: "11px", background: "transparent" },
     x: { type: "utc" }, y: { grid: true, label: spec.yLabel || null, zero: lo <= 0 || !!ref },
-    color: { domain: spec.series.map((s) => s.label), range: palette, legend: spec.series.length > 1 },
     marks,
   });
-  el.replaceChildren(plot);
+  const legend = spec.series.length > 1
+    ? Plot.legend({ color: { type: "categorical", domain: spec.series.map((s) => s.label), range: spec.series.map((s) => colour[s.label]) },
+        style: { fontFamily: "Inter, system-ui, sans-serif", fontSize: "11px", background: "transparent" } })
+    : null;
+  el.replaceChildren(...(legend ? [legend, plot] : [plot]));
 }
 
 const charts = [...document.querySelectorAll("[data-chart]")];

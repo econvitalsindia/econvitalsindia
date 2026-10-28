@@ -1,12 +1,9 @@
 # Indicators planned but not yet built. Remove an entry when its registry/series yaml lands.
 # Phase 1 core set (~25). Source rows: docs/guidebook/03-data-sources.md
-# Built so far: see registry/series/ (56 series: CPI incl. core, IIP, GDP/GVA, PLFS, policy rates, markets).
+# Built so far: see registry/series/ (84 series). Remaining Phase 1 items below.
 phase1:
-  - {id: wacr,                   area: money,     source: RBI,          page: money-banking}
-  - {id: scb_credit,             area: money,     source: RBI,          page: money-banking}
   - {id: brent_usd,              area: markets,   source: Yahoo,        page: home, licence: show-only}
   - {id: gold_inr,               area: markets,   source: Yahoo/IBJA,   page: markets, licence: show-only}
-  - {id: fx_reserves_total,      area: external,  source: RBI,          page: home}
   - {id: merch_trade_balance,    area: external,  source: Commerce,     page: external}
   - {id: gst_gross_collections,  area: fiscal,    source: MoF/PIB,      page: home}
   - {id: cga_fiscal_deficit_fytd, area: fiscal,   source: CGA,          page: fiscal}

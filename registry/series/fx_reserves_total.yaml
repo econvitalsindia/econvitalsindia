@@ -1,0 +1,38 @@
+id: fx_reserves_total
+title: Foreign exchange reserves, total
+short_title: FX reserves
+area: external
+source:
+  agency: RBI
+  dataset: 'Weekly Statistical Supplement: Foreign Exchange Reserves'
+  url: https://www.rbi.org.in/Scripts/BS_viewWss.aspx
+  module: pipelines/sources/rbi/wss.py
+licence: unverified
+downloadable: false
+fetch: auto
+frequency: W
+unit: usd_bn
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+- yoy
+release:
+  calendar: rbi
+  rule: WSS released Friday evening
+  lag_days: 14
+validation:
+  range:
+  - 100
+  - 2000
+  revision_alert: 1
+pages:
+- page: home
+  section: key-indicators
+- page: external
+  section: reserves
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: Week ending Friday; US$ million in the source, shown in billions.

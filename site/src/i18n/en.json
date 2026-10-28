@@ -1,5 +1,5 @@
 {
-  "nav": {"home": "Home", "growth": "Growth", "jobs": "Jobs", "activity": "Activity", "inflation": "Inflation", "markets": "Markets & rates", "data": "Data", "about": "About", "status": "Status"},
+  "nav": {"home": "Home", "growth": "Growth", "jobs": "Jobs", "activity": "Activity", "money": "Money", "external": "External", "inflation": "Inflation", "markets": "Markets", "data": "Data", "about": "About", "status": "Status"},
   "home": {
     "key_indicators": "Key indicators",
     "questions": "India in three questions",

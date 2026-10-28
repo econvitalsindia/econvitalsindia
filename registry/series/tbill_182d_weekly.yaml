@@ -1,0 +1,36 @@
+id: tbill_182d_weekly
+title: 182-day Treasury bill primary yield, week ended
+short_title: 182-day T-bill
+area: markets
+source:
+  agency: RBI
+  dataset: 'Weekly Statistical Supplement: Ratios and Rates'
+  url: https://www.rbi.org.in/Scripts/BS_viewWss.aspx
+  module: pipelines/sources/rbi/wss.py
+licence: unverified
+downloadable: false
+fetch: auto
+frequency: W
+unit: percent
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+- diff
+release:
+  calendar: rbi
+  rule: WSS released Friday evening
+  lag_days: 14
+validation:
+  range:
+  - 0
+  - 20
+  revision_alert: 1
+pages:
+- page: markets
+  section: cross-asset
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: ''
