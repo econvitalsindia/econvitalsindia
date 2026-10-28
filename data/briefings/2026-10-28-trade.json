@@ -1,0 +1,432 @@
+{
+ "merch_trade_balance.latest": {
+  "series": "merch_trade_balance",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "−$30.2 billion"
+ },
+ "merch_trade_balance.latest_period": {
+  "series": "merch_trade_balance",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "September 2026"
+ },
+ "merch_trade_balance.prev": {
+  "series": "merch_trade_balance",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "−$26.9 billion"
+ },
+ "merch_trade_balance.prev_period": {
+  "series": "merch_trade_balance",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "August 2026"
+ },
+ "merch_trade_balance.change": {
+  "series": "merch_trade_balance",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "$3.4 billion"
+ },
+ "merch_trade_balance.direction": {
+  "series": "merch_trade_balance",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "fell"
+ },
+ "merch_trade_balance.direction_noun": {
+  "series": "merch_trade_balance",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "a decrease"
+ },
+ "merch_trade_balance.change_phrase": {
+  "series": "merch_trade_balance",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "down $3.4 billion"
+ },
+ "merch_trade_balance.pct_phrase": {
+  "series": "merch_trade_balance",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "up 12.48%"
+ },
+ "merch_trade_balance.year_ago": {
+  "series": "merch_trade_balance",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "−$33.0 billion"
+ },
+ "merch_trade_balance.year_ago_period": {
+  "series": "merch_trade_balance",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "September 2025"
+ },
+ "merch_trade_balance.change_yoy": {
+  "series": "merch_trade_balance",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "$2.8 billion"
+ },
+ "merch_trade_balance.direction_yoy": {
+  "series": "merch_trade_balance",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "rose"
+ },
+ "merch_trade_balance.change_phrase_yoy": {
+  "series": "merch_trade_balance",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "up $2.8 billion"
+ },
+ "merch_exports.latest": {
+  "series": "merch_exports",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "$44.4 billion"
+ },
+ "merch_exports.latest_period": {
+  "series": "merch_exports",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "September 2026"
+ },
+ "merch_exports.prev": {
+  "series": "merch_exports",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "$43.8 billion"
+ },
+ "merch_exports.prev_period": {
+  "series": "merch_exports",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "August 2026"
+ },
+ "merch_exports.change": {
+  "series": "merch_exports",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "$0.6 billion"
+ },
+ "merch_exports.direction": {
+  "series": "merch_exports",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "rose"
+ },
+ "merch_exports.direction_noun": {
+  "series": "merch_exports",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "an increase"
+ },
+ "merch_exports.change_phrase": {
+  "series": "merch_exports",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "up $0.6 billion"
+ },
+ "merch_exports.pct_phrase": {
+  "series": "merch_exports",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "up 1.34%"
+ },
+ "merch_exports.year_ago": {
+  "series": "merch_exports",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "$36.1 billion"
+ },
+ "merch_exports.year_ago_period": {
+  "series": "merch_exports",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "September 2025"
+ },
+ "merch_exports.change_yoy": {
+  "series": "merch_exports",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "$8.3 billion"
+ },
+ "merch_exports.direction_yoy": {
+  "series": "merch_exports",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "rose"
+ },
+ "merch_exports.change_phrase_yoy": {
+  "series": "merch_exports",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "up $8.3 billion"
+ },
+ "merch_imports.latest": {
+  "series": "merch_imports",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "$74.6 billion"
+ },
+ "merch_imports.latest_period": {
+  "series": "merch_imports",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "September 2026"
+ },
+ "merch_imports.prev": {
+  "series": "merch_imports",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "$70.7 billion"
+ },
+ "merch_imports.prev_period": {
+  "series": "merch_imports",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "August 2026"
+ },
+ "merch_imports.change": {
+  "series": "merch_imports",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "$3.9 billion"
+ },
+ "merch_imports.direction": {
+  "series": "merch_imports",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "rose"
+ },
+ "merch_imports.direction_noun": {
+  "series": "merch_imports",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "an increase"
+ },
+ "merch_imports.change_phrase": {
+  "series": "merch_imports",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "up $3.9 billion"
+ },
+ "merch_imports.pct_phrase": {
+  "series": "merch_imports",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "up 5.58%"
+ },
+ "merch_imports.year_ago": {
+  "series": "merch_imports",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "$69.1 billion"
+ },
+ "merch_imports.year_ago_period": {
+  "series": "merch_imports",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "September 2025"
+ },
+ "merch_imports.change_yoy": {
+  "series": "merch_imports",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "$5.5 billion"
+ },
+ "merch_imports.direction_yoy": {
+  "series": "merch_imports",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "rose"
+ },
+ "merch_imports.change_phrase_yoy": {
+  "series": "merch_imports",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "up $5.5 billion"
+ },
+ "merch_exports:yoy.latest": {
+  "series": "merch_exports",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "23.0%"
+ },
+ "merch_exports:yoy.latest_period": {
+  "series": "merch_exports",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "September 2026"
+ },
+ "merch_exports:yoy.prev": {
+  "series": "merch_exports",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "26.1%"
+ },
+ "merch_exports:yoy.prev_period": {
+  "series": "merch_exports",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "August 2026"
+ },
+ "merch_exports:yoy.change": {
+  "series": "merch_exports",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "3.1 percentage points"
+ },
+ "merch_exports:yoy.direction": {
+  "series": "merch_exports",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "fell"
+ },
+ "merch_exports:yoy.direction_noun": {
+  "series": "merch_exports",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "a decrease"
+ },
+ "merch_exports:yoy.change_phrase": {
+  "series": "merch_exports",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "down 3.1 percentage points"
+ },
+ "merch_exports:yoy.bp_phrase": {
+  "series": "merch_exports",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "down 308 basis points"
+ },
+ "merch_imports:yoy.latest": {
+  "series": "merch_imports",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "8.0%"
+ },
+ "merch_imports:yoy.latest_period": {
+  "series": "merch_imports",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "September 2026"
+ },
+ "merch_imports:yoy.prev": {
+  "series": "merch_imports",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "14.1%"
+ },
+ "merch_imports:yoy.prev_period": {
+  "series": "merch_imports",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "August 2026"
+ },
+ "merch_imports:yoy.change": {
+  "series": "merch_imports",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "6.1 percentage points"
+ },
+ "merch_imports:yoy.direction": {
+  "series": "merch_imports",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "fell"
+ },
+ "merch_imports:yoy.direction_noun": {
+  "series": "merch_imports",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "a decrease"
+ },
+ "merch_imports:yoy.change_phrase": {
+  "series": "merch_imports",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "down 6.1 percentage points"
+ },
+ "merch_imports:yoy.bp_phrase": {
+  "series": "merch_imports",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://www.commerce.gov.in/",
+  "text": "down 606 basis points"
+ },
+ "const.rbi_inflation_target": {
+  "constant": "rbi_inflation_target",
+  "source": "RBI Act s.45ZA; flexible inflation target notified by the Government of India (CPI, 4% +/- 2%)",
+  "text": "4%"
+ },
+ "const.rbi_tolerance_band": {
+  "constant": "rbi_tolerance_band",
+  "source": "RBI Act s.45ZA; flexible inflation target notified by the Government of India (CPI, 4% +/- 2%)",
+  "text": "2–6%"
+ }
+}

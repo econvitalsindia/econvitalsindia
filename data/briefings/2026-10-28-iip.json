@@ -1,0 +1,698 @@
+{
+ "iip_general_growth.latest": {
+  "series": "iip_general_growth",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "6.7%"
+ },
+ "iip_general_growth.latest_period": {
+  "series": "iip_general_growth",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "September 2026"
+ },
+ "iip_general_growth.prev": {
+  "series": "iip_general_growth",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "7.8%"
+ },
+ "iip_general_growth.prev_period": {
+  "series": "iip_general_growth",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "August 2026"
+ },
+ "iip_general_growth.change": {
+  "series": "iip_general_growth",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "1.1 percentage points"
+ },
+ "iip_general_growth.direction": {
+  "series": "iip_general_growth",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "fell"
+ },
+ "iip_general_growth.direction_noun": {
+  "series": "iip_general_growth",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "a decrease"
+ },
+ "iip_general_growth.change_phrase": {
+  "series": "iip_general_growth",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "down 1.1 percentage points"
+ },
+ "iip_general_growth.bp_phrase": {
+  "series": "iip_general_growth",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "down 110 basis points"
+ },
+ "iip_general_growth.year_ago": {
+  "series": "iip_general_growth",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "6.1%"
+ },
+ "iip_general_growth.year_ago_period": {
+  "series": "iip_general_growth",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "September 2025"
+ },
+ "iip_general_growth.change_yoy": {
+  "series": "iip_general_growth",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "0.6 percentage points"
+ },
+ "iip_general_growth.direction_yoy": {
+  "series": "iip_general_growth",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "rose"
+ },
+ "iip_general_growth.change_phrase_yoy": {
+  "series": "iip_general_growth",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "up 0.6 percentage points"
+ },
+ "iip_manufacturing_index:yoy.latest": {
+  "series": "iip_manufacturing_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "7.6%"
+ },
+ "iip_manufacturing_index:yoy.latest_period": {
+  "series": "iip_manufacturing_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "September 2026"
+ },
+ "iip_manufacturing_index:yoy.prev": {
+  "series": "iip_manufacturing_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "8.6%"
+ },
+ "iip_manufacturing_index:yoy.prev_period": {
+  "series": "iip_manufacturing_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "August 2026"
+ },
+ "iip_manufacturing_index:yoy.change": {
+  "series": "iip_manufacturing_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "1.0 percentage points"
+ },
+ "iip_manufacturing_index:yoy.direction": {
+  "series": "iip_manufacturing_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "fell"
+ },
+ "iip_manufacturing_index:yoy.direction_noun": {
+  "series": "iip_manufacturing_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "a decrease"
+ },
+ "iip_manufacturing_index:yoy.change_phrase": {
+  "series": "iip_manufacturing_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "down 1.0 percentage points"
+ },
+ "iip_manufacturing_index:yoy.bp_phrase": {
+  "series": "iip_manufacturing_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "down 104 basis points"
+ },
+ "iip_manufacturing_index:yoy.year_ago": {
+  "series": "iip_manufacturing_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "5.5%"
+ },
+ "iip_manufacturing_index:yoy.year_ago_period": {
+  "series": "iip_manufacturing_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "September 2025"
+ },
+ "iip_manufacturing_index:yoy.change_yoy": {
+  "series": "iip_manufacturing_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "2.1 percentage points"
+ },
+ "iip_manufacturing_index:yoy.direction_yoy": {
+  "series": "iip_manufacturing_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "rose"
+ },
+ "iip_manufacturing_index:yoy.change_phrase_yoy": {
+  "series": "iip_manufacturing_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "up 2.1 percentage points"
+ },
+ "iip_mining_index:yoy.latest": {
+  "series": "iip_mining_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "−6.2%"
+ },
+ "iip_mining_index:yoy.latest_period": {
+  "series": "iip_mining_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "September 2026"
+ },
+ "iip_mining_index:yoy.prev": {
+  "series": "iip_mining_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "−4.6%"
+ },
+ "iip_mining_index:yoy.prev_period": {
+  "series": "iip_mining_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "August 2026"
+ },
+ "iip_mining_index:yoy.change": {
+  "series": "iip_mining_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "1.6 percentage points"
+ },
+ "iip_mining_index:yoy.direction": {
+  "series": "iip_mining_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "fell"
+ },
+ "iip_mining_index:yoy.direction_noun": {
+  "series": "iip_mining_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "a decrease"
+ },
+ "iip_mining_index:yoy.change_phrase": {
+  "series": "iip_mining_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "down 1.6 percentage points"
+ },
+ "iip_mining_index:yoy.bp_phrase": {
+  "series": "iip_mining_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "down 160 basis points"
+ },
+ "iip_mining_index:yoy.year_ago": {
+  "series": "iip_mining_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "15.7%"
+ },
+ "iip_mining_index:yoy.year_ago_period": {
+  "series": "iip_mining_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "September 2025"
+ },
+ "iip_mining_index:yoy.change_yoy": {
+  "series": "iip_mining_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "22.0 percentage points"
+ },
+ "iip_mining_index:yoy.direction_yoy": {
+  "series": "iip_mining_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "fell"
+ },
+ "iip_mining_index:yoy.change_phrase_yoy": {
+  "series": "iip_mining_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "down 22.0 percentage points"
+ },
+ "iip_electricity_index:yoy.latest": {
+  "series": "iip_electricity_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "11.2%"
+ },
+ "iip_electricity_index:yoy.latest_period": {
+  "series": "iip_electricity_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "September 2026"
+ },
+ "iip_electricity_index:yoy.prev": {
+  "series": "iip_electricity_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "12.3%"
+ },
+ "iip_electricity_index:yoy.prev_period": {
+  "series": "iip_electricity_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "August 2026"
+ },
+ "iip_electricity_index:yoy.change": {
+  "series": "iip_electricity_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "1.1 percentage points"
+ },
+ "iip_electricity_index:yoy.direction": {
+  "series": "iip_electricity_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "fell"
+ },
+ "iip_electricity_index:yoy.direction_noun": {
+  "series": "iip_electricity_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "a decrease"
+ },
+ "iip_electricity_index:yoy.change_phrase": {
+  "series": "iip_electricity_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "down 1.1 percentage points"
+ },
+ "iip_electricity_index:yoy.bp_phrase": {
+  "series": "iip_electricity_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "down 109 basis points"
+ },
+ "iip_electricity_index:yoy.year_ago": {
+  "series": "iip_electricity_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "3.3%"
+ },
+ "iip_electricity_index:yoy.year_ago_period": {
+  "series": "iip_electricity_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "September 2025"
+ },
+ "iip_electricity_index:yoy.change_yoy": {
+  "series": "iip_electricity_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "7.9 percentage points"
+ },
+ "iip_electricity_index:yoy.direction_yoy": {
+  "series": "iip_electricity_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "rose"
+ },
+ "iip_electricity_index:yoy.change_phrase_yoy": {
+  "series": "iip_electricity_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "up 7.9 percentage points"
+ },
+ "iip_capital_goods_index:yoy.latest": {
+  "series": "iip_capital_goods_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "10.4%"
+ },
+ "iip_capital_goods_index:yoy.latest_period": {
+  "series": "iip_capital_goods_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "September 2026"
+ },
+ "iip_capital_goods_index:yoy.prev": {
+  "series": "iip_capital_goods_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "15.9%"
+ },
+ "iip_capital_goods_index:yoy.prev_period": {
+  "series": "iip_capital_goods_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "August 2026"
+ },
+ "iip_capital_goods_index:yoy.change": {
+  "series": "iip_capital_goods_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "5.5 percentage points"
+ },
+ "iip_capital_goods_index:yoy.direction": {
+  "series": "iip_capital_goods_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "fell"
+ },
+ "iip_capital_goods_index:yoy.direction_noun": {
+  "series": "iip_capital_goods_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "a decrease"
+ },
+ "iip_capital_goods_index:yoy.change_phrase": {
+  "series": "iip_capital_goods_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "down 5.5 percentage points"
+ },
+ "iip_capital_goods_index:yoy.bp_phrase": {
+  "series": "iip_capital_goods_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "down 550 basis points"
+ },
+ "iip_capital_goods_index:yoy.year_ago": {
+  "series": "iip_capital_goods_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "13.2%"
+ },
+ "iip_capital_goods_index:yoy.year_ago_period": {
+  "series": "iip_capital_goods_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "September 2025"
+ },
+ "iip_capital_goods_index:yoy.change_yoy": {
+  "series": "iip_capital_goods_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "2.8 percentage points"
+ },
+ "iip_capital_goods_index:yoy.direction_yoy": {
+  "series": "iip_capital_goods_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "fell"
+ },
+ "iip_capital_goods_index:yoy.change_phrase_yoy": {
+  "series": "iip_capital_goods_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "down 2.8 percentage points"
+ },
+ "iip_consumer_durables_index:yoy.latest": {
+  "series": "iip_consumer_durables_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "6.0%"
+ },
+ "iip_consumer_durables_index:yoy.latest_period": {
+  "series": "iip_consumer_durables_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "September 2026"
+ },
+ "iip_consumer_durables_index:yoy.prev": {
+  "series": "iip_consumer_durables_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "10.5%"
+ },
+ "iip_consumer_durables_index:yoy.prev_period": {
+  "series": "iip_consumer_durables_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "August 2026"
+ },
+ "iip_consumer_durables_index:yoy.change": {
+  "series": "iip_consumer_durables_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "4.5 percentage points"
+ },
+ "iip_consumer_durables_index:yoy.direction": {
+  "series": "iip_consumer_durables_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "fell"
+ },
+ "iip_consumer_durables_index:yoy.direction_noun": {
+  "series": "iip_consumer_durables_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "a decrease"
+ },
+ "iip_consumer_durables_index:yoy.change_phrase": {
+  "series": "iip_consumer_durables_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "down 4.5 percentage points"
+ },
+ "iip_consumer_durables_index:yoy.bp_phrase": {
+  "series": "iip_consumer_durables_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "down 450 basis points"
+ },
+ "iip_consumer_durables_index:yoy.year_ago": {
+  "series": "iip_consumer_durables_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "4.6%"
+ },
+ "iip_consumer_durables_index:yoy.year_ago_period": {
+  "series": "iip_consumer_durables_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "September 2025"
+ },
+ "iip_consumer_durables_index:yoy.change_yoy": {
+  "series": "iip_consumer_durables_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "1.4 percentage points"
+ },
+ "iip_consumer_durables_index:yoy.direction_yoy": {
+  "series": "iip_consumer_durables_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "rose"
+ },
+ "iip_consumer_durables_index:yoy.change_phrase_yoy": {
+  "series": "iip_consumer_durables_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=iip",
+  "text": "up 1.4 percentage points"
+ },
+ "core_overall_index:yoy.latest": {
+  "series": "core_overall_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://eaindustry.nic.in/ici_download_data.asp",
+  "text": "7.9%"
+ },
+ "core_overall_index:yoy.latest_period": {
+  "series": "core_overall_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://eaindustry.nic.in/ici_download_data.asp",
+  "text": "September 2026"
+ },
+ "core_overall_index:yoy.prev": {
+  "series": "core_overall_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://eaindustry.nic.in/ici_download_data.asp",
+  "text": "5.9%"
+ },
+ "core_overall_index:yoy.prev_period": {
+  "series": "core_overall_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://eaindustry.nic.in/ici_download_data.asp",
+  "text": "August 2026"
+ },
+ "core_overall_index:yoy.change": {
+  "series": "core_overall_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://eaindustry.nic.in/ici_download_data.asp",
+  "text": "2.0 percentage points"
+ },
+ "core_overall_index:yoy.direction": {
+  "series": "core_overall_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://eaindustry.nic.in/ici_download_data.asp",
+  "text": "rose"
+ },
+ "core_overall_index:yoy.direction_noun": {
+  "series": "core_overall_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://eaindustry.nic.in/ici_download_data.asp",
+  "text": "an increase"
+ },
+ "core_overall_index:yoy.change_phrase": {
+  "series": "core_overall_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://eaindustry.nic.in/ici_download_data.asp",
+  "text": "up 2.0 percentage points"
+ },
+ "core_overall_index:yoy.bp_phrase": {
+  "series": "core_overall_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://eaindustry.nic.in/ici_download_data.asp",
+  "text": "up 205 basis points"
+ },
+ "core_overall_index:yoy.year_ago": {
+  "series": "core_overall_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://eaindustry.nic.in/ici_download_data.asp",
+  "text": "3.1%"
+ },
+ "core_overall_index:yoy.year_ago_period": {
+  "series": "core_overall_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://eaindustry.nic.in/ici_download_data.asp",
+  "text": "September 2025"
+ },
+ "core_overall_index:yoy.change_yoy": {
+  "series": "core_overall_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://eaindustry.nic.in/ici_download_data.asp",
+  "text": "4.8 percentage points"
+ },
+ "core_overall_index:yoy.direction_yoy": {
+  "series": "core_overall_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://eaindustry.nic.in/ici_download_data.asp",
+  "text": "rose"
+ },
+ "core_overall_index:yoy.change_phrase_yoy": {
+  "series": "core_overall_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://eaindustry.nic.in/ici_download_data.asp",
+  "text": "up 4.8 percentage points"
+ },
+ "const.rbi_inflation_target": {
+  "constant": "rbi_inflation_target",
+  "source": "RBI Act s.45ZA; flexible inflation target notified by the Government of India (CPI, 4% +/- 2%)",
+  "text": "4%"
+ },
+ "const.rbi_tolerance_band": {
+  "constant": "rbi_tolerance_band",
+  "source": "RBI Act s.45ZA; flexible inflation target notified by the Government of India (CPI, 4% +/- 2%)",
+  "text": "2–6%"
+ }
+}
