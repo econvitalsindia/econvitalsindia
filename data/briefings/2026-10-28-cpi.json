@@ -1,0 +1,453 @@
+{
+ "cpi_headline_inflation.latest": {
+  "series": "cpi_headline_inflation",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=cpi",
+  "text": "5.54%"
+ },
+ "cpi_headline_inflation.latest_period": {
+  "series": "cpi_headline_inflation",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=cpi",
+  "text": "September 2026"
+ },
+ "cpi_headline_inflation.prev": {
+  "series": "cpi_headline_inflation",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=cpi",
+  "text": "4.83%"
+ },
+ "cpi_headline_inflation.prev_period": {
+  "series": "cpi_headline_inflation",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=cpi",
+  "text": "August 2026"
+ },
+ "cpi_headline_inflation.change": {
+  "series": "cpi_headline_inflation",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=cpi",
+  "text": "0.71 percentage points"
+ },
+ "cpi_headline_inflation.direction": {
+  "series": "cpi_headline_inflation",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=cpi",
+  "text": "rose"
+ },
+ "cpi_headline_inflation.direction_noun": {
+  "series": "cpi_headline_inflation",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=cpi",
+  "text": "an increase"
+ },
+ "cpi_headline_inflation.change_phrase": {
+  "series": "cpi_headline_inflation",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=cpi",
+  "text": "up 0.71 percentage points"
+ },
+ "cpi_headline_inflation.year_ago": {
+  "series": "cpi_headline_inflation",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=cpi",
+  "text": "1.44%"
+ },
+ "cpi_headline_inflation.year_ago_period": {
+  "series": "cpi_headline_inflation",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=cpi",
+  "text": "September 2025"
+ },
+ "cpi_headline_inflation.change_yoy": {
+  "series": "cpi_headline_inflation",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=cpi",
+  "text": "4.10 percentage points"
+ },
+ "cpi_headline_inflation.direction_yoy": {
+  "series": "cpi_headline_inflation",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=cpi",
+  "text": "rose"
+ },
+ "cpi_headline_inflation.change_phrase_yoy": {
+  "series": "cpi_headline_inflation",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=cpi",
+  "text": "up 4.10 percentage points"
+ },
+ "cpi_core_index:yoy.latest": {
+  "series": "cpi_core_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://www.rbi.org.in/scripts/BS_ViewBulletin.aspx?Id=24400",
+  "text": "4.33%"
+ },
+ "cpi_core_index:yoy.latest_period": {
+  "series": "cpi_core_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://www.rbi.org.in/scripts/BS_ViewBulletin.aspx?Id=24400",
+  "text": "September 2026"
+ },
+ "cpi_core_index:yoy.prev": {
+  "series": "cpi_core_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://www.rbi.org.in/scripts/BS_ViewBulletin.aspx?Id=24400",
+  "text": "4.15%"
+ },
+ "cpi_core_index:yoy.prev_period": {
+  "series": "cpi_core_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://www.rbi.org.in/scripts/BS_ViewBulletin.aspx?Id=24400",
+  "text": "August 2026"
+ },
+ "cpi_core_index:yoy.change": {
+  "series": "cpi_core_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://www.rbi.org.in/scripts/BS_ViewBulletin.aspx?Id=24400",
+  "text": "0.18 percentage points"
+ },
+ "cpi_core_index:yoy.direction": {
+  "series": "cpi_core_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://www.rbi.org.in/scripts/BS_ViewBulletin.aspx?Id=24400",
+  "text": "rose"
+ },
+ "cpi_core_index:yoy.direction_noun": {
+  "series": "cpi_core_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://www.rbi.org.in/scripts/BS_ViewBulletin.aspx?Id=24400",
+  "text": "an increase"
+ },
+ "cpi_core_index:yoy.change_phrase": {
+  "series": "cpi_core_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://www.rbi.org.in/scripts/BS_ViewBulletin.aspx?Id=24400",
+  "text": "up 0.18 percentage points"
+ },
+ "cpi_food_bev_index:yoy.latest": {
+  "series": "cpi_food_bev_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=cpi",
+  "text": "7.36%"
+ },
+ "cpi_food_bev_index:yoy.latest_period": {
+  "series": "cpi_food_bev_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=cpi",
+  "text": "September 2026"
+ },
+ "cpi_food_bev_index:yoy.prev": {
+  "series": "cpi_food_bev_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=cpi",
+  "text": "5.68%"
+ },
+ "cpi_food_bev_index:yoy.prev_period": {
+  "series": "cpi_food_bev_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=cpi",
+  "text": "August 2026"
+ },
+ "cpi_food_bev_index:yoy.change": {
+  "series": "cpi_food_bev_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=cpi",
+  "text": "1.68 percentage points"
+ },
+ "cpi_food_bev_index:yoy.direction": {
+  "series": "cpi_food_bev_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=cpi",
+  "text": "rose"
+ },
+ "cpi_food_bev_index:yoy.direction_noun": {
+  "series": "cpi_food_bev_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=cpi",
+  "text": "an increase"
+ },
+ "cpi_food_bev_index:yoy.change_phrase": {
+  "series": "cpi_food_bev_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=cpi",
+  "text": "up 1.68 percentage points"
+ },
+ "cpi_fuel_index:yoy.latest": {
+  "series": "cpi_fuel_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://www.rbi.org.in/scripts/BS_ViewBulletin.aspx?Id=24400",
+  "text": "5.29%"
+ },
+ "cpi_fuel_index:yoy.latest_period": {
+  "series": "cpi_fuel_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://www.rbi.org.in/scripts/BS_ViewBulletin.aspx?Id=24400",
+  "text": "September 2026"
+ },
+ "cpi_fuel_index:yoy.prev": {
+  "series": "cpi_fuel_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://www.rbi.org.in/scripts/BS_ViewBulletin.aspx?Id=24400",
+  "text": "5.21%"
+ },
+ "cpi_fuel_index:yoy.prev_period": {
+  "series": "cpi_fuel_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://www.rbi.org.in/scripts/BS_ViewBulletin.aspx?Id=24400",
+  "text": "August 2026"
+ },
+ "cpi_fuel_index:yoy.change": {
+  "series": "cpi_fuel_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://www.rbi.org.in/scripts/BS_ViewBulletin.aspx?Id=24400",
+  "text": "0.08 percentage points"
+ },
+ "cpi_fuel_index:yoy.direction": {
+  "series": "cpi_fuel_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://www.rbi.org.in/scripts/BS_ViewBulletin.aspx?Id=24400",
+  "text": "rose"
+ },
+ "cpi_fuel_index:yoy.direction_noun": {
+  "series": "cpi_fuel_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://www.rbi.org.in/scripts/BS_ViewBulletin.aspx?Id=24400",
+  "text": "an increase"
+ },
+ "cpi_fuel_index:yoy.change_phrase": {
+  "series": "cpi_fuel_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://www.rbi.org.in/scripts/BS_ViewBulletin.aspx?Id=24400",
+  "text": "up 0.08 percentage points"
+ },
+ "cpi_rural_index:yoy.latest": {
+  "series": "cpi_rural_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=cpi",
+  "text": "6.08%"
+ },
+ "cpi_rural_index:yoy.latest_period": {
+  "series": "cpi_rural_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=cpi",
+  "text": "September 2026"
+ },
+ "cpi_rural_index:yoy.prev": {
+  "series": "cpi_rural_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=cpi",
+  "text": "5.24%"
+ },
+ "cpi_rural_index:yoy.prev_period": {
+  "series": "cpi_rural_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=cpi",
+  "text": "August 2026"
+ },
+ "cpi_rural_index:yoy.change": {
+  "series": "cpi_rural_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=cpi",
+  "text": "0.84 percentage points"
+ },
+ "cpi_rural_index:yoy.direction": {
+  "series": "cpi_rural_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=cpi",
+  "text": "rose"
+ },
+ "cpi_rural_index:yoy.direction_noun": {
+  "series": "cpi_rural_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=cpi",
+  "text": "an increase"
+ },
+ "cpi_rural_index:yoy.change_phrase": {
+  "series": "cpi_rural_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=cpi",
+  "text": "up 0.84 percentage points"
+ },
+ "cpi_rural_index:yoy.year_ago": {
+  "series": "cpi_rural_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=cpi",
+  "text": "1.07%"
+ },
+ "cpi_rural_index:yoy.year_ago_period": {
+  "series": "cpi_rural_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=cpi",
+  "text": "September 2025"
+ },
+ "cpi_rural_index:yoy.change_yoy": {
+  "series": "cpi_rural_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=cpi",
+  "text": "5.01 percentage points"
+ },
+ "cpi_rural_index:yoy.direction_yoy": {
+  "series": "cpi_rural_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=cpi",
+  "text": "rose"
+ },
+ "cpi_rural_index:yoy.change_phrase_yoy": {
+  "series": "cpi_rural_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=cpi",
+  "text": "up 5.01 percentage points"
+ },
+ "cpi_urban_index:yoy.latest": {
+  "series": "cpi_urban_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=cpi",
+  "text": "4.87%"
+ },
+ "cpi_urban_index:yoy.latest_period": {
+  "series": "cpi_urban_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=cpi",
+  "text": "September 2026"
+ },
+ "cpi_urban_index:yoy.prev": {
+  "series": "cpi_urban_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=cpi",
+  "text": "4.31%"
+ },
+ "cpi_urban_index:yoy.prev_period": {
+  "series": "cpi_urban_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=cpi",
+  "text": "August 2026"
+ },
+ "cpi_urban_index:yoy.change": {
+  "series": "cpi_urban_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=cpi",
+  "text": "0.56 percentage points"
+ },
+ "cpi_urban_index:yoy.direction": {
+  "series": "cpi_urban_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=cpi",
+  "text": "rose"
+ },
+ "cpi_urban_index:yoy.direction_noun": {
+  "series": "cpi_urban_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=cpi",
+  "text": "an increase"
+ },
+ "cpi_urban_index:yoy.change_phrase": {
+  "series": "cpi_urban_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=cpi",
+  "text": "up 0.56 percentage points"
+ },
+ "cpi_urban_index:yoy.year_ago": {
+  "series": "cpi_urban_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=cpi",
+  "text": "1.83%"
+ },
+ "cpi_urban_index:yoy.year_ago_period": {
+  "series": "cpi_urban_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=cpi",
+  "text": "September 2025"
+ },
+ "cpi_urban_index:yoy.change_yoy": {
+  "series": "cpi_urban_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=cpi",
+  "text": "3.04 percentage points"
+ },
+ "cpi_urban_index:yoy.direction_yoy": {
+  "series": "cpi_urban_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=cpi",
+  "text": "rose"
+ },
+ "cpi_urban_index:yoy.change_phrase_yoy": {
+  "series": "cpi_urban_index",
+  "transform": "yoy",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=cpi",
+  "text": "up 3.04 percentage points"
+ },
+ "const.rbi_inflation_target": {
+  "constant": "rbi_inflation_target",
+  "source": "RBI Act s.45ZA; flexible inflation target notified by the Government of India (CPI, 4% +/- 2%)",
+  "text": "4%"
+ },
+ "const.rbi_tolerance_band": {
+  "constant": "rbi_tolerance_band",
+  "source": "RBI Act s.45ZA; flexible inflation target notified by the Government of India (CPI, 4% +/- 2%)",
+  "text": "2–6%"
+ }
+}

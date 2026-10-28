@@ -1,0 +1,558 @@
+{
+ "plfs_ur_monthly.latest": {
+  "series": "plfs_ur_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "5.0%"
+ },
+ "plfs_ur_monthly.latest_period": {
+  "series": "plfs_ur_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "September 2026"
+ },
+ "plfs_ur_monthly.prev": {
+  "series": "plfs_ur_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "5.0%"
+ },
+ "plfs_ur_monthly.prev_period": {
+  "series": "plfs_ur_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "August 2026"
+ },
+ "plfs_ur_monthly.change": {
+  "series": "plfs_ur_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "0.0 percentage points"
+ },
+ "plfs_ur_monthly.direction": {
+  "series": "plfs_ur_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "was unchanged"
+ },
+ "plfs_ur_monthly.direction_noun": {
+  "series": "plfs_ur_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "no change"
+ },
+ "plfs_ur_monthly.change_phrase": {
+  "series": "plfs_ur_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "unchanged"
+ },
+ "plfs_ur_monthly.year_ago": {
+  "series": "plfs_ur_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "5.2%"
+ },
+ "plfs_ur_monthly.year_ago_period": {
+  "series": "plfs_ur_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "September 2025"
+ },
+ "plfs_ur_monthly.change_yoy": {
+  "series": "plfs_ur_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "0.2 percentage points"
+ },
+ "plfs_ur_monthly.direction_yoy": {
+  "series": "plfs_ur_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "fell"
+ },
+ "plfs_ur_monthly.change_phrase_yoy": {
+  "series": "plfs_ur_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "down 0.2 percentage points"
+ },
+ "plfs_ur_rural_monthly.latest": {
+  "series": "plfs_ur_rural_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "4.2%"
+ },
+ "plfs_ur_rural_monthly.latest_period": {
+  "series": "plfs_ur_rural_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "September 2026"
+ },
+ "plfs_ur_rural_monthly.prev": {
+  "series": "plfs_ur_rural_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "4.1%"
+ },
+ "plfs_ur_rural_monthly.prev_period": {
+  "series": "plfs_ur_rural_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "August 2026"
+ },
+ "plfs_ur_rural_monthly.change": {
+  "series": "plfs_ur_rural_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "0.1 percentage points"
+ },
+ "plfs_ur_rural_monthly.direction": {
+  "series": "plfs_ur_rural_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "rose"
+ },
+ "plfs_ur_rural_monthly.direction_noun": {
+  "series": "plfs_ur_rural_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "an increase"
+ },
+ "plfs_ur_rural_monthly.change_phrase": {
+  "series": "plfs_ur_rural_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "up 0.1 percentage points"
+ },
+ "plfs_ur_rural_monthly.year_ago": {
+  "series": "plfs_ur_rural_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "4.6%"
+ },
+ "plfs_ur_rural_monthly.year_ago_period": {
+  "series": "plfs_ur_rural_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "September 2025"
+ },
+ "plfs_ur_rural_monthly.change_yoy": {
+  "series": "plfs_ur_rural_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "0.4 percentage points"
+ },
+ "plfs_ur_rural_monthly.direction_yoy": {
+  "series": "plfs_ur_rural_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "fell"
+ },
+ "plfs_ur_rural_monthly.change_phrase_yoy": {
+  "series": "plfs_ur_rural_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "down 0.4 percentage points"
+ },
+ "plfs_ur_urban_monthly.latest": {
+  "series": "plfs_ur_urban_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "6.9%"
+ },
+ "plfs_ur_urban_monthly.latest_period": {
+  "series": "plfs_ur_urban_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "September 2026"
+ },
+ "plfs_ur_urban_monthly.prev": {
+  "series": "plfs_ur_urban_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "6.8%"
+ },
+ "plfs_ur_urban_monthly.prev_period": {
+  "series": "plfs_ur_urban_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "August 2026"
+ },
+ "plfs_ur_urban_monthly.change": {
+  "series": "plfs_ur_urban_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "0.1 percentage points"
+ },
+ "plfs_ur_urban_monthly.direction": {
+  "series": "plfs_ur_urban_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "rose"
+ },
+ "plfs_ur_urban_monthly.direction_noun": {
+  "series": "plfs_ur_urban_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "an increase"
+ },
+ "plfs_ur_urban_monthly.change_phrase": {
+  "series": "plfs_ur_urban_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "up 0.1 percentage points"
+ },
+ "plfs_ur_urban_monthly.year_ago": {
+  "series": "plfs_ur_urban_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "6.8%"
+ },
+ "plfs_ur_urban_monthly.year_ago_period": {
+  "series": "plfs_ur_urban_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "September 2025"
+ },
+ "plfs_ur_urban_monthly.change_yoy": {
+  "series": "plfs_ur_urban_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "0.1 percentage points"
+ },
+ "plfs_ur_urban_monthly.direction_yoy": {
+  "series": "plfs_ur_urban_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "rose"
+ },
+ "plfs_ur_urban_monthly.change_phrase_yoy": {
+  "series": "plfs_ur_urban_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "up 0.1 percentage points"
+ },
+ "plfs_ur_youth_monthly.latest": {
+  "series": "plfs_ur_youth_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "15.2%"
+ },
+ "plfs_ur_youth_monthly.latest_period": {
+  "series": "plfs_ur_youth_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "September 2026"
+ },
+ "plfs_ur_youth_monthly.prev": {
+  "series": "plfs_ur_youth_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "15.1%"
+ },
+ "plfs_ur_youth_monthly.prev_period": {
+  "series": "plfs_ur_youth_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "August 2026"
+ },
+ "plfs_ur_youth_monthly.change": {
+  "series": "plfs_ur_youth_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "0.1 percentage points"
+ },
+ "plfs_ur_youth_monthly.direction": {
+  "series": "plfs_ur_youth_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "rose"
+ },
+ "plfs_ur_youth_monthly.direction_noun": {
+  "series": "plfs_ur_youth_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "an increase"
+ },
+ "plfs_ur_youth_monthly.change_phrase": {
+  "series": "plfs_ur_youth_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "up 0.1 percentage points"
+ },
+ "plfs_ur_youth_monthly.year_ago": {
+  "series": "plfs_ur_youth_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "15.0%"
+ },
+ "plfs_ur_youth_monthly.year_ago_period": {
+  "series": "plfs_ur_youth_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "September 2025"
+ },
+ "plfs_ur_youth_monthly.change_yoy": {
+  "series": "plfs_ur_youth_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "0.2 percentage points"
+ },
+ "plfs_ur_youth_monthly.direction_yoy": {
+  "series": "plfs_ur_youth_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "rose"
+ },
+ "plfs_ur_youth_monthly.change_phrase_yoy": {
+  "series": "plfs_ur_youth_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "up 0.2 percentage points"
+ },
+ "plfs_lfpr_monthly.latest": {
+  "series": "plfs_lfpr_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "55.5%"
+ },
+ "plfs_lfpr_monthly.latest_period": {
+  "series": "plfs_lfpr_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "September 2026"
+ },
+ "plfs_lfpr_monthly.prev": {
+  "series": "plfs_lfpr_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "55.6%"
+ },
+ "plfs_lfpr_monthly.prev_period": {
+  "series": "plfs_lfpr_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "August 2026"
+ },
+ "plfs_lfpr_monthly.change": {
+  "series": "plfs_lfpr_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "0.1 percentage points"
+ },
+ "plfs_lfpr_monthly.direction": {
+  "series": "plfs_lfpr_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "fell"
+ },
+ "plfs_lfpr_monthly.direction_noun": {
+  "series": "plfs_lfpr_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "a decrease"
+ },
+ "plfs_lfpr_monthly.change_phrase": {
+  "series": "plfs_lfpr_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "down 0.1 percentage points"
+ },
+ "plfs_lfpr_monthly.year_ago": {
+  "series": "plfs_lfpr_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "55.3%"
+ },
+ "plfs_lfpr_monthly.year_ago_period": {
+  "series": "plfs_lfpr_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "September 2025"
+ },
+ "plfs_lfpr_monthly.change_yoy": {
+  "series": "plfs_lfpr_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "0.2 percentage points"
+ },
+ "plfs_lfpr_monthly.direction_yoy": {
+  "series": "plfs_lfpr_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "rose"
+ },
+ "plfs_lfpr_monthly.change_phrase_yoy": {
+  "series": "plfs_lfpr_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "up 0.2 percentage points"
+ },
+ "plfs_lfpr_female_monthly.latest": {
+  "series": "plfs_lfpr_female_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "34.6%"
+ },
+ "plfs_lfpr_female_monthly.latest_period": {
+  "series": "plfs_lfpr_female_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "September 2026"
+ },
+ "plfs_lfpr_female_monthly.prev": {
+  "series": "plfs_lfpr_female_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "34.8%"
+ },
+ "plfs_lfpr_female_monthly.prev_period": {
+  "series": "plfs_lfpr_female_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "August 2026"
+ },
+ "plfs_lfpr_female_monthly.change": {
+  "series": "plfs_lfpr_female_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "0.2 percentage points"
+ },
+ "plfs_lfpr_female_monthly.direction": {
+  "series": "plfs_lfpr_female_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "fell"
+ },
+ "plfs_lfpr_female_monthly.direction_noun": {
+  "series": "plfs_lfpr_female_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "a decrease"
+ },
+ "plfs_lfpr_female_monthly.change_phrase": {
+  "series": "plfs_lfpr_female_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "down 0.2 percentage points"
+ },
+ "plfs_lfpr_female_monthly.year_ago": {
+  "series": "plfs_lfpr_female_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "34.1%"
+ },
+ "plfs_lfpr_female_monthly.year_ago_period": {
+  "series": "plfs_lfpr_female_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "September 2025"
+ },
+ "plfs_lfpr_female_monthly.change_yoy": {
+  "series": "plfs_lfpr_female_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "0.5 percentage points"
+ },
+ "plfs_lfpr_female_monthly.direction_yoy": {
+  "series": "plfs_lfpr_female_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "rose"
+ },
+ "plfs_lfpr_female_monthly.change_phrase_yoy": {
+  "series": "plfs_lfpr_female_monthly",
+  "transform": "level",
+  "period": "2026-09-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=plfs",
+  "text": "up 0.5 percentage points"
+ },
+ "const.rbi_inflation_target": {
+  "constant": "rbi_inflation_target",
+  "source": "RBI Act s.45ZA; flexible inflation target notified by the Government of India (CPI, 4% +/- 2%)",
+  "text": "4%"
+ },
+ "const.rbi_tolerance_band": {
+  "constant": "rbi_tolerance_band",
+  "source": "RBI Act s.45ZA; flexible inflation target notified by the Government of India (CPI, 4% +/- 2%)",
+  "text": "2–6%"
+ }
+}

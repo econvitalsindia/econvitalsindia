@@ -1,0 +1,649 @@
+{
+ "gdp_real_growth.latest": {
+  "series": "gdp_real_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "7.8%"
+ },
+ "gdp_real_growth.latest_period": {
+  "series": "gdp_real_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "Q1 FY27"
+ },
+ "gdp_real_growth.prev": {
+  "series": "gdp_real_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "8.6%"
+ },
+ "gdp_real_growth.prev_period": {
+  "series": "gdp_real_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "Q4 FY26"
+ },
+ "gdp_real_growth.change": {
+  "series": "gdp_real_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "0.8 percentage points"
+ },
+ "gdp_real_growth.direction": {
+  "series": "gdp_real_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "fell"
+ },
+ "gdp_real_growth.direction_noun": {
+  "series": "gdp_real_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "a decrease"
+ },
+ "gdp_real_growth.change_phrase": {
+  "series": "gdp_real_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "down 0.8 percentage points"
+ },
+ "gdp_real_growth.year_ago": {
+  "series": "gdp_real_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "6.9%"
+ },
+ "gdp_real_growth.year_ago_period": {
+  "series": "gdp_real_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "Q1 FY26"
+ },
+ "gdp_real_growth.change_yoy": {
+  "series": "gdp_real_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "0.9 percentage points"
+ },
+ "gdp_real_growth.direction_yoy": {
+  "series": "gdp_real_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "rose"
+ },
+ "gdp_real_growth.change_phrase_yoy": {
+  "series": "gdp_real_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "up 0.9 percentage points"
+ },
+ "gva_real_growth.latest": {
+  "series": "gva_real_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "8.2%"
+ },
+ "gva_real_growth.latest_period": {
+  "series": "gva_real_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "Q1 FY27"
+ },
+ "gva_real_growth.prev": {
+  "series": "gva_real_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "8.7%"
+ },
+ "gva_real_growth.prev_period": {
+  "series": "gva_real_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "Q4 FY26"
+ },
+ "gva_real_growth.change": {
+  "series": "gva_real_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "0.5 percentage points"
+ },
+ "gva_real_growth.direction": {
+  "series": "gva_real_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "fell"
+ },
+ "gva_real_growth.direction_noun": {
+  "series": "gva_real_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "a decrease"
+ },
+ "gva_real_growth.change_phrase": {
+  "series": "gva_real_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "down 0.5 percentage points"
+ },
+ "gva_real_growth.year_ago": {
+  "series": "gva_real_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "7.0%"
+ },
+ "gva_real_growth.year_ago_period": {
+  "series": "gva_real_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "Q1 FY26"
+ },
+ "gva_real_growth.change_yoy": {
+  "series": "gva_real_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "1.2 percentage points"
+ },
+ "gva_real_growth.direction_yoy": {
+  "series": "gva_real_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "rose"
+ },
+ "gva_real_growth.change_phrase_yoy": {
+  "series": "gva_real_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "up 1.2 percentage points"
+ },
+ "gdp_nominal_growth.latest": {
+  "series": "gdp_nominal_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "10.3%"
+ },
+ "gdp_nominal_growth.latest_period": {
+  "series": "gdp_nominal_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "Q1 FY27"
+ },
+ "gdp_nominal_growth.prev": {
+  "series": "gdp_nominal_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "9.2%"
+ },
+ "gdp_nominal_growth.prev_period": {
+  "series": "gdp_nominal_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "Q4 FY26"
+ },
+ "gdp_nominal_growth.change": {
+  "series": "gdp_nominal_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "1.1 percentage points"
+ },
+ "gdp_nominal_growth.direction": {
+  "series": "gdp_nominal_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "rose"
+ },
+ "gdp_nominal_growth.direction_noun": {
+  "series": "gdp_nominal_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "an increase"
+ },
+ "gdp_nominal_growth.change_phrase": {
+  "series": "gdp_nominal_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "up 1.1 percentage points"
+ },
+ "gdp_nominal_growth.year_ago": {
+  "series": "gdp_nominal_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "8.1%"
+ },
+ "gdp_nominal_growth.year_ago_period": {
+  "series": "gdp_nominal_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "Q1 FY26"
+ },
+ "gdp_nominal_growth.change_yoy": {
+  "series": "gdp_nominal_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "2.2 percentage points"
+ },
+ "gdp_nominal_growth.direction_yoy": {
+  "series": "gdp_nominal_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "rose"
+ },
+ "gdp_nominal_growth.change_phrase_yoy": {
+  "series": "gdp_nominal_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "up 2.2 percentage points"
+ },
+ "pfce_real_level:yoy.latest": {
+  "series": "pfce_real_level",
+  "transform": "yoy",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "7.1%"
+ },
+ "pfce_real_level:yoy.latest_period": {
+  "series": "pfce_real_level",
+  "transform": "yoy",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "Q1 FY27"
+ },
+ "pfce_real_level:yoy.prev": {
+  "series": "pfce_real_level",
+  "transform": "yoy",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "7.5%"
+ },
+ "pfce_real_level:yoy.prev_period": {
+  "series": "pfce_real_level",
+  "transform": "yoy",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "Q4 FY26"
+ },
+ "pfce_real_level:yoy.change": {
+  "series": "pfce_real_level",
+  "transform": "yoy",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "0.3 percentage points"
+ },
+ "pfce_real_level:yoy.direction": {
+  "series": "pfce_real_level",
+  "transform": "yoy",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "fell"
+ },
+ "pfce_real_level:yoy.direction_noun": {
+  "series": "pfce_real_level",
+  "transform": "yoy",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "a decrease"
+ },
+ "pfce_real_level:yoy.change_phrase": {
+  "series": "pfce_real_level",
+  "transform": "yoy",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "down 0.3 percentage points"
+ },
+ "pfce_real_level:yoy.year_ago": {
+  "series": "pfce_real_level",
+  "transform": "yoy",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "6.8%"
+ },
+ "pfce_real_level:yoy.year_ago_period": {
+  "series": "pfce_real_level",
+  "transform": "yoy",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "Q1 FY26"
+ },
+ "pfce_real_level:yoy.change_yoy": {
+  "series": "pfce_real_level",
+  "transform": "yoy",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "0.4 percentage points"
+ },
+ "pfce_real_level:yoy.direction_yoy": {
+  "series": "pfce_real_level",
+  "transform": "yoy",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "rose"
+ },
+ "pfce_real_level:yoy.change_phrase_yoy": {
+  "series": "pfce_real_level",
+  "transform": "yoy",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "up 0.4 percentage points"
+ },
+ "gfcf_real_level:yoy.latest": {
+  "series": "gfcf_real_level",
+  "transform": "yoy",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "11.9%"
+ },
+ "gfcf_real_level:yoy.latest_period": {
+  "series": "gfcf_real_level",
+  "transform": "yoy",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "Q1 FY27"
+ },
+ "gfcf_real_level:yoy.prev": {
+  "series": "gfcf_real_level",
+  "transform": "yoy",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "10.5%"
+ },
+ "gfcf_real_level:yoy.prev_period": {
+  "series": "gfcf_real_level",
+  "transform": "yoy",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "Q4 FY26"
+ },
+ "gfcf_real_level:yoy.change": {
+  "series": "gfcf_real_level",
+  "transform": "yoy",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "1.4 percentage points"
+ },
+ "gfcf_real_level:yoy.direction": {
+  "series": "gfcf_real_level",
+  "transform": "yoy",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "rose"
+ },
+ "gfcf_real_level:yoy.direction_noun": {
+  "series": "gfcf_real_level",
+  "transform": "yoy",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "an increase"
+ },
+ "gfcf_real_level:yoy.change_phrase": {
+  "series": "gfcf_real_level",
+  "transform": "yoy",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "up 1.4 percentage points"
+ },
+ "gfcf_real_level:yoy.year_ago": {
+  "series": "gfcf_real_level",
+  "transform": "yoy",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "5.8%"
+ },
+ "gfcf_real_level:yoy.year_ago_period": {
+  "series": "gfcf_real_level",
+  "transform": "yoy",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "Q1 FY26"
+ },
+ "gfcf_real_level:yoy.change_yoy": {
+  "series": "gfcf_real_level",
+  "transform": "yoy",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "6.2 percentage points"
+ },
+ "gfcf_real_level:yoy.direction_yoy": {
+  "series": "gfcf_real_level",
+  "transform": "yoy",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "rose"
+ },
+ "gfcf_real_level:yoy.change_phrase_yoy": {
+  "series": "gfcf_real_level",
+  "transform": "yoy",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "up 6.2 percentage points"
+ },
+ "gva_mfg_growth.latest": {
+  "series": "gva_mfg_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "9.2%"
+ },
+ "gva_mfg_growth.latest_period": {
+  "series": "gva_mfg_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "Q1 FY27"
+ },
+ "gva_mfg_growth.prev": {
+  "series": "gva_mfg_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "7.9%"
+ },
+ "gva_mfg_growth.prev_period": {
+  "series": "gva_mfg_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "Q4 FY26"
+ },
+ "gva_mfg_growth.change": {
+  "series": "gva_mfg_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "1.3 percentage points"
+ },
+ "gva_mfg_growth.direction": {
+  "series": "gva_mfg_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "rose"
+ },
+ "gva_mfg_growth.direction_noun": {
+  "series": "gva_mfg_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "an increase"
+ },
+ "gva_mfg_growth.change_phrase": {
+  "series": "gva_mfg_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "up 1.3 percentage points"
+ },
+ "gva_mfg_growth.year_ago": {
+  "series": "gva_mfg_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "8.3%"
+ },
+ "gva_mfg_growth.year_ago_period": {
+  "series": "gva_mfg_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "Q1 FY26"
+ },
+ "gva_mfg_growth.change_yoy": {
+  "series": "gva_mfg_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "0.9 percentage points"
+ },
+ "gva_mfg_growth.direction_yoy": {
+  "series": "gva_mfg_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "rose"
+ },
+ "gva_mfg_growth.change_phrase_yoy": {
+  "series": "gva_mfg_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "up 0.9 percentage points"
+ },
+ "gva_agri_growth.latest": {
+  "series": "gva_agri_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "3.6%"
+ },
+ "gva_agri_growth.latest_period": {
+  "series": "gva_agri_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "Q1 FY27"
+ },
+ "gva_agri_growth.prev": {
+  "series": "gva_agri_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "3.9%"
+ },
+ "gva_agri_growth.prev_period": {
+  "series": "gva_agri_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "Q4 FY26"
+ },
+ "gva_agri_growth.change": {
+  "series": "gva_agri_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "0.3 percentage points"
+ },
+ "gva_agri_growth.direction": {
+  "series": "gva_agri_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "fell"
+ },
+ "gva_agri_growth.direction_noun": {
+  "series": "gva_agri_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "a decrease"
+ },
+ "gva_agri_growth.change_phrase": {
+  "series": "gva_agri_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "down 0.3 percentage points"
+ },
+ "gva_agri_growth.year_ago": {
+  "series": "gva_agri_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "4.4%"
+ },
+ "gva_agri_growth.year_ago_period": {
+  "series": "gva_agri_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "Q1 FY26"
+ },
+ "gva_agri_growth.change_yoy": {
+  "series": "gva_agri_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "0.8 percentage points"
+ },
+ "gva_agri_growth.direction_yoy": {
+  "series": "gva_agri_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "fell"
+ },
+ "gva_agri_growth.change_phrase_yoy": {
+  "series": "gva_agri_growth",
+  "transform": "level",
+  "period": "2026-04-01",
+  "source": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+  "text": "down 0.8 percentage points"
+ },
+ "const.rbi_inflation_target": {
+  "constant": "rbi_inflation_target",
+  "source": "RBI Act s.45ZA; flexible inflation target notified by the Government of India (CPI, 4% +/- 2%)",
+  "text": "4%"
+ },
+ "const.rbi_tolerance_band": {
+  "constant": "rbi_tolerance_band",
+  "source": "RBI Act s.45ZA; flexible inflation target notified by the Government of India (CPI, 4% +/- 2%)",
+  "text": "2–6%"
+ }
+}
