@@ -16,6 +16,8 @@ if (tile.show === "year_ago" && tile.year_ago !== null) {
 <a class="tile" href={tile.href}>
   <div class="k">{tile.title}</div>
   <div class="v">{byFmt(tile.value, tile.fmt)}</div>
-  <div class="p">{period(tile.period, tile.frequency)}</div>
-  {extra && <div class={`c ${cls}`}>{extra}</div>}
+  <div class="foot">
+    <span class="p">{period(tile.period, tile.frequency)}</span>
+    {extra && <span class={`c ${cls}`}>{extra}</span>}
+  </div>
 </a>

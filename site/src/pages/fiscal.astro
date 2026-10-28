@@ -19,7 +19,7 @@ const gst = latest(series("gst_gross_collections"));
       lines={[{ id: "cga_capex_pct_be", label: "This year" }, { id: "cga_capex_pct_be_prev", label: "Same month, previous year" }]} years={2} />
   </div>
 
-  <h2>Union government accounts, year to date</h2>
+  <h2 id="accounts">Union government accounts, year to date</h2>
   <PeriodTable heading="₹ lakh crore, April to the month shown" n={6} digits={2} rows={[
     { id: "cga_total_receipts_fytd" }, { id: "cga_revenue_receipts_fytd", indent: true }, { id: "cga_net_tax_fytd", indent: true },
     { id: "cga_total_expenditure_fytd" }, { id: "cga_revenue_expenditure_fytd", indent: true }, { id: "cga_interest_fytd", indent: true },
@@ -28,14 +28,14 @@ const gst = latest(series("gst_gross_collections"));
   ]} />
   <p class="chart-sub">Cumulative from April, so values reset each financial year. CGA cautions that the deficit in the monthly accounts during the year is not necessarily an indicator of the deficit for the full year.</p>
 
-  <h2>GST collections</h2>
+  <h2 id="gst">GST collections</h2>
   <div class="grid2">
     <LineChart title="GST collections" subtitle="₹ lakh crore per month" lines={[{ id: "gst_gross_collections", label: "Gross" }, { id: "gst_net_collections", label: "Net of refunds" }]} years={3} />
     <LineChart title="GST growth" subtitle="% change on the same month a year earlier (same-definition comparison)" lines={[{ id: "gst_gross_growth", label: "Gross" }, { id: "gst_net_growth", label: "Net" }]} years={3} />
   </div>
   <p class="chart-sub">GST portal statistics workbook; provisional. Gross collections in {period(gst.period, "M")}: ₹{num(gst.value, 2)} lakh crore. Each year's growth compares like with like (later months exclude compensation cess on both sides). January 2025 is missing because that month's sheet in the source workbook is malformed.</p>
 
-  <h2>Tax collections by head</h2>
+  <h2 id="taxes">Tax collections by head</h2>
   <div class="grid2">
     <LineChart title="Direct taxes, year to date" subtitle="Corporate tax plus income tax, % change on the same months a year earlier"
       lines={[{ id: "cga_direct_tax_fytd", how: "yoy", label: "Direct taxes" }, { id: "cga_gross_tax_fytd", how: "yoy", label: "Gross tax revenue" }]} years={4} />

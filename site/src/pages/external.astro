@@ -20,7 +20,7 @@ const fx = latest(series("fx_reserves_total"));
   ]} freq="D" />
   <p class="chart-sub">RBI Weekly Statistical Supplement. Changes in reserves reflect RBI's market operations and valuation changes in currencies and gold, which the weekly data do not separate.</p>
 
-  <h2>Merchandise trade</h2>
+  <h2 id="merchandise">Merchandise trade</h2>
   <div class="grid2">
     <LineChart title="Merchandise exports and imports" subtitle="US$ billion per month" lines={[{ id: "merch_imports", label: "Imports" }, { id: "merch_exports", label: "Exports" }]} years={3} />
     <LineChart title="Merchandise trade balance" subtitle="US$ billion per month" lines={[{ id: "merch_trade_balance", label: "Balance" }]} years={3} />
@@ -32,14 +32,14 @@ const fx = latest(series("fx_reserves_total"));
   ]} />
   <p class="chart-sub">Department of Commerce (monthly SDDS table). The latest month is provisional; the following year's release revises it, and the revised value is used.</p>
 
-  <h2>Services trade</h2>
+  <h2 id="services">Services trade</h2>
   <div class="grid2">
     <LineChart title="Services exports and imports" subtitle="US$ billion per month" lines={[{ id: "services_exports", label: "Exports" }, { id: "services_imports", label: "Imports" }]} years={2} />
     <LineChart title="Services trade growth, as published" subtitle="% change on the same month a year earlier" lines={[{ id: "services_exports_growth", label: "Exports" }, { id: "services_imports_growth", label: "Imports" }]} years={2} />
   </div>
   <p class="chart-sub">RBI's monthly data on trade in services, about 45 days after the month; the latest two months are provisional. India runs a large surplus on services, which offsets much of the merchandise deficit. Shown with attribution; download pending a check of RBI's terms.</p>
 
-  <h2>Balance of payments</h2>
+  <h2 id="bop">Balance of payments</h2>
   <div class="grid2">
     <LineChart title="Current account balance" subtitle="% of GDP, quarterly (negative = deficit)" lines={[{ id: "bop_cab_pct_gdp", label: "Current account" }]} years={4} />
     <LineChart title="Capital flows" subtitle="US$ billion per quarter, net" lines={[{ id: "bop_fdi_net", label: "Foreign direct investment" }, { id: "bop_portfolio_net", label: "Portfolio investment" }]} years={4} />

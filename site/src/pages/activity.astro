@@ -13,7 +13,7 @@ const use = ["primary_goods", "capital_goods", "intermediate_goods", "infra_cons
     lines={[{ id: "iip_general_growth", label: "IIP" }]} years={6} />
   <p class="chart-sub">Base 2022-23 from April 2023, base 2011-12 before; each value is the rate MoSPI published on that base. Recent months are quick estimates and are revised.</p>
 
-  <h2>Industrial production by sector and use</h2>
+  <h2 id="iip-detail">Industrial production by sector and use</h2>
   <PeriodTable heading="IIP, % y/y" n={6} rows={[
     { id: "iip_general_index", how: "yoy", label: "General" },
     ...sect.map((s) => ({ id: `iip_${s}_index`, how: "yoy", indent: true })),
@@ -25,7 +25,7 @@ const use = ["primary_goods", "capital_goods", "intermediate_goods", "infra_cons
     lines={[{ id: "iip_capital_goods_index", how: "yoy", label: "Capital goods" }, { id: "iip_infra_construction_index", how: "yoy", label: "Infrastructure/construction" },
             { id: "iip_consumer_durables_index", how: "yoy", label: "Consumer durables" }, { id: "iip_consumer_nondurables_index", how: "yoy", label: "Consumer non-durables" }]} years={3} />
 
-  <h2>Core industries</h2>
+  <h2 id="core-industries">Core industries</h2>
   <LineChart title="Index of Core Industries" subtitle="% change on a year earlier"
     lines={[{ id: "core_overall_index", how: "yoy", label: "Core industries" }, { id: "iip_general_index", how: "yoy", label: "IIP" }]} years={2} />
   <PeriodTable heading="% y/y" n={6} rows={[
@@ -35,14 +35,14 @@ const use = ["primary_goods", "capital_goods", "intermediate_goods", "infra_cons
   ]} />
   <p class="chart-sub">Office of the Economic Adviser, DPIIT; base 2022-23 (which adds iron ore to the eight traditional industries). Released about a week before IIP, so it is an early read on industry.</p>
 
-  <h2>Electricity demand</h2>
+  <h2 id="electricity">Electricity demand</h2>
   <div class="grid2">
     <LineChart title="Electricity demand met" subtitle="All-India energy met, million units per day, 7-day average" lines={[{ id: "power_energy_met", how: "7dma", label: "Energy met" }]} years={2} />
     <LineChart title="Electricity demand, change on a year earlier" subtitle="7-day average of energy met, % change on a year earlier" lines={[{ id: "power_energy_met", how: "7dma_yoy", label: "% y/y" }]} years={1} />
   </div>
   <p class="chart-sub">Grid-India daily Power Supply Position reports (operational SCADA data; excludes captive and rooftop generation). Daily data are noisy, so even the 7-day average moves sharply when festivals fall in different weeks from one year to the next, or with weather; compare monthly averages for the underlying trend. Shown with attribution; not offered for download until Grid-India's terms are checked.</p>
 
-  <h2>Vehicle sales</h2>
+  <h2 id="vehicles">Vehicle sales</h2>
   <div class="grid2">
     <LineChart title="Vehicle sales" subtitle="Domestic sales by manufacturers, lakh units a month"
       lines={[{ id: "auto_2w_sales", label: "Two-wheelers", scale: 1e5 }, { id: "auto_pv_sales", label: "Passenger vehicles", scale: 1e5 }, { id: "auto_3w_sales", label: "Three-wheelers", scale: 1e5 }]} years={4} />
@@ -51,7 +51,7 @@ const use = ["primary_goods", "capital_goods", "intermediate_goods", "infra_cons
   </div>
   <p class="chart-sub">SIAM monthly press releases: dispatches from manufacturers to dealers (wholesale), not retail registrations. Passenger vehicles start in April 2023, when Tata Motors joins the total; BMW, Mercedes, JLR and Volvo Auto are never included. Growth rates are site calculations from each month as first published, so they can differ from SIAM's own, which use revised figures for the year before. SIAM is an industry body: shown with attribution, not offered for download.</p>
 
-  <h2>Fuel consumption</h2>
+  <h2 id="fuel">Fuel consumption</h2>
   <div class="grid2">
     <LineChart title="Petroleum product consumption" subtitle="% change on a year earlier"
       lines={[{ id: "fuel_consumption_total", how: "yoy", label: "Total" }, { id: "diesel_consumption", how: "yoy", label: "Diesel" }, { id: "petrol_consumption", how: "yoy", label: "Petrol" }]} years={3} />

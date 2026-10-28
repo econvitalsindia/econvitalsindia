@@ -14,14 +14,14 @@ import PeriodTable from "../components/PeriodTable.astro";
       lines={[{ id: "plfs_ur_youth_monthly", label: "Aged 15–29" }, { id: "plfs_ur_female_monthly", label: "Women" }]} years={2} />
   </div>
 
-  <h2>Latest months</h2>
+  <h2 id="latest">Latest months</h2>
   <PeriodTable heading="Per cent" n={6} rows={[
     { id: "plfs_ur_monthly" }, { id: "plfs_ur_rural_monthly", indent: true }, { id: "plfs_ur_urban_monthly", indent: true },
     { id: "plfs_ur_female_monthly", indent: true }, { id: "plfs_ur_youth_monthly", indent: true },
     { id: "plfs_lfpr_monthly" }, { id: "plfs_lfpr_female_monthly", indent: true }, { id: "plfs_wpr_monthly" },
   ]} />
 
-  <h2>Longer run</h2>
+  <h2 id="longer-run">Longer run</h2>
   <div class="grid2">
     <LineChart title="Urban unemployment, quarterly" subtitle="% of the labour force, urban, 15+, current weekly status (quarterly bulletin)"
       lines={[{ id: "plfs_ur_quarterly_urban", label: "Urban unemployment" }]} years={9} />
@@ -34,7 +34,7 @@ import PeriodTable from "../components/PeriodTable.astro";
   ]} />
   <p class="chart-sub">Annual figures use the usual-status concept (activity over the past year) and are not comparable with the monthly current-weekly-status figures above. Columns are agricultural years starting in July.</p>
 
-  <h2>Concepts</h2>
+  <h2 id="concepts">Concepts</h2>
   <p><b>Current weekly status (CWS)</b> classifies a person by what they did in the 7 days before the survey: employed if they worked at least one hour on any day, unemployed if they sought or were available for work but did not work. It responds faster to changes than the annual <b>usual status</b> measure (activity over the past 365 days), and gives a higher unemployment rate, so the two should not be compared directly. <b>LFPR</b> is the share of the population in the labour force; <b>WPR</b> is the share employed.</p>
 
   <h2>Still to come on this page</h2>

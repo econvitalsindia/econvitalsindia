@@ -24,13 +24,13 @@ const other = contrib.rows.filter((r) => r.component.startsWith("Other")).at(-1)
     lines={[{ id: "gdp_real_growth", label: "GDP" }, { id: "gva_real_growth", label: "GVA" }]} years={10} />
   <p class="chart-sub">Base 2022-23 from Q1 FY24 (April–June 2023), base 2011-12 before; each value is the rate MoSPI published on that base. The swings in FY21 and FY22 are the COVID-19 lockdown and rebound.</p>
 
-  <h2>Growth by sector</h2>
+  <h2 id="by-sector">Growth by sector</h2>
   <PeriodTable heading="Real GVA, % y/y" n={5} rows={[
     { id: "gva_real_growth", label: "Total GVA" },
     ...sectors.map((s) => ({ id: `gva_${s}_growth`, indent: true })),
   ]} />
 
-  <h2>Growth by spending component</h2>
+  <h2 id="by-spending">Growth by spending component</h2>
   <PeriodTable heading="Constant prices, % y/y" n={5} rows={[
     { id: "gdp_real_level", how: "yoy", label: "GDP" },
     { id: "pfce_real_level", how: "yoy", indent: true },
@@ -45,11 +45,11 @@ const other = contrib.rows.filter((r) => r.component.startsWith("Other")).at(-1)
     rows={contrib.rows} total={contrib.total} interval="3 months" source="MoSPI national accounts (base 2022-23); site calculations." />
   <p class="chart-sub">Contribution = change in the component over four quarters ÷ GDP four quarters earlier; imports subtract from GDP. "Other" is what the spending components do not explain: change in stocks, valuables and the statistical discrepancy. It was {num(other.pp, 1)} percentage points in {period(other.period, "Q")}, which is large: read growth by component with that in mind.</p>
 
-  <h2>Nominal and real</h2>
+  <h2 id="nominal-real">Nominal and real</h2>
   <LineChart title="Nominal and real GDP growth" subtitle="% change on a year earlier, as published; the gap is GDP deflator inflation"
     lines={[{ id: "gdp_nominal_growth", label: "Nominal" }, { id: "gdp_real_growth", label: "Real" }]} years={10} />
 
-  <h2>Forecasts and sentiment</h2>
+  <h2 id="forecasts">Forecasts and sentiment</h2>
   <div class="grid2">
     <LineChart title="Professional forecasters: growth and inflation" subtitle="Median forecast for the current financial year at each survey round, %; the year forecast changes each April"
       lines={[{ id: "spf_gdp_cur_fy", label: "Real GDP growth" }, { id: "spf_cpi_cur_fy", label: "CPI inflation" }]} years={2} />

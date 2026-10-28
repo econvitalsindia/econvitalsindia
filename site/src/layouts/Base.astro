@@ -4,11 +4,13 @@ import { config } from "../lib/config.js";
 import { site } from "../lib/data.js";
 import { t } from "../lib/i18n.js";
 import { period } from "../lib/format.js";
+import { topics, more } from "../lib/nav.js";
 
 const { title, description, current } = Astro.props;
 const s = site();
 const c = config.brand.colors;
-const nav = [["home", "/"], ["growth", "/growth/"], ["inflation", "/inflation/"], ["jobs", "/jobs/"], ["activity", "/activity/"], ["money", "/money/"], ["markets", "/markets/"], ["fiscal", "/fiscal/"], ["external", "/external/"], ["states", "/states/"], ["calendar", "/calendar/"], ["briefings", "/briefings/"], ["data", "/data/"], ["about", "/about/"]];
+// Pages that live under another menu (Data, Methods and Status sit under About).
+const active = { data: "about", methods: "about", status: "about" }[current] ?? current;
 const pageTitle = title ? `${title} · ${config.site.name}` : config.site.name;
 ---
 <!doctype html>
@@ -29,20 +31,82 @@ const pageTitle = title ? `${title} · ${config.site.name}` : config.site.name;
   </head>
   <body>
     <header class="site">
-      <div class="wrap">
+      <div class="bar">
         <a class="brand" href="/"><img src="/mark.svg" alt="" /><b>{config.site.name}</b></a>
-        <nav class="main">
-          {nav.map(([k, href]) => <a href={href} aria-current={current === k ? "page" : undefined}>{t(`nav.${k}`)}</a>)}
-        </nav>
-        <form class="search" action="/search/" method="get" role="search">
-          <input type="search" name="q" placeholder="Search indicators, pages…" aria-label="Search" />
-        </form>
         {s.as_of && <span class="asof">{t("common.as_of")} {period(s.as_of, "D")}</span>}
+        <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+        <nav class="main" id="site-nav">
+          {[topics, more].map((group, gi) => <>
+            {gi === 1 && <span class="sep" aria-hidden="true"></span>}
+            {group.map((m) => m.items ? (
+              <div class="menu">
+                <a href={m.href} class="top" aria-current={active === m.key ? "page" : undefined} aria-haspopup="true">{m.label}<span class="caret">▾</span></a>
+                <div class="drop">{m.items.map(([label, href]) => <a href={href}>{label}</a>)}</div>
+              </div>
+            ) : (
+              <div class="menu"><a href={m.href} class="top" aria-current={active === m.key ? "page" : undefined}>{m.label}</a></div>
+            ))}
+          </>)}
+        </nav>
+        <button class="search-btn" aria-label="Search (press /)" title="Search (press /)">
+          <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M15.5 15.5 21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
       </div>
     </header>
+    <div class="search-modal" hidden>
+      <div class="search-box" role="dialog" aria-label="Search">
+        <div id="search-ui"></div>
+        <p class="search-hint">Esc to close · <a href="/search/">full search page</a></p>
+      </div>
+    </div>
     <main class="wrap" data-pagefind-body>
       <slot />
     </main>
+    <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+    <script is:inline>
+      // Header: search overlay (Pagefind, loaded on first open), "/" shortcut, phone menu,
+      // and tap-to-open dropdowns on touch screens.
+      (() => {
+        const modal = document.querySelector(".search-modal");
+        let ui = null;
+        const open = () => {
+          modal.hidden = false;
+          if (!ui) {
+            const sc = document.createElement("script");
+            sc.src = "/pagefind/pagefind-ui.js";
+            sc.onload = () => {
+              ui = new PagefindUI({ element: "#search-ui", showSubResults: true, showImages: false, resetStyles: false });
+              modal.querySelector("input")?.focus();
+            };
+            document.head.append(sc);
+          } else modal.querySelector("input")?.focus();
+        };
+        const close = () => { modal.hidden = true; };
+        document.querySelector(".search-btn").addEventListener("click", open);
+        modal.addEventListener("click", (e) => { if (e.target === modal) close(); });
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") close();
+          if (e.key === "/" && modal.hidden && !/input|textarea/i.test(document.activeElement.tagName)) { e.preventDefault(); open(); }
+        });
+        const nav = document.getElementById("site-nav"), toggle = document.querySelector(".menu-toggle");
+        toggle.addEventListener("click", () => {
+          const on = nav.classList.toggle("open");
+          toggle.setAttribute("aria-expanded", on);
+        });
+        // On touch screens the first tap on a menu opens its dropdown; a second tap follows the link.
+        document.querySelectorAll(".menu > a.top[aria-haspopup]").forEach((a) => a.addEventListener("click", (e) => {
+          const menu = a.parentElement;
+          if (matchMedia("(hover: none)").matches || nav.classList.contains("open")) {
+            if (!menu.classList.contains("show")) {
+              e.preventDefault();
+              document.querySelectorAll(".menu.show").forEach((m) => m !== menu && m.classList.remove("show"));
+              menu.classList.add("show");
+            }
+          }
+        }));
+        document.addEventListener("click", (e) => { if (!e.target.closest(".menu")) document.querySelectorAll(".menu.show").forEach((m) => m.classList.remove("show")); });
+      })();
+    </script>
     <script>
       // "On this page": a contents line under the first heading, built from the h2 headings.
       const main = document.querySelector("main");
@@ -61,6 +125,8 @@ const pageTitle = title ? `${title} · ${config.site.name}` : config.site.name;
         const lede = main.querySelector(".lede") ?? main.querySelector("h1");
         lede?.after(toc);
       }
+      // Arriving from a menu link (/page/#section): scroll once charts have drawn.
+      if (location.hash) addEventListener("load", () => document.getElementById(location.hash.slice(1))?.scrollIntoView());
     </script>
     <footer class="site">
       <div class="wrap">

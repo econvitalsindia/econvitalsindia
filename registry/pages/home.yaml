@@ -10,7 +10,7 @@ tiles:
   - {series: gst_gross_growth, transform: level, label: "GST growth", href: "/fiscal/", fmt: "pct1", show: year_ago}
   - {series: cga_fiscal_deficit_pct_be, transform: level, label: "Fiscal deficit, % of BE", href: "/fiscal/", fmt: "pct1"}
   - {series: scb_credit_growth, transform: level, label: "Bank credit growth", href: "/money/", fmt: "pct1"}
-  - {series: repo_rate, transform: level, label: "Repo rate", href: "/markets/", fmt: "pct2"}
+  - {series: repo_rate, transform: level, label: "Repo rate", href: "/money/", fmt: "pct2"}
   - {series: gsec_10y_yield, transform: level, label: "10-yr G-sec", href: "/markets/", fmt: "pct2", show: ytd}
   - {series: tbill_91d, transform: level, label: "91-day T-bill", href: "/markets/", fmt: "pct2"}
   - {series: merch_trade_balance, transform: level, label: "Trade balance", href: "/external/", fmt: "usd_bn1", show: year_ago}
@@ -20,7 +20,7 @@ tiles:
   - {series: sensex_close, transform: level, label: "Sensex", href: "/markets/", fmt: "num0", show: ytd}
   - {series: brent_inr, transform: level, label: "Brent in ₹", href: "/markets/", fmt: "num0", show: ytd}
 # Planned tiles (no numbers shown until their series exist): see registry/backlog.yaml
-planned: ["UPI", "MGNREGA work demand", "Auto sales"]
+planned: ["UPI", "MGNREGA work demand"]
 # "India in questions" cards. stat: latest | year_ago | avg4 (mean of the last 4 periods).
 questions:
   - q: "Is inflation near RBI's 4% target?"
