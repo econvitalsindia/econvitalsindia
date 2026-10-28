@@ -29,3 +29,17 @@ def releases(title_test, months: int) -> dict[str, str]:
                 if title_test(title.strip()):
                     found[prid] = title.strip()
     return found
+
+
+def survey_pdfs(prid: str) -> dict[str, str]:
+    """For a 'results of Forward Looking Surveys' release: {pdf prefix: url}, e.g. IESH, UCCS,
+    RCCS, SPF, via each linked PublicationsView page."""
+    from pipelines.core.http import get
+    page = get(RELEASE.format(prid=prid)).text
+    out: dict[str, str] = {}
+    for pub in dict.fromkeys(re.findall(r"PublicationsView\.aspx\?id=(\d+)", page)):
+        pub_page = get(f"https://www.rbi.org.in/Scripts/PublicationsView.aspx?id={pub}").text
+        m = re.search(r"https://rbidocs\.rbi\.org\.in/rdocs/Publications/PDFs/([A-Z]+)[^\"']*\.PDF", pub_page, re.I)
+        if m:
+            out.setdefault(m.group(1).upper(), m.group(0))
+    return out

@@ -1,0 +1,38 @@
+id: spf_core_cpi_cur_fy
+title: Professional forecasters' median forecast of core CPI inflation (ex food and
+  fuel), current financial year
+short_title: Forecast core CPI inflation (this FY)
+area: inflation
+source:
+  agency: RBI
+  dataset: Survey of Professional Forecasters, Annex 1-2
+  url: https://www.rbi.org.in/Scripts/Publications.aspx?publication=Bimonthly
+  module: pipelines/sources/rbi/surveys.py
+licence: unverified
+downloadable: false
+fetch: auto
+frequency: M
+unit: percent
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+release:
+  calendar: rbi
+  rule: bi-monthly, released with the MPC decision
+  lag_days: 75
+validation:
+  range:
+  - -10
+  - 30
+  revision_alert: 20
+pages:
+- page: growth
+  section: forecasts
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: Median of RBI's Survey of Professional Forecasters for the current financial
+  year at each round; the note column names the year forecast (it changes each April).
+  Period = month of the results release.

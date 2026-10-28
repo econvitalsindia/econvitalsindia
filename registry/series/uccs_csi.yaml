@@ -1,0 +1,36 @@
+id: uccs_csi
+title: 'Urban consumer confidence: Current Situation Index'
+short_title: Urban confidence, current
+area: growth
+source:
+  agency: RBI
+  dataset: Urban Consumer Confidence Survey
+  url: https://www.rbi.org.in/Scripts/Publications.aspx?publication=Bimonthly
+  module: pipelines/sources/rbi/surveys.py
+licence: unverified
+downloadable: false
+fetch: auto
+frequency: M
+unit: index
+base_year: 100 = neutral
+seasonal_adjustment: none
+transforms:
+- level
+release:
+  calendar: rbi
+  rule: bi-monthly, released with the MPC decision
+  lag_days: 75
+validation:
+  range:
+  - 30
+  - 200
+  revision_alert: 5
+pages:
+- page: growth
+  section: sentiment
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: 100 + average net response on the economy, employment, prices, income and spending;
+  above 100 = optimism. Period = month the round ended. Respondents' views, not RBI's.

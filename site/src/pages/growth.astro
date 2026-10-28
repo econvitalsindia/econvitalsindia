@@ -49,6 +49,20 @@ const other = contrib.rows.filter((r) => r.component.startsWith("Other")).at(-1)
   <LineChart title="Nominal and real GDP growth" subtitle="% change on a year earlier, as published; the gap is GDP deflator inflation"
     lines={[{ id: "gdp_nominal_growth", label: "Nominal" }, { id: "gdp_real_growth", label: "Real" }]} years={10} />
 
+  <h2>Forecasts and sentiment</h2>
+  <div class="grid2">
+    <LineChart title="Professional forecasters: growth and inflation" subtitle="Median forecast for the current financial year at each survey round, %; the year forecast changes each April"
+      lines={[{ id: "spf_gdp_cur_fy", label: "Real GDP growth" }, { id: "spf_cpi_cur_fy", label: "CPI inflation" }]} years={2} />
+    <LineChart title="Consumer confidence" subtitle="RBI surveys, index (100 = neutral; above 100 = optimism)"
+      lines={[{ id: "uccs_fei", label: "Urban, year ahead" }, { id: "rccs_fei", label: "Rural, year ahead" }, { id: "uccs_csi", label: "Urban, now" }, { id: "rccs_csi", label: "Rural, now" }]} years={2} />
+  </div>
+  <PeriodTable heading="Median forecast, %, survey of professional forecasters" n={4} rows={[
+    { id: "spf_gdp_cur_fy", label: "Real GDP growth, this FY" }, { id: "spf_gdp_next_fy", label: "Real GDP growth, next FY" },
+    { id: "spf_cpi_cur_fy", label: "CPI inflation, this FY" }, { id: "spf_core_cpi_cur_fy", label: "Core CPI inflation, this FY" },
+    { id: "spf_fiscal_deficit_cur_fy", label: "Centre's fiscal deficit, % of GDP, this FY" },
+  ]} />
+  <p class="chart-sub">RBI's bi-monthly Survey of Professional Forecasters and Consumer Confidence Surveys, released with each MPC decision. They are respondents' views, not RBI's. Columns are the months the results were released; some older rounds are missing because their PDFs use a different layout.</p>
+
   <h2>Still to come on this page</h2>
   <p class="chart-sub">Contributions to growth by component, annual advance/provisional estimates and their revisions, RBI's growth projections. Checklist: docs/guidebook/05-pages/growth.md.</p>
 </Base>
