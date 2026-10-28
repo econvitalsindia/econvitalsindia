@@ -15,6 +15,9 @@ Facts for each series view:
   change_phrase_yoy the same, vs a year earlier
   pct_phrase        "up 0.22%" / "down 1.10%" / "unchanged": % change vs prev (levels, not rates)
   bp_phrase         "up 25 basis points" / "unchanged": change vs prev, for per-cent series
+  week_phrase       change over the 7 days to the latest observation (pct for levels, bp for
+                    rates), only for daily/weekly series with an observation within 3 days of
+                    a week earlier
 Calendar facts (add_calendar): `{{calendar.today}}` (releases scheduled that day),
 `{{calendar.next}}` (the next few) and `{{calendar.next_highlight}}` (next MPC decision etc.),
 built from registry/calendar.
@@ -138,6 +141,18 @@ class Ledger:
                 pct = (last["value"] / prev["value"] - 1) * 100
                 put["pct_phrase"] = ("unchanged" if round(pct, 2) == 0
                                      else f"{'up' if pct > 0 else 'down'} {abs(pct):.2f}%")
+        if freq in ("D", "W"):
+            target = last["period"] - pd.Timedelta(days=7)
+            before = pts[(pts["period"] <= target) & (pts["period"] >= target - pd.Timedelta(days=3))]
+            if len(before):
+                ref = before["value"].iloc[-1]
+                if unit == "percent":
+                    bp = round((last["value"] - ref) * 100)
+                    put["week_phrase"] = "unchanged" if bp == 0 else f"{'up' if bp > 0 else 'down'} {abs(bp)} basis points"
+                elif ref:
+                    pct = (last["value"] / ref - 1) * 100
+                    put["week_phrase"] = ("unchanged" if round(pct, 2) == 0
+                                          else f"{'up' if pct > 0 else 'down'} {abs(pct):.2f}%")
         if len(ya):
             d = last["value"] - ya["value"].iloc[0]
             put.update(year_ago=fmt_value(ya["value"].iloc[0], unit, dec),
@@ -177,9 +192,16 @@ class Ledger:
         highlight = next((r for r in later if r["highlight"]), None)
         self.facts["calendar.today"] = "; ".join(item(r) for r in today) or "no scheduled releases"
         self.facts["calendar.next"] = "; ".join(when(r) for r in later[:upcoming]) or "none scheduled"
+        start = (pd.Timestamp(on) - pd.Timedelta(days=6)).strftime("%Y-%m-%d")
+        end = (pd.Timestamp(on) + pd.Timedelta(days=7)).strftime("%Y-%m-%d")
+        self.facts["calendar.past_week"] = ("; ".join(when(r) for r in rows if start <= r["date"] <= on)
+                                            or "no scheduled releases")
+        self.facts["calendar.next_week"] = ("; ".join(when(r) for r in rows if on < r["date"] <= end)
+                                            or "no scheduled releases")
         self.facts["calendar.next_highlight"] = (f"{highlight['title']} on {fmt_period(highlight['date'], 'D')}"
                                                  if highlight else "not yet scheduled")
-        for k in ("calendar.today", "calendar.next", "calendar.next_highlight"):
+        for k in ("calendar.today", "calendar.next", "calendar.next_highlight",
+                  "calendar.past_week", "calendar.next_week"):
             self.receipts[k] = {"source": "registry/calendar", "text": self.facts[k]}
 
     def dump(self) -> str:

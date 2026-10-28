@@ -1,6 +1,7 @@
 ---
 name: daily
 product: daily-note
+auto_publish: true   # maintainer-approved exception, 2026-10-28 (07-editorial-policy.md)
 title: "Daily note, {{nifty50_close.latest_period}}"
 trigger: nifty50_close
 trigger_weekdays_only: true

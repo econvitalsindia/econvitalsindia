@@ -23,9 +23,14 @@ Implemented in `pipelines/briefings/` (Phase 3, live).
 |---|---|---|
 | `cpi`, `iip`, `gdp`, `plfs`, `trade` | release-note | the trigger series records a new observation that day |
 | `mpc` | release-note | the calendar has an "MPC policy decision" on that day (`trigger_calendar`), so holds get a note too |
-| `daily` | daily-note | weekdays, when the day's market closes are recorded (`trigger_weekdays_only`) |
+| `daily` | daily-note | weekdays, when the day's market closes are recorded (`trigger_weekdays_only`). **Auto-published** (see below) |
+| `weekly` | weekly-briefing | Saturdays (`trigger_weekday: 5`); reviewed |
 
 Feeds: `/briefings/rss.xml` (all), `/briefings/release-notes.xml`, `/briefings/daily.xml`. A newsletter service can send these as emails.
+
+## The one exception: the daily note is auto-published
+
+On 2026-10-28 the maintainer approved publishing the **daily note** without human review, because it is built only from market closes and the release calendar. It still has to pass the checker, and it says on the page that it was auto-published. The template carries `auto_publish: true`. **No other template may set it without the maintainer's explicit approval**, recorded here with a date.
 
 ## Workflow
 

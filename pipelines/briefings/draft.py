@@ -27,6 +27,9 @@ from pipelines.core import store
 TEMPLATES = store.ROOT / "registry" / "briefings"
 OUT = store.ROOT / "site" / "src" / "content" / "briefings"
 LEDGERS = store.ROOT / "data" / "briefings"
+# Templates with `auto_publish: true` skip human review: the maintainer approved this on
+# 2026-10-28 for the daily note only (market closes + calendar). See 07-editorial-policy.md.
+AUTO_PUBLISH_NOTE = "auto-published after the checker (maintainer-approved exception, 2026-10-28)"
 
 
 def templates() -> dict[str, tuple[dict, str]]:
@@ -56,9 +59,12 @@ def triggered(front: dict, on: str) -> bool:
 
     trigger_calendar: a calendar release whose title starts with this text is dated `on`
                       (e.g. MPC decisions: a hold deserves a note as much as a change).
+    trigger_weekday:  `on` falls on this weekday (0 = Monday ... 5 = Saturday).
     trigger:          the series' newest observation was first recorded on `on`;
                       with trigger_weekdays_only, only Monday-Friday.
     """
+    if "trigger_weekday" in front:
+        return date.fromisoformat(on).weekday() == int(front["trigger_weekday"])
     if "trigger_calendar" in front:
         from pipelines.build import calendar as cal
         from pipelines.core.registry import all_series
@@ -82,8 +88,9 @@ def draft(name: str, front: dict, text: str, on: str) -> tuple[str | None, list[
     title = render(front["title"], ledger.facts)
     OUT.mkdir(parents=True, exist_ok=True)
     LEDGERS.mkdir(parents=True, exist_ok=True)
+    reviewed = (AUTO_PUBLISH_NOTE if front.get("auto_publish") else "pull request merge")
     meta = {"title": title, "date": on, "product": front.get("product", "release-note"), "template": name,
-            "drafted_by": "template (no AI)", "reviewed_via": "pull request merge", "ledger": f"data/briefings/{slug}.json"}
+            "drafted_by": "template (no AI)", "reviewed_via": reviewed, "ledger": f"data/briefings/{slug}.json"}
     (OUT / f"{slug}.md").write_text("---\n" + yaml.safe_dump(meta, sort_keys=False, allow_unicode=True)
                                     + "---\n" + body + "\n")
     (LEDGERS / f"{slug}.json").write_text(ledger.dump())

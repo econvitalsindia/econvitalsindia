@@ -5,7 +5,7 @@
 ## Must include
 - [x] Daily note (weekday evenings): market closes, today's releases, what's coming (table and chart still to add)
 - [x] Release notes for CPI, GDP, IIP, PLFS, trade and the MPC decision (calendar-triggered, so holds get a note too)
-- [ ] Weekly briefing (Saturday)
+- [x] Weekly briefing (Saturday; markets over the week, RBI weekly data, scheduled releases, where things stand)
 - [ ] Monthly briefing
 - [ ] Human-written posts ("From the editor")
 - [x] Each item shows how it was drafted and that a person reviewed it

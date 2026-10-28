@@ -40,3 +40,10 @@ def test_bp_and_pct_phrases():
     led.add_view("nifty50_close")
     assert led.facts["repo_rate.bp_phrase"] == "unchanged" or "basis points" in led.facts["repo_rate.bp_phrase"]
     assert led.facts["nifty50_close.pct_phrase"].endswith("%") or led.facts["nifty50_close.pct_phrase"] == "unchanged"
+
+
+def test_only_daily_note_auto_publishes():
+    """Auto-publishing is an explicit, documented exception (07-editorial-policy.md)."""
+    from pipelines.briefings.draft import templates
+    auto = sorted(n for n, (front, _) in templates().items() if front.get("auto_publish"))
+    assert auto == ["daily"]

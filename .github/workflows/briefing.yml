@@ -37,15 +37,28 @@ jobs:
           else uv run python -m pipelines.briefings.draft --date "$DAY"; fi
           if [ -n "$(git status --porcelain site/src/content/briefings data/briefings)" ]; then
             echo "new=true" >> "$GITHUB_OUTPUT"; fi
-      - name: Open a pull request for review
+      - name: Publish auto-publish notes (daily note only; maintainer-approved exception)
         if: steps.draft.outputs.new == 'true'
+        env:
+          DAY: ${{ steps.draft.outputs.day }}
+        run: |
+          git config user.name "briefing-bot"
+          git config user.email "briefing-bot@users.noreply.github.com"
+          AUTO=$(grep -l "^reviewed_via: auto-published" site/src/content/briefings/*.md 2>/dev/null | xargs -r git ls-files --others --exclude-standard -- || true)
+          if [ -n "$AUTO" ]; then
+            for f in $AUTO; do git add "$f" "data/briefings/$(basename "$f" .md).json"; done
+            git commit -m "daily note for $DAY (auto-published)"
+            git push origin HEAD:main
+          fi
+          if [ -z "$(git status --porcelain site/src/content/briefings data/briefings)" ]; then
+            echo "review=false" >> "$GITHUB_ENV"; else echo "review=true" >> "$GITHUB_ENV"; fi
+      - name: Open a pull request for review
+        if: steps.draft.outputs.new == 'true' && env.review == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
           DAY: ${{ steps.draft.outputs.day }}
         run: |
           BRANCH="briefing/$DAY-$GITHUB_RUN_ID"
-          git config user.name "briefing-bot"
-          git config user.email "briefing-bot@users.noreply.github.com"
           git switch -c "$BRANCH"
           git add site/src/content/briefings data/briefings
           git commit -m "briefing drafts for $DAY"
