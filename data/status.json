@@ -1,105 +1,105 @@
 {
   "cpi_food_bev_index": {
-    "last_attempt": "2026-10-28T10:25:59+00:00",
-    "last_success": "2026-10-28T10:25:59+00:00",
+    "last_attempt": "2026-10-28T10:38:01+00:00",
+    "last_success": "2026-10-28T10:38:01+00:00",
     "stale": false,
     "last_error": null,
     "last_period": "2026-09-01"
   },
   "cpi_headline_index": {
-    "last_attempt": "2026-10-28T10:25:59+00:00",
-    "last_success": "2026-10-28T10:25:59+00:00",
+    "last_attempt": "2026-10-28T10:38:01+00:00",
+    "last_success": "2026-10-28T10:38:01+00:00",
     "stale": false,
     "last_error": null,
     "last_period": "2026-09-01"
   },
   "cpi_headline_inflation": {
-    "last_attempt": "2026-10-28T10:25:59+00:00",
-    "last_success": "2026-10-28T10:25:59+00:00",
+    "last_attempt": "2026-10-28T10:38:01+00:00",
+    "last_success": "2026-10-28T10:38:01+00:00",
     "stale": false,
     "last_error": null,
     "last_period": "2026-09-01"
   },
   "cpi_rural_index": {
-    "last_attempt": "2026-10-28T10:25:59+00:00",
-    "last_success": "2026-10-28T10:25:59+00:00",
+    "last_attempt": "2026-10-28T10:38:01+00:00",
+    "last_success": "2026-10-28T10:38:01+00:00",
     "stale": false,
     "last_error": null,
     "last_period": "2026-09-01"
   },
   "cpi_urban_index": {
-    "last_attempt": "2026-10-28T10:25:59+00:00",
-    "last_success": "2026-10-28T10:25:59+00:00",
+    "last_attempt": "2026-10-28T10:38:01+00:00",
+    "last_success": "2026-10-28T10:38:01+00:00",
     "stale": false,
     "last_error": null,
     "last_period": "2026-09-01"
   },
   "crr": {
-    "last_attempt": "2026-10-28T10:24:21+00:00",
-    "last_success": "2026-10-28T10:24:21+00:00",
+    "last_attempt": "2026-10-28T10:38:03+00:00",
+    "last_success": "2026-10-28T10:38:03+00:00",
     "stale": false,
     "last_error": null,
     "last_period": "2026-10-28"
   },
   "gsec_10y_yield": {
-    "last_attempt": "2026-10-28T10:24:21+00:00",
-    "last_success": "2026-10-28T10:24:21+00:00",
+    "last_attempt": "2026-10-28T10:38:03+00:00",
+    "last_success": "2026-10-28T10:38:03+00:00",
     "stale": false,
     "last_error": null,
     "last_period": "2026-10-27"
   },
   "msf_rate": {
-    "last_attempt": "2026-10-28T10:24:21+00:00",
-    "last_success": "2026-10-28T10:24:21+00:00",
+    "last_attempt": "2026-10-28T10:38:03+00:00",
+    "last_success": "2026-10-28T10:38:03+00:00",
     "stale": false,
     "last_error": null,
     "last_period": "2026-10-28"
   },
   "nifty50_close": {
-    "last_attempt": "2026-10-28T10:24:21+00:00",
-    "last_success": "2026-10-28T10:24:21+00:00",
+    "last_attempt": "2026-10-28T10:38:03+00:00",
+    "last_success": "2026-10-28T10:38:03+00:00",
     "stale": false,
     "last_error": null,
     "last_period": "2026-10-27"
   },
   "repo_rate": {
-    "last_attempt": "2026-10-28T10:24:21+00:00",
-    "last_success": "2026-10-28T10:24:21+00:00",
+    "last_attempt": "2026-10-28T10:38:03+00:00",
+    "last_success": "2026-10-28T10:38:03+00:00",
     "stale": false,
     "last_error": null,
     "last_period": "2026-10-28"
   },
   "sdf_rate": {
-    "last_attempt": "2026-10-28T10:24:21+00:00",
-    "last_success": "2026-10-28T10:24:21+00:00",
+    "last_attempt": "2026-10-28T10:38:03+00:00",
+    "last_success": "2026-10-28T10:38:03+00:00",
     "stale": false,
     "last_error": null,
     "last_period": "2026-10-28"
   },
   "sensex_close": {
-    "last_attempt": "2026-10-28T10:24:21+00:00",
-    "last_success": "2026-10-28T10:24:21+00:00",
+    "last_attempt": "2026-10-28T10:38:03+00:00",
+    "last_success": "2026-10-28T10:38:03+00:00",
     "stale": false,
     "last_error": null,
     "last_period": "2026-10-27"
   },
   "slr": {
-    "last_attempt": "2026-10-28T10:24:21+00:00",
-    "last_success": "2026-10-28T10:24:21+00:00",
+    "last_attempt": "2026-10-28T10:38:03+00:00",
+    "last_success": "2026-10-28T10:38:03+00:00",
     "stale": false,
     "last_error": null,
     "last_period": "2026-10-28"
   },
   "tbill_91d": {
-    "last_attempt": "2026-10-28T10:24:21+00:00",
-    "last_success": "2026-10-28T10:24:21+00:00",
+    "last_attempt": "2026-10-28T10:38:03+00:00",
+    "last_success": "2026-10-28T10:38:03+00:00",
     "stale": false,
     "last_error": null,
     "last_period": "2026-10-28"
   },
   "usdinr_ref": {
-    "last_attempt": "2026-10-28T10:24:21+00:00",
-    "last_success": "2026-10-28T10:24:21+00:00",
+    "last_attempt": "2026-10-28T10:38:03+00:00",
+    "last_success": "2026-10-28T10:38:03+00:00",
     "stale": false,
     "last_error": null,
     "last_period": "2026-10-28"
