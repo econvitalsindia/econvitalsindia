@@ -2,6 +2,8 @@
 import Base from "../layouts/Base.astro";
 import Tile from "../components/Tile.astro";
 import QuestionCard from "../components/QuestionCard.astro";
+import PeriodTable from "../components/PeriodTable.astro";
+import LatestTable from "../components/LatestTable.astro";
 import LineChart from "../components/LineChart.astro";
 import { config } from "../lib/config.js";
 import { home } from "../lib/data.js";
@@ -26,6 +28,52 @@ const spec = yaml.load(fs.readFileSync("../registry/pages/home.yaml", "utf8"));
 
   <h2>{t("home.questions")}</h2>
   <div class="questions">{questions.map((q) => <QuestionCard q={q} />)}</div>
+
+  <h2>The economy at a glance</h2>
+  <div class="summaries">
+    <section>
+      <h3><a href="/growth/">Growth →</a></h3>
+      <PeriodTable heading="Real, % y/y" n={4} rows={[
+        { id: "gdp_real_growth", label: "GDP" }, { id: "gva_real_growth", label: "GVA" },
+        { id: "pfce_real_level", how: "yoy", label: "Private consumption" }, { id: "gfcf_real_level", how: "yoy", label: "Fixed investment" },
+      ]} />
+    </section>
+    <section>
+      <h3><a href="/inflation/">Prices →</a></h3>
+      <PeriodTable heading="% y/y" n={4} digits={2} rows={[
+        { id: "cpi_headline_inflation", label: "CPI" }, { id: "cpi_core_index", how: "yoy", label: "Core CPI" },
+        { id: "cpi_food_bev_index", how: "yoy", label: "CPI food & beverages" }, { id: "wpi_headline_index", how: "yoy", label: "WPI" },
+      ]} />
+    </section>
+    <section>
+      <h3><a href="/activity/">Activity →</a></h3>
+      <PeriodTable heading="% y/y" n={4} rows={[
+        { id: "iip_general_growth", label: "Industrial production" }, { id: "core_overall_index", how: "yoy", label: "Core industries" },
+        { id: "gst_gross_growth", label: "GST collections" }, { id: "merch_exports", how: "yoy", label: "Merchandise exports" },
+      ]} />
+    </section>
+    <section>
+      <h3><a href="/jobs/">Jobs →</a></h3>
+      <PeriodTable heading="Per cent (PLFS, CWS)" n={4} rows={[
+        { id: "plfs_ur_monthly", label: "Unemployment rate" }, { id: "plfs_ur_youth_monthly", label: "Youth unemployment" },
+        { id: "plfs_lfpr_monthly", label: "Participation rate" }, { id: "plfs_lfpr_female_monthly", label: "Female participation" },
+      ]} />
+    </section>
+    <section>
+      <h3><a href="/money/">Money & markets →</a></h3>
+      <LatestTable heading="" rows={[
+        { id: "repo_rate", label: "Repo rate" }, { id: "wacr", label: "Call rate (WACR)" }, { id: "gsec_10y_yield", label: "10-yr G-sec" },
+        { id: "scb_credit_growth", label: "Bank credit growth" }, { id: "nifty50_close", label: "Nifty 50", fmt: "num0" },
+      ]} />
+    </section>
+    <section>
+      <h3><a href="/external/">External & fiscal →</a></h3>
+      <LatestTable heading="" rows={[
+        { id: "merch_trade_balance", label: "Trade balance (month)", fmt: "usd_bn1" }, { id: "fx_reserves_total", label: "FX reserves", fmt: "usd_bn1" },
+        { id: "usdinr_ref", label: "USD/INR", fmt: "num2" }, { id: "cga_fiscal_deficit_pct_be", label: "Fiscal deficit, % of BE (FYTD)", fmt: "pct1" },
+      ]} />
+    </section>
+  </div>
 
   <div class="grid2">
     <section>

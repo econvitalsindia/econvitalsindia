@@ -1,0 +1,32 @@
+---
+// Compact "latest value" table for series of mixed frequency (rates, markets, reserves).
+// Rows: { id, how = "level", label?, fmt? }. Values come from generated JSON only.
+import { series as load } from "../lib/data.js";
+import { byFmt, num, period, signed } from "../lib/format.js";
+
+const { rows, heading = "" } = Astro.props;
+const items = rows.map((r) => {
+  const s = load(r.id);
+  const how = r.how ?? "level";
+  const pts = how === "level" ? s.data : s.transforms[how];
+  const [p, v] = pts.at(-1);
+  const ch = how === "level" ? s.changes : null;
+  return { ...r, s, p, v, ytd: ch?.ytd ?? null, kind: ch?.kind };
+});
+const fmtV = (r) => r.fmt ? byFmt(r.v, r.fmt) : r.s.unit === "percent" || (r.how ?? "level") !== "level" ? `${num(r.v, 2)}%` : num(r.v, 2);
+---
+<div class="scroll">
+  <table class="data">
+    <thead><tr><th>{heading}</th><th>Latest</th><th>As of</th><th>YTD change</th></tr></thead>
+    <tbody>
+      {items.map((r) => (
+        <tr>
+          <td><a href={`/data/${r.id}/`}>{r.label ?? r.s.short_title}</a></td>
+          <td>{fmtV(r)}</td>
+          <td>{period(r.p, r.s.frequency === "Q" ? "Q" : r.s.frequency === "M" ? "M" : "D")}</td>
+          <td>{r.ytd === null ? "–" : r.kind === "bp" ? signed(r.ytd, 0, " bp") : signed(r.ytd, 1, "%")}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>

@@ -81,3 +81,7 @@ table.data.meta td:first-child { width: 220px; color: var(--muted); }
 .prose h3 { font-size: 1.02rem; margin: 26px 0 6px; }
 .prose li { margin: 4px 0; }
 .prose code { font-size: 0.85em; }
+.summaries { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 8px 28px; }
+.summaries h3 { font-size: 1rem; margin: 14px 0 4px; }
+.summaries h3 a { text-decoration: none; }
+.summaries table.data { font-size: 0.8rem; }
