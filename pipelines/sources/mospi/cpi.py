@@ -11,6 +11,11 @@ projected onto the 2024 base by MoSPI's linking factor) to the *current series*
 2014-2024 from the back series, 2025 from the 2012-base series (the official
 figure at the time; the 2024-base current series carries no 2025 inflation),
 2026 onwards from the 2024-base current series. The note column says which.
+
+Component indices (combined, all-India, 2025 onwards) feed the core CPI measure in
+pipelines/sources/derived/core_cpi.py: food and beverages (division 01), electricity,
+gas and other fuels (group 04.5) and fuels and lubricants for personal transport
+equipment (class 07.2.2) - RBI's "food" and "fuel" in its CPI-excluding-food-and-fuel.
 """
 from __future__ import annotations
 
@@ -34,8 +39,17 @@ INDEX_SERIES = {
     ("Combined", "CPI (General)"): "cpi_headline_index",
     ("Rural", "CPI (General)"): "cpi_rural_index",
     ("Urban", "CPI (General)"): "cpi_urban_index",
-    ("Combined", "Food and beverages"): "cpi_food_bev_index",
 }
+# (division, group, class) at the combined level -> series. Divisions requested from the
+# API return every lower level too, so these are fetched incrementally (see fetch()).
+COMPONENT_SERIES = {
+    ("Food and beverages", None, None): "cpi_food_bev_index",
+    ("Housing, water, electricity, gas and other fuels", "Electricity, gas and other fuels", None):
+        "cpi_elec_gas_fuels_index",
+    ("Transport", "Operation of personal transport equipment",
+     "Fuels and lubricants for personal transport equipment"): "cpi_vehicle_fuels_index",
+}
+COMPONENT_DIVISIONS = "1,4,7"
 
 
 def _period(year, month: str) -> str:
@@ -59,7 +73,7 @@ def _float(x) -> float | None:
 
 class MospiCPI(Source):
     name = "mospi_cpi"
-    series_ids = (*INDEX_SERIES.values(), "cpi_headline_inflation")
+    series_ids = (*INDEX_SERIES.values(), *COMPONENT_SERIES.values(), "cpi_headline_inflation")
 
     def _pages(self, params: dict) -> list[Raw]:
         """Fetch every page of one query."""
@@ -78,15 +92,17 @@ class MospiCPI(Source):
         base24 = {"base_year": "2024", "state_code": "1", "sector_code": "1,2,3"}
         raws = (self._pages({**base24, "division_code": "0", "series": "Back"})
                 + self._pages({**base24, "division_code": "0", "series": "Current"}))
-        # Division 1 returns every food item too (~14k rows), so after the first full
-        # load fetch only the months from two before the last stored one.
-        recent = months_since(load_series("cpi_food_bev_index")["period"].max(), back=2)
-        food = {**base24, "division_code": "1", "series": "Current"}
+        # Component divisions return every item too (~20k rows), so after the first full
+        # load fetch only the months from two before the oldest last-stored component.
+        lasts = [load_series(s)["period"].max() for s in COMPONENT_SERIES.values()]
+        recent = None if any(not isinstance(x, str) for x in lasts) else months_since(min(lasts), back=2)
+        comp = {"base_year": "2024", "state_code": "1", "sector_code": "3",
+                "division_code": COMPONENT_DIVISIONS, "series": "Current"}
         if recent is None:
-            raws += self._pages(food)
+            raws += self._pages(comp)
         else:
             for year, months in recent.items():
-                raws += self._pages({**food, "year": str(year), "month_code": ",".join(map(str, months))})
+                raws += self._pages({**comp, "year": str(year), "month_code": ",".join(map(str, months))})
         # Official 2025 headline inflation, published on the 2012 base.
         return raws + self._pages({"base_year": "2012", "level": "Group", "series": "Current",
                                    "year": "2025", "state_code": "99", "sector_code": "3"})
@@ -97,8 +113,15 @@ class MospiCPI(Source):
             for r in json.loads(raw.content)["data"]:
                 period = _period(r["year"], r["month"])
                 if r.get("base_year") == "2024":
-                    sid = INDEX_SERIES.get((r["sector"], r["division"]))
-                    if sid is None or r.get("group") is not None:
+                    if r.get("sub_class") is not None or r.get("item") is not None:
+                        continue
+                    if r.get("group") is None:
+                        sid = INDEX_SERIES.get((r["sector"], r["division"]))
+                    else:
+                        sid = None
+                    if sid is None and r["sector"] == "Combined":
+                        sid = COMPONENT_SERIES.get((r["division"], r.get("group"), r.get("class")))
+                    if sid is None:
                         continue
                     rows.append({"series_id": sid, "period": period, "value": float(r["index"])})
                     infl = _float(r.get("inflation"))

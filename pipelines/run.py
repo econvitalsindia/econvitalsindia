@@ -79,7 +79,8 @@ def run_source(src: Source) -> list[dict]:
         big = revisions(old[["period", "value"]].astype({"value": float}),
                         new[["period", "value"]], spec["validation"]["revision_alert"])
         store.write_series(sid, merged, revised)
-        store.write_meta(sid, spec, merged, raw_paths, sorted({r.url for r in raws}))
+        urls = sorted({r.url for r in raws}) or [f"derived: {src.name}"]
+        store.write_meta(sid, spec, merged, raw_paths, urls)
         store.update_status(sid, ok=True, last_period=merged["period"].iloc[-1])
         added = len(merged) - len(old)
         print(f"  ok   {sid}: {len(merged)} obs (+{added} new, {len(revised)} revised), "
@@ -114,6 +115,8 @@ def main() -> int:
     if not chosen:
         parser.print_help()
         return 2
+    # Downloads first, then derived measures, so they compute from fresh inputs.
+    chosen.sort(key=lambda s: s.derived)
 
     failures = []
     for src in chosen:

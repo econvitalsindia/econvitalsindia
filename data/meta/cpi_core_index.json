@@ -1,0 +1,25 @@
+{
+  "id": "cpi_core_index",
+  "title": "CPI excluding food and fuel (core), all-India combined",
+  "short_title": "Core CPI",
+  "unit": "index",
+  "frequency": "M",
+  "base_year": "2024=100",
+  "source": {
+    "agency": "Site calculation from MoSPI CPI (RBI definition)",
+    "dataset": "CPI 2024 components + registry/weights/cpi2024_core.yaml",
+    "url": "https://www.rbi.org.in/scripts/BS_ViewBulletin.aspx?Id=24400",
+    "module": "pipelines/sources/derived/core_cpi.py"
+  },
+  "licence": "GODL",
+  "downloadable": true,
+  "first_period": "2025-01-01",
+  "last_period": "2026-09-01",
+  "last_value": 108.64,
+  "observations": 21,
+  "updated_at": "2026-10-28T10:53:44+00:00",
+  "fetched_from": [
+    "derived: derived_core_cpi"
+  ],
+  "raw_files": []
+}

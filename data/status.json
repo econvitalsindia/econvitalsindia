@@ -1,35 +1,63 @@
 {
+  "cpi_core_index": {
+    "last_attempt": "2026-10-28T10:53:44+00:00",
+    "last_success": "2026-10-28T10:53:44+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-09-01"
+  },
+  "cpi_elec_gas_fuels_index": {
+    "last_attempt": "2026-10-28T10:53:44+00:00",
+    "last_success": "2026-10-28T10:53:44+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-09-01"
+  },
   "cpi_food_bev_index": {
-    "last_attempt": "2026-10-28T10:38:01+00:00",
-    "last_success": "2026-10-28T10:38:01+00:00",
+    "last_attempt": "2026-10-28T10:53:44+00:00",
+    "last_success": "2026-10-28T10:53:44+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-09-01"
+  },
+  "cpi_fuel_index": {
+    "last_attempt": "2026-10-28T10:53:44+00:00",
+    "last_success": "2026-10-28T10:53:44+00:00",
     "stale": false,
     "last_error": null,
     "last_period": "2026-09-01"
   },
   "cpi_headline_index": {
-    "last_attempt": "2026-10-28T10:38:01+00:00",
-    "last_success": "2026-10-28T10:38:01+00:00",
+    "last_attempt": "2026-10-28T10:53:44+00:00",
+    "last_success": "2026-10-28T10:53:44+00:00",
     "stale": false,
     "last_error": null,
     "last_period": "2026-09-01"
   },
   "cpi_headline_inflation": {
-    "last_attempt": "2026-10-28T10:38:01+00:00",
-    "last_success": "2026-10-28T10:38:01+00:00",
+    "last_attempt": "2026-10-28T10:53:44+00:00",
+    "last_success": "2026-10-28T10:53:44+00:00",
     "stale": false,
     "last_error": null,
     "last_period": "2026-09-01"
   },
   "cpi_rural_index": {
-    "last_attempt": "2026-10-28T10:38:01+00:00",
-    "last_success": "2026-10-28T10:38:01+00:00",
+    "last_attempt": "2026-10-28T10:53:44+00:00",
+    "last_success": "2026-10-28T10:53:44+00:00",
     "stale": false,
     "last_error": null,
     "last_period": "2026-09-01"
   },
   "cpi_urban_index": {
-    "last_attempt": "2026-10-28T10:38:01+00:00",
-    "last_success": "2026-10-28T10:38:01+00:00",
+    "last_attempt": "2026-10-28T10:53:44+00:00",
+    "last_success": "2026-10-28T10:53:44+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-09-01"
+  },
+  "cpi_vehicle_fuels_index": {
+    "last_attempt": "2026-10-28T10:53:44+00:00",
+    "last_success": "2026-10-28T10:53:44+00:00",
     "stale": false,
     "last_error": null,
     "last_period": "2026-09-01"

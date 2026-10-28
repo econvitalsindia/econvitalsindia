@@ -1,0 +1,37 @@
+id: cpi_fuel_index
+title: CPI fuel (RBI definition), all-India combined
+short_title: CPI fuel
+area: inflation
+source:
+  agency: Site calculation from MoSPI CPI (RBI definition)
+  dataset: CPI 2024 components + registry/weights/cpi2024_core.yaml
+  url: https://www.rbi.org.in/scripts/BS_ViewBulletin.aspx?Id=24400
+  module: pipelines/sources/derived/core_cpi.py
+licence: GODL
+downloadable: true
+fetch: auto
+frequency: M
+unit: index
+base_year: 2024=100
+seasonal_adjustment: none
+transforms:
+- yoy
+- mom
+release:
+  calendar: mospi
+  rule: computed when MoSPI CPI is released
+  lag_days: 45
+validation:
+  range:
+  - 30
+  - 400
+  revision_alert: 0.5
+pages:
+- page: inflation
+  section: summary-table
+original: true
+discontinued: null
+owner: ''
+verified_against: []
+notes: Weighted average of electricity, gas and other fuels and of vehicle fuels,
+  with the weights recovered for core CPI.

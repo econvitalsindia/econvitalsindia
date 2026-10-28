@@ -1,34 +1,49 @@
 ---
 import Base from "../layouts/Base.astro";
 import LineChart from "../components/LineChart.astro";
+import StackedBars from "../components/StackedBars.astro";
 import { series, latest, valueAt } from "../lib/data.js";
 import { num, period } from "../lib/format.js";
+import fs from "node:fs";
 
-const ids = ["cpi_headline_index", "cpi_rural_index", "cpi_urban_index", "cpi_food_bev_index"];
+const ids = ["cpi_headline_index", "cpi_food_bev_index", "cpi_fuel_index", "cpi_core_index",
+  "cpi_elec_gas_fuels_index", "cpi_vehicle_fuels_index", "cpi_rural_index", "cpi_urban_index"];
 const rows = ids.map((id) => {
   const s = series(id);
   const last = latest(s, "level");
-  const lastYoy = latest(s, "yoy");
   const prevMonth = s.data.at(-2)?.[0];
   const yearAgo = `${Number(last.period.slice(0, 4)) - 1}${last.period.slice(4)}`;
   return {
     s, last,
     mom: valueAt(s, "mom", last.period),
-    yoy: lastYoy && lastYoy.period === last.period ? lastYoy.value : null,
+    yoy: valueAt(s, "yoy", last.period),
     yoyPrev: prevMonth ? valueAt(s, "yoy", prevMonth) : null,
     yoyYearAgo: valueAt(s, "yoy", yearAgo),
   };
 });
 const latestPeriod = rows[0].last.period;
 const published = series("cpi_headline_inflation");
+const contrib = JSON.parse(fs.readFileSync("src/data/generated/cpi_contributions.json", "utf8"));
+const contribTotal = published.data.filter((d) => d[0] >= contrib[0]?.period).map((d) => [d[0], d[1]]);
+const indent = new Set(["cpi_elec_gas_fuels_index", "cpi_vehicle_fuels_index"]);
 ---
 <Base current="inflation" title="Inflation">
   <h1>Inflation</h1>
-  <p class="lede">Is inflation close to RBI's 4% target? Consumer prices from MoSPI on the 2024 base, linked to 2013 through MoSPI's official back series.</p>
+  <p class="lede">Is inflation close to RBI's 4% target, and is it broad-based? Consumer prices from MoSPI on the 2024 base, linked to 2013 through MoSPI's official back series. Core CPI follows RBI's definition (excluding food and fuel).</p>
 
   <LineChart title="CPI inflation, as published" subtitle="% change on a year earlier · RBI target 4% (dashed), tolerance band 2–6% (shaded)"
     lines={[{ id: "cpi_headline_inflation" }]} reference={{ target: 4, band: [2, 6] }} years={12} />
-  <p class="chart-sub">Values for 2025 are the rates MoSPI published on the 2012 base; the 2024-base series begins in January 2025 and carries no inflation rates for that year. The note in each data row records which series it comes from.</p>
+  <p class="chart-sub">Values for 2025 are the rates MoSPI published on the 2012 base; the 2024-base series begins in January 2025 and carries no inflation rates for that year.</p>
+
+  <h2>What is driving inflation</h2>
+  <div class="grid2">
+    <StackedBars title="Contributions to CPI inflation" subtitle="Percentage points of the 12-month rate; dots show headline inflation as published"
+      rows={contrib} total={contribTotal} source="MoSPI; site calculations (Original) with the weights in registry/weights/cpi2024_core.yaml." />
+    <LineChart title="Headline, food, fuel and core" subtitle="% change on a year earlier, computed from the indices"
+      lines={[{ id: "cpi_headline_index", how: "yoy", label: "Headline" }, { id: "cpi_food_bev_index", how: "yoy", label: "Food and beverages" },
+              { id: "cpi_fuel_index", how: "yoy", label: "Fuel" }, { id: "cpi_core_index", how: "yoy", label: "Core" }]}
+      reference={{ target: 4 }} years={1} />
+  </div>
 
   <h2>Consumer prices, {period(latestPeriod, "M")}</h2>
   <div class="scroll">
@@ -37,7 +52,7 @@ const published = series("cpi_headline_inflation");
       <tbody>
         {rows.map((r) => (
           <tr>
-            <td>{r.s.short_title}{r.s.id === "cpi_food_bev_index" && <span class="badge">from Jan 2025</span>}</td>
+            <td style={indent.has(r.s.id) ? "padding-left:22px" : ""}>{r.s.short_title} {r.s.id === "cpi_core_index" || r.s.id === "cpi_fuel_index" ? <span class="badge">Original</span> : null}</td>
             <td>{num(r.last.value, 2)}</td>
             <td>{num(r.mom, 2)}</td>
             <td>{num(r.yoy, 2)}</td>
@@ -48,7 +63,10 @@ const published = series("cpi_headline_inflation");
       </tbody>
     </table>
   </div>
-  <p class="chart-sub">Changes computed from the published indices (site calculations); MoSPI's own headline rate for {period(latestPeriod, "M")} is {num(latest(published).value, 2)}%. Not seasonally adjusted. Food and beverages on the 2024 base starts in January 2025, so its 12-month change starts in January 2026.</p>
+  <p class="chart-sub">Changes computed from the published indices; MoSPI's own headline rate for {period(latestPeriod, "M")} is {num(latest(published).value, 2)}%. Not seasonally adjusted. Components below the general index start in January 2025 on the 2024 base, so their 12-month changes start in January 2026.</p>
+
+  <h2>How core CPI is built <span class="badge">Original</span></h2>
+  <p>RBI defines core inflation as CPI excluding food and fuel, where "fuel" is electricity, gas and other fuels plus petrol, diesel and CNG for vehicles. On the 2024 base, food and beverages weigh 36.75, core 53.04 and fuel 10.21 (of 100). MoSPI does not publish the split of fuel between its two parts in machine-readable form, so we recover it from MoSPI's own indices: each division index is an exact weighted average of its components, and 21 months of data pin the weights down (5.37 and 4.84). Core is then the general index with food and fuel taken out. Checked against RBI's published core index: within 0.01 index points in every month RBI reports (June and July of 2025 and 2026).</p>
 
   <h2>Rural and urban</h2>
   <LineChart title="CPI inflation, rural and urban" subtitle="% change on a year earlier, computed from the indices"
@@ -56,5 +74,5 @@ const published = series("cpi_headline_inflation");
     reference={{ target: 4, band: [2, 6] }} years={12} />
 
   <h2>Still to come on this page</h2>
-  <p class="chart-sub">Core CPI (needs a definition for the new COICOP-based 2024 basket, which has no separate "fuel and light" group), contributions by division, WPI, CPI-IW, RBI household inflation expectations and RBI projections. Checklist: docs/guidebook/05-pages/inflation.md.</p>
+  <p class="chart-sub">WPI, CPI-IW, state-wise CPI, momentum vs base effects, RBI household inflation expectations and RBI projections. Checklist: docs/guidebook/05-pages/inflation.md.</p>
 </Base>

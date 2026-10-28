@@ -1,0 +1,18 @@
+# Weights for CPI excluding food and fuel ("core"), all-India combined, CPI 2024=100.
+# Definition follows RBI: core excludes (a) food and beverages and (b) "fuel" =
+# electricity, gas and other fuels + fuels and lubricants for personal transport
+# equipment (petrol, diesel, CNG). RBI Bulletin Table 19(c), footnote #.
+definition_source: "https://www.rbi.org.in/scripts/BS_ViewBulletin.aspx?Id=24400"
+food_and_beverages: 36.75            # MoSPI CPI 2024 division weight (press release, Jan 2026)
+core: 53.04                          # RBI Bulletin Table 19(c), memo item "Core"
+fuel_total: 10.21                    # = 100 - 36.75 - 53.04
+# Split of fuel_total between its two parts. Not published in machine-readable form, so
+# recovered from MoSPI's indices by scripts/estimate_core_cpi_weights.py (21 months,
+# max residual 0.007 index points). Raw estimates 5.372 + 4.848 = 10.220 were scaled
+# by 10.21 / 10.220 so the three weights sum to exactly 100.
+electricity_gas_fuels: 5.367
+vehicle_fuels: 4.843
+validation: >-
+  Against RBI's published core index (Bulletin Table 19(c)): Jun-25, Jul-25, Jun-26 and
+  Jul-26 within 0.01 index points; FY2025-26 average 104.31 vs 104.31; y/y Jun-26 3.90
+  vs 3.90, Jul-26 3.87 vs 3.86. Checked 2026-10-28.

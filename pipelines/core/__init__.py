@@ -39,6 +39,8 @@ class Source(ABC):
 
     name: str = ""
     series_ids: tuple[str, ...] = ()
+    # Derived sources compute from stored series instead of downloading; they run last.
+    derived: bool = False
 
     @abstractmethod
     def fetch(self) -> list[Raw]:

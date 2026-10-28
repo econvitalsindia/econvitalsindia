@@ -4,8 +4,32 @@ import * as Plot from "@observablehq/plot";
 const css = getComputedStyle(document.documentElement);
 const palette = [css.getPropertyValue("--primary").trim(), css.getPropertyValue("--accent").trim(), "#5b8c5a", "#8c5a7a"];
 
+function drawStacked(el, spec) {
+  const rows = spec.rows.map((r) => ({ ...r, date: new Date(r.period) }));
+  const marks = [
+    Plot.rectY(rows, { x: "date", y: "pp", fill: "component", interval: "month", inset: 1, tip: true }),
+    Plot.ruleY([0], { stroke: "currentColor", strokeOpacity: 0.4 }),
+  ];
+  if (spec.total) {
+    const tot = spec.total.map(([d, v]) => ({ date: new Date(d), value: v }));
+    // Centre the dots on the month bars.
+    const mid = tot.map((r) => ({ ...r, date: new Date(r.date.getTime() + 15 * 864e5) }));
+    marks.push(Plot.dot(mid, { x: "date", y: "value", fill: "currentColor", r: 3.5 }));
+    marks.push(Plot.text(mid, { x: "date", y: "value", text: (d) => d.value.toFixed(2), dy: -9, fontSize: 10 }));
+  }
+  const width = el.clientWidth || 600;
+  el.replaceChildren(Plot.plot({
+    width, height: Math.max(240, Math.min(340, width * 0.55)),
+    style: { fontFamily: "Inter, system-ui, sans-serif", fontSize: "11px", background: "transparent" },
+    x: { type: "utc" }, y: { grid: true, label: "percentage points" },
+    color: { domain: [...new Set(rows.map((r) => r.component))], range: palette, legend: true },
+    marks,
+  }));
+}
+
 function draw(el) {
   const spec = JSON.parse(el.dataset.chart);
+  if (spec.kind === "stacked") return drawStacked(el, spec);
   const rows = spec.series.flatMap((s) => s.points.map(([d, v]) => ({ date: new Date(d), value: v, label: s.label })));
   const last = rows.reduce((m, r) => (r.date > m ? r.date : m), new Date(0));
   const start = new Date(last); start.setFullYear(start.getFullYear() - spec.years);
@@ -27,7 +51,7 @@ function draw(el) {
     width, height: Math.max(240, Math.min(340, width * 0.55)), marginRight: 48,
     style: { fontFamily: "Inter, system-ui, sans-serif", fontSize: "11px", background: "transparent" },
     x: { type: "utc" }, y: { grid: true, label: spec.yLabel || null, zero: lo <= 0 || !!ref },
-    color: { range: palette, legend: spec.series.length > 1 },
+    color: { domain: spec.series.map((s) => s.label), range: palette, legend: spec.series.length > 1 },
     marks,
   });
   el.replaceChildren(plot);

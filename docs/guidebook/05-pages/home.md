@@ -7,7 +7,7 @@
 - [ ] Key-indicator strip of 12 tiles. Each shows value, period and change, and links to its page:
   - [ ] Real GDP growth (% y/y, latest quarter)
   - [x] CPI headline (% y/y)
-  - [ ] Core CPI (% y/y, Original, computed): blocked on the core definition for the 2024 basket (08-original-measures.md)
+  - [x] Core CPI (% y/y, Original, RBI definition)
   - [ ] IIP (% y/y)
   - [ ] Unemployment rate (PLFS monthly, CWS, 15+)
   - [x] Repo rate (with date of last change)

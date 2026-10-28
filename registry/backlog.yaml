@@ -2,9 +2,6 @@
 # Phase 1 core set (~25). Source rows: docs/guidebook/03-data-sources.md
 # Built so far: see registry/series/ (CPI x5, policy rates, CRR/SLR, USD/INR, 10y G-sec, 91d T-bill, Nifty, Sensex).
 phase1:
-  - {id: cpi_food_index,         area: inflation, source: MoSPI,        page: inflation}
-  - {id: cpi_fuel_index,         area: inflation, source: MoSPI,        page: inflation}
-  - {id: cpi_core_index,         area: inflation, source: computed,     page: home, original: true}
   - {id: wpi_headline_index,     area: inflation, source: OEA,          page: inflation}
   - {id: iip_general_index,      area: activity,  source: MoSPI,        page: home}
   - {id: core8_index,            area: activity,  source: OEA,          page: activity}

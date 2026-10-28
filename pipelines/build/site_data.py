@@ -116,6 +116,29 @@ def tile(spec: dict, payload: dict) -> dict:
             "note": payload["data"][-1][2] if how == "level" else ""}
 
 
+def cpi_contributions() -> list[dict]:
+    """Percentage-point contributions of food, fuel and core to headline CPI inflation.
+
+    contribution_k(t) = w_k * (I_k(t) - I_k(t-12)) / I_general(t-12), which sums to the
+    headline y/y rate because CPI 2024 is a fixed-weight index. Weights:
+    registry/weights/cpi2024_core.yaml.
+    """
+    w = yaml.safe_load((store.ROOT / "registry" / "weights" / "cpi2024_core.yaml").read_text())
+    parts = {"Food and beverages": ("cpi_food_bev_index", w["food_and_beverages"]),
+             "Fuel": ("cpi_fuel_index", w["electricity_gas_fuels"] + w["vehicle_fuels"]),
+             "Core": ("cpi_core_index", w["core"])}
+    general = load("cpi_headline_index").set_index("period")["value"]
+    rows = []
+    for label, (sid, weight) in parts.items():
+        s = load(sid).set_index("period")["value"]
+        prior = s.reindex(s.index - pd.DateOffset(years=1)).values
+        base = general.reindex(s.index - pd.DateOffset(years=1)).values
+        contrib = pd.Series(weight * (s.values - prior) / base, index=s.index).dropna()
+        rows += [{"period": p.strftime("%Y-%m-%d"), "component": label, "pp": round(v, 3)}
+                 for p, v in contrib.items()]
+    return rows
+
+
 def write_json(path, obj) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(obj, indent=1))
@@ -135,6 +158,7 @@ def main() -> int:
     tiles = [tile(t, payloads[t["series"]]) for t in pages.get("home", {}).get("tiles", [])
              if t["series"] in payloads]
     write_json(OUT / "home.json", {"tiles": tiles})
+    write_json(OUT / "cpi_contributions.json", cpi_contributions())
 
     catalogue = [{"id": sid, "title": spec["title"], "short_title": spec["short_title"],
                   "area": spec["area"], "agency": spec["source"]["agency"],

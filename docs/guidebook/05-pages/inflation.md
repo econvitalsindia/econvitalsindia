@@ -3,9 +3,9 @@
 **Purpose:** Is inflation close to RBI's 4% target, what is driving it, and what is the underlying trend?
 
 ## Must include
-- [ ] Table: CPI headline, food and beverages, fuel and light, core (Original), housing, rural, urban. Columns: 1-month, 3-month avg y/y, 12-month y/y, and m/m momentum
-- [ ] Chart: CPI headline and core y/y, with the 4% target line and the shaded 2–6% band
-- [ ] Chart: contributions to headline CPI by group (weights from the 2024 base)
+- [x] Table: CPI headline, food and beverages, fuel (RBI definition), core (Original), rural, urban (housing still to add). Columns: 1-month, 3-month avg y/y, 12-month y/y, and m/m momentum
+- [x] Chart: CPI headline and core y/y, with the 4% target line and the shaded 2–6% band
+- [x] Chart: contributions to headline CPI by group (weights from the 2024 base)
 - [ ] Chart: momentum vs base effect decomposition of the change in y/y inflation (Original)
 - [ ] WPI headline, WPI food, WPI manufactured products
 - [ ] CPI-IW (Labour Bureau)
@@ -13,7 +13,7 @@
 - [ ] RBI's CPI projections (latest MPC) vs outturn
 - [ ] Food watch link (monsoon and essential-commodity prices, Phase 4)
 - [ ] State-wise CPI y/y map (links to States, Phase 4)
-- [ ] Clear definition of core: CPI excluding food and beverages, and fuel and light (and the variant also excluding petrol, diesel and gold, if we publish it). Weights and method in `08-original-measures.md`
+- [x] Clear definition of core: CPI excluding food and beverages, and fuel and light (and the variant also excluding petrol, diesel and gold, if we publish it). Weights and method in `08-original-measures.md`
 - [ ] Detail page `/inflation/detail`: all CPI groups and subgroups, item-level for vegetables, pulses, cereals
 
 ## Must NOT include

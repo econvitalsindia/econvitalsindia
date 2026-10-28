@@ -1,0 +1,45 @@
+id: cpi_core_index
+title: CPI excluding food and fuel (core), all-India combined
+short_title: Core CPI
+area: inflation
+source:
+  agency: Site calculation from MoSPI CPI (RBI definition)
+  dataset: CPI 2024 components + registry/weights/cpi2024_core.yaml
+  url: https://www.rbi.org.in/scripts/BS_ViewBulletin.aspx?Id=24400
+  module: pipelines/sources/derived/core_cpi.py
+licence: GODL
+downloadable: true
+fetch: auto
+frequency: M
+unit: index
+base_year: 2024=100
+seasonal_adjustment: none
+transforms:
+- yoy
+- mom
+release:
+  calendar: mospi
+  rule: computed when MoSPI CPI is released
+  lag_days: 45
+validation:
+  range:
+  - 30
+  - 400
+  revision_alert: 0.5
+pages:
+- page: home
+  section: key-indicators
+- page: inflation
+  section: summary-table
+original: true
+discontinued: null
+owner: ''
+verified_against:
+- url: https://www.rbi.org.in/scripts/BS_ViewBulletin.aspx?Id=24400
+  checked_on: '2026-10-28'
+  by: claude (build session)
+  result: Jun-25, Jul-25, Jun-26, Jul-26 index within 0.01 of RBI Table 19(c); FY26
+    average equal; y/y Jun-26 3.90 = 3.90, Jul-26 3.87 vs 3.86
+notes: 'RBI''s definition: excludes food and beverages, and fuel (electricity, gas
+  and other fuels; petrol, diesel and CNG for vehicles). Starts January 2025; y/y
+  from January 2026.'

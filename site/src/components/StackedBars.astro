@@ -1,0 +1,15 @@
+---
+// Stacked bars of components with an optional total line (e.g. contributions to CPI inflation).
+// Rows come from generated JSON; drawn client-side by src/scripts/charts.js.
+import { t } from "../lib/i18n.js";
+const { title, subtitle, rows, total = null, source } = Astro.props;
+---
+<figure class="chart">
+  <p class="chart-title">{title}</p>
+  {subtitle && <p class="chart-sub">{subtitle}</p>}
+  <div class="plot" data-chart={JSON.stringify({ kind: "stacked", rows, total })}></div>
+  <figcaption><span>{t("chart.source")}: {source}</span></figcaption>
+</figure>
+<script>
+  import "../scripts/charts.js";
+</script>
