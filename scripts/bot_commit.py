@@ -1,0 +1,88 @@
+"""Commit a data bot's changes under its own name, with a message naming the new numbers.
+
+    python scripts/bot_commit.py <bot>        # e.g. markets; author "markets-bot"
+
+Commits only when series or panels changed (a run that only touched timestamps in
+data/meta or data/status.json is not worth a commit), or when a source failed (so the
+Status page shows it). Pushes with a rebase-and-retry loop in case another bot pushed
+first. Writes `pushed=true|false` to $GITHUB_OUTPUT so the workflow can trigger a deploy.
+"""
+from __future__ import annotations
+
+import json
+import os
+import subprocess
+import sys
+import time
+from pathlib import Path
+
+import yaml
+
+ROOT = Path(__file__).resolve().parents[1]
+MEANINGFUL = ("data/series/", "data/panels/", "data/revisions/", "data/briefings/", "data/newsletter/")
+
+
+def git(*args: str, check: bool = True) -> str:
+    return subprocess.run(["git", *args], cwd=ROOT, capture_output=True, text=True, check=check).stdout
+
+
+def fmt(v: float) -> str:
+    return f"{v:,.0f}" if abs(v) >= 1000 else f"{v:,.2f}".rstrip("0").rstrip(".")
+
+
+def latest(path: str) -> tuple[str, str, float] | None:
+    """(short title, period, value) of a changed series CSV."""
+    sid = Path(path).stem
+    spec_file = ROOT / "registry" / "series" / f"{sid}.yaml"
+    title = yaml.safe_load(spec_file.read_text())["short_title"] if spec_file.exists() else sid
+    lines = (ROOT / path).read_text().strip().splitlines()
+    if len(lines) < 2:
+        return None
+    rows = sorted(l.split(",") for l in lines[1:])            # period first, ISO dates sort
+    period, value = rows[-1][0], rows[-1][1]
+    return title, period, float(value)
+
+
+def output(pushed: bool) -> None:
+    if os.environ.get("GITHUB_OUTPUT"):
+        with open(os.environ["GITHUB_OUTPUT"], "a") as f:
+            f.write(f"pushed={'true' if pushed else 'false'}\n")
+
+
+def main(bot: str) -> int:
+    git("add", "data")
+    changed = [p for p in git("diff", "--cached", "--name-only").splitlines()]
+    last_run = ROOT / "data" / "raw" / "last_run.json"
+    failures = json.loads(last_run.read_text())["failures"] if last_run.exists() else []
+    if not any(p.startswith(MEANINGFUL) for p in changed) and not failures:
+        git("reset", "-q")
+        print(f"{bot}-bot: no new data")
+        output(False)
+        return 0
+
+    series = [x for p in changed if p.startswith("data/series/") and (x := latest(p))]
+    panels = [Path(p).stem for p in changed if p.startswith("data/panels/")]
+    items = [f"{t} {fmt(v)}" for t, _, v in series] + panels
+    subject = f"{bot}: " + (", ".join(items[:4]) + (f" (+{len(items) - 4} more)" if len(items) > 4 else "")
+                            if items else f"{len(failures)} source failure(s) recorded")
+    body = "\n".join([f"- {t}: {fmt(v)} ({p})" for t, p, v in series] + [f"- panel {n}" for n in panels]
+                     + [f"- FAILED {f['series_id']}: {f['error'][:120]}" for f in failures])
+    name = f"{bot}-bot"
+    git("-c", f"user.name={name}", "-c", f"user.email={name}@users.noreply.github.com",
+        "commit", "-q", "-m", subject, "-m", body)
+    for attempt in range(5):
+        if subprocess.run(["git", "push", "-q", "origin", "HEAD:main"], cwd=ROOT).returncode == 0:
+            print(f"{name}: pushed: {subject}")
+            output(True)
+            return 0
+        # Another bot pushed first: replay ours on top. On a clash (data/status.json, or a
+        # series two sources share) keep this bot's version, which is the newer fetch.
+        time.sleep(5 * (attempt + 1))
+        git("pull", "-q", "--rebase", "-X", "theirs", "origin", "main", check=False)
+    print(f"{name}: push failed after retries", file=sys.stderr)
+    output(False)
+    return 1
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv[1] if len(sys.argv) > 1 else "data"))

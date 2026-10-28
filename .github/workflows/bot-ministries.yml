@@ -1,0 +1,18 @@
+name: ministries-bot
+# Ministry data (trade, GST, CGA, OEA, PPAC) and SIAM, Mon-Sat 19:30 IST. Sources: registry/bots.yaml. Times are IST; cron is UTC.
+on:
+  schedule:
+    - cron: "0 14 * * 1-6"
+  workflow_dispatch:
+permissions:
+  contents: write
+  issues: write
+  actions: write
+concurrency:
+  group: data-bots
+  cancel-in-progress: false
+jobs:
+  run:
+    uses: ./.github/workflows/bot.yml
+    with:
+      bot: ministries

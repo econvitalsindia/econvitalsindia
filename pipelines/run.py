@@ -133,6 +133,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawTextHelpFormatter)
     parser.add_argument("targets", nargs="*", help="source names or series ids")
     parser.add_argument("--fetch", choices=["auto", "manual"], help="run all sources of this fetch mode")
+    parser.add_argument("--bot", help="run one data bot's sources (registry/bots.yaml)")
     parser.add_argument("--list", action="store_true", help="list sources and their series")
     args = parser.parse_args()
 
@@ -145,7 +146,14 @@ def main() -> int:
     chosen: list[Source] = []
     if args.fetch:
         chosen = [s for s in sources.values() if fetch_mode(s) == args.fetch]
-    for t in args.targets:
+    targets = list(args.targets)
+    if args.bot:
+        import yaml
+        bots = yaml.safe_load((store.ROOT / "registry" / "bots.yaml").read_text())["bots"]
+        if args.bot not in bots:
+            raise SystemExit(f"unknown bot {args.bot!r}; see registry/bots.yaml")
+        targets += bots[args.bot]["sources"]
+    for t in targets:
         match = sources.get(t) or next((s for s in sources.values() if t in s.series_ids), None)
         if match is None:
             raise SystemExit(f"unknown source or series id: {t}")

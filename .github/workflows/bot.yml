@@ -1,0 +1,47 @@
+name: bot
+# Shared steps for every data bot (registry/bots.yaml). Called by bot-<name>.yml, which sets
+# the schedule. Fetches the bot's sources, reports failures as issues, commits under
+# "<name>-bot" only if data changed (scripts/bot_commit.py), then triggers a deploy.
+on:
+  workflow_call:
+    inputs:
+      bot:
+        required: true
+        type: string
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+      - run: uv sync
+      - name: Fetch, validate, publish
+        id: run
+        run: uv run python -m pipelines.run --bot "${{ inputs.bot }}"
+        continue-on-error: true
+      - name: Report failures as issues
+        if: steps.run.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: uv run python scripts/report_failures.py
+      - name: Keep raw downloads (30 days)
+        uses: actions/upload-artifact@v4
+        with:
+          name: raw-${{ inputs.bot }}-${{ github.run_id }}
+          path: data/raw/
+          retention-days: 30
+          if-no-files-found: ignore
+      - name: Commit as ${{ inputs.bot }}-bot
+        id: commit
+        run: uv run python scripts/bot_commit.py "${{ inputs.bot }}"
+      - name: Deploy the site
+        if: steps.commit.outputs.pushed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml --ref main

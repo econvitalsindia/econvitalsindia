@@ -1,11 +1,10 @@
 name: briefing
-# After each daily data update, draft release notes for releases that arrived today and
+# Each evening after the data bots, draft release notes for releases that arrived today and
 # open a pull request for review. Merging the PR is the human approval that publishes them
 # (docs/guidebook/07-editorial-policy.md). Agents never merge briefing PRs.
 on:
-  workflow_run:
-    workflows: [update-data]
-    types: [completed]
+  schedule:
+    - cron: "0 15 * * 1-6"   # 20:30 IST, after the day's data bots
   workflow_dispatch:
     inputs:
       force:
@@ -15,6 +14,7 @@ permissions:
   contents: write
   pull-requests: write
   issues: write
+  actions: write
 concurrency: briefing
 jobs:
   draft:
@@ -49,6 +49,7 @@ jobs:
             for f in $AUTO; do git add "$f" "data/briefings/$(basename "$f" .md).json"; done
             git commit -m "daily note for $DAY (auto-published)"
             git push origin HEAD:main
+            GH_TOKEN=${{ github.token }} gh workflow run deploy.yml --ref main
           fi
           if [ -z "$(git status --porcelain site/src/content/briefings data/briefings)" ]; then
             echo "review=false" >> "$GITHUB_ENV"; else echo "review=true" >> "$GITHUB_ENV"; fi

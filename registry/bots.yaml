@@ -1,0 +1,21 @@
+# Data bots: which GitHub workflow fetches which sources, and when (times IST).
+# Each bot is a workflow (.github/workflows/bot-<name>.yml) that runs
+#   python -m pipelines.run --bot <name>
+# and commits under its own name only when its data changed (scripts/bot_commit.py), then
+# triggers a deploy. Every `fetch: auto` source must be in exactly one bot
+# (tests/test_registry.py). Derived sources go in the bot that fetches their inputs.
+# Manual sources (fetch: manual, e.g. Grid-India) are not here: `make india-update`.
+# Bots share one queue (concurrency group "data-bots"), so their schedules are staggered.
+bots:
+  markets:
+    when: "Mon-Fri 10:00, 12:00, 14:00, 16:00, 18:00"
+    sources: [rbi_home_rates, yahoo_markets, derived_brent_inr]
+  mospi:
+    when: "Mon-Sat 17:00 (MoSPI releases at 16:00)"
+    sources: [mospi_cpi, mospi_iip, mospi_nas, mospi_plfs, mospi_states, labourbureau_cpi_iw, derived_core_cpi]
+  rbi:
+    when: "Mon-Sat 18:30"
+    sources: [rbi_wss, rbi_bop, rbi_services_trade, rbi_surveys, rbi_iesh, rbi_mpc_minutes, fbil_refrates, derived_mpc_committee]
+  ministries:
+    when: "Mon-Sat 19:30"
+    sources: [commerce_trade, gst_collections, cga_monthly_accounts, cga_tax_heads, oea_wpi, oea_core_industries, ppac_consumption, siam_sales]
