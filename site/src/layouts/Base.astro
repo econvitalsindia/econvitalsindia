@@ -20,6 +20,7 @@ const pageTitle = title ? `${title} · ${config.site.name}` : config.site.name;
     <meta name="description" content={description ?? config.site.description} />
     <meta name="robots" content="noindex" />
     <link rel="icon" href="/mark.svg" type="image/svg+xml" />
+    <link rel="alternate" type="application/rss+xml" title={`${config.site.name}: briefings`} href="/briefings/rss.xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Literata:wght@400;600&display=swap" rel="stylesheet" />

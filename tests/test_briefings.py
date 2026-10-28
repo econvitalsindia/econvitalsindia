@@ -23,3 +23,20 @@ def test_formatting():
     assert fmt_period("2026-04-01", "Q") == "Q1 FY27"
     assert fmt_period("2026-09-01", "M") == "September 2026"
     assert data_decimals([5.54, 4.83]) == 2 and data_decimals([7.8, 8.6]) == 1
+
+
+def test_triggers():
+    from pipelines.briefings.draft import triggered
+    mpc = {"trigger_calendar": "MPC policy decision"}
+    assert triggered(mpc, "2026-12-04") and not triggered(mpc, "2026-12-03")
+    daily = {"trigger": "nifty50_close", "trigger_weekdays_only": True}
+    assert not triggered(daily, "2026-10-31")                      # a Saturday
+
+
+def test_bp_and_pct_phrases():
+    from pipelines.briefings.ledger import Ledger
+    led = Ledger()
+    led.add_view("repo_rate")
+    led.add_view("nifty50_close")
+    assert led.facts["repo_rate.bp_phrase"] == "unchanged" or "basis points" in led.facts["repo_rate.bp_phrase"]
+    assert led.facts["nifty50_close.pct_phrase"].endswith("%") or led.facts["nifty50_close.pct_phrase"] == "unchanged"

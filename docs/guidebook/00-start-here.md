@@ -29,7 +29,7 @@ The model is econvitals.org (U.S.). We credit it and do some things differently:
 | 0 | Repo, config, guidebook, skills, CI skeleton, private preview | done except the Cloudflare preview |
 | 1 | Pipeline core + ~25 core series + home dashboard + calendar + logo v1 | **in progress**: 112 series from 16 sources (prices, activity, GDP, jobs, RBI WSS, markets, trade, GST, CGA accounts); 11 pages; daily workflow. Left: MGNREGA, power demand, UPI, release calendar |
 | 2 | All topic pages, detail pages, Data & Methods, downloads, status page, base-year bridge | not started |
-| 3 | Briefings (ledger, drafts, approval PRs), newsletter, RSS | **in progress**: ledger, checker, 5 release-note templates, review-PR workflow, briefings pages. Left: daily note, newsletter, RSS, optional LLM step |
+| 3 | Briefings (ledger, drafts, approval PRs), newsletter, RSS | **in progress**: ledger, checker, 7 templates (CPI, IIP, GDP, PLFS, trade, MPC, daily note), review-PR workflow, briefings pages, RSS feeds. Left: newsletter (provider), weekly/monthly briefings, optional LLM step |
 | 4 | Originals and tools: surprise composites, MPC Speak, States, monsoon watch, RBI policy rule, Budget explorer | not started |
 | 5 | Go public: name and domain, legal pages, analytics, permission from Econvitals | not started |
 

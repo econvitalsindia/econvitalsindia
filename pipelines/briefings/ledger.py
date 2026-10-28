@@ -13,6 +13,11 @@ Facts for each series view:
   change_yoy        latest - year_ago,   direction_yoy  (vs a year earlier)
   change_phrase     "up 0.71 percentage points" / "down ..." / "unchanged" (vs prev)
   change_phrase_yoy the same, vs a year earlier
+  pct_phrase        "up 0.22%" / "down 1.10%" / "unchanged": % change vs prev (levels, not rates)
+  bp_phrase         "up 25 basis points" / "unchanged": change vs prev, for per-cent series
+Calendar facts (add_calendar): `{{calendar.today}}` (releases scheduled that day),
+`{{calendar.next}}` (the next few) and `{{calendar.next_highlight}}` (next MPC decision etc.),
+built from registry/calendar.
 Constants (policy targets etc.) come from registry/briefings/constants.yaml as
 `{{const.<name>}}`, each with its source.
 """
@@ -126,6 +131,13 @@ class Ledger:
                        change=fmt_change(d, unit, dec))
             put["direction"], put["direction_noun"] = direction(d)
             put["change_phrase"] = phrase(d, unit, dec)
+            if unit == "percent":
+                bp = round(abs(d) * 100)
+                put["bp_phrase"] = "unchanged" if bp == 0 else f"{'up' if d > 0 else 'down'} {bp} basis points"
+            elif prev["value"]:
+                pct = (last["value"] / prev["value"] - 1) * 100
+                put["pct_phrase"] = ("unchanged" if round(pct, 2) == 0
+                                     else f"{'up' if pct > 0 else 'down'} {abs(pct):.2f}%")
         if len(ya):
             d = last["value"] - ya["value"].iloc[0]
             put.update(year_ago=fmt_value(ya["value"].iloc[0], unit, dec),
@@ -146,6 +158,29 @@ class Ledger:
             token = f"const.{name}"
             self.facts[token] = c["text"]
             self.receipts[token] = {"constant": name, "source": c["source"], "text": c["text"]}
+
+    def add_calendar(self, on: str, upcoming: int = 4) -> None:
+        """Releases scheduled on `on`, the next few after it, and the next highlighted
+        event (e.g. an MPC decision), as text."""
+        from pipelines.build import calendar as cal
+        from pipelines.core.registry import all_series
+
+        def item(r: dict) -> str:
+            return f"{r['title']} ({r['period']})"
+
+        def when(r: dict) -> str:
+            return f"{item(r)} on {fmt_period(r['date'], 'D')}"
+
+        rows = cal.load(set(all_series()))
+        today = [r for r in rows if r["date"] == on]
+        later = [r for r in rows if r["date"] > on]
+        highlight = next((r for r in later if r["highlight"]), None)
+        self.facts["calendar.today"] = "; ".join(item(r) for r in today) or "no scheduled releases"
+        self.facts["calendar.next"] = "; ".join(when(r) for r in later[:upcoming]) or "none scheduled"
+        self.facts["calendar.next_highlight"] = (f"{highlight['title']} on {fmt_period(highlight['date'], 'D')}"
+                                                 if highlight else "not yet scheduled")
+        for k in ("calendar.today", "calendar.next", "calendar.next_highlight"):
+            self.receipts[k] = {"source": "registry/calendar", "text": self.facts[k]}
 
     def dump(self) -> str:
         return json.dumps(self.receipts, indent=1, ensure_ascii=False)

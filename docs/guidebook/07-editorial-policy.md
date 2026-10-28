@@ -17,6 +17,16 @@ Implemented in `pipelines/briefings/` (Phase 3, live).
 - **Checker (`check.py`):** fails a template or draft if any digit appears outside a token, or a token is not in the ledger. `make check` runs it on every template.
 - **Direction words** come from tokens (`direction`, `change_phrase`), so they cannot contradict the numbers. Write sentences that read correctly whichever way the data moved.
 
+## Products and triggers
+
+| Template | Product | Drafted when |
+|---|---|---|
+| `cpi`, `iip`, `gdp`, `plfs`, `trade` | release-note | the trigger series records a new observation that day |
+| `mpc` | release-note | the calendar has an "MPC policy decision" on that day (`trigger_calendar`), so holds get a note too |
+| `daily` | daily-note | weekdays, when the day's market closes are recorded (`trigger_weekdays_only`) |
+
+Feeds: `/briefings/rss.xml` (all), `/briefings/release-notes.xml`, `/briefings/daily.xml`. A newsletter service can send these as emails.
+
 ## Workflow
 
 `briefing.yml` runs after each daily update. A template is drafted when its trigger series has an observation first recorded that day. The drafts are committed to a `briefing/<date>-<run>` branch and a pull request is opened with the reviewer checklist. **Merging is the approval that publishes.** If the repository does not allow Actions to open pull requests, the workflow opens an issue with a link to create one. Drafts are currently template-only (no AI). An LLM drafting step can be added later behind the same checker (`site.config.yaml → briefings.llm_model`).

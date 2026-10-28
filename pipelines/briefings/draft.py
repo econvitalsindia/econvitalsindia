@@ -40,8 +40,10 @@ def templates() -> dict[str, tuple[dict, str]]:
     return out
 
 
-def build_ledger(front: dict) -> Ledger:
+def build_ledger(front: dict, on: str | None = None) -> Ledger:
     ledger = Ledger()
+    if front.get("calendar"):
+        ledger.add_calendar(on or date.today().isoformat())
     for view in front["views"]:
         sid, _, how = view.partition(":")
         ledger.add_view(sid, how or "level")
@@ -49,17 +51,29 @@ def build_ledger(front: dict) -> Ledger:
     return ledger
 
 
-def triggered(front: dict, on: str) -> str | None:
-    """Period of the trigger series' newest observation if it was first recorded on `on`."""
+def triggered(front: dict, on: str) -> bool:
+    """Should this template be drafted for date `on`?
+
+    trigger_calendar: a calendar release whose title starts with this text is dated `on`
+                      (e.g. MPC decisions: a hold deserves a note as much as a change).
+    trigger:          the series' newest observation was first recorded on `on`;
+                      with trigger_weekdays_only, only Monday-Friday.
+    """
+    if "trigger_calendar" in front:
+        from pipelines.build import calendar as cal
+        from pipelines.core.registry import all_series
+        return any(r["date"] == on and r["title"].startswith(front["trigger_calendar"])
+                   for r in cal.load(set(all_series())))
+    if front.get("trigger_weekdays_only") and date.fromisoformat(on).weekday() >= 5:
+        return False
     df = store.load_series(front["trigger"])
     if df.empty:
-        return None
-    last = df.sort_values("period").iloc[-1]
-    return last["period"] if str(last["vintage"]) == on else None
+        return False
+    return str(df.sort_values("period").iloc[-1]["vintage"]) == on
 
 
 def draft(name: str, front: dict, text: str, on: str) -> tuple[str | None, list[str]]:
-    ledger = build_ledger(front)
+    ledger = build_ledger(front, on)
     issues = problems(text, ledger.facts) + problems("---\n---\n" + front["title"], ledger.facts)
     if issues:
         return None, issues
@@ -68,7 +82,7 @@ def draft(name: str, front: dict, text: str, on: str) -> tuple[str | None, list[
     title = render(front["title"], ledger.facts)
     OUT.mkdir(parents=True, exist_ok=True)
     LEDGERS.mkdir(parents=True, exist_ok=True)
-    meta = {"title": title, "date": on, "product": "release-note", "template": name,
+    meta = {"title": title, "date": on, "product": front.get("product", "release-note"), "template": name,
             "drafted_by": "template (no AI)", "reviewed_via": "pull request merge", "ledger": f"data/briefings/{slug}.json"}
     (OUT / f"{slug}.md").write_text("---\n" + yaml.safe_dump(meta, sort_keys=False, allow_unicode=True)
                                     + "---\n" + body + "\n")

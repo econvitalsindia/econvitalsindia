@@ -11,7 +11,7 @@ site:
   description: >-
     The latest data on India's growth, prices, jobs, money, markets, public
     finances and external sector, in one place, updated as the numbers come out.
-  url: ""                 # set at launch (custom domain or *.pages.dev)
+  url: "https://econvitalsindia.pages.dev"   # change at launch if a custom domain is used
   language: "en-IN"
   timezone: "Asia/Kolkata"
 
