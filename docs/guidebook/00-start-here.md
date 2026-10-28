@@ -27,7 +27,7 @@ The model is econvitals.org (U.S.). We credit it and do some things differently:
 | Phase | Scope | Status |
 |---|---|---|
 | 0 | Repo, config, guidebook, skills, CI skeleton, private preview | done except the Cloudflare preview |
-| 1 | Pipeline core + ~25 core series + home dashboard + calendar + logo v1 | **in progress**: core, 15 series, home/inflation/markets/data/status pages, daily workflow |
+| 1 | Pipeline core + ~25 core series + home dashboard + calendar + logo v1 | **in progress**: 56 series (CPI incl. core, IIP, GDP/GVA, PLFS, rates, markets); home, growth, inflation, jobs, activity, markets, data, status pages; daily workflow |
 | 2 | All topic pages, detail pages, Data & Methods, downloads, status page, base-year bridge | not started |
 | 3 | Briefings (ledger, drafts, approval PRs), newsletter, RSS | not started |
 | 4 | Originals and tools: surprise composites, MPC Speak, States, monsoon watch, RBI policy rule, Budget explorer | not started |

@@ -1,0 +1,17 @@
+---
+// A home-page "question" card; every number comes from home.json (built by site_data.py).
+import { byFmt, period } from "../lib/format.js";
+const { q } = Astro.props;
+const when = (m) => m.period.includes("/")
+  ? m.period.split("/").map((p) => period(p, m.frequency)).join("–")
+  : period(m.period, m.frequency);
+---
+<a class="question" href={q.href}>
+  <p class="qq">{q.q}</p>
+  <dl>
+    {q.metrics.map((m) => (
+      <div><dt>{m.label} <span>{when(m)}</span></dt><dd>{m.value === null ? "–" : byFmt(m.value, m.fmt)}</dd></div>
+    ))}
+  </dl>
+  <p class="qt">{q.text}</p>
+</a>

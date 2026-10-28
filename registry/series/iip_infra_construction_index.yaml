@@ -1,0 +1,36 @@
+id: iip_infra_construction_index
+title: 'IIP: infrastructure/construction goods (use-based)'
+short_title: IIP infrastructure/construction
+area: activity
+source:
+  agency: MoSPI (NSO)
+  dataset: IIP, base 2022-23
+  url: https://esankhyiki.mospi.gov.in/macroindicators?product=iip
+  module: pipelines/sources/mospi/iip.py
+licence: GODL
+downloadable: true
+fetch: auto
+frequency: M
+unit: index
+base_year: 2022-23=100
+seasonal_adjustment: none
+transforms:
+- yoy
+- mom
+release:
+  calendar: mospi
+  rule: 28th of month, 16:00 IST, for the previous month
+  lag_days: 35
+validation:
+  range:
+  - 20
+  - 400
+  revision_alert: 2
+pages:
+- page: activity
+  section: iip
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: 2022-23 base, from April 2023. Quick estimates are revised in later releases.

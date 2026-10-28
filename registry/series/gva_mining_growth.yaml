@@ -1,0 +1,35 @@
+id: gva_mining_growth
+title: 'Real GVA growth: mining and quarrying, y/y, as published'
+short_title: GVA mining and quarrying
+area: growth
+source:
+  agency: MoSPI (NSO)
+  dataset: National accounts, quarterly
+  url: https://esankhyiki.mospi.gov.in/macroindicators?product=nas
+  module: pipelines/sources/mospi/nas.py
+licence: GODL
+downloadable: true
+fetch: auto
+frequency: Q
+unit: percent
+base_year: as published (see note column)
+seasonal_adjustment: none
+transforms:
+- level
+release:
+  calendar: mospi
+  rule: last working day of the second month after the quarter, 16:00 IST
+  lag_days: 70
+validation:
+  range:
+  - -80
+  - 150
+  revision_alert: 20
+pages:
+- page: growth
+  section: by-sector
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: Base 2022-23 from Q1 FY24 (April 2023), base 2011-12 before.

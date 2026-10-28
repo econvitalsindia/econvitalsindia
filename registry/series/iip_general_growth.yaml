@@ -1,0 +1,38 @@
+id: iip_general_growth
+title: IIP growth, general index, as published
+short_title: IIP growth
+area: activity
+source:
+  agency: MoSPI (NSO)
+  dataset: IIP, base 2022-23
+  url: https://esankhyiki.mospi.gov.in/macroindicators?product=iip
+  module: pipelines/sources/mospi/iip.py
+licence: GODL
+downloadable: true
+fetch: auto
+frequency: M
+unit: percent
+base_year: as published (see note column)
+seasonal_adjustment: none
+transforms:
+- level
+release:
+  calendar: mospi
+  rule: 28th of month, 16:00 IST, for the previous month
+  lag_days: 35
+validation:
+  range:
+  - -70
+  - 150
+  revision_alert: 20
+pages:
+- page: home
+  section: key-indicators
+- page: activity
+  section: iip
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: 'y/y growth as MoSPI published it: base 2022-23 from April 2023, base 2011-12
+  before.'

@@ -42,9 +42,17 @@ function draw(el) {
   const lo = Math.min(...data.map((r) => r.value));
   if (lo <= 0 || ref) marks.push(Plot.ruleY([0], { stroke: "currentColor", strokeOpacity: 0.25 }));
   marks.push(Plot.lineY(data, { x: "date", y: "value", stroke: "label", strokeWidth: 1.8 }));
-  const lastPoints = spec.series.map((s) => { const p = data.filter((r) => r.label === s.label).at(-1); return p; }).filter(Boolean);
+  const lastPoints = spec.series.map((s) => data.filter((r) => r.label === s.label).at(-1)).filter(Boolean);
   marks.push(Plot.dot(lastPoints, { x: "date", y: "value", fill: "label", r: 3 }));
-  marks.push(Plot.text(lastPoints, { x: "date", y: "value", text: (d) => d.value.toLocaleString("en-US", { maximumFractionDigits: 2 }), dx: 6, textAnchor: "start", fontSize: 11 }));
+  // End labels: same decimals as the data (5.0, not 5); skip a label that would sit on top of
+  // another (within 4% of the y-range) - the tooltip and table still give every value.
+  const decimals = Math.min(2, Math.max(...data.slice(-50).map((r) => (String(r.value).split(".")[1] ?? "").length)));
+  const span = Math.max(...data.map((r) => r.value)) - Math.min(...data.map((r) => r.value)) || 1;
+  const labelled = [];
+  for (const p of [...lastPoints].sort((a, b) => b.value - a.value)) {
+    if (labelled.every((q) => Math.abs(q.value - p.value) > span * 0.04)) labelled.push(p);
+  }
+  marks.push(Plot.text(labelled, { x: "date", y: "value", text: (d) => d.value.toLocaleString("en-US", { minimumFractionDigits: decimals, maximumFractionDigits: decimals }), dx: 6, textAnchor: "start", fontSize: 11 }));
   marks.push(Plot.tip(data, Plot.pointerX({ x: "date", y: "value", stroke: "label", title: (d) => `${d.label}\n${d.date.toISOString().slice(0, 10)}: ${d.value.toLocaleString("en-US", { maximumFractionDigits: 2 })}` })));
   const width = el.clientWidth || 600;
   const plot = Plot.plot({

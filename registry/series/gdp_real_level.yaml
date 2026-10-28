@@ -1,0 +1,35 @@
+id: gdp_real_level
+title: Real GDP (constant 2022-23 prices), quarterly
+short_title: Real GDP
+area: growth
+source:
+  agency: MoSPI (NSO)
+  dataset: National accounts, quarterly
+  url: https://esankhyiki.mospi.gov.in/macroindicators?product=nas
+  module: pipelines/sources/mospi/nas.py
+licence: GODL
+downloadable: true
+fetch: auto
+frequency: Q
+unit: inr_lakh_crore
+base_year: 2022-23
+seasonal_adjustment: none
+transforms:
+- yoy
+release:
+  calendar: mospi
+  rule: last working day of the second month after the quarter, 16:00 IST
+  lag_days: 70
+validation:
+  range:
+  - 0.5
+  - 200
+  revision_alert: 3
+pages:
+- page: growth
+  section: expenditure
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: Base 2022-23, from Q1 FY23. Converted from ₹ crore.

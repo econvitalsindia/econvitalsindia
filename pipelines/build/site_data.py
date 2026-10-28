@@ -94,6 +94,7 @@ def series_payload(series_id: str, spec: dict, df: pd.DataFrame) -> dict:
         "licence": spec["licence"],
         "downloadable": spec["downloadable"],
         "notes": spec.get("notes", ""),
+        "original": bool(spec.get("original")),
         "data": [[p.strftime("%Y-%m-%d"), v, n] for p, v, n in
                  zip(df["period"], df["value"], df["note"].fillna(""))],
         "transforms": transforms,
@@ -106,9 +107,12 @@ def tile(spec: dict, payload: dict) -> dict:
     how = spec.get("transform", "level")
     points = payload["data"] if how == "level" else payload["transforms"][how]
     period, value = points[-1][0], points[-1][1]
+    # Same period a year earlier, matched on the date (not on row position).
+    lag = {"M": pd.DateOffset(years=1), "Q": pd.DateOffset(years=1)}.get(payload["frequency"])
     year_ago = None
-    if payload["frequency"] == "M" and len(points) > 12:
-        year_ago = points[-13][1]
+    if lag is not None:
+        target = (pd.Timestamp(period) - lag).strftime("%Y-%m-%d")
+        year_ago = next((v for p, v, *_ in points if p == target), None)
     return {**spec, "period": period, "value": value, "year_ago": year_ago,
             "unit": "percent" if how in ("yoy", "mom") else payload["unit"],
             "frequency": payload["frequency"], "changes": payload["changes"],
@@ -139,6 +143,20 @@ def cpi_contributions() -> list[dict]:
     return rows
 
 
+def question_metric(spec: dict, payload: dict) -> dict:
+    """One number on a home-page question card: latest, year-ago or 4-period average."""
+    how = spec.get("transform", "level")
+    points = payload["data"] if how == "level" else payload["transforms"][how]
+    period, value = points[-1][0], points[-1][1]
+    if spec["stat"] == "year_ago":
+        target = (pd.Timestamp(period) - pd.DateOffset(years=1)).strftime("%Y-%m-%d")
+        period, value = target, next((v for p, v, *_ in points if p == target), None)
+    elif spec["stat"] == "avg4":
+        last4 = points[-4:]
+        period, value = f"{last4[0][0]}/{last4[-1][0]}", round(sum(p[1] for p in last4) / len(last4), 2)
+    return {**spec, "period": period, "value": value, "frequency": payload["frequency"]}
+
+
 def write_json(path, obj) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(obj, indent=1))
@@ -157,7 +175,10 @@ def main() -> int:
     pages = {f.stem: yaml.safe_load(f.read_text()) for f in sorted(PAGES.glob("*.yaml"))}
     tiles = [tile(t, payloads[t["series"]]) for t in pages.get("home", {}).get("tiles", [])
              if t["series"] in payloads]
-    write_json(OUT / "home.json", {"tiles": tiles})
+    questions = [{**q, "metrics": [question_metric(m, payloads[m["series"]]) for m in q["metrics"]
+                                   if m["series"] in payloads]}
+                 for q in pages.get("home", {}).get("questions", [])]
+    write_json(OUT / "home.json", {"tiles": tiles, "questions": questions})
     write_json(OUT / "cpi_contributions.json", cpi_contributions())
 
     catalogue = [{"id": sid, "title": spec["title"], "short_title": spec["short_title"],

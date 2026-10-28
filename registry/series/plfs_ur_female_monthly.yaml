@@ -1,0 +1,36 @@
+id: plfs_ur_female_monthly
+title: Unemployment rate, women 15+, rural + urban (CWS)
+short_title: Unemployment, women
+area: jobs
+source:
+  agency: MoSPI (NSO)
+  dataset: PLFS monthly bulletin (CWS)
+  url: https://esankhyiki.mospi.gov.in/macroindicators?product=plfs
+  module: pipelines/sources/mospi/plfs.py
+licence: GODL
+downloadable: true
+fetch: auto
+frequency: M
+unit: percent
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+- diff
+release:
+  calendar: mospi
+  rule: around the 15th, for the previous month
+  lag_days: 50
+validation:
+  range:
+  - 0
+  - 100
+  revision_alert: 5
+pages:
+- page: jobs
+  section: plfs-monthly
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: Current weekly status. Monthly bulletin started in 2025.

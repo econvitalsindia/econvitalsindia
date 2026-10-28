@@ -1,0 +1,29 @@
+---
+// Rows of series, columns = the last `n` periods (econvitals-style summary table).
+// Each row: { id, how = "level", label?, indent? }. Values come from generated JSON only.
+import { series as load } from "../lib/data.js";
+import { num, period } from "../lib/format.js";
+
+const { rows, n = 4, digits = 1, heading = "", freq } = Astro.props;
+const loaded = rows.map((r) => {
+  const s = load(r.id);
+  const pts = (r.how ?? "level") === "level" ? s.data : s.transforms[r.how];
+  return { ...r, s, map: new Map((pts ?? []).map((p) => [p[0], p[1]])) };
+});
+const f = freq ?? loaded[0].s.frequency;
+const allPeriods = [...new Set(loaded.flatMap((r) => [...r.map.keys()]))].sort();
+const cols = allPeriods.slice(-n);
+---
+<div class="scroll">
+  <table class="data">
+    <thead><tr><th>{heading}</th>{cols.map((c) => <th>{period(c, f)}</th>)}</tr></thead>
+    <tbody>
+      {loaded.map((r) => (
+        <tr>
+          <td style={r.indent ? "padding-left:22px" : ""}>{r.label ?? r.s.short_title}{r.s.original ? <> <span class="badge">Original</span></> : null}</td>
+          {cols.map((c) => <td>{num(r.map.get(c), digits)}</td>)}
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>

@@ -5,11 +5,11 @@
 ## Must include
 - [x] "As of" date in the header (latest data date across series, IST)
 - [ ] Key-indicator strip of 12 tiles. Each shows value, period and change, and links to its page:
-  - [ ] Real GDP growth (% y/y, latest quarter)
+  - [x] Real GDP growth (% y/y, latest quarter)
   - [x] CPI headline (% y/y)
   - [x] Core CPI (% y/y, Original, RBI definition)
-  - [ ] IIP (% y/y)
-  - [ ] Unemployment rate (PLFS monthly, CWS, 15+)
+  - [x] IIP (% y/y)
+  - [x] Unemployment rate (PLFS monthly, CWS, 15+)
   - [x] Repo rate (with date of last change)
   - [x] 10-year G-sec yield (bp change YTD)
   - [x] Nifty 50 and Sensex (% YTD)
@@ -17,7 +17,7 @@
   - [ ] Brent in ₹ per barrel (% YTD)
   - [ ] FX reserves (US$ bn, weekly)
   - [ ] GST collections (₹ lakh crore, % y/y)
-- [ ] "India in four questions" cards, each with 2–3 numbers and a link:
+- [~] "India in four questions" cards (3 of 4 live: inflation, growth, jobs; external waits for reserves/CAD), each with 2–3 numbers and a link:
   1. Is inflation near 4%? (CPI y/y, core y/y, 3-month momentum, the 2–6% band)
   2. Is growth holding up? (real GDP y/y, GVA y/y, private consumption y/y)
   3. Are jobs being created? (PLFS unemployment and LFPR now vs a year ago, EPFO net adds 3mma)

@@ -1,7 +1,8 @@
 {
-  "nav": {"home": "Home", "inflation": "Inflation", "markets": "Markets & rates", "data": "Data", "about": "About", "status": "Status"},
+  "nav": {"home": "Home", "growth": "Growth", "jobs": "Jobs", "activity": "Activity", "inflation": "Inflation", "markets": "Markets & rates", "data": "Data", "about": "About", "status": "Status"},
   "home": {
     "key_indicators": "Key indicators",
+    "questions": "India in three questions",
     "planned": "Coming next",
     "inflation_heading": "Inflation against RBI's target",
     "rupee_heading": "The rupee"

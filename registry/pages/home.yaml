@@ -1,8 +1,11 @@
 # Machine-readable twin of docs/guidebook/05-pages/home.md
 page: home
 tiles:
+  - {series: gdp_real_growth, transform: level, label: "Real GDP growth", href: "/growth/", fmt: "pct1", show: year_ago}
   - {series: cpi_headline_inflation, transform: level, label: "CPI inflation", href: "/inflation/", fmt: "pct2", show: year_ago}
   - {series: cpi_core_index, transform: yoy, label: "Core CPI", href: "/inflation/", fmt: "pct2", show: year_ago}
+  - {series: iip_general_growth, transform: level, label: "IIP growth", href: "/activity/", fmt: "pct1", show: year_ago}
+  - {series: plfs_ur_monthly, transform: level, label: "Unemployment", href: "/jobs/", fmt: "pct1", show: year_ago}
   - {series: repo_rate, transform: level, label: "Repo rate", href: "/markets/", fmt: "pct2"}
   - {series: gsec_10y_yield, transform: level, label: "10-yr G-sec", href: "/markets/", fmt: "pct2", show: ytd}
   - {series: tbill_91d, transform: level, label: "91-day T-bill", href: "/markets/", fmt: "pct2"}
@@ -10,4 +13,27 @@ tiles:
   - {series: nifty50_close, transform: level, label: "Nifty 50", href: "/markets/", fmt: "num0", show: ytd}
   - {series: sensex_close, transform: level, label: "Sensex", href: "/markets/", fmt: "num0", show: ytd}
 # Planned tiles (no numbers shown until their series exist): see registry/backlog.yaml
-planned: ["Real GDP growth", "IIP", "Unemployment (PLFS)", "FX reserves", "GST collections", "Brent in ₹"]
+planned: ["FX reserves", "GST collections", "Brent in ₹"]
+# "India in questions" cards. stat: latest | year_ago | avg4 (mean of the last 4 periods).
+questions:
+  - q: "Is inflation near RBI's 4% target?"
+    href: "/inflation/"
+    text: "RBI targets 4% CPI inflation with a tolerance band of 2–6%. Core strips out food and fuel, whose prices swing with harvests and global oil."
+    metrics:
+      - {label: "CPI inflation", series: cpi_headline_inflation, transform: level, stat: latest, fmt: pct2}
+      - {label: "Core CPI", series: cpi_core_index, transform: yoy, stat: latest, fmt: pct2}
+      - {label: "Food and beverages", series: cpi_food_bev_index, transform: yoy, stat: latest, fmt: pct2}
+  - q: "Is growth holding up?"
+    href: "/growth/"
+    text: "Real GDP growth on a year earlier, as MoSPI published it, and the average of the last four quarters to look through quarterly noise."
+    metrics:
+      - {label: "Real GDP, latest quarter", series: gdp_real_growth, transform: level, stat: latest, fmt: pct1}
+      - {label: "Average, last 4 quarters", series: gdp_real_growth, transform: level, stat: avg4, fmt: pct1}
+      - {label: "Industrial production, latest month", series: iip_general_growth, transform: level, stat: latest, fmt: pct1}
+  - q: "Is the job market improving?"
+    href: "/jobs/"
+    text: "Monthly PLFS, current weekly status, ages 15 and over. The monthly survey began in 2025, so comparisons go back one year."
+    metrics:
+      - {label: "Unemployment rate", series: plfs_ur_monthly, transform: level, stat: latest, fmt: pct1}
+      - {label: "A year earlier", series: plfs_ur_monthly, transform: level, stat: year_ago, fmt: pct1}
+      - {label: "Youth (15–29) unemployment", series: plfs_ur_youth_monthly, transform: level, stat: latest, fmt: pct1}

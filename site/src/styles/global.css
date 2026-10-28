@@ -61,3 +61,14 @@ figure.chart figcaption { font-family: "Inter", system-ui, sans-serif; font-size
 .badge { font-family: "Inter", system-ui, sans-serif; font-size: 0.68rem; border: 1px solid currentColor; border-radius: 3px; padding: 0 4px; color: var(--muted); }
 
 footer.site { border-top: 1px solid var(--rule); padding: 20px 0 40px; font-family: "Inter", system-ui, sans-serif; font-size: 0.8rem; color: var(--muted); }
+
+.questions { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+.question { display: block; text-decoration: none; color: inherit; border: 1px solid var(--rule); border-top: 3px solid var(--primary); padding: 14px 16px; }
+.question:hover { border-top-color: var(--accent); }
+.question .qq { font-weight: 600; font-size: 1.05rem; margin: 0 0 10px; }
+.question dl { margin: 0; font-family: "Inter", system-ui, sans-serif; }
+.question dl div { display: flex; justify-content: space-between; align-items: baseline; padding: 4px 0; border-bottom: 1px dotted var(--rule); }
+.question dt { font-size: 0.82rem; }
+.question dt span { color: var(--muted); font-size: 0.72rem; margin-left: 4px; }
+.question dd { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; }
+.question .qt { font-family: "Inter", system-ui, sans-serif; font-size: 0.75rem; color: var(--muted); margin: 10px 0 0; }

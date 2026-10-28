@@ -1,0 +1,30 @@
+---
+import Base from "../layouts/Base.astro";
+import LineChart from "../components/LineChart.astro";
+import PeriodTable from "../components/PeriodTable.astro";
+const sect = ["mining", "manufacturing", "electricity"];
+const use = ["primary_goods", "capital_goods", "intermediate_goods", "infra_construction", "consumer_durables", "consumer_nondurables"];
+---
+<Base current="activity" title="Activity">
+  <h1>Activity</h1>
+  <p class="lede">What do the monthly indicators say about momentum before GDP comes out? Industrial production from MoSPI (Index of Industrial Production, base 2022-23).</p>
+
+  <LineChart title="Industrial production growth, as published" subtitle="IIP, % change on a year earlier"
+    lines={[{ id: "iip_general_growth", label: "IIP" }]} years={6} />
+  <p class="chart-sub">Base 2022-23 from April 2023, base 2011-12 before; each value is the rate MoSPI published on that base. Recent months are quick estimates and are revised.</p>
+
+  <h2>Industrial production by sector and use</h2>
+  <PeriodTable heading="IIP, % y/y" n={6} rows={[
+    { id: "iip_general_index", how: "yoy", label: "General" },
+    ...sect.map((s) => ({ id: `iip_${s}_index`, how: "yoy", indent: true })),
+    ...use.map((s) => ({ id: `iip_${s}_index`, how: "yoy", indent: true })),
+  ]} />
+  <p class="chart-sub">Computed from the published indices (site calculations), so they can differ from MoSPI's published growth by rounding. Sector rows are mining, manufacturing and electricity; the rest are use-based categories.</p>
+
+  <LineChart title="Investment and consumer goods" subtitle="IIP use-based categories, % change on a year earlier"
+    lines={[{ id: "iip_capital_goods_index", how: "yoy", label: "Capital goods" }, { id: "iip_infra_construction_index", how: "yoy", label: "Infrastructure/construction" },
+            { id: "iip_consumer_durables_index", how: "yoy", label: "Consumer durables" }, { id: "iip_consumer_nondurables_index", how: "yoy", label: "Consumer non-durables" }]} years={3} />
+
+  <h2>Still to come on this page</h2>
+  <p class="chart-sub">Eight core industries, power demand, GST and e-way bills, auto sales, fuel consumption, rail freight, air traffic, UPI, PMI headline. Checklist: docs/guidebook/05-pages/activity.md.</p>
+</Base>

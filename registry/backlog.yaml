@@ -1,13 +1,10 @@
 # Indicators planned but not yet built. Remove an entry when its registry/series yaml lands.
 # Phase 1 core set (~25). Source rows: docs/guidebook/03-data-sources.md
-# Built so far: see registry/series/ (CPI x5, policy rates, CRR/SLR, USD/INR, 10y G-sec, 91d T-bill, Nifty, Sensex).
+# Built so far: see registry/series/ (56 series: CPI incl. core, IIP, GDP/GVA, PLFS, policy rates, markets).
+# WPI is blocked: MoSPI API data stops Apr 2026, so it needs the OEA source (SSL chain fix).
 phase1:
   - {id: wpi_headline_index,     area: inflation, source: OEA,          page: inflation}
-  - {id: iip_general_index,      area: activity,  source: MoSPI,        page: home}
   - {id: core8_index,            area: activity,  source: OEA,          page: activity}
-  - {id: gdp_real_level,         area: growth,    source: MoSPI,        page: home}
-  - {id: gva_real_level,         area: growth,    source: MoSPI,        page: growth}
-  - {id: plfs_ur_monthly,        area: jobs,      source: MoSPI,        page: home}
   - {id: wacr,                   area: money,     source: RBI,          page: money-banking}
   - {id: scb_credit,             area: money,     source: RBI,          page: money-banking}
   - {id: brent_usd,              area: markets,   source: Yahoo,        page: home, licence: show-only}

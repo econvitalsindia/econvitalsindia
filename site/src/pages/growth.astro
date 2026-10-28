@@ -1,0 +1,46 @@
+---
+import Base from "../layouts/Base.astro";
+import LineChart from "../components/LineChart.astro";
+import PeriodTable from "../components/PeriodTable.astro";
+import { series, latest } from "../lib/data.js";
+import { num, period } from "../lib/format.js";
+
+const g = series("gdp_real_growth");
+const last = latest(g);
+const nominal = series("gdp_nominal_level");
+const sectors = ["agri", "mining", "mfg", "utilities", "construction", "trade", "finance", "public"];
+const components = ["pfce", "gfce", "gfcf", "exports", "imports"];
+const lastLevel = latest(nominal);
+---
+<Base current="growth" title="Growth">
+  <h1>Growth</h1>
+  <p class="lede">How fast is the economy growing, and which sectors and spending components drive it? Quarterly national accounts from MoSPI. Real GDP grew {num(last.value, 1)}% on a year earlier in {period(last.period, "Q")}; nominal GDP in that quarter was ₹{num(lastLevel.value, 1)} lakh crore.</p>
+
+  <LineChart title="Real GDP and GVA growth, as published" subtitle="% change on the same quarter a year earlier, constant prices"
+    lines={[{ id: "gdp_real_growth", label: "GDP" }, { id: "gva_real_growth", label: "GVA" }]} years={10} />
+  <p class="chart-sub">Base 2022-23 from Q1 FY24 (April–June 2023), base 2011-12 before; each value is the rate MoSPI published on that base. The swings in FY21 and FY22 are the COVID-19 lockdown and rebound.</p>
+
+  <h2>Growth by sector</h2>
+  <PeriodTable heading="Real GVA, % y/y" n={5} rows={[
+    { id: "gva_real_growth", label: "Total GVA" },
+    ...sectors.map((s) => ({ id: `gva_${s}_growth`, indent: true })),
+  ]} />
+
+  <h2>Growth by spending component</h2>
+  <PeriodTable heading="Constant prices, % y/y" n={5} rows={[
+    { id: "gdp_real_level", how: "yoy", label: "GDP" },
+    { id: "pfce_real_level", how: "yoy", indent: true },
+    { id: "gfce_real_level", how: "yoy", indent: true },
+    { id: "gfcf_real_level", how: "yoy", indent: true },
+    { id: "exports_real_level", how: "yoy", indent: true },
+    { id: "imports_real_level", how: "yoy", indent: true },
+  ]} />
+  <p class="chart-sub">Computed from MoSPI's quarterly levels on the 2022-23 base (site calculations), so they can differ from published growth rates by rounding. GDP also includes change in stocks, valuables and discrepancies, which are not shown.</p>
+
+  <h2>Nominal and real</h2>
+  <LineChart title="Nominal and real GDP growth" subtitle="% change on a year earlier, as published; the gap is GDP deflator inflation"
+    lines={[{ id: "gdp_nominal_growth", label: "Nominal" }, { id: "gdp_real_growth", label: "Real" }]} years={10} />
+
+  <h2>Still to come on this page</h2>
+  <p class="chart-sub">Contributions to growth by component, annual advance/provisional estimates and their revisions, RBI's growth projections. Checklist: docs/guidebook/05-pages/growth.md.</p>
+</Base>

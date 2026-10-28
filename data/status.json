@@ -69,12 +69,208 @@
     "last_error": null,
     "last_period": "2026-10-28"
   },
+  "exports_real_level": {
+    "last_attempt": "2026-10-28T11:02:51+00:00",
+    "last_success": "2026-10-28T11:02:51+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-04-01"
+  },
+  "gdp_nominal_growth": {
+    "last_attempt": "2026-10-28T11:02:50+00:00",
+    "last_success": "2026-10-28T11:02:50+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-04-01"
+  },
+  "gdp_nominal_level": {
+    "last_attempt": "2026-10-28T11:02:50+00:00",
+    "last_success": "2026-10-28T11:02:50+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-04-01"
+  },
+  "gdp_real_growth": {
+    "last_attempt": "2026-10-28T11:02:50+00:00",
+    "last_success": "2026-10-28T11:02:50+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-04-01"
+  },
+  "gdp_real_level": {
+    "last_attempt": "2026-10-28T11:02:50+00:00",
+    "last_success": "2026-10-28T11:02:50+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-04-01"
+  },
+  "gfce_real_level": {
+    "last_attempt": "2026-10-28T11:02:51+00:00",
+    "last_success": "2026-10-28T11:02:51+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-04-01"
+  },
+  "gfcf_real_level": {
+    "last_attempt": "2026-10-28T11:02:51+00:00",
+    "last_success": "2026-10-28T11:02:51+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-04-01"
+  },
   "gsec_10y_yield": {
     "last_attempt": "2026-10-28T10:38:03+00:00",
     "last_success": "2026-10-28T10:38:03+00:00",
     "stale": false,
     "last_error": null,
     "last_period": "2026-10-27"
+  },
+  "gva_agri_growth": {
+    "last_attempt": "2026-10-28T11:02:50+00:00",
+    "last_success": "2026-10-28T11:02:50+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-04-01"
+  },
+  "gva_construction_growth": {
+    "last_attempt": "2026-10-28T11:02:50+00:00",
+    "last_success": "2026-10-28T11:02:50+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-04-01"
+  },
+  "gva_finance_growth": {
+    "last_attempt": "2026-10-28T11:02:50+00:00",
+    "last_success": "2026-10-28T11:02:50+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-04-01"
+  },
+  "gva_mfg_growth": {
+    "last_attempt": "2026-10-28T11:02:50+00:00",
+    "last_success": "2026-10-28T11:02:50+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-04-01"
+  },
+  "gva_mining_growth": {
+    "last_attempt": "2026-10-28T11:02:50+00:00",
+    "last_success": "2026-10-28T11:02:50+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-04-01"
+  },
+  "gva_public_growth": {
+    "last_attempt": "2026-10-28T11:02:50+00:00",
+    "last_success": "2026-10-28T11:02:50+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-04-01"
+  },
+  "gva_real_growth": {
+    "last_attempt": "2026-10-28T11:02:50+00:00",
+    "last_success": "2026-10-28T11:02:50+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-04-01"
+  },
+  "gva_trade_growth": {
+    "last_attempt": "2026-10-28T11:02:50+00:00",
+    "last_success": "2026-10-28T11:02:50+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-04-01"
+  },
+  "gva_utilities_growth": {
+    "last_attempt": "2026-10-28T11:02:50+00:00",
+    "last_success": "2026-10-28T11:02:50+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-04-01"
+  },
+  "iip_capital_goods_index": {
+    "last_attempt": "2026-10-28T11:00:25+00:00",
+    "last_success": "2026-10-28T11:00:25+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-09-01"
+  },
+  "iip_consumer_durables_index": {
+    "last_attempt": "2026-10-28T11:00:25+00:00",
+    "last_success": "2026-10-28T11:00:25+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-09-01"
+  },
+  "iip_consumer_nondurables_index": {
+    "last_attempt": "2026-10-28T11:00:25+00:00",
+    "last_success": "2026-10-28T11:00:25+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-09-01"
+  },
+  "iip_electricity_index": {
+    "last_attempt": "2026-10-28T11:00:25+00:00",
+    "last_success": "2026-10-28T11:00:25+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-09-01"
+  },
+  "iip_general_growth": {
+    "last_attempt": "2026-10-28T11:00:25+00:00",
+    "last_success": "2026-10-28T11:00:25+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-09-01"
+  },
+  "iip_general_index": {
+    "last_attempt": "2026-10-28T11:00:25+00:00",
+    "last_success": "2026-10-28T11:00:25+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-09-01"
+  },
+  "iip_infra_construction_index": {
+    "last_attempt": "2026-10-28T11:00:25+00:00",
+    "last_success": "2026-10-28T11:00:25+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-09-01"
+  },
+  "iip_intermediate_goods_index": {
+    "last_attempt": "2026-10-28T11:00:25+00:00",
+    "last_success": "2026-10-28T11:00:25+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-09-01"
+  },
+  "iip_manufacturing_index": {
+    "last_attempt": "2026-10-28T11:00:25+00:00",
+    "last_success": "2026-10-28T11:00:25+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-09-01"
+  },
+  "iip_mining_index": {
+    "last_attempt": "2026-10-28T11:00:25+00:00",
+    "last_success": "2026-10-28T11:00:25+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-09-01"
+  },
+  "iip_primary_goods_index": {
+    "last_attempt": "2026-10-28T11:00:25+00:00",
+    "last_success": "2026-10-28T11:00:25+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-09-01"
+  },
+  "imports_real_level": {
+    "last_attempt": "2026-10-28T11:02:51+00:00",
+    "last_success": "2026-10-28T11:02:51+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-04-01"
   },
   "msf_rate": {
     "last_attempt": "2026-10-28T10:38:03+00:00",
@@ -89,6 +285,69 @@
     "stale": false,
     "last_error": null,
     "last_period": "2026-10-27"
+  },
+  "pfce_real_level": {
+    "last_attempt": "2026-10-28T11:02:50+00:00",
+    "last_success": "2026-10-28T11:02:50+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-04-01"
+  },
+  "plfs_lfpr_female_monthly": {
+    "last_attempt": "2026-10-28T11:01:08+00:00",
+    "last_success": "2026-10-28T11:01:08+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-09-01"
+  },
+  "plfs_lfpr_monthly": {
+    "last_attempt": "2026-10-28T11:01:08+00:00",
+    "last_success": "2026-10-28T11:01:08+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-09-01"
+  },
+  "plfs_ur_female_monthly": {
+    "last_attempt": "2026-10-28T11:01:08+00:00",
+    "last_success": "2026-10-28T11:01:08+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-09-01"
+  },
+  "plfs_ur_monthly": {
+    "last_attempt": "2026-10-28T11:01:08+00:00",
+    "last_success": "2026-10-28T11:01:08+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-09-01"
+  },
+  "plfs_ur_rural_monthly": {
+    "last_attempt": "2026-10-28T11:01:08+00:00",
+    "last_success": "2026-10-28T11:01:08+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-09-01"
+  },
+  "plfs_ur_urban_monthly": {
+    "last_attempt": "2026-10-28T11:01:08+00:00",
+    "last_success": "2026-10-28T11:01:08+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-09-01"
+  },
+  "plfs_ur_youth_monthly": {
+    "last_attempt": "2026-10-28T11:01:08+00:00",
+    "last_success": "2026-10-28T11:01:08+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-09-01"
+  },
+  "plfs_wpr_monthly": {
+    "last_attempt": "2026-10-28T11:01:08+00:00",
+    "last_success": "2026-10-28T11:01:08+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-09-01"
   },
   "repo_rate": {
     "last_attempt": "2026-10-28T10:38:03+00:00",

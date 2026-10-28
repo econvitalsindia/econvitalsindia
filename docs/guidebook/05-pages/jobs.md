@@ -3,13 +3,13 @@
 **Purpose:** Is employment growing, and how do urban, rural, female and youth labour markets look?
 
 ## Must include
-- [ ] PLFS monthly (CWS, 15+): unemployment rate, LFPR, WPR, for all/rural/urban and male/female
-- [ ] Youth (15–29) unemployment
+- [x] PLFS monthly (CWS, 15+): unemployment rate, LFPR, WPR, for all/rural/urban and male/female
+- [x] Youth (15–29) unemployment
 - [ ] PLFS quarterly bulletin (urban) and annual (usual status), with a clear concept label (CWS vs usual status)
 - [ ] EPFO net payroll additions (3mma), with a note that it measures formalisation, not total jobs, and is heavily revised
 - [ ] MGNREGA households demanding work vs a year ago (rural distress signal)
 - [ ] Chart: female LFPR over time (long annual series)
-- [ ] Concept box: CWS vs usual status (ps+ss), and why they differ
+- [x] Concept box: CWS vs usual status (ps+ss), and why they differ
 
 ## Must NOT include
 - Mixing CWS and usual-status figures on one line

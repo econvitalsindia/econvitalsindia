@@ -3,7 +3,7 @@
 **Purpose:** What do the monthly and daily indicators say about momentum before GDP comes out?
 
 ## Must include
-- [ ] IIP: general, manufacturing, mining, electricity, and use-based (capital goods, consumer durables, non-durables, infrastructure/construction)
+- [x] IIP: general, manufacturing, mining, electricity, and use-based (capital goods, consumer durables, non-durables, infrastructure/construction)
 - [ ] Eight core industries index and components
 - [ ] Power demand (Grid-India daily energy met, 7-day avg y/y)
 - [ ] GST gross collections and e-way bills

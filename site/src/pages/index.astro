@@ -1,6 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import Tile from "../components/Tile.astro";
+import QuestionCard from "../components/QuestionCard.astro";
 import LineChart from "../components/LineChart.astro";
 import { config } from "../lib/config.js";
 import { home } from "../lib/data.js";
@@ -8,7 +9,7 @@ import { t } from "../lib/i18n.js";
 import fs from "node:fs";
 import yaml from "js-yaml";
 
-const { tiles } = home();
+const { tiles, questions } = home();
 const spec = yaml.load(fs.readFileSync("../registry/pages/home.yaml", "utf8"));
 ---
 <Base current="home">
@@ -18,6 +19,9 @@ const spec = yaml.load(fs.readFileSync("../registry/pages/home.yaml", "utf8"));
   <h2>{t("home.key_indicators")}</h2>
   <div class="tiles">{tiles.map((tile) => <Tile tile={tile} />)}</div>
   <p class="planned">{t("home.planned")}: {spec.planned.join(" · ")}</p>
+
+  <h2>{t("home.questions")}</h2>
+  <div class="questions">{questions.map((q) => <QuestionCard q={q} />)}</div>
 
   <div class="grid2">
     <section>

@@ -1,0 +1,3578 @@
+{
+"data": [
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "September",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "124.3",
+"growth_rate": "6.7"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "August",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "123.1",
+"growth_rate": "7.8"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "July",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "125.6",
+"growth_rate": "7.4"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "June",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "124.8",
+"growth_rate": "8.8"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "May",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "122.5",
+"growth_rate": "5.0"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "April",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "118.2",
+"growth_rate": "4.9"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "March",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "129.7",
+"growth_rate": "3.0"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "February",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "117.9",
+"growth_rate": "4.4"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "January",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "123.0",
+"growth_rate": "4.1"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "December",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "123.5",
+"growth_rate": "6.7"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "November",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "114.6",
+"growth_rate": "7.0"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "October",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "111.6",
+"growth_rate": "-0.9"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "September",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "116.5",
+"growth_rate": "6.1"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "August",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "114.2",
+"growth_rate": "4.7"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "July",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "117.0",
+"growth_rate": "5.4"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "June",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "114.7",
+"growth_rate": "2.2"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "May",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "116.7",
+"growth_rate": "3.4"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "April",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "112.7",
+"growth_rate": "4.8"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "March",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "125.9",
+"growth_rate": "5.8"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "February",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "112.9",
+"growth_rate": "2.9"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "January",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "118.1",
+"growth_rate": "6.3"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "December",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "109.0",
+"growth_rate": "9.0"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "November",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "101.1",
+"growth_rate": "1.1"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "October",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "106.6",
+"growth_rate": "6.6"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "September",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "104.9",
+"growth_rate": "4.9"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "August",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "106.9",
+"growth_rate": "6.9"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "July",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "103.0",
+"growth_rate": "3.0"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "June",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "104.6",
+"growth_rate": "4.6"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "May",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "105.2",
+"growth_rate": "5.2"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "April",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "100.4",
+"growth_rate": "0.4"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "September",
+"type": "Sectoral",
+"category": "Mining & Quarrying",
+"sub_category": "",
+"index": "90.4",
+"growth_rate": "-6.2"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "September",
+"type": "Sectoral",
+"category": "Manufacturing",
+"sub_category": "",
+"index": "128.0",
+"growth_rate": "7.6"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "September",
+"type": "Sectoral",
+"category": "Electricity & Gas Supply",
+"sub_category": "",
+"index": "128.6",
+"growth_rate": "11.2"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "September",
+"type": "Sectoral",
+"category": "Water Supply, Sewerage & Waste Management",
+"sub_category": "",
+"index": "146.4",
+"growth_rate": "5.8"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "August",
+"type": "Sectoral",
+"category": "Mining & Quarrying",
+"sub_category": "",
+"index": "86.6",
+"growth_rate": "-4.6"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "August",
+"type": "Sectoral",
+"category": "Manufacturing",
+"sub_category": "",
+"index": "126.2",
+"growth_rate": "8.6"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "August",
+"type": "Sectoral",
+"category": "Electricity & Gas Supply",
+"sub_category": "",
+"index": "133.9",
+"growth_rate": "12.3"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "August",
+"type": "Sectoral",
+"category": "Water Supply, Sewerage & Waste Management",
+"sub_category": "",
+"index": "147.6",
+"growth_rate": "6.3"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "July",
+"type": "Sectoral",
+"category": "Mining & Quarrying",
+"sub_category": "",
+"index": "94.4",
+"growth_rate": "-0.9"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "July",
+"type": "Sectoral",
+"category": "Manufacturing",
+"sub_category": "",
+"index": "128.4",
+"growth_rate": "8.2"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "July",
+"type": "Sectoral",
+"category": "Electricity & Gas Supply",
+"sub_category": "",
+"index": "133.5",
+"growth_rate": "8.7"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "July",
+"type": "Sectoral",
+"category": "Water Supply, Sewerage & Waste Management",
+"sub_category": "",
+"index": "148.4",
+"growth_rate": "7.4"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "June",
+"type": "Sectoral",
+"category": "Mining & Quarrying",
+"sub_category": "",
+"index": "110.6",
+"growth_rate": "1.6"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "June",
+"type": "Sectoral",
+"category": "Manufacturing",
+"sub_category": "",
+"index": "125.3",
+"growth_rate": "9.5"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "June",
+"type": "Sectoral",
+"category": "Electricity & Gas Supply",
+"sub_category": "",
+"index": "131.8",
+"growth_rate": "11.3"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "June",
+"type": "Sectoral",
+"category": "Water Supply, Sewerage & Waste Management",
+"sub_category": "",
+"index": "145.7",
+"growth_rate": "6.1"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "May",
+"type": "Sectoral",
+"category": "Mining & Quarrying",
+"sub_category": "",
+"index": "113.1",
+"growth_rate": "-1.4"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "May",
+"type": "Sectoral",
+"category": "Manufacturing",
+"sub_category": "",
+"index": "122.2",
+"growth_rate": "5.2"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "May",
+"type": "Sectoral",
+"category": "Electricity & Gas Supply",
+"sub_category": "",
+"index": "130.1",
+"growth_rate": "10.3"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "May",
+"type": "Sectoral",
+"category": "Water Supply, Sewerage & Waste Management",
+"sub_category": "",
+"index": "145.1",
+"growth_rate": "5.5"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "April",
+"type": "Sectoral",
+"category": "Mining & Quarrying",
+"sub_category": "",
+"index": "106.1",
+"growth_rate": "-3.8"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "April",
+"type": "Sectoral",
+"category": "Manufacturing",
+"sub_category": "",
+"index": "118.7",
+"growth_rate": "6.1"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "April",
+"type": "Sectoral",
+"category": "Electricity & Gas Supply",
+"sub_category": "",
+"index": "121.7",
+"growth_rate": "4.6"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "April",
+"type": "Sectoral",
+"category": "Water Supply, Sewerage & Waste Management",
+"sub_category": "",
+"index": "146.1",
+"growth_rate": "6.6"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "March",
+"type": "Sectoral",
+"category": "Mining & Quarrying",
+"sub_category": "",
+"index": "125.4",
+"growth_rate": "-2.6"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "March",
+"type": "Sectoral",
+"category": "Manufacturing",
+"sub_category": "",
+"index": "131.4",
+"growth_rate": "4.0"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "March",
+"type": "Sectoral",
+"category": "Electricity & Gas Supply",
+"sub_category": "",
+"index": "119.2",
+"growth_rate": "1.2"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "March",
+"type": "Sectoral",
+"category": "Water Supply, Sewerage & Waste Management",
+"sub_category": "",
+"index": "146.3",
+"growth_rate": "6.4"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "February",
+"type": "Sectoral",
+"category": "Mining & Quarrying",
+"sub_category": "",
+"index": "114.7",
+"growth_rate": "-2.4"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "February",
+"type": "Sectoral",
+"category": "Manufacturing",
+"sub_category": "",
+"index": "119.2",
+"growth_rate": "5.7"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "February",
+"type": "Sectoral",
+"category": "Electricity & Gas Supply",
+"sub_category": "",
+"index": "107.0",
+"growth_rate": "1.9"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "February",
+"type": "Sectoral",
+"category": "Water Supply, Sewerage & Waste Management",
+"sub_category": "",
+"index": "143.4",
+"growth_rate": "5.6"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "January",
+"type": "Sectoral",
+"category": "Mining & Quarrying",
+"sub_category": "",
+"index": "120.6",
+"growth_rate": "-0.5"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "January",
+"type": "Sectoral",
+"category": "Manufacturing",
+"sub_category": "",
+"index": "124.0",
+"growth_rate": "4.6"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "January",
+"type": "Sectoral",
+"category": "Electricity & Gas Supply",
+"sub_category": "",
+"index": "115.0",
+"growth_rate": "5.6"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "January",
+"type": "Sectoral",
+"category": "Water Supply, Sewerage & Waste Management",
+"sub_category": "",
+"index": "142.7",
+"growth_rate": "5.1"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "December",
+"type": "Sectoral",
+"category": "Mining & Quarrying",
+"sub_category": "",
+"index": "117.8",
+"growth_rate": "0.8"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "December",
+"type": "Sectoral",
+"category": "Manufacturing",
+"sub_category": "",
+"index": "125.6",
+"growth_rate": "7.7"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "December",
+"type": "Sectoral",
+"category": "Electricity & Gas Supply",
+"sub_category": "",
+"index": "111.1",
+"growth_rate": "5.9"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "December",
+"type": "Sectoral",
+"category": "Water Supply, Sewerage & Waste Management",
+"sub_category": "",
+"index": "141.3",
+"growth_rate": "4.4"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "November",
+"type": "Sectoral",
+"category": "Mining & Quarrying",
+"sub_category": "",
+"index": "106.9",
+"growth_rate": "3.3"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "November",
+"type": "Sectoral",
+"category": "Manufacturing",
+"sub_category": "",
+"index": "117.3",
+"growth_rate": "8.8"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "November",
+"type": "Sectoral",
+"category": "Electricity & Gas Supply",
+"sub_category": "",
+"index": "98.7",
+"growth_rate": "-1.6"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "November",
+"type": "Sectoral",
+"category": "Water Supply, Sewerage & Waste Management",
+"sub_category": "",
+"index": "140.5",
+"growth_rate": "4.3"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "October",
+"type": "Sectoral",
+"category": "Mining & Quarrying",
+"sub_category": "",
+"index": "105.9",
+"growth_rate": "2.8"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "October",
+"type": "Sectoral",
+"category": "Manufacturing",
+"sub_category": "",
+"index": "112.5",
+"growth_rate": "-0.7"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "October",
+"type": "Sectoral",
+"category": "Electricity & Gas Supply",
+"sub_category": "",
+"index": "105.6",
+"growth_rate": "-7.0"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "October",
+"type": "Sectoral",
+"category": "Water Supply, Sewerage & Waste Management",
+"sub_category": "",
+"index": "141.2",
+"growth_rate": "6.0"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "September",
+"type": "Sectoral",
+"category": "Mining & Quarrying",
+"sub_category": "",
+"index": "96.4",
+"growth_rate": "15.7"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "September",
+"type": "Sectoral",
+"category": "Manufacturing",
+"sub_category": "",
+"index": "119.0",
+"growth_rate": "5.5"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "September",
+"type": "Sectoral",
+"category": "Electricity & Gas Supply",
+"sub_category": "",
+"index": "115.6",
+"growth_rate": "3.3"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "September",
+"type": "Sectoral",
+"category": "Water Supply, Sewerage & Waste Management",
+"sub_category": "",
+"index": "138.4",
+"growth_rate": "6.2"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "August",
+"type": "Sectoral",
+"category": "Mining & Quarrying",
+"sub_category": "",
+"index": "90.8",
+"growth_rate": "15.8"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "August",
+"type": "Sectoral",
+"category": "Manufacturing",
+"sub_category": "",
+"index": "116.2",
+"growth_rate": "3.6"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "August",
+"type": "Sectoral",
+"category": "Electricity & Gas Supply",
+"sub_category": "",
+"index": "119.2",
+"growth_rate": "3.7"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "August",
+"type": "Sectoral",
+"category": "Water Supply, Sewerage & Waste Management",
+"sub_category": "",
+"index": "138.8",
+"growth_rate": "6.9"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "July",
+"type": "Sectoral",
+"category": "Mining & Quarrying",
+"sub_category": "",
+"index": "95.3",
+"growth_rate": "10.7"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "July",
+"type": "Sectoral",
+"category": "Manufacturing",
+"sub_category": "",
+"index": "118.7",
+"growth_rate": "5.1"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "July",
+"type": "Sectoral",
+"category": "Electricity & Gas Supply",
+"sub_category": "",
+"index": "122.8",
+"growth_rate": "2.4"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "July",
+"type": "Sectoral",
+"category": "Water Supply, Sewerage & Waste Management",
+"sub_category": "",
+"index": "138.2",
+"growth_rate": "7.5"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "June",
+"type": "Sectoral",
+"category": "Mining & Quarrying",
+"sub_category": "",
+"index": "108.9",
+"growth_rate": "4.1"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "June",
+"type": "Sectoral",
+"category": "Manufacturing",
+"sub_category": "",
+"index": "114.4",
+"growth_rate": "2.4"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "June",
+"type": "Sectoral",
+"category": "Electricity & Gas Supply",
+"sub_category": "",
+"index": "118.4",
+"growth_rate": "-2.0"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "June",
+"type": "Sectoral",
+"category": "Water Supply, Sewerage & Waste Management",
+"sub_category": "",
+"index": "137.3",
+"growth_rate": "7.9"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "May",
+"type": "Sectoral",
+"category": "Mining & Quarrying",
+"sub_category": "",
+"index": "114.7",
+"growth_rate": "5.8"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "May",
+"type": "Sectoral",
+"category": "Manufacturing",
+"sub_category": "",
+"index": "116.2",
+"growth_rate": "4.2"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "May",
+"type": "Sectoral",
+"category": "Electricity & Gas Supply",
+"sub_category": "",
+"index": "117.9",
+"growth_rate": "-5.1"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "May",
+"type": "Sectoral",
+"category": "Water Supply, Sewerage & Waste Management",
+"sub_category": "",
+"index": "137.6",
+"growth_rate": "8.5"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "April",
+"type": "Sectoral",
+"category": "Mining & Quarrying",
+"sub_category": "",
+"index": "110.3",
+"growth_rate": "0.6"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "April",
+"type": "Sectoral",
+"category": "Manufacturing",
+"sub_category": "",
+"index": "111.9",
+"growth_rate": "5.8"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "April",
+"type": "Sectoral",
+"category": "Electricity & Gas Supply",
+"sub_category": "",
+"index": "116.3",
+"growth_rate": "1.9"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "April",
+"type": "Sectoral",
+"category": "Water Supply, Sewerage & Waste Management",
+"sub_category": "",
+"index": "137.1",
+"growth_rate": "8.2"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "March",
+"type": "Sectoral",
+"category": "Mining & Quarrying",
+"sub_category": "",
+"index": "128.7",
+"growth_rate": "-2.5"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "March",
+"type": "Sectoral",
+"category": "Manufacturing",
+"sub_category": "",
+"index": "126.4",
+"growth_rate": "7.0"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "March",
+"type": "Sectoral",
+"category": "Electricity & Gas Supply",
+"sub_category": "",
+"index": "117.8",
+"growth_rate": "6.1"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "March",
+"type": "Sectoral",
+"category": "Water Supply, Sewerage & Waste Management",
+"sub_category": "",
+"index": "137.5",
+"growth_rate": "9.0"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "February",
+"type": "Sectoral",
+"category": "Mining & Quarrying",
+"sub_category": "",
+"index": "117.5",
+"growth_rate": "0.5"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "February",
+"type": "Sectoral",
+"category": "Manufacturing",
+"sub_category": "",
+"index": "112.8",
+"growth_rate": "3.1"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "February",
+"type": "Sectoral",
+"category": "Electricity & Gas Supply",
+"sub_category": "",
+"index": "105.0",
+"growth_rate": "3.0"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "February",
+"type": "Sectoral",
+"category": "Water Supply, Sewerage & Waste Management",
+"sub_category": "",
+"index": "135.8",
+"growth_rate": "9.8"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "January",
+"type": "Sectoral",
+"category": "Mining & Quarrying",
+"sub_category": "",
+"index": "121.2",
+"growth_rate": "3.3"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "January",
+"type": "Sectoral",
+"category": "Manufacturing",
+"sub_category": "",
+"index": "118.5",
+"growth_rate": "7.2"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "January",
+"type": "Sectoral",
+"category": "Electricity & Gas Supply",
+"sub_category": "",
+"index": "108.9",
+"growth_rate": "1.6"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "January",
+"type": "Sectoral",
+"category": "Water Supply, Sewerage & Waste Management",
+"sub_category": "",
+"index": "135.8",
+"growth_rate": "10.7"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "December",
+"type": "Sectoral",
+"category": "Mining & Quarrying",
+"sub_category": "",
+"index": "112.5",
+"growth_rate": "12.5"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "December",
+"type": "Sectoral",
+"category": "Manufacturing",
+"sub_category": "",
+"index": "109.6",
+"growth_rate": "9.6"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "December",
+"type": "Sectoral",
+"category": "Electricity & Gas Supply",
+"sub_category": "",
+"index": "98.9",
+"growth_rate": "-1.1"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "December",
+"type": "Sectoral",
+"category": "Water Supply, Sewerage & Waste Management",
+"sub_category": "",
+"index": "121.3",
+"growth_rate": "21.3"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "November",
+"type": "Sectoral",
+"category": "Mining & Quarrying",
+"sub_category": "",
+"index": "99.6",
+"growth_rate": "-0.4"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "November",
+"type": "Sectoral",
+"category": "Manufacturing",
+"sub_category": "",
+"index": "101.5",
+"growth_rate": "1.5"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "November",
+"type": "Sectoral",
+"category": "Electricity & Gas Supply",
+"sub_category": "",
+"index": "96.0",
+"growth_rate": "-4.0"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "November",
+"type": "Sectoral",
+"category": "Water Supply, Sewerage & Waste Management",
+"sub_category": "",
+"index": "120.5",
+"growth_rate": "20.5"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "October",
+"type": "Sectoral",
+"category": "Mining & Quarrying",
+"sub_category": "",
+"index": "101.6",
+"growth_rate": "1.6"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "October",
+"type": "Sectoral",
+"category": "Manufacturing",
+"sub_category": "",
+"index": "106.5",
+"growth_rate": "6.5"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "October",
+"type": "Sectoral",
+"category": "Electricity & Gas Supply",
+"sub_category": "",
+"index": "110.3",
+"growth_rate": "10.3"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "October",
+"type": "Sectoral",
+"category": "Water Supply, Sewerage & Waste Management",
+"sub_category": "",
+"index": "118.6",
+"growth_rate": "18.6"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "September",
+"type": "Sectoral",
+"category": "Mining & Quarrying",
+"sub_category": "",
+"index": "83.0",
+"growth_rate": "-17.0"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "September",
+"type": "Sectoral",
+"category": "Manufacturing",
+"sub_category": "",
+"index": "106.9",
+"growth_rate": "6.9"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "September",
+"type": "Sectoral",
+"category": "Electricity & Gas Supply",
+"sub_category": "",
+"index": "111.1",
+"growth_rate": "11.1"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "September",
+"type": "Sectoral",
+"category": "Water Supply, Sewerage & Waste Management",
+"sub_category": "",
+"index": "117.0",
+"growth_rate": "17.0"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "August",
+"type": "Sectoral",
+"category": "Mining & Quarrying",
+"sub_category": "",
+"index": "82.5",
+"growth_rate": "-17.5"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "August",
+"type": "Sectoral",
+"category": "Manufacturing",
+"sub_category": "",
+"index": "108.5",
+"growth_rate": "8.5"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "August",
+"type": "Sectoral",
+"category": "Electricity & Gas Supply",
+"sub_category": "",
+"index": "119.0",
+"growth_rate": "19.0"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "August",
+"type": "Sectoral",
+"category": "Water Supply, Sewerage & Waste Management",
+"sub_category": "",
+"index": "115.7",
+"growth_rate": "15.7"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "July",
+"type": "Sectoral",
+"category": "Mining & Quarrying",
+"sub_category": "",
+"index": "82.8",
+"growth_rate": "-17.2"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "July",
+"type": "Sectoral",
+"category": "Manufacturing",
+"sub_category": "",
+"index": "104.7",
+"growth_rate": "4.7"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "July",
+"type": "Sectoral",
+"category": "Electricity & Gas Supply",
+"sub_category": "",
+"index": "110.0",
+"growth_rate": "10.0"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "July",
+"type": "Sectoral",
+"category": "Water Supply, Sewerage & Waste Management",
+"sub_category": "",
+"index": "113.7",
+"growth_rate": "13.7"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "June",
+"type": "Sectoral",
+"category": "Mining & Quarrying",
+"sub_category": "",
+"index": "99.9",
+"growth_rate": "-0.1"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "June",
+"type": "Sectoral",
+"category": "Manufacturing",
+"sub_category": "",
+"index": "104.2",
+"growth_rate": "4.2"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "June",
+"type": "Sectoral",
+"category": "Electricity & Gas Supply",
+"sub_category": "",
+"index": "110.4",
+"growth_rate": "10.4"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "June",
+"type": "Sectoral",
+"category": "Water Supply, Sewerage & Waste Management",
+"sub_category": "",
+"index": "113.1",
+"growth_rate": "13.1"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "May",
+"type": "Sectoral",
+"category": "Mining & Quarrying",
+"sub_category": "",
+"index": "100.7",
+"growth_rate": "0.7"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "May",
+"type": "Sectoral",
+"category": "Manufacturing",
+"sub_category": "",
+"index": "105.2",
+"growth_rate": "5.2"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "May",
+"type": "Sectoral",
+"category": "Electricity & Gas Supply",
+"sub_category": "",
+"index": "109.1",
+"growth_rate": "9.1"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "May",
+"type": "Sectoral",
+"category": "Water Supply, Sewerage & Waste Management",
+"sub_category": "",
+"index": "111.0",
+"growth_rate": "11.0"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "April",
+"type": "Sectoral",
+"category": "Mining & Quarrying",
+"sub_category": "",
+"index": "97.4",
+"growth_rate": "-2.6"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "April",
+"type": "Sectoral",
+"category": "Manufacturing",
+"sub_category": "",
+"index": "100.1",
+"growth_rate": "0.1"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "April",
+"type": "Sectoral",
+"category": "Electricity & Gas Supply",
+"sub_category": "",
+"index": "103.8",
+"growth_rate": "3.8"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "April",
+"type": "Sectoral",
+"category": "Water Supply, Sewerage & Waste Management",
+"sub_category": "",
+"index": "109.6",
+"growth_rate": "9.6"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "September",
+"type": "Use-based category",
+"category": "Primary Goods",
+"sub_category": "",
+"index": "111.6",
+"growth_rate": "4.0"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "September",
+"type": "Use-based category",
+"category": "Capital Goods",
+"sub_category": "",
+"index": "153.4",
+"growth_rate": "10.4"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "September",
+"type": "Use-based category",
+"category": "Intermediate Goods",
+"sub_category": "",
+"index": "131.7",
+"growth_rate": "12.2"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "September",
+"type": "Use-based category",
+"category": "Infrastructure/ Construction Goods",
+"sub_category": "",
+"index": "133.0",
+"growth_rate": "7.2"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "September",
+"type": "Use-based category",
+"category": "Consumer Durables",
+"sub_category": "",
+"index": "133.1",
+"growth_rate": "6.0"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "September",
+"type": "Use-based category",
+"category": "Consumer Non-durables",
+"sub_category": "",
+"index": "111.8",
+"growth_rate": "1.4"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "August",
+"type": "Use-based category",
+"category": "Primary Goods",
+"sub_category": "",
+"index": "112.5",
+"growth_rate": "4.2"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "August",
+"type": "Use-based category",
+"category": "Capital Goods",
+"sub_category": "",
+"index": "139.5",
+"growth_rate": "15.9"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "August",
+"type": "Use-based category",
+"category": "Intermediate Goods",
+"sub_category": "",
+"index": "132.4",
+"growth_rate": "14.2"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "August",
+"type": "Use-based category",
+"category": "Infrastructure/ Construction Goods",
+"sub_category": "",
+"index": "134.4",
+"growth_rate": "8.0"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "August",
+"type": "Use-based category",
+"category": "Consumer Durables",
+"sub_category": "",
+"index": "128.7",
+"growth_rate": "10.5"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "August",
+"type": "Use-based category",
+"category": "Consumer Non-durables",
+"sub_category": "",
+"index": "110.8",
+"growth_rate": "-1.1"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "July",
+"type": "Use-based category",
+"category": "Primary Goods",
+"sub_category": "",
+"index": "116.0",
+"growth_rate": "4.2"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "July",
+"type": "Use-based category",
+"category": "Capital Goods",
+"sub_category": "",
+"index": "145.3",
+"growth_rate": "19.0"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "July",
+"type": "Use-based category",
+"category": "Intermediate Goods",
+"sub_category": "",
+"index": "131.4",
+"growth_rate": "10.4"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "July",
+"type": "Use-based category",
+"category": "Infrastructure/ Construction Goods",
+"sub_category": "",
+"index": "137.6",
+"growth_rate": "8.0"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "July",
+"type": "Use-based category",
+"category": "Consumer Durables",
+"sub_category": "",
+"index": "131.7",
+"growth_rate": "12.0"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "July",
+"type": "Use-based category",
+"category": "Consumer Non-durables",
+"sub_category": "",
+"index": "114.0",
+"growth_rate": "-0.8"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "June",
+"type": "Use-based category",
+"category": "Primary Goods",
+"sub_category": "",
+"index": "120.0",
+"growth_rate": "5.4"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "June",
+"type": "Use-based category",
+"category": "Capital Goods",
+"sub_category": "",
+"index": "145.0",
+"growth_rate": "17.9"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "June",
+"type": "Use-based category",
+"category": "Intermediate Goods",
+"sub_category": "",
+"index": "126.7",
+"growth_rate": "11.5"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "June",
+"type": "Use-based category",
+"category": "Infrastructure/ Construction Goods",
+"sub_category": "",
+"index": "134.5",
+"growth_rate": "8.8"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "June",
+"type": "Use-based category",
+"category": "Consumer Durables",
+"sub_category": "",
+"index": "122.6",
+"growth_rate": "10.3"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "June",
+"type": "Use-based category",
+"category": "Consumer Non-durables",
+"sub_category": "",
+"index": "116.2",
+"growth_rate": "5.6"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "May",
+"type": "Use-based category",
+"category": "Primary Goods",
+"sub_category": "",
+"index": "119.8",
+"growth_rate": "2.7"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "May",
+"type": "Use-based category",
+"category": "Capital Goods",
+"sub_category": "",
+"index": "138.4",
+"growth_rate": "15.5"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "May",
+"type": "Use-based category",
+"category": "Intermediate Goods",
+"sub_category": "",
+"index": "123.1",
+"growth_rate": "5.8"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "May",
+"type": "Use-based category",
+"category": "Infrastructure/ Construction Goods",
+"sub_category": "",
+"index": "131.7",
+"growth_rate": "6.6"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "May",
+"type": "Use-based category",
+"category": "Consumer Durables",
+"sub_category": "",
+"index": "121.3",
+"growth_rate": "8.0"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "May",
+"type": "Use-based category",
+"category": "Consumer Non-durables",
+"sub_category": "",
+"index": "113.8",
+"growth_rate": "-0.4"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "April",
+"type": "Use-based category",
+"category": "Primary Goods",
+"sub_category": "",
+"index": "113.7",
+"growth_rate": "0.8"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "April",
+"type": "Use-based category",
+"category": "Capital Goods",
+"sub_category": "",
+"index": "124.8",
+"growth_rate": "12.0"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "April",
+"type": "Use-based category",
+"category": "Intermediate Goods",
+"sub_category": "",
+"index": "123.7",
+"growth_rate": "10.3"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "April",
+"type": "Use-based category",
+"category": "Infrastructure/ Construction Goods",
+"sub_category": "",
+"index": "128.0",
+"growth_rate": "6.0"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "April",
+"type": "Use-based category",
+"category": "Consumer Durables",
+"sub_category": "",
+"index": "118.0",
+"growth_rate": "5.6"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "April",
+"type": "Use-based category",
+"category": "Consumer Non-durables",
+"sub_category": "",
+"index": "109.4",
+"growth_rate": "0.2"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "March",
+"type": "Use-based category",
+"category": "Primary Goods",
+"sub_category": "",
+"index": "122.6",
+"growth_rate": "0.2"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "March",
+"type": "Use-based category",
+"category": "Capital Goods",
+"sub_category": "",
+"index": "176.4",
+"growth_rate": "8.5"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "March",
+"type": "Use-based category",
+"category": "Intermediate Goods",
+"sub_category": "",
+"index": "128.6",
+"growth_rate": "6.0"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "March",
+"type": "Use-based category",
+"category": "Infrastructure/ Construction Goods",
+"sub_category": "",
+"index": "140.4",
+"growth_rate": "5.2"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "March",
+"type": "Use-based category",
+"category": "Consumer Durables",
+"sub_category": "",
+"index": "123.1",
+"growth_rate": "2.4"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "March",
+"type": "Use-based category",
+"category": "Consumer Non-durables",
+"sub_category": "",
+"index": "119.3",
+"growth_rate": "-0.6"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "February",
+"type": "Use-based category",
+"category": "Primary Goods",
+"sub_category": "",
+"index": "111.3",
+"growth_rate": "0.0"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "February",
+"type": "Use-based category",
+"category": "Capital Goods",
+"sub_category": "",
+"index": "143.4",
+"growth_rate": "16.5"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "February",
+"type": "Use-based category",
+"category": "Intermediate Goods",
+"sub_category": "",
+"index": "116.1",
+"growth_rate": "4.7"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "February",
+"type": "Use-based category",
+"category": "Infrastructure/ Construction Goods",
+"sub_category": "",
+"index": "131.8",
+"growth_rate": "10.1"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "February",
+"type": "Use-based category",
+"category": "Consumer Durables",
+"sub_category": "",
+"index": "118.2",
+"growth_rate": "4.2"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "February",
+"type": "Use-based category",
+"category": "Consumer Non-durables",
+"sub_category": "",
+"index": "110.7",
+"growth_rate": "1.6"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "January",
+"type": "Use-based category",
+"category": "Primary Goods",
+"sub_category": "",
+"index": "118.7",
+"growth_rate": "1.9"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "January",
+"type": "Use-based category",
+"category": "Capital Goods",
+"sub_category": "",
+"index": "133.3",
+"growth_rate": "12.4"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "January",
+"type": "Use-based category",
+"category": "Intermediate Goods",
+"sub_category": "",
+"index": "124.3",
+"growth_rate": "5.6"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "January",
+"type": "Use-based category",
+"category": "Infrastructure/ Construction Goods",
+"sub_category": "",
+"index": "140.3",
+"growth_rate": "12.9"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "January",
+"type": "Use-based category",
+"category": "Consumer Durables",
+"sub_category": "",
+"index": "120.6",
+"growth_rate": "-0.2"
+},
+{
+"base_year": "2022-23",
+"year": 2026,
+"month": "January",
+"type": "Use-based category",
+"category": "Consumer Non-durables",
+"sub_category": "",
+"index": "114.4",
+"growth_rate": "-1.2"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "December",
+"type": "Use-based category",
+"category": "Primary Goods",
+"sub_category": "",
+"index": "116.5",
+"growth_rate": "2.4"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "December",
+"type": "Use-based category",
+"category": "Capital Goods",
+"sub_category": "",
+"index": "140.5",
+"growth_rate": "12.9"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "December",
+"type": "Use-based category",
+"category": "Intermediate Goods",
+"sub_category": "",
+"index": "125.2",
+"growth_rate": "7.7"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "December",
+"type": "Use-based category",
+"category": "Infrastructure/ Construction Goods",
+"sub_category": "",
+"index": "136.3",
+"growth_rate": "12.3"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "December",
+"type": "Use-based category",
+"category": "Consumer Durables",
+"sub_category": "",
+"index": "117.4",
+"growth_rate": "7.4"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "December",
+"type": "Use-based category",
+"category": "Consumer Non-durables",
+"sub_category": "",
+"index": "121.7",
+"growth_rate": "5.9"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "November",
+"type": "Use-based category",
+"category": "Primary Goods",
+"sub_category": "",
+"index": "106.4",
+"growth_rate": "1.1"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "November",
+"type": "Use-based category",
+"category": "Capital Goods",
+"sub_category": "",
+"index": "127.0",
+"growth_rate": "16.6"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "November",
+"type": "Use-based category",
+"category": "Intermediate Goods",
+"sub_category": "",
+"index": "116.7",
+"growth_rate": "8.2"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "November",
+"type": "Use-based category",
+"category": "Infrastructure/ Construction Goods",
+"sub_category": "",
+"index": "124.8",
+"growth_rate": "12.0"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "November",
+"type": "Use-based category",
+"category": "Consumer Durables",
+"sub_category": "",
+"index": "118.7",
+"growth_rate": "13.0"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "November",
+"type": "Use-based category",
+"category": "Consumer Non-durables",
+"sub_category": "",
+"index": "111.2",
+"growth_rate": "3.9"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "October",
+"type": "Use-based category",
+"category": "Primary Goods",
+"sub_category": "",
+"index": "109.4",
+"growth_rate": "0.4"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "October",
+"type": "Use-based category",
+"category": "Capital Goods",
+"sub_category": "",
+"index": "116.8",
+"growth_rate": "5.4"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "October",
+"type": "Use-based category",
+"category": "Intermediate Goods",
+"sub_category": "",
+"index": "112.9",
+"growth_rate": "1.2"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "October",
+"type": "Use-based category",
+"category": "Infrastructure/ Construction Goods",
+"sub_category": "",
+"index": "122.3",
+"growth_rate": "5.1"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "October",
+"type": "Use-based category",
+"category": "Consumer Durables",
+"sub_category": "",
+"index": "114.7",
+"growth_rate": "-6.0"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "October",
+"type": "Use-based category",
+"category": "Consumer Non-durables",
+"sub_category": "",
+"index": "101.8",
+"growth_rate": "-9.4"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "September",
+"type": "Use-based category",
+"category": "Primary Goods",
+"sub_category": "",
+"index": "107.3",
+"growth_rate": "6.6"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "September",
+"type": "Use-based category",
+"category": "Capital Goods",
+"sub_category": "",
+"index": "139.0",
+"growth_rate": "13.2"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "September",
+"type": "Use-based category",
+"category": "Intermediate Goods",
+"sub_category": "",
+"index": "117.4",
+"growth_rate": "6.4"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "September",
+"type": "Use-based category",
+"category": "Infrastructure/ Construction Goods",
+"sub_category": "",
+"index": "124.1",
+"growth_rate": "9.8"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "September",
+"type": "Use-based category",
+"category": "Consumer Durables",
+"sub_category": "",
+"index": "125.6",
+"growth_rate": "4.6"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "September",
+"type": "Use-based category",
+"category": "Consumer Non-durables",
+"sub_category": "",
+"index": "110.3",
+"growth_rate": "-0.5"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "August",
+"type": "Use-based category",
+"category": "Primary Goods",
+"sub_category": "",
+"index": "108.0",
+"growth_rate": "7.6"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "August",
+"type": "Use-based category",
+"category": "Capital Goods",
+"sub_category": "",
+"index": "120.4",
+"growth_rate": "6.0"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "August",
+"type": "Use-based category",
+"category": "Intermediate Goods",
+"sub_category": "",
+"index": "115.9",
+"growth_rate": "3.3"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "August",
+"type": "Use-based category",
+"category": "Infrastructure/ Construction Goods",
+"sub_category": "",
+"index": "124.5",
+"growth_rate": "9.2"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "August",
+"type": "Use-based category",
+"category": "Consumer Durables",
+"sub_category": "",
+"index": "116.5",
+"growth_rate": "0.9"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "August",
+"type": "Use-based category",
+"category": "Consumer Non-durables",
+"sub_category": "",
+"index": "112.0",
+"growth_rate": "0.1"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "July",
+"type": "Use-based category",
+"category": "Primary Goods",
+"sub_category": "",
+"index": "111.3",
+"growth_rate": "4.8"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "July",
+"type": "Use-based category",
+"category": "Capital Goods",
+"sub_category": "",
+"index": "122.1",
+"growth_rate": "5.9"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "July",
+"type": "Use-based category",
+"category": "Intermediate Goods",
+"sub_category": "",
+"index": "119.0",
+"growth_rate": "3.5"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "July",
+"type": "Use-based category",
+"category": "Infrastructure/ Construction Goods",
+"sub_category": "",
+"index": "127.4",
+"growth_rate": "11.2"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "July",
+"type": "Use-based category",
+"category": "Consumer Durables",
+"sub_category": "",
+"index": "117.6",
+"growth_rate": "3.9"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "July",
+"type": "Use-based category",
+"category": "Consumer Non-durables",
+"sub_category": "",
+"index": "114.9",
+"growth_rate": "5.8"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "June",
+"type": "Use-based category",
+"category": "Primary Goods",
+"sub_category": "",
+"index": "113.9",
+"growth_rate": "2.1"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "June",
+"type": "Use-based category",
+"category": "Capital Goods",
+"sub_category": "",
+"index": "123.0",
+"growth_rate": "3.4"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "June",
+"type": "Use-based category",
+"category": "Intermediate Goods",
+"sub_category": "",
+"index": "113.6",
+"growth_rate": "3.1"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "June",
+"type": "Use-based category",
+"category": "Infrastructure/ Construction Goods",
+"sub_category": "",
+"index": "123.6",
+"growth_rate": "6.6"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "June",
+"type": "Use-based category",
+"category": "Consumer Durables",
+"sub_category": "",
+"index": "111.2",
+"growth_rate": "1.4"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "June",
+"type": "Use-based category",
+"category": "Consumer Non-durables",
+"sub_category": "",
+"index": "110.0",
+"growth_rate": "-2.0"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "May",
+"type": "Use-based category",
+"category": "Primary Goods",
+"sub_category": "",
+"index": "116.6",
+"growth_rate": "0.7"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "May",
+"type": "Use-based category",
+"category": "Capital Goods",
+"sub_category": "",
+"index": "119.8",
+"growth_rate": "9.5"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "May",
+"type": "Use-based category",
+"category": "Intermediate Goods",
+"sub_category": "",
+"index": "116.3",
+"growth_rate": "4.8"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "May",
+"type": "Use-based category",
+"category": "Infrastructure/ Construction Goods",
+"sub_category": "",
+"index": "123.5",
+"growth_rate": "5.7"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "May",
+"type": "Use-based category",
+"category": "Consumer Durables",
+"sub_category": "",
+"index": "112.3",
+"growth_rate": "1.9"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "May",
+"type": "Use-based category",
+"category": "Consumer Non-durables",
+"sub_category": "",
+"index": "114.3",
+"growth_rate": "3.3"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "April",
+"type": "Use-based category",
+"category": "Primary Goods",
+"sub_category": "",
+"index": "112.8",
+"growth_rate": "1.2"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "April",
+"type": "Use-based category",
+"category": "Capital Goods",
+"sub_category": "",
+"index": "111.4",
+"growth_rate": "14.5"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "April",
+"type": "Use-based category",
+"category": "Intermediate Goods",
+"sub_category": "",
+"index": "112.1",
+"growth_rate": "7.1"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "April",
+"type": "Use-based category",
+"category": "Infrastructure/ Construction Goods",
+"sub_category": "",
+"index": "120.7",
+"growth_rate": "6.0"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "April",
+"type": "Use-based category",
+"category": "Consumer Durables",
+"sub_category": "",
+"index": "111.7",
+"growth_rate": "5.2"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "April",
+"type": "Use-based category",
+"category": "Consumer Non-durables",
+"sub_category": "",
+"index": "109.2",
+"growth_rate": "3.3"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "March",
+"type": "Use-based category",
+"category": "Primary Goods",
+"sub_category": "",
+"index": "122.3",
+"growth_rate": "2.3"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "March",
+"type": "Use-based category",
+"category": "Capital Goods",
+"sub_category": "",
+"index": "162.6",
+"growth_rate": "14.2"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "March",
+"type": "Use-based category",
+"category": "Intermediate Goods",
+"sub_category": "",
+"index": "121.3",
+"growth_rate": "6.3"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "March",
+"type": "Use-based category",
+"category": "Infrastructure/ Construction Goods",
+"sub_category": "",
+"index": "133.5",
+"growth_rate": "9.7"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "March",
+"type": "Use-based category",
+"category": "Consumer Durables",
+"sub_category": "",
+"index": "120.2",
+"growth_rate": "5.3"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "March",
+"type": "Use-based category",
+"category": "Consumer Non-durables",
+"sub_category": "",
+"index": "120.0",
+"growth_rate": "4.8"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "February",
+"type": "Use-based category",
+"category": "Primary Goods",
+"sub_category": "",
+"index": "111.3",
+"growth_rate": "2.4"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "February",
+"type": "Use-based category",
+"category": "Capital Goods",
+"sub_category": "",
+"index": "123.1",
+"growth_rate": "8.3"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "February",
+"type": "Use-based category",
+"category": "Intermediate Goods",
+"sub_category": "",
+"index": "110.9",
+"growth_rate": "3.6"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "February",
+"type": "Use-based category",
+"category": "Infrastructure/ Construction Goods",
+"sub_category": "",
+"index": "119.7",
+"growth_rate": "6.1"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "February",
+"type": "Use-based category",
+"category": "Consumer Durables",
+"sub_category": "",
+"index": "113.4",
+"growth_rate": "1.3"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "February",
+"type": "Use-based category",
+"category": "Consumer Non-durables",
+"sub_category": "",
+"index": "109.0",
+"growth_rate": "-0.5"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "January",
+"type": "Use-based category",
+"category": "Primary Goods",
+"sub_category": "",
+"index": "116.5",
+"growth_rate": "4.8"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "January",
+"type": "Use-based category",
+"category": "Capital Goods",
+"sub_category": "",
+"index": "118.6",
+"growth_rate": "8.3"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "January",
+"type": "Use-based category",
+"category": "Intermediate Goods",
+"sub_category": "",
+"index": "117.7",
+"growth_rate": "7.2"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "January",
+"type": "Use-based category",
+"category": "Infrastructure/ Construction Goods",
+"sub_category": "",
+"index": "124.3",
+"growth_rate": "8.3"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "January",
+"type": "Use-based category",
+"category": "Consumer Durables",
+"sub_category": "",
+"index": "120.9",
+"growth_rate": "7.9"
+},
+{
+"base_year": "2022-23",
+"year": 2025,
+"month": "January",
+"type": "Use-based category",
+"category": "Consumer Non-durables",
+"sub_category": "",
+"index": "115.8",
+"growth_rate": "4.7"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "December",
+"type": "Use-based category",
+"category": "Primary Goods",
+"sub_category": "",
+"index": "108.3",
+"growth_rate": "8.3"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "December",
+"type": "Use-based category",
+"category": "Capital Goods",
+"sub_category": "",
+"index": "108.2",
+"growth_rate": "8.2"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "December",
+"type": "Use-based category",
+"category": "Intermediate Goods",
+"sub_category": "",
+"index": "108.0",
+"growth_rate": "8.0"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "December",
+"type": "Use-based category",
+"category": "Infrastructure/ Construction Goods",
+"sub_category": "",
+"index": "112.9",
+"growth_rate": "12.9"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "December",
+"type": "Use-based category",
+"category": "Consumer Durables",
+"sub_category": "",
+"index": "100.6",
+"growth_rate": "0.6"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "December",
+"type": "Use-based category",
+"category": "Consumer Non-durables",
+"sub_category": "",
+"index": "115.5",
+"growth_rate": "15.5"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "November",
+"type": "Use-based category",
+"category": "Primary Goods",
+"sub_category": "",
+"index": "100.8",
+"growth_rate": "0.8"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "November",
+"type": "Use-based category",
+"category": "Capital Goods",
+"sub_category": "",
+"index": "101.2",
+"growth_rate": "1.2"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "November",
+"type": "Use-based category",
+"category": "Intermediate Goods",
+"sub_category": "",
+"index": "101.2",
+"growth_rate": "1.2"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "November",
+"type": "Use-based category",
+"category": "Infrastructure/ Construction Goods",
+"sub_category": "",
+"index": "103.2",
+"growth_rate": "3.2"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "November",
+"type": "Use-based category",
+"category": "Consumer Durables",
+"sub_category": "",
+"index": "96.7",
+"growth_rate": "-3.3"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "November",
+"type": "Use-based category",
+"category": "Consumer Non-durables",
+"sub_category": "",
+"index": "102.9",
+"growth_rate": "2.9"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "October",
+"type": "Use-based category",
+"category": "Primary Goods",
+"sub_category": "",
+"index": "105.0",
+"growth_rate": "5.0"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "October",
+"type": "Use-based category",
+"category": "Capital Goods",
+"sub_category": "",
+"index": "107.6",
+"growth_rate": "7.6"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "October",
+"type": "Use-based category",
+"category": "Intermediate Goods",
+"sub_category": "",
+"index": "106.3",
+"growth_rate": "6.3"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "October",
+"type": "Use-based category",
+"category": "Infrastructure/ Construction Goods",
+"sub_category": "",
+"index": "110.3",
+"growth_rate": "10.3"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "October",
+"type": "Use-based category",
+"category": "Consumer Durables",
+"sub_category": "",
+"index": "112.6",
+"growth_rate": "12.6"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "October",
+"type": "Use-based category",
+"category": "Consumer Non-durables",
+"sub_category": "",
+"index": "103.3",
+"growth_rate": "3.3"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "September",
+"type": "Use-based category",
+"category": "Primary Goods",
+"sub_category": "",
+"index": "98.1",
+"growth_rate": "-1.9"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "September",
+"type": "Use-based category",
+"category": "Capital Goods",
+"sub_category": "",
+"index": "116.3",
+"growth_rate": "16.3"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "September",
+"type": "Use-based category",
+"category": "Intermediate Goods",
+"sub_category": "",
+"index": "105.6",
+"growth_rate": "5.6"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "September",
+"type": "Use-based category",
+"category": "Infrastructure/ Construction Goods",
+"sub_category": "",
+"index": "109.1",
+"growth_rate": "9.1"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "September",
+"type": "Use-based category",
+"category": "Consumer Durables",
+"sub_category": "",
+"index": "108.3",
+"growth_rate": "8.3"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "September",
+"type": "Use-based category",
+"category": "Consumer Non-durables",
+"sub_category": "",
+"index": "106.4",
+"growth_rate": "6.4"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "August",
+"type": "Use-based category",
+"category": "Primary Goods",
+"sub_category": "",
+"index": "101.3",
+"growth_rate": "1.3"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "August",
+"type": "Use-based category",
+"category": "Capital Goods",
+"sub_category": "",
+"index": "112.8",
+"growth_rate": "12.8"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "August",
+"type": "Use-based category",
+"category": "Intermediate Goods",
+"sub_category": "",
+"index": "108.2",
+"growth_rate": "8.2"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "August",
+"type": "Use-based category",
+"category": "Infrastructure/ Construction Goods",
+"sub_category": "",
+"index": "111.8",
+"growth_rate": "11.8"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "August",
+"type": "Use-based category",
+"category": "Consumer Durables",
+"sub_category": "",
+"index": "107.9",
+"growth_rate": "7.9"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "August",
+"type": "Use-based category",
+"category": "Consumer Non-durables",
+"sub_category": "",
+"index": "108.7",
+"growth_rate": "8.7"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "July",
+"type": "Use-based category",
+"category": "Primary Goods",
+"sub_category": "",
+"index": "99.1",
+"growth_rate": "-0.9"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "July",
+"type": "Use-based category",
+"category": "Capital Goods",
+"sub_category": "",
+"index": "104.1",
+"growth_rate": "4.1"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "July",
+"type": "Use-based category",
+"category": "Intermediate Goods",
+"sub_category": "",
+"index": "104.8",
+"growth_rate": "4.8"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "July",
+"type": "Use-based category",
+"category": "Infrastructure/ Construction Goods",
+"sub_category": "",
+"index": "107.3",
+"growth_rate": "7.3"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "July",
+"type": "Use-based category",
+"category": "Consumer Durables",
+"sub_category": "",
+"index": "102.4",
+"growth_rate": "2.4"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "July",
+"type": "Use-based category",
+"category": "Consumer Non-durables",
+"sub_category": "",
+"index": "105.0",
+"growth_rate": "5.0"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "June",
+"type": "Use-based category",
+"category": "Primary Goods",
+"sub_category": "",
+"index": "105.4",
+"growth_rate": "5.4"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "June",
+"type": "Use-based category",
+"category": "Capital Goods",
+"sub_category": "",
+"index": "108.8",
+"growth_rate": "8.8"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "June",
+"type": "Use-based category",
+"category": "Intermediate Goods",
+"sub_category": "",
+"index": "101.7",
+"growth_rate": "1.7"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "June",
+"type": "Use-based category",
+"category": "Infrastructure/ Construction Goods",
+"sub_category": "",
+"index": "107.4",
+"growth_rate": "7.4"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "June",
+"type": "Use-based category",
+"category": "Consumer Durables",
+"sub_category": "",
+"index": "98.8",
+"growth_rate": "-1.2"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "June",
+"type": "Use-based category",
+"category": "Consumer Non-durables",
+"sub_category": "",
+"index": "106.9",
+"growth_rate": "6.9"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "May",
+"type": "Use-based category",
+"category": "Primary Goods",
+"sub_category": "",
+"index": "105.8",
+"growth_rate": "5.8"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "May",
+"type": "Use-based category",
+"category": "Capital Goods",
+"sub_category": "",
+"index": "101.6",
+"growth_rate": "1.6"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "May",
+"type": "Use-based category",
+"category": "Intermediate Goods",
+"sub_category": "",
+"index": "105.5",
+"growth_rate": "5.5"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "May",
+"type": "Use-based category",
+"category": "Infrastructure/ Construction Goods",
+"sub_category": "",
+"index": "107.9",
+"growth_rate": "7.9"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "May",
+"type": "Use-based category",
+"category": "Consumer Durables",
+"sub_category": "",
+"index": "98.8",
+"growth_rate": "-1.2"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "May",
+"type": "Use-based category",
+"category": "Consumer Non-durables",
+"sub_category": "",
+"index": "108.4",
+"growth_rate": "8.4"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "April",
+"type": "Use-based category",
+"category": "Primary Goods",
+"sub_category": "",
+"index": "101.3",
+"growth_rate": "1.3"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "April",
+"type": "Use-based category",
+"category": "Capital Goods",
+"sub_category": "",
+"index": "95.3",
+"growth_rate": "-4.7"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "April",
+"type": "Use-based category",
+"category": "Intermediate Goods",
+"sub_category": "",
+"index": "100.6",
+"growth_rate": "0.6"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "April",
+"type": "Use-based category",
+"category": "Infrastructure/ Construction Goods",
+"sub_category": "",
+"index": "105.7",
+"growth_rate": "5.7"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "April",
+"type": "Use-based category",
+"category": "Consumer Durables",
+"sub_category": "",
+"index": "96.0",
+"growth_rate": "-4.0"
+},
+{
+"base_year": "2022-23",
+"year": 2023,
+"month": "April",
+"type": "Use-based category",
+"category": "Consumer Non-durables",
+"sub_category": "",
+"index": "100.6",
+"growth_rate": "0.6"
+},
+{
+"base_year": "2011-12",
+"year": 2026,
+"month": "March",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "173.2",
+"growth_rate": "4.1"
+},
+{
+"base_year": "2011-12",
+"year": 2026,
+"month": "February",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "158.8",
+"growth_rate": "5.1"
+},
+{
+"base_year": "2011-12",
+"year": 2026,
+"month": "January",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "169.9",
+"growth_rate": "5.1"
+},
+{
+"base_year": "2011-12",
+"year": 2025,
+"month": "December",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "170.7",
+"growth_rate": "8.0"
+},
+{
+"base_year": "2011-12",
+"year": 2025,
+"month": "November",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "158.7",
+"growth_rate": "7.2"
+},
+{
+"base_year": "2011-12",
+"year": 2025,
+"month": "October",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "151.1",
+"growth_rate": "0.5"
+},
+{
+"base_year": "2011-12",
+"year": 2025,
+"month": "September",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "153.7",
+"growth_rate": "4.6"
+},
+{
+"base_year": "2011-12",
+"year": 2025,
+"month": "August",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "151.7",
+"growth_rate": "4.0"
+},
+{
+"base_year": "2011-12",
+"year": 2025,
+"month": "July",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "156.2",
+"growth_rate": "4.3"
+},
+{
+"base_year": "2011-12",
+"year": 2025,
+"month": "June",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "153.3",
+"growth_rate": "1.5"
+},
+{
+"base_year": "2011-12",
+"year": 2025,
+"month": "May",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "157.6",
+"growth_rate": "1.9"
+},
+{
+"base_year": "2011-12",
+"year": 2025,
+"month": "April",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "151.8",
+"growth_rate": "2.6"
+},
+{
+"base_year": "2011-12",
+"year": 2025,
+"month": "March",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "166.3",
+"growth_rate": "3.9"
+},
+{
+"base_year": "2011-12",
+"year": 2025,
+"month": "February",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "151.1",
+"growth_rate": "2.7"
+},
+{
+"base_year": "2011-12",
+"year": 2025,
+"month": "January",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "161.6",
+"growth_rate": "5.2"
+},
+{
+"base_year": "2011-12",
+"year": 2023,
+"month": "December",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "152.3",
+"growth_rate": "4.4"
+},
+{
+"base_year": "2011-12",
+"year": 2023,
+"month": "November",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "141.1",
+"growth_rate": "2.5"
+},
+{
+"base_year": "2011-12",
+"year": 2023,
+"month": "October",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "144.9",
+"growth_rate": "11.9"
+},
+{
+"base_year": "2011-12",
+"year": 2023,
+"month": "September",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "142.3",
+"growth_rate": "6.4"
+},
+{
+"base_year": "2011-12",
+"year": 2023,
+"month": "August",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "145.8",
+"growth_rate": "10.9"
+},
+{
+"base_year": "2011-12",
+"year": 2023,
+"month": "July",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "142.7",
+"growth_rate": "6.2"
+},
+{
+"base_year": "2011-12",
+"year": 2023,
+"month": "June",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "143.9",
+"growth_rate": "4.0"
+},
+{
+"base_year": "2011-12",
+"year": 2023,
+"month": "May",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "145.6",
+"growth_rate": "5.7"
+},
+{
+"base_year": "2011-12",
+"year": 2023,
+"month": "April",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "140.7",
+"growth_rate": "4.6"
+},
+{
+"base_year": "2011-12",
+"year": 2023,
+"month": "March",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "151.7",
+"growth_rate": "1.9"
+},
+{
+"base_year": "2011-12",
+"year": 2023,
+"month": "February",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "139.3",
+"growth_rate": "6.0"
+},
+{
+"base_year": "2011-12",
+"year": 2023,
+"month": "January",
+"type": "General",
+"category": "General",
+"sub_category": "",
+"index": "147.4",
+"growth_rate": "5.8"
+}
+],
+"meta_data": {
+"page": 1,
+"totalPages": 1
+}
+}
