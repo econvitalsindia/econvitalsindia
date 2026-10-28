@@ -233,6 +233,49 @@ def question_metric(spec: dict, payload: dict) -> dict:
     return {**spec, "period": period, "value": value, "frequency": payload["frequency"]}
 
 
+PERIOD_LENGTH = {"D": pd.DateOffset(days=1), "W": pd.DateOffset(days=7), "F": pd.DateOffset(days=14),
+                 "M": pd.DateOffset(months=1), "Q": pd.DateOffset(months=3), "A": pd.DateOffset(years=1)}
+
+
+def health(spec: dict, payload: dict | None, status: dict, today: pd.Timestamp) -> dict:
+    """Is a series overdue? The next period after the latest one ends one period-length
+    later; it is due release.lag_days after that end. Overdue = today is past that date."""
+    entry = {"id": spec["id"], "title": spec["short_title"], "fetch": spec["fetch"],
+             "frequency": spec["frequency"], "lag_days": spec["release"]["lag_days"],
+             "stale": bool(status.get("stale")), "last_error": status.get("last_error"),
+             "last_success": status.get("last_success"), "last_period": None, "due": None, "overdue_days": None,
+             "discontinued": spec.get("discontinued")}
+    if payload and spec.get("discontinued"):
+        entry["last_period"] = payload["data"][-1][0]
+    elif payload:
+        last = pd.Timestamp(payload["data"][-1][0])
+        step = PERIOD_LENGTH[spec["frequency"]]
+        next_period_end = last + step + step - pd.Timedelta(days=1)
+        due = next_period_end + pd.Timedelta(days=spec["release"]["lag_days"])
+        entry.update(last_period=last.strftime("%Y-%m-%d"), due=due.strftime("%Y-%m-%d"),
+                     overdue_days=max(0, (today - due).days))
+    return entry
+
+
+def open_issues() -> list[dict] | None:
+    """Open scraper-broken / large-revision issues via the gh CLI, if available (None otherwise)."""
+    import shutil
+    import subprocess
+    if not shutil.which("gh"):
+        return None
+    try:
+        out = subprocess.run(["gh", "issue", "list", "--state", "open", "--limit", "100", "--json",
+                              "number,title,labels,url,updatedAt"], cwd=store.ROOT,
+                             capture_output=True, text=True, timeout=30, check=True).stdout
+    except (subprocess.SubprocessError, OSError):
+        return None
+    issues = json.loads(out)
+    keep = {"scraper-broken", "large-revision"}
+    return [{"number": i["number"], "title": i["title"], "url": i["url"], "updated": i["updatedAt"][:10],
+             "labels": [lb["name"] for lb in i["labels"]]} for i in issues
+            if keep & {lb["name"] for lb in i["labels"]}]
+
+
 def write_json(path, obj) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(obj, indent=1))
@@ -288,8 +331,12 @@ def main() -> int:
     (PUBLIC.parent / "calendar.ics").write_text(calendar.ics(cal, registry.site_config()["site"]["name"]))
 
     as_of = max((p["data"][-1][0] for p in payloads.values()), default=None)
-    write_json(OUT / "site.json", {"built_on": date.today().isoformat(), "as_of": as_of,
-                                   "status": store.load_status()})
+    status = store.load_status()
+    today = pd.Timestamp(date.today())
+    write_json(OUT / "site.json", {"built_on": date.today().isoformat(), "as_of": as_of, "status": status})
+    write_json(OUT / "health.json", {
+        "series": [health(spec, payloads.get(sid), status.get(sid, {}), today) for sid, spec in specs.items()],
+        "issues": open_issues()})
 
     # Downloadable CSVs (licence permitting) are copied into the site's public folder.
     PUBLIC.mkdir(parents=True, exist_ok=True)

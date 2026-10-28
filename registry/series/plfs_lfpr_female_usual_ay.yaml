@@ -31,8 +31,10 @@ pages:
 - page: jobs
   section: longer-run
 original: false
-discontinued: null
+discontinued: '2024-06-30'
 owner: ''
 verified_against: []
-notes: Annual report, usual status (principal + subsidiary), by agricultural year
-  (July-June) from 2017-18; period = July of the first year.
+notes: 'Annual report, usual status (principal + subsidiary), by agricultural year
+  (July-June) from 2017-18; period = July of the first year. Discontinued after 2023-24:
+  PLFS annual reports moved to a calendar-year basis (see plfs_ur_usual_cy and MoSPI''s
+  release calendar, which lists the annual report for calendar year 2026).'

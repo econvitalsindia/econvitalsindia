@@ -1,26 +1,55 @@
 ---
+// Internal health page: overdue series, failing scrapers, the manual queue and open issues.
 import Base from "../layouts/Base.astro";
-import { site, catalogue } from "../lib/data.js";
-const s = site();
-const fetchMode = Object.fromEntries(catalogue().map((r) => [r.id, r.fetch]));
-const rows = Object.entries(s.status);
+import { period } from "../lib/format.js";
+import fs from "node:fs";
+
+const h = JSON.parse(fs.readFileSync("src/data/generated/health.json", "utf8"));
+const rows = h.series;
+const failing = rows.filter((r) => r.stale);
+const overdue = rows.filter((r) => !r.stale && r.overdue_days > 0).sort((a, b) => b.overdue_days - a.overdue_days);
+const manual = rows.filter((r) => r.fetch === "manual");
+const ok = rows.length - failing.length - overdue.length;
+const when = (s) => (s ? s.replace("T", " ").slice(0, 16) + " UTC" : "never");
 ---
 <Base title="Status">
   <h1>Status</h1>
-  <p class="lede">Freshness of every series (internal until launch). A stale series keeps its last good values on the site.</p>
-  <div class="scroll">
-    <table class="data">
-      <thead><tr><th>Series</th><th>Fetch</th><th>Latest period</th><th>Last success (UTC)</th><th>State</th><th>Last error</th></tr></thead>
-      <tbody>
-        {rows.map(([id, e]) => (
-          <tr>
-            <td><code>{id}</code></td><td>{fetchMode[id]}</td><td>{e.last_period ?? "–"}</td>
-            <td>{e.last_success?.replace("T", " ").replace("+00:00", "") ?? "never"}</td>
-            <td class={e.stale ? "neg" : "pos"}>{e.stale ? "stale" : "ok"}</td>
-            <td>{e.last_error ?? ""}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  </div>
+  <p class="lede">Health of every series, for whoever is on duty (see the operations runbook). {rows.length} series: <b class="pos">{ok} up to date</b>, <b class="neg">{overdue.length} overdue</b>, <b class="neg">{failing.length} failing</b>.</p>
+
+  <h2>Failing</h2>
+  {failing.length ? (
+    <div class="scroll"><table class="data">
+      <thead><tr><th>Series</th><th>Last success</th><th>Error</th></tr></thead>
+      <tbody>{failing.map((r) => <tr><td><a href={`/data/${r.id}/`}><code>{r.id}</code></a></td><td>{when(r.last_success)}</td><td>{r.last_error}</td></tr>)}</tbody>
+    </table></div>
+  ) : <p>None. Every series' last attempt succeeded.</p>}
+
+  <h2>Overdue</h2>
+  <p class="chart-sub">A series is overdue when the end of its latest period plus its usual publication lag (from the registry) has passed. Usually the publisher is late or the release moved; check the calendar before assuming a scraper problem.</p>
+  {overdue.length ? (
+    <div class="scroll"><table class="data">
+      <thead><tr><th>Series</th><th>Latest period</th><th>Expected by</th><th>Days overdue</th><th>Fetch</th></tr></thead>
+      <tbody>{overdue.map((r) => <tr><td><a href={`/data/${r.id}/`}>{r.title}</a> <code>{r.id}</code></td><td>{r.last_period}</td><td>{period(r.due, "D")}</td><td class="neg">{r.overdue_days}</td><td>{r.fetch}</td></tr>)}</tbody>
+    </table></div>
+  ) : <p>None.</p>}
+
+  <h2>Manual queue</h2>
+  <p class="chart-sub">These sources block servers outside India, so they update only when someone runs <code>make india-update</code> from India (it opens a pull request).</p>
+  <div class="scroll"><table class="data">
+    <thead><tr><th>Series</th><th>Latest period</th><th>Last run</th></tr></thead>
+    <tbody>{manual.map((r) => <tr><td><a href={`/data/${r.id}/`}>{r.title}</a></td><td>{r.last_period}</td><td>{when(r.last_success)}</td></tr>)}</tbody>
+  </table></div>
+
+  <h2>Open issues</h2>
+  {h.issues === null ? <p class="chart-sub">Not available in this build (the GitHub CLI was not available).</p>
+    : h.issues.length ? (
+    <ul>{h.issues.map((i) => <li><a href={i.url}>#{i.number} {i.title}</a> <span class="badge">{i.labels.join(", ")}</span> <span class="chart-sub">updated {i.updated}</span></li>)}</ul>
+  ) : <p>No open scraper-broken or large-revision issues.</p>}
+
+  <h2>All series</h2>
+  <div class="scroll"><table class="data">
+    <thead><tr><th>Series</th><th>Freq.</th><th>Latest period</th><th>Expected next by</th><th>Last success</th><th>State</th></tr></thead>
+    <tbody>{rows.map((r) => <tr><td><code>{r.id}</code></td><td>{r.frequency}</td><td>{r.last_period ?? "–"}</td><td>{r.due ?? "–"}</td><td>{when(r.last_success)}</td>
+      <td class={r.stale || r.overdue_days > 0 ? "neg" : "pos"}>{r.stale ? "failing" : r.discontinued ? "discontinued" : r.overdue_days > 0 ? `overdue ${r.overdue_days}d` : "ok"}</td></tr>)}</tbody>
+  </table></div>
 </Base>
