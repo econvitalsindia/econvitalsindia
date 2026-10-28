@@ -57,23 +57,33 @@ def value_on_or_before(df: pd.DataFrame, when: pd.Timestamp, max_gap_days: int) 
     return None if prior.empty else float(prior["value"].iloc[-1])
 
 
-def changes(df: pd.DataFrame, unit: str) -> dict:
-    """1-day, 1-week and calendar-YTD changes for daily series (bp for rates, % otherwise)."""
+# Largest gap (days) between a reference date and the observation used for it, by
+# frequency: (1-day, 1-week, year-start). None = change not shown for that frequency.
+GAP_LIMITS = {"D": (4, 3, 7), "W": (None, 9, 21), "F": (None, None, 30)}
+STEP_GAP = 60  # step series (policy rates) hold their value until changed
+
+
+def changes(df: pd.DataFrame, unit: str, freq: str, step: bool) -> dict | None:
+    """1-day, 1-week and calendar-YTD changes (bp for rates, % otherwise).
+
+    Step series (registry `step: true`, e.g. the repo rate) carry their last value
+    forward, so any observation within STEP_GAP days is a valid reference.
+    """
+    limits = (STEP_GAP,) * 3 if step else GAP_LIMITS.get(freq)
+    if limits is None:
+        return None
     last_p, last_v = df["period"].iloc[-1], float(df["value"].iloc[-1])
-    refs = {
-        "d1": value_on_or_before(df, last_p - pd.Timedelta(days=1), max_gap_days=4),
-        "w1": value_on_or_before(df, last_p - pd.Timedelta(days=7), max_gap_days=3),
-        "ytd": value_on_or_before(df, pd.Timestamp(year=last_p.year - 1, month=12, day=31),
-                                  max_gap_days=7),
-    }
+    targets = (last_p - pd.Timedelta(days=1), last_p - pd.Timedelta(days=7),
+               pd.Timestamp(year=last_p.year - 1, month=12, day=31))
     out = {}
-    for k, ref in refs.items():
+    for key, target, gap in zip(("d1", "w1", "ytd"), targets, limits):
+        ref = None if gap is None else value_on_or_before(df, target, max_gap_days=gap)
         if ref is None:
-            out[k] = None
+            out[key] = None
         elif unit == "percent":
-            out[k] = round((last_v - ref) * 100, 1)       # basis points
+            out[key] = round((last_v - ref) * 100, 1)       # basis points
         else:
-            out[k] = round((last_v / ref - 1) * 100, 2)   # percent change
+            out[key] = round((last_v / ref - 1) * 100, 2)   # percent change
     out["kind"] = "bp" if unit == "percent" else "pct"
     return out
 
@@ -98,7 +108,7 @@ def series_payload(series_id: str, spec: dict, df: pd.DataFrame) -> dict:
         "data": [[p.strftime("%Y-%m-%d"), v, n] for p, v, n in
                  zip(df["period"], df["value"], df["note"].fillna(""))],
         "transforms": transforms,
-        "changes": changes(df, spec["unit"]) if spec["frequency"] == "D" else None,
+        "changes": changes(df, spec["unit"], spec["frequency"], bool(spec.get("step"))),
     }
 
 

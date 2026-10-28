@@ -1,0 +1,36 @@
+id: brent_usd
+title: Brent crude oil, front-month futures close
+short_title: Brent (US$)
+area: markets
+source:
+  agency: Yahoo Finance (exchange data)
+  dataset: BZ=F
+  url: https://finance.yahoo.com/
+  module: pipelines/sources/yahoo/markets.py
+licence: show-only
+downloadable: false
+fetch: auto
+frequency: D
+unit: usd_per_bbl
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+- yoy
+release:
+  calendar: none
+  rule: previous trading day's close, read daily
+  lag_days: 5
+validation:
+  range:
+  - 5
+  - 400
+  revision_alert: 1
+pages:
+- page: markets
+  section: cross-asset
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: ICE Brent front-month future; the contract rolls monthly.

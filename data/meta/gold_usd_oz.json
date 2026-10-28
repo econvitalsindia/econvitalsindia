@@ -1,0 +1,35 @@
+{
+  "id": "gold_usd_oz",
+  "title": "Gold, COMEX front-month futures close",
+  "short_title": "Gold (US$/oz)",
+  "unit": "usd_per_oz",
+  "frequency": "D",
+  "base_year": null,
+  "source": {
+    "agency": "Yahoo Finance (exchange data)",
+    "dataset": "GC=F",
+    "url": "https://finance.yahoo.com/",
+    "module": "pipelines/sources/yahoo/markets.py"
+  },
+  "licence": "show-only",
+  "downloadable": false,
+  "first_period": "2016-10-28",
+  "last_period": "2026-10-27",
+  "last_value": 4074.6,
+  "observations": 2513,
+  "updated_at": "2026-10-28T11:35:19+00:00",
+  "fetched_from": [
+    "yfinance:BZ=F?period=1mo",
+    "yfinance:GC=F?period=1mo",
+    "yfinance:^BSESN?period=1mo",
+    "yfinance:^INDIAVIX?period=1mo",
+    "yfinance:^NSEI?period=1mo"
+  ],
+  "raw_files": [
+    "data/raw/yahoo_markets/20261028T113518-31dfc325f8.json",
+    "data/raw/yahoo_markets/20261028T113519-01a28be520.json",
+    "data/raw/yahoo_markets/20261028T113519-79eaf85e40.json",
+    "data/raw/yahoo_markets/20261028T113519-b273d532d7.json",
+    "data/raw/yahoo_markets/20261028T113519-dc22a0a13a.json"
+  ]
+}

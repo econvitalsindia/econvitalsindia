@@ -12,6 +12,7 @@ licence: unverified
 downloadable: false
 fetch: auto
 frequency: D
+step: true
 unit: percent
 base_year: null
 seasonal_adjustment: none

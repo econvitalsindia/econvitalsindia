@@ -61,8 +61,14 @@ function draw(el) {
   marks.push(Plot.text(labelled, { x: "date", y: "value", text: (d) => d.value.toLocaleString("en-US", { minimumFractionDigits: decimals, maximumFractionDigits: decimals }), dx: 6, textAnchor: "start", fontSize: 11 }));
   marks.push(Plot.tip(data, Plot.pointerX({ x: "date", y: "value", stroke: (d) => colour[d.label], title: (d) => `${d.label}\n${d.date.toISOString().slice(0, 10)}: ${d.value.toLocaleString("en-US", { maximumFractionDigits: 2 })}` })));
   const width = el.clientWidth || 600;
+  // Margins sized to the longest y tick (e.g. "25,000") and end label (e.g. "22,698.85").
+  const fmt = (v, d) => v.toLocaleString("en-US", { minimumFractionDigits: d, maximumFractionDigits: d });
+  const hi = Math.max(...data.map((r) => Math.abs(r.value)));
+  const charPx = 6.6;
+  const marginLeft = Math.max(36, 14 + charPx * fmt(Math.round(hi), 0).length);
+  const marginRight = Math.max(40, 14 + charPx * Math.max(...labelled.map((d) => fmt(d.value, decimals).length), 0));
   const plot = Plot.plot({
-    width, height: Math.max(240, Math.min(340, width * 0.55)), marginRight: 48,
+    width, height: Math.max(240, Math.min(340, width * 0.55)), marginLeft, marginRight,
     style: { fontFamily: "Inter, system-ui, sans-serif", fontSize: "11px", background: "transparent" },
     x: { type: "utc" }, y: { grid: true, label: spec.yLabel || null, zero: lo <= 0 || !!ref },
     marks,

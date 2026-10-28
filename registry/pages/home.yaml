@@ -14,8 +14,9 @@ tiles:
   - {series: usdinr_ref, transform: level, label: "USD/INR", href: "/markets/", fmt: "num2", show: ytd}
   - {series: nifty50_close, transform: level, label: "Nifty 50", href: "/markets/", fmt: "num0", show: ytd}
   - {series: sensex_close, transform: level, label: "Sensex", href: "/markets/", fmt: "num0", show: ytd}
+  - {series: brent_inr, transform: level, label: "Brent in ₹", href: "/markets/", fmt: "num0", show: ytd}
 # Planned tiles (no numbers shown until their series exist): see registry/backlog.yaml
-planned: ["GST collections", "Brent in ₹"]
+planned: ["GST collections", "Trade balance", "Fiscal deficit"]
 # "India in questions" cards. stat: latest | year_ago | avg4 (mean of the last 4 periods).
 questions:
   - q: "Is inflation near RBI's 4% target?"

@@ -14,7 +14,7 @@
   - [x] 10-year G-sec yield (bp change YTD)
   - [x] Nifty 50 and Sensex (% YTD)
   - [x] USD/INR (FBIL reference, % YTD)
-  - [ ] Brent in ₹ per barrel (% YTD)
+  - [x] Brent in ₹ per barrel (% YTD)
   - [x] FX reserves (US$ bn, weekly)
   - [ ] GST collections (₹ lakh crore, % y/y)
 - [~] "India in four questions" cards (3 of 4 live: inflation, growth, jobs; external waits for reserves/CAD), each with 2–3 numbers and a link:

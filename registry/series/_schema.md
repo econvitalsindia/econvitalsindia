@@ -18,3 +18,4 @@
 | validation.range | [min, max] | |
 | pages | list of {page, section} | page must exist in docs/guidebook/05-pages/ |
 | verified_against | list | must be non-empty before a series goes live |
+| step (optional) | bool | true for values that hold until changed (policy rates, reserve ratios): charts draw steps and changes carry the last value forward |

@@ -1,0 +1,39 @@
+id: brent_inr
+title: Brent crude in rupees per barrel
+short_title: Brent in ₹
+area: markets
+source:
+  agency: Site calculation (Yahoo Finance Brent x FBIL USD/INR)
+  dataset: brent_usd x usdinr_ref
+  url: ''
+  module: pipelines/sources/derived/brent_inr.py
+licence: show-only
+downloadable: false
+fetch: auto
+frequency: D
+unit: inr_per_bbl
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+- yoy
+release:
+  calendar: none
+  rule: previous trading day's close, read daily
+  lag_days: 5
+validation:
+  range:
+  - 500
+  - 50000
+  revision_alert: 1
+pages:
+- page: home
+  section: key-indicators
+- page: markets
+  section: cross-asset
+original: true
+discontinued: null
+owner: ''
+verified_against: []
+notes: Each Brent close converted at the FBIL reference rate of that date (or the
+  latest earlier one).

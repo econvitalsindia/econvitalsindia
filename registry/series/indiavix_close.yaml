@@ -1,0 +1,36 @@
+id: indiavix_close
+title: India VIX, close
+short_title: India VIX
+area: markets
+source:
+  agency: Yahoo Finance (exchange data)
+  dataset: ^INDIAVIX
+  url: https://finance.yahoo.com/
+  module: pipelines/sources/yahoo/markets.py
+licence: show-only
+downloadable: false
+fetch: auto
+frequency: D
+unit: index
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+- yoy
+release:
+  calendar: none
+  rule: previous trading day's close, read daily
+  lag_days: 5
+validation:
+  range:
+  - 3
+  - 100
+  revision_alert: 1
+pages:
+- page: markets
+  section: cross-asset
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: NSE's volatility index (expected 30-day Nifty volatility).

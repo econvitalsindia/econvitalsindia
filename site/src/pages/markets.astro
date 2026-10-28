@@ -12,11 +12,11 @@ const groups = spec.sections.find((s) => s.id === "cross-asset").groups.map((g) 
   rows: g.series.map((id) => series(id)),
 }));
 const fmtChange = (s, v) => s.changes?.kind === "bp" ? signed(v, 0, " bp") : signed(v, 2, "%");
-const digits = (s) => (s.unit === "index" ? 2 : s.unit === "percent" ? 2 : 4);
+const digits = (s) => (s.unit === "inr_per_usd" ? 4 : 2);
 ---
 <Base current="markets" title="Markets & rates">
   <h1>Markets &amp; rates</h1>
-  <p class="lede">RBI's policy corridor, money-market and government bond rates, the rupee and equity indices. Read daily from the RBI home page; rupee history from FBIL.</p>
+  <p class="lede">RBI's policy corridor, money-market and government bond rates, the rupee, equity indices and commodities. Sources: RBI (home page and Weekly Statistical Supplement), FBIL and Yahoo Finance.</p>
 
   <div class="scroll">
     <table class="data">
@@ -41,8 +41,13 @@ const digits = (s) => (s.unit === "index" ? 2 : s.unit === "percent" ? 2 : 4);
       </tbody>
     </table>
   </div>
-  <p class="chart-sub">Rate changes in basis points; other changes in percent. "–" means there is not yet enough history: most of these series are daily snapshots that began on 28 Oct 2026 and fill in as the site updates each day. Index levels are shown with attribution only and are not offered for download.</p>
+  <p class="chart-sub">Rate changes in basis points; other changes in percent. "–" means the series has no observation close enough to that reference date; snapshot series read from RBI's home page (since 28 Oct 2026) fill in as the site updates each day. Policy rates hold their value until changed, so their changes use the last value in force. Index levels are shown with attribution only and are not offered for download.</p>
 
-  <h2>The rupee</h2>
-  <LineChart title="USD/INR reference rate" subtitle="Rupees per US dollar, FBIL 1 pm fixing" lines={[{ id: "usdinr_ref" }]} years={1} />
+  <div class="grid2">
+    <LineChart title="Nifty 50" subtitle="Index level, daily close" lines={[{ id: "nifty50_close" }]} years={10} />
+    <LineChart title="India VIX" subtitle="Expected 30-day Nifty volatility, %" lines={[{ id: "indiavix_close" }]} years={3} />
+    <LineChart title="USD/INR reference rate" subtitle="Rupees per US dollar, FBIL 1 pm fixing" lines={[{ id: "usdinr_ref" }]} years={1} />
+    <LineChart title="Brent crude in rupees" subtitle="₹ per barrel (Brent front-month future × FBIL USD/INR)" lines={[{ id: "brent_inr" }]} years={1} />
+  </div>
+  <p class="chart-sub">Index and futures prices from Yahoo Finance, shown with attribution only. Brent in rupees is a site calculation.</p>
 </Base>

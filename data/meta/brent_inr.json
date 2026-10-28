@@ -1,0 +1,25 @@
+{
+  "id": "brent_inr",
+  "title": "Brent crude in rupees per barrel",
+  "short_title": "Brent in \u20b9",
+  "unit": "inr_per_bbl",
+  "frequency": "D",
+  "base_year": null,
+  "source": {
+    "agency": "Site calculation (Yahoo Finance Brent x FBIL USD/INR)",
+    "dataset": "brent_usd x usdinr_ref",
+    "url": "",
+    "module": "pipelines/sources/derived/brent_inr.py"
+  },
+  "licence": "show-only",
+  "downloadable": false,
+  "first_period": "2025-10-23",
+  "last_period": "2026-10-23",
+  "last_value": 11061.45,
+  "observations": 252,
+  "updated_at": "2026-10-28T11:34:41+00:00",
+  "fetched_from": [
+    "derived: derived_brent_inr"
+  ],
+  "raw_files": []
+}

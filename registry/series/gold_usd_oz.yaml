@@ -1,0 +1,36 @@
+id: gold_usd_oz
+title: Gold, COMEX front-month futures close
+short_title: Gold (US$/oz)
+area: markets
+source:
+  agency: Yahoo Finance (exchange data)
+  dataset: GC=F
+  url: https://finance.yahoo.com/
+  module: pipelines/sources/yahoo/markets.py
+licence: show-only
+downloadable: false
+fetch: auto
+frequency: D
+unit: usd_per_oz
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+- yoy
+release:
+  calendar: none
+  rule: previous trading day's close, read daily
+  lag_days: 5
+validation:
+  range:
+  - 200
+  - 20000
+  revision_alert: 1
+pages:
+- page: markets
+  section: cross-asset
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: COMEX front-month future.

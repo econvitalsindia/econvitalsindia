@@ -69,7 +69,7 @@ Small 200 responses (MoSPI 2.6 KB, eSankhyiki 1.2 KB, NREGA 0.5 KB, FBIL 1.5 KB)
 | FBIL | Reference rates (USD/INR etc.), G-sec valuation, T-bill curves | fbil.org.in | ? | check | to-scout | Official benchmark for INR |
 | CCIL | G-sec yields, money-market volumes | ccilindia.com | ? | check | to-scout | Often blocks foreign IPs (likely `manual`) |
 | NSE / BSE | Index levels, India VIX, FII/DII provisional flows | nseindia.com, bseindia.com | ? (NSE blocks non-browser clients) | **show-only** | to-scout | Licensed. No bulk downloads |
-| Yahoo Finance (via yfinance) | ^NSEI, ^BSESN, INR=X, Brent, gold | — | auto (likely) | **show-only** | to-scout | Convenience source for levels. Cross-check against NSE/FBIL |
+| Yahoo Finance (via yfinance) | ^NSEI, ^BSESN, ^INDIAVIX, BZ=F (Brent), GC=F (gold) | yfinance library (handles Yahoo's session; the raw chart API returns 429) | auto | **show-only** | **live** (2026-10-28) | Nifty/Sensex closes checked equal to RBI's republished closes. Store to 2 decimals (Yahoo returns float noise). 10-year backfill on first run |
 | NSDL | FPI flows (equity, debt) | fpi.nsdl.co.in | ? | check | to-scout | |
 | AMFI | Mutual fund flows, SIP inflows, AUM | amfiindia.com | ? | check | to-scout | Monthly, ~10th |
 | SEBI | Bulletin aggregates | sebi.gov.in | ? | check | to-scout | Later |
