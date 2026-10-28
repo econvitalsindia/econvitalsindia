@@ -1,0 +1,35 @@
+id: cpi_iw_inflation
+title: CPI-IW inflation, y/y, as published
+short_title: CPI-IW inflation
+area: inflation
+source:
+  agency: Labour Bureau, Ministry of Labour & Employment
+  dataset: CPI for Industrial Workers (2016=100), monthly press note
+  url: https://labourbureau.gov.in/consumer-price-index-numbers-for-industrial-workers
+  module: pipelines/sources/labourbureau/cpi_iw.py
+licence: GODL
+downloadable: true
+fetch: auto
+frequency: M
+unit: percent
+base_year: 2016=100
+seasonal_adjustment: none
+transforms:
+- level
+release:
+  calendar: none
+  rule: last working day of the following month
+  lag_days: 45
+validation:
+  range:
+  - -10
+  - 30
+  revision_alert: 5
+pages:
+- page: inflation
+  section: other-indices
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: As stated in each press note (the month and the same month a year earlier).

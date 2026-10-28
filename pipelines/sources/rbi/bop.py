@@ -16,16 +16,13 @@ from __future__ import annotations
 
 import re
 
-import httpx
 import pandas as pd
 
 from pipelines.core import Raw, Source
-from pipelines.core.http import HEADERS, fetch_raw
+from pipelines.core.http import fetch_raw
 from pipelines.core.store import load_series
+from pipelines.sources.rbi._press import RELEASE, releases
 from pipelines.sources.rbi.services_trade import page_text
-
-INDEX = "https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx"
-RELEASE = "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid={prid}"
 BACKFILL_MONTHS, RECENT_MONTHS, MIN_HISTORY = 26, 2, 4
 MONTHS = ("January February March April May June July August September October "
           "November December").split()
@@ -96,21 +93,9 @@ class RbiBoP(Source):
     name = "rbi_bop"
     series_ids = (*QUARTERLY_ROWS.values(), "bop_cab_pct_gdp", "bop_cab_monthly")
 
-    def _releases_in(self, client: httpx.Client, year: int, month: int) -> list[tuple[str, str]]:
-        page = client.get(INDEX).text
-        fields = dict(re.findall(r'<input[^>]*type="hidden"[^>]*name="([^"]+)"[^>]*value="([^"]*)"', page))
-        fields.update({"hdnYear": str(year), "hdnMonth": str(month)})
-        html = client.post(INDEX, data=fields).text
-        return [(prid, title) for prid, title in
-                re.findall(r"href=['\"]?BS_PressReleaseDisplay\.aspx\?prid=(\d+)['\"]?>([^<]+)</a>", html)
-                if "Balance of Payments" in title and title.strip().startswith("Developments")]
-
     def fetch(self) -> list[Raw]:
         months = BACKFILL_MONTHS if len(load_series("bop_current_account")) < MIN_HISTORY else RECENT_MONTHS
-        found: dict[str, str] = {}
-        with httpx.Client(headers=HEADERS, timeout=60, follow_redirects=True) as client:
-            for p in pd.period_range(end=pd.Period.now(freq="M"), periods=months, freq="M"):
-                found.update(self._releases_in(client, p.year, p.month))
+        found = releases(lambda t: t.startswith("Developments") and "Balance of Payments" in t, months)
         if not found:
             raise RuntimeError("no balance of payments releases found in the press-release index")
         # Newest release first (prids increase over time).

@@ -8,8 +8,8 @@
 - [x] Chart: contributions to headline CPI by group (weights from the 2024 base)
 - [ ] Chart: momentum vs base effect decomposition of the change in y/y inflation (Original)
 - [x] WPI headline, WPI food, WPI manufactured products
-- [ ] CPI-IW (Labour Bureau)
-- [ ] RBI household inflation expectations (3-month and 1-year ahead)
+- [x] CPI-IW (Labour Bureau; history builds from monthly press notes)
+- [x] RBI household inflation expectations (3-month and 1-year ahead, plus current perception)
 - [ ] RBI's CPI projections (latest MPC) vs outturn
 - [ ] Food watch link (monsoon and essential-commodity prices, Phase 4)
 - [ ] State-wise CPI y/y map (links to States, Phase 4)

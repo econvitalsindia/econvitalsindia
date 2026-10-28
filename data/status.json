@@ -342,6 +342,20 @@
     "last_error": null,
     "last_period": "2026-09-01"
   },
+  "cpi_iw_index": {
+    "last_attempt": "2026-10-28T14:04:00+00:00",
+    "last_success": "2026-10-28T14:04:00+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-08-01"
+  },
+  "cpi_iw_inflation": {
+    "last_attempt": "2026-10-28T14:04:00+00:00",
+    "last_success": "2026-10-28T14:04:00+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-08-01"
+  },
   "cpi_paan_tobacco_index": {
     "last_attempt": "2026-10-28T13:07:12+00:00",
     "last_success": "2026-10-28T13:07:12+00:00",
@@ -593,6 +607,27 @@
     "stale": false,
     "last_error": null,
     "last_period": "2026-04-01"
+  },
+  "iesh_1y_ahead": {
+    "last_attempt": "2026-10-28T14:07:26+00:00",
+    "last_success": "2026-10-28T14:07:26+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-09-01"
+  },
+  "iesh_3m_ahead": {
+    "last_attempt": "2026-10-28T14:07:26+00:00",
+    "last_success": "2026-10-28T14:07:26+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-09-01"
+  },
+  "iesh_current_perception": {
+    "last_attempt": "2026-10-28T14:07:26+00:00",
+    "last_success": "2026-10-28T14:07:26+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-09-01"
   },
   "iip_capital_goods_index": {
     "last_attempt": "2026-10-28T13:08:07+00:00",

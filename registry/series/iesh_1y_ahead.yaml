@@ -1,0 +1,37 @@
+id: iesh_1y_ahead
+title: Households' inflation expectations, one year ahead (median)
+short_title: Expected inflation, 1 year (households)
+area: inflation
+source:
+  agency: RBI
+  dataset: Inflation Expectations Survey of Households (IESH), Table 3
+  url: https://www.rbi.org.in/Scripts/Publications.aspx?publication=Bimonthly
+  module: pipelines/sources/rbi/iesh.py
+licence: unverified
+downloadable: false
+fetch: auto
+frequency: M
+unit: percent
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+release:
+  calendar: rbi
+  rule: bi-monthly, released with the MPC decision
+  lag_days: 75
+validation:
+  range:
+  - 0
+  - 30
+  revision_alert: 5
+pages:
+- page: inflation
+  section: expectations
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: Bi-monthly survey of urban households in 19 cities; period = month the round
+  ended. Respondents' views, not RBI's (as RBI notes). In every round we hold, households'
+  perceived inflation was above measured CPI inflation for that month.

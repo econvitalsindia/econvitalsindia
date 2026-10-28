@@ -1,0 +1,39 @@
+{
+  "id": "iesh_1y_ahead",
+  "title": "Households' inflation expectations, one year ahead (median)",
+  "short_title": "Expected inflation, 1 year (households)",
+  "unit": "percent",
+  "frequency": "M",
+  "base_year": null,
+  "source": {
+    "agency": "RBI",
+    "dataset": "Inflation Expectations Survey of Households (IESH), Table 3",
+    "url": "https://www.rbi.org.in/Scripts/Publications.aspx?publication=Bimonthly",
+    "module": "pipelines/sources/rbi/iesh.py"
+  },
+  "licence": "unverified",
+  "downloadable": false,
+  "first_period": "2024-09-01",
+  "last_period": "2026-09-01",
+  "last_value": 10.0,
+  "observations": 13,
+  "updated_at": "2026-10-28T14:07:26+00:00",
+  "fetched_from": [
+    "https://rbidocs.rbi.org.in/rdocs/Publications/PDFs/IESH050620261E174AA72DD24B3EA577818E999ADE08.PDF",
+    "https://rbidocs.rbi.org.in/rdocs/Publications/PDFs/IESH05082026E63EAD68107144D199093B80F5A4B9F56.PDF",
+    "https://rbidocs.rbi.org.in/rdocs/Publications/PDFs/IESH060220263F3DFF32727D4D1E9C4D01BEE2E2635D.PDF",
+    "https://rbidocs.rbi.org.in/rdocs/Publications/PDFs/IESH07102026E75386C45E0DD4F84B3343908B8590B11.PDF",
+    "https://rbidocs.rbi.org.in/rdocs/Publications/PDFs/IESH08042026E09B272BD17FD429AB1852584200C7D10.PDF",
+    "https://rbidocs.rbi.org.in/rdocs/Publications/PDFs/IESHNOV250512202551DA503E95C0478998BB3FE70CB4A0B7.PDF",
+    "https://rbidocs.rbi.org.in/rdocs/Publications/PDFs/IESH_01102025D2CFFC80BC5C40E889A843DEA063EA7D.PDF"
+  ],
+  "raw_files": [
+    "data/raw/rbi_iesh/20261028T140635-cec035bf57.pdf",
+    "data/raw/rbi_iesh/20261028T140641-69418bde03.pdf",
+    "data/raw/rbi_iesh/20261028T140646-98bab7db46.pdf",
+    "data/raw/rbi_iesh/20261028T140650-5cfbe20eae.pdf",
+    "data/raw/rbi_iesh/20261028T140655-73ed641186.pdf",
+    "data/raw/rbi_iesh/20261028T140700-cfc580363b.pdf",
+    "data/raw/rbi_iesh/20261028T140706-be28ecb193.pdf"
+  ]
+}
