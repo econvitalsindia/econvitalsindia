@@ -20,6 +20,10 @@ For CPI, GDP, IIP, PLFS, the MPC decision and trade, follow `playbooks/release-d
 
 Revisions are normal (GDP, IIP, EPFO revise often). The pipeline stores every vintage. Revisions above a series' `revision_alert` open a `large-revision` issue. Confirm against the press release and close it. Don't "fix" revisions by hand.
 
+## A published value looks wrong
+
+Sometimes a publisher's feed carries an obvious error, e.g. a value attached to the wrong period. Don't edit the CSV. Add an `exclude` entry to the series yaml: `{period, added, reason}`, with the evidence in `reason`. The value is then never published, and the series page shows it under "Values left out". Report it to the publisher if possible, and remove the entry once they fix the feed. Example: `plfs_ur_quarterly_urban`, April–June 2019.
+
 ## Base-year changes
 
 When an agency rebases (as in 2026 for GDP, CPI and IIP):

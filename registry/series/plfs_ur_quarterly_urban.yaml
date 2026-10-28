@@ -1,0 +1,43 @@
+id: plfs_ur_quarterly_urban
+title: Unemployment rate, urban, 15+ (CWS), quarterly bulletin
+short_title: Urban unemployment (quarterly)
+area: jobs
+source:
+  agency: MoSPI (NSO)
+  dataset: Periodic Labour Force Survey
+  url: https://esankhyiki.mospi.gov.in/macroindicators?product=plfs
+  module: pipelines/sources/mospi/plfs.py
+licence: GODL
+downloadable: true
+fetch: auto
+frequency: Q
+unit: percent
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+- diff
+release:
+  calendar: mospi
+  rule: quarterly bulletin about 6 weeks after the quarter; annual report once a year
+  lag_days: 120
+validation:
+  range:
+  - 0
+  - 100
+  revision_alert: 5
+pages:
+- page: jobs
+  section: longer-run
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: Quarterly bulletin, current weekly status, urban areas, since 2018.
+exclude:
+- period: '2019-04-01'
+  added: '2026-10-28'
+  reason: MoSPI's API gives 21.6% for urban unemployment in April-June 2019, between
+    9.2% (Jan-Mar 2019) and 8.1% (Jul-Sep 2019) with no shock in that quarter; it
+    is close to the April-June 2020 lockdown figure (20.8%), so it looks mis-dated
+    in the API. Left out until checked against the PLFS quarterly bulletin.

@@ -32,5 +32,6 @@ export function period(iso, freq) {
     const q = Math.floor(((m - 4 + 12) % 12) / 3) + 1;
     return `Q${q} FY${String(fyEnd).slice(2)}`;
   }
+  if (freq === "A") return m === 7 ? `${y}-${String(y + 1).slice(2)}` : m === 4 ? `FY${String(y + 1).slice(2)}` : `${y}`;
   return `${d} ${MONTHS[m - 1]} ${y}`;
 }

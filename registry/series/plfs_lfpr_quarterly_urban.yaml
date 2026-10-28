@@ -1,0 +1,36 @@
+id: plfs_lfpr_quarterly_urban
+title: Labour force participation rate, urban, 15+ (CWS), quarterly bulletin
+short_title: Urban LFPR (quarterly)
+area: jobs
+source:
+  agency: MoSPI (NSO)
+  dataset: Periodic Labour Force Survey
+  url: https://esankhyiki.mospi.gov.in/macroindicators?product=plfs
+  module: pipelines/sources/mospi/plfs.py
+licence: GODL
+downloadable: true
+fetch: auto
+frequency: Q
+unit: percent
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+- diff
+release:
+  calendar: mospi
+  rule: quarterly bulletin about 6 weeks after the quarter; annual report once a year
+  lag_days: 120
+validation:
+  range:
+  - 0
+  - 100
+  revision_alert: 5
+pages:
+- page: jobs
+  section: longer-run
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: Quarterly bulletin, current weekly status, urban areas, since 2018.

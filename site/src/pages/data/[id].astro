@@ -43,6 +43,7 @@ const citation = `${config.site.name} (${today.slice(0, 4)}). ${s.title} [${id}]
       <tr><td>Updated by</td><td>{s.fetch === "auto" ? "Daily automated pipeline" : "Manual run from India (the publisher blocks automated servers abroad)"} · <code>{s.source.module}</code></td></tr>
       <tr><td>Licence</td><td>{licence}</td></tr>
       {s.notes && <tr><td>Notes</td><td>{s.notes}</td></tr>}
+      {s.exclude.length > 0 && <tr><td>Values left out</td><td>{s.exclude.map((e) => <div><b>{e.period}</b>: {e.reason}</div>)}</td></tr>}
       <tr><td>Checked against the official release</td><td>{s.verified_against.length
         ? s.verified_against.map((v) => <div>{v.checked_on}: {v.result ?? "checked"} (<a href={v.url}>source</a>)</div>)
         : "Not yet. Values come straight from the publisher, but no one has yet compared them with the press release."}</td></tr>

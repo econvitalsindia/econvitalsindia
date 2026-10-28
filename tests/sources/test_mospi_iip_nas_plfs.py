@@ -40,3 +40,9 @@ def test_plfs(raw_from):
     assert at(df, "plfs_ur_monthly", "2026-09-01").value == 5.0
     assert at(df, "plfs_ur_youth_monthly", "2026-09-01").value == 15.2
     assert at(df, "plfs_lfpr_female_monthly", "2026-09-01").value == 34.6
+
+
+def test_plfs_annual_period():
+    from pipelines.sources.mospi.plfs import annual_period
+    assert annual_period("2023-24", "Agriculture Year") == "2023-07-01"
+    assert annual_period("2025", "Calendar Year") == "2025-01-01"

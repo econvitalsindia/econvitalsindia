@@ -21,6 +21,19 @@ import PeriodTable from "../components/PeriodTable.astro";
     { id: "plfs_lfpr_monthly" }, { id: "plfs_lfpr_female_monthly", indent: true }, { id: "plfs_wpr_monthly" },
   ]} />
 
+  <h2>Longer run</h2>
+  <div class="grid2">
+    <LineChart title="Urban unemployment, quarterly" subtitle="% of the labour force, urban, 15+, current weekly status (quarterly bulletin)"
+      lines={[{ id: "plfs_ur_quarterly_urban", label: "Urban unemployment" }]} years={9} />
+    <LineChart title="Labour force participation, annual" subtitle="%, 15+, rural + urban, usual status; agricultural years (July–June)"
+      lines={[{ id: "plfs_lfpr_usual_ay", label: "All" }, { id: "plfs_lfpr_female_usual_ay", label: "Women" }]} years={9} />
+  </div>
+  <PeriodTable heading="Per cent, usual status (PS+SS), 15+" n={7} freq="A" rows={[
+    { id: "plfs_ur_usual_ay", label: "Unemployment rate" }, { id: "plfs_lfpr_usual_ay", label: "Participation rate" },
+    { id: "plfs_lfpr_female_usual_ay", label: "Female participation rate" },
+  ]} />
+  <p class="chart-sub">Annual figures use the usual-status concept (activity over the past year) and are not comparable with the monthly current-weekly-status figures above. Columns are agricultural years starting in July.</p>
+
   <h2>Concepts</h2>
   <p><b>Current weekly status (CWS)</b> classifies a person by what they did in the 7 days before the survey: employed if they worked at least one hour on any day, unemployed if they sought or were available for work but did not work. It responds faster to changes than the annual <b>usual status</b> measure (activity over the past 365 days), and gives a higher unemployment rate, so the two should not be compared directly. <b>LFPR</b> is the share of the population in the labour force; <b>WPR</b> is the share employed.</p>
 

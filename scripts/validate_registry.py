@@ -44,6 +44,9 @@ def check_series(path: Path, pages: set[str]) -> list[str]:
     for p in s["pages"]:
         if p.get("page") not in pages:
             errs.append(f"page '{p.get('page')}' has no checklist in 05-pages/")
+    for e in s.get("exclude") or []:
+        if not (e.get("period") and len(str(e.get("reason", ""))) >= 30):
+            errs.append("each exclude entry needs a period and a reason giving the evidence")
     rng = s["validation"].get("range")
     if not (isinstance(rng, list) and len(rng) == 2 and rng[0] < rng[1]):
         errs.append("validation.range must be [min, max]")

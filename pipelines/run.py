@@ -67,6 +67,10 @@ def run_source(src: Source) -> list[dict]:
     for sid in src.series_ids:
         spec = specs[sid]
         new = parsed[parsed["series_id"] == sid].drop(columns="series_id").sort_values("period")
+        # Periods a person has excluded (registry `exclude`, with a reason) are never published.
+        excluded = {str(e["period"]) for e in spec.get("exclude") or []}
+        if excluded:
+            new = new[~new["period"].isin(excluded)]
         problems = validate(sid, new, spec)
         if problems:
             err = "; ".join(problems)

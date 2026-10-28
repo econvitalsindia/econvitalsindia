@@ -1,0 +1,38 @@
+id: plfs_ur_usual_ay
+title: Unemployment rate, 15+, rural + urban, usual status (PS+SS), agricultural year
+  (July-June)
+short_title: Unemployment (annual, usual status)
+area: jobs
+source:
+  agency: MoSPI (NSO)
+  dataset: Periodic Labour Force Survey
+  url: https://esankhyiki.mospi.gov.in/macroindicators?product=plfs
+  module: pipelines/sources/mospi/plfs.py
+licence: GODL
+downloadable: true
+fetch: auto
+frequency: A
+unit: percent
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+- diff
+release:
+  calendar: mospi
+  rule: quarterly bulletin about 6 weeks after the quarter; annual report once a year
+  lag_days: 400
+validation:
+  range:
+  - 0
+  - 100
+  revision_alert: 5
+pages:
+- page: jobs
+  section: longer-run
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: Annual report, usual status (principal + subsidiary), by agricultural year
+  (July-June) from 2017-18; period = July of the first year.

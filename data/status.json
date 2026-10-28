@@ -728,57 +728,114 @@
     "last_period": "2026-04-01"
   },
   "plfs_lfpr_female_monthly": {
-    "last_attempt": "2026-10-28T13:09:17+00:00",
-    "last_success": "2026-10-28T13:09:17+00:00",
+    "last_attempt": "2026-10-28T13:34:09+00:00",
+    "last_success": "2026-10-28T13:34:09+00:00",
     "stale": false,
     "last_error": null,
     "last_period": "2026-09-01"
+  },
+  "plfs_lfpr_female_usual_ay": {
+    "last_attempt": "2026-10-28T13:34:09+00:00",
+    "last_success": "2026-10-28T13:34:09+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2023-07-01"
+  },
+  "plfs_lfpr_female_usual_fy": {
+    "last_attempt": "2026-10-28T13:19:58+00:00",
+    "stale": true,
+    "last_error": "plfs_lfpr_female_usual_fy: parser returned no rows"
   },
   "plfs_lfpr_monthly": {
-    "last_attempt": "2026-10-28T13:09:17+00:00",
-    "last_success": "2026-10-28T13:09:17+00:00",
+    "last_attempt": "2026-10-28T13:34:09+00:00",
+    "last_success": "2026-10-28T13:34:09+00:00",
     "stale": false,
     "last_error": null,
     "last_period": "2026-09-01"
   },
+  "plfs_lfpr_quarterly_urban": {
+    "last_attempt": "2026-10-28T13:34:09+00:00",
+    "last_success": "2026-10-28T13:34:09+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-04-01"
+  },
+  "plfs_lfpr_usual_ay": {
+    "last_attempt": "2026-10-28T13:34:09+00:00",
+    "last_success": "2026-10-28T13:34:09+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2023-07-01"
+  },
+  "plfs_lfpr_usual_fy": {
+    "last_attempt": "2026-10-28T13:19:58+00:00",
+    "stale": true,
+    "last_error": "plfs_lfpr_usual_fy: parser returned no rows"
+  },
   "plfs_ur_female_monthly": {
-    "last_attempt": "2026-10-28T13:09:17+00:00",
-    "last_success": "2026-10-28T13:09:17+00:00",
+    "last_attempt": "2026-10-28T13:34:09+00:00",
+    "last_success": "2026-10-28T13:34:09+00:00",
     "stale": false,
     "last_error": null,
     "last_period": "2026-09-01"
   },
   "plfs_ur_monthly": {
-    "last_attempt": "2026-10-28T13:09:17+00:00",
-    "last_success": "2026-10-28T13:09:17+00:00",
+    "last_attempt": "2026-10-28T13:34:09+00:00",
+    "last_success": "2026-10-28T13:34:09+00:00",
     "stale": false,
     "last_error": null,
     "last_period": "2026-09-01"
   },
+  "plfs_ur_quarterly_urban": {
+    "last_attempt": "2026-10-28T13:34:09+00:00",
+    "last_success": "2026-10-28T13:34:09+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-04-01"
+  },
   "plfs_ur_rural_monthly": {
-    "last_attempt": "2026-10-28T13:09:17+00:00",
-    "last_success": "2026-10-28T13:09:17+00:00",
+    "last_attempt": "2026-10-28T13:34:09+00:00",
+    "last_success": "2026-10-28T13:34:09+00:00",
     "stale": false,
     "last_error": null,
     "last_period": "2026-09-01"
   },
   "plfs_ur_urban_monthly": {
-    "last_attempt": "2026-10-28T13:09:17+00:00",
-    "last_success": "2026-10-28T13:09:17+00:00",
+    "last_attempt": "2026-10-28T13:34:09+00:00",
+    "last_success": "2026-10-28T13:34:09+00:00",
     "stale": false,
     "last_error": null,
     "last_period": "2026-09-01"
   },
+  "plfs_ur_usual_ay": {
+    "last_attempt": "2026-10-28T13:34:09+00:00",
+    "last_success": "2026-10-28T13:34:09+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2023-07-01"
+  },
+  "plfs_ur_usual_cy": {
+    "last_attempt": "2026-10-28T13:34:09+00:00",
+    "last_success": "2026-10-28T13:34:09+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2025-01-01"
+  },
+  "plfs_ur_usual_fy": {
+    "last_attempt": "2026-10-28T13:19:58+00:00",
+    "stale": true,
+    "last_error": "plfs_ur_usual_fy: parser returned no rows"
+  },
   "plfs_ur_youth_monthly": {
-    "last_attempt": "2026-10-28T13:09:17+00:00",
-    "last_success": "2026-10-28T13:09:17+00:00",
+    "last_attempt": "2026-10-28T13:34:09+00:00",
+    "last_success": "2026-10-28T13:34:09+00:00",
     "stale": false,
     "last_error": null,
     "last_period": "2026-09-01"
   },
   "plfs_wpr_monthly": {
-    "last_attempt": "2026-10-28T13:09:17+00:00",
-    "last_success": "2026-10-28T13:09:17+00:00",
+    "last_attempt": "2026-10-28T13:34:09+00:00",
+    "last_success": "2026-10-28T13:34:09+00:00",
     "stale": false,
     "last_error": null,
     "last_period": "2026-09-01"

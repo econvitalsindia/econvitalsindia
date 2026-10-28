@@ -126,6 +126,7 @@ def series_payload(series_id: str, spec: dict, df: pd.DataFrame) -> dict:
         "fetch": spec["fetch"],
         "release_rule": spec.get("release", {}).get("rule", ""),
         "verified_against": spec.get("verified_against") or [],
+        "exclude": spec.get("exclude") or [],
         "revisions": revisions_of(series_id),
         "data": [[p.strftime("%Y-%m-%d"), v, n] for p, v, n in
                  zip(df["period"], df["value"], df["note"].fillna(""))],
