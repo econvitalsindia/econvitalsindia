@@ -8,6 +8,23 @@ One row per **publisher/dataset**. Each indicator built from a source also has a
 
 Every entry below is **`to-scout`**. The URLs are portal home pages, not verified endpoints. The Phase 0/1 source-scout pass fills in Format, URL pattern and Notes. Use `playbooks/scout-source.md`.
 
+## Reachability probe: 2026-10-28
+
+`scripts/probe_sources.py` fetched each portal's home page with browser headers, from India (this Mac) and from GitHub Actions (US). Raw results: `data/probes/*.json`. Re-run with the `probe-sources` workflow. **Home pages only**: a data endpoint can behave differently, so confirm per endpoint when scouting.
+
+| Portal | India | Actions (US) | Implication |
+|---|---|---|---|
+| MoSPI, eSankhyiki, Labour Bureau, NREGA, RBI (all three), CGA, PIB, indiabudget, Commerce, TradeStat, FBIL, CCIL, BSE, NSDL, AMFI, PPAC, DGCA, IMD, FCA prices, GST, World Bank API | 200 | 200 | `auto` candidates |
+| EPFO | 200 | **403** | `manual` |
+| Grid-India | 200 | **connection reset** | `manual` |
+| CWC (reservoirs) | 200 | **401** | `manual` |
+| NSE home page | 403 | 403 | Home page blocks scripts, but `nseindia.com/api/allIndices` returned 200 from both. Licensed: show-only |
+| NPCI | 403 | 403 | Blocks scripts everywhere. Try a browser-like session or the PDF statistics pages; else manual entry |
+| Yahoo chart API | 429 | 429 | Rate-limited without a session. Use the `yfinance` library (handles cookies) and test it |
+| OEA / DPIIT (WPI, core) | SSL error | SSL error | The server sends an incomplete certificate chain. Fix: supply the intermediate certificate to httpx (don't disable verification) |
+
+Small 200 responses (MoSPI 2.6 KB, eSankhyiki 1.2 KB, NREGA 0.5 KB, FBIL 1.5 KB) are JavaScript shells or redirects. Their data must come from API or file endpoints, not from parsing HTML.
+
 ## Official statistics
 
 | Publisher | Datasets | Portal | Access | Licence | Status | Notes |
@@ -15,7 +32,7 @@ Every entry below is **`to-scout`**. The URLs are portal home pages, not verifie
 | MoSPI (NSO) | National accounts (quarterly GDP/GVA, AE/PE), CPI (base 2024), IIP (base 2022-23), PLFS (monthly, quarterly, annual) | mospi.gov.in; eSankhyiki: esankhyiki.mospi.gov.in | ? | GODL | to-scout | eSankhyiki has an API and a pilot MCP server. Check endpoints, auth and rate limits. Release calendar (ARC) is a PDF on mospi.gov.in |
 | Office of the Economic Adviser (DPIIT) | WPI, Index of Eight Core Industries | eaindustry.nic.in | ? | GODL | to-scout | Monthly, around the 14th (WPI) and 20th (core) |
 | Labour Bureau | CPI-IW, CPI-AL/RL | labourbureau.gov.in | ? | GODL | to-scout | |
-| EPFO | Net payroll additions | epfindia.gov.in | ? | GODL | to-scout | Monthly, heavily revised. Store vintages |
+| EPFO | Net payroll additions | epfindia.gov.in | manual | GODL | to-scout | Monthly, heavily revised. Store vintages |
 | MGNREGA (MoRD) | Households demanding work, person-days | nrega.nic.in | ? | GODL | to-scout | Report pages are slow and stateful |
 
 ## RBI
@@ -60,7 +77,7 @@ Every entry below is **`to-scout`**. The URLs are portal home pages, not verifie
 
 | Publisher | Datasets | Portal | Access | Licence | Status | Notes |
 |---|---|---|---|---|---|---|
-| Grid-India | Daily all-India peak demand, energy met | grid-india.in | ? | check | to-scout | Daily PSP report (PDF/Excel) |
+| Grid-India | Daily all-India peak demand, energy met | grid-india.in | manual | check | to-scout | Daily PSP report (PDF/Excel) |
 | NPCI | UPI volumes and values (monthly; daily from product statistics) | npci.org.in | ? | check | to-scout | |
 | PPAC | Petroleum product consumption | ppac.gov.in | ? | GODL | to-scout | |
 | DGCA | Domestic air passengers | dgca.gov.in | ? | GODL | to-scout | Monthly PDF |
@@ -74,7 +91,7 @@ Every entry below is **`to-scout`**. The URLs are portal home pages, not verifie
 | Publisher | Datasets | Portal | Access | Licence | Status | Notes |
 |---|---|---|---|---|---|---|
 | IMD | Rainfall vs long-period average (weekly, seasonal) | mausam.imd.gov.in | ? | check | to-scout | June–September focus |
-| Central Water Commission | Reservoir storage bulletin (weekly) | cwc.gov.in | ? | GODL | to-scout | PDF |
+| Central Water Commission | Reservoir storage bulletin (weekly) | cwc.gov.in | manual | GODL | to-scout | PDF |
 | Dept of Consumer Affairs | Daily retail prices of essential commodities (tomato, onion, potato, pulses) | fcainfoweb.nic.in | ? | GODL | to-scout | |
 
 ## International comparisons (Phase 4)
