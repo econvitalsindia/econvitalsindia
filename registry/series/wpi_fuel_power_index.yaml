@@ -1,0 +1,36 @@
+id: wpi_fuel_power_index
+title: 'WPI: fuel and power'
+short_title: WPI fuel & power
+area: inflation
+source:
+  agency: Office of the Economic Adviser, DPIIT
+  dataset: WPI, base 2022-23
+  url: https://eaindustry.nic.in/download_data_2223.asp
+  module: pipelines/sources/oea/wpi.py
+licence: GODL
+downloadable: true
+fetch: auto
+frequency: M
+unit: index
+base_year: 2022-23=100
+seasonal_adjustment: none
+transforms:
+- yoy
+- mom
+release:
+  calendar: oea
+  rule: 14th of month (next working day if holiday), 12:00 IST, for the previous month
+  lag_days: 20
+validation:
+  range:
+  - 30
+  - 400
+  revision_alert: 2
+pages:
+- page: inflation
+  section: wpi
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: Base 2022-23, from April 2023. The latest two months are provisional and revised.

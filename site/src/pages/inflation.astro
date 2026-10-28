@@ -2,6 +2,7 @@
 import Base from "../layouts/Base.astro";
 import LineChart from "../components/LineChart.astro";
 import StackedBars from "../components/StackedBars.astro";
+import PeriodTable from "../components/PeriodTable.astro";
 import { series, latest, valueAt } from "../lib/data.js";
 import { num, period } from "../lib/format.js";
 import fs from "node:fs";
@@ -25,6 +26,7 @@ const latestPeriod = rows[0].last.period;
 const published = series("cpi_headline_inflation");
 const contrib = JSON.parse(fs.readFileSync("src/data/generated/cpi_contributions.json", "utf8"));
 const contribTotal = published.data.filter((d) => d[0] >= contrib[0]?.period).map((d) => [d[0], d[1]]);
+const wpiYoy = latest(series("wpi_headline_index"), "yoy");
 const indent = new Set(["cpi_elec_gas_fuels_index", "cpi_vehicle_fuels_index"]);
 ---
 <Base current="inflation" title="Inflation">
@@ -73,6 +75,21 @@ const indent = new Set(["cpi_elec_gas_fuels_index", "cpi_vehicle_fuels_index"]);
     lines={[{ id: "cpi_rural_index", how: "yoy", label: "Rural" }, { id: "cpi_urban_index", how: "yoy", label: "Urban" }]}
     reference={{ target: 4, band: [2, 6] }} years={12} />
 
+  <h2>Wholesale prices</h2>
+  <div class="grid2">
+    <LineChart title="WPI and CPI inflation" subtitle="% change on a year earlier, computed from the indices"
+      lines={[{ id: "wpi_headline_index", how: "yoy", label: "WPI" }, { id: "cpi_headline_index", how: "yoy", label: "CPI" }]} years={2} />
+    <LineChart title="WPI by major group" subtitle="% change on a year earlier"
+      lines={[{ id: "wpi_primary_index", how: "yoy", label: "Primary articles" }, { id: "wpi_fuel_power_index", how: "yoy", label: "Fuel and power" },
+              { id: "wpi_manufactured_index", how: "yoy", label: "Manufactured" }]} years={2} />
+  </div>
+  <PeriodTable heading="WPI (2022-23=100), % y/y" n={6} rows={[
+    { id: "wpi_headline_index", how: "yoy", label: "All commodities" },
+    { id: "wpi_primary_index", how: "yoy", indent: true }, { id: "wpi_food_articles_index", how: "yoy", indent: true },
+    { id: "wpi_fuel_power_index", how: "yoy", indent: true }, { id: "wpi_manufactured_index", how: "yoy", indent: true },
+  ]} />
+  <p class="chart-sub">Office of the Economic Adviser, DPIIT; base 2022-23 from April 2023. WPI inflation for {period(wpiYoy.period, "M")} is {num(wpiYoy.value, 2)}%, which matches OEA's press release for that month (checked on {period("2026-10-28", "D")}; see the series' verification record on the Data page). The latest two months are provisional.</p>
+
   <h2>Still to come on this page</h2>
-  <p class="chart-sub">WPI, CPI-IW, state-wise CPI, momentum vs base effects, RBI household inflation expectations and RBI projections. Checklist: docs/guidebook/05-pages/inflation.md.</p>
+  <p class="chart-sub">CPI-IW, state-wise CPI, momentum vs base effects, RBI household inflation expectations and RBI projections. Checklist: docs/guidebook/05-pages/inflation.md.</p>
 </Base>

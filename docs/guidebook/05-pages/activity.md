@@ -4,7 +4,7 @@
 
 ## Must include
 - [x] IIP: general, manufacturing, mining, electricity, and use-based (capital goods, consumer durables, non-durables, infrastructure/construction)
-- [ ] Eight core industries index and components
+- [x] Eight core industries index and components
 - [ ] Power demand (Grid-India daily energy met, 7-day avg y/y)
 - [ ] GST gross collections and e-way bills
 - [ ] Auto: passenger vehicle and two-wheeler sales (wholesale and/or Vahan retail registrations)

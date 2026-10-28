@@ -7,7 +7,7 @@
 - [x] Chart: CPI headline and core y/y, with the 4% target line and the shaded 2–6% band
 - [x] Chart: contributions to headline CPI by group (weights from the 2024 base)
 - [ ] Chart: momentum vs base effect decomposition of the change in y/y inflation (Original)
-- [ ] WPI headline, WPI food, WPI manufactured products
+- [x] WPI headline, WPI food, WPI manufactured products
 - [ ] CPI-IW (Labour Bureau)
 - [ ] RBI household inflation expectations (3-month and 1-year ahead)
 - [ ] RBI's CPI projections (latest MPC) vs outturn

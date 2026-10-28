@@ -1,0 +1,27 @@
+{
+  "id": "core_natural_gas_index",
+  "title": "Index of Core Industries: natural gas",
+  "short_title": "Core: natural gas",
+  "unit": "index",
+  "frequency": "M",
+  "base_year": "2022-23=100",
+  "source": {
+    "agency": "Office of the Economic Adviser, DPIIT",
+    "dataset": "Index of Core Industries, base 2022-23",
+    "url": "https://eaindustry.nic.in/ici_download_data.asp",
+    "module": "pipelines/sources/oea/core8.py"
+  },
+  "licence": "GODL",
+  "downloadable": true,
+  "first_period": "2023-04-01",
+  "last_period": "2026-09-01",
+  "last_value": 96.1,
+  "observations": 42,
+  "updated_at": "2026-10-28T11:09:52+00:00",
+  "fetched_from": [
+    "https://eaindustry.nic.in/eight_core_infra/Core_Industries_2022_23_20261021.xlsx"
+  ],
+  "raw_files": [
+    "data/raw/oea_core_industries/20261028T110952-9c13a2d8cb.xlsx"
+  ]
+}

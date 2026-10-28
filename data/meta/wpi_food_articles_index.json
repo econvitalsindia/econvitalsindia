@@ -1,0 +1,27 @@
+{
+  "id": "wpi_food_articles_index",
+  "title": "WPI: food articles",
+  "short_title": "WPI food articles",
+  "unit": "index",
+  "frequency": "M",
+  "base_year": "2022-23=100",
+  "source": {
+    "agency": "Office of the Economic Adviser, DPIIT",
+    "dataset": "WPI, base 2022-23",
+    "url": "https://eaindustry.nic.in/download_data_2223.asp",
+    "module": "pipelines/sources/oea/wpi.py"
+  },
+  "licence": "GODL",
+  "downloadable": true,
+  "first_period": "2023-04-01",
+  "last_period": "2026-09-01",
+  "last_value": 122.2,
+  "observations": 42,
+  "updated_at": "2026-10-28T11:09:50+00:00",
+  "fetched_from": [
+    "https://eaindustry.nic.in/indx_download_2223/wpi_monthly_index_202610.xlsx"
+  ],
+  "raw_files": [
+    "data/raw/oea_wpi/20261028T110949-6f5dc66277.xlsx"
+  ]
+}

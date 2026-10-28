@@ -1,0 +1,37 @@
+id: core_electricity_index
+title: 'Index of Core Industries: electricity'
+short_title: 'Core: electricity'
+area: activity
+source:
+  agency: Office of the Economic Adviser, DPIIT
+  dataset: Index of Core Industries, base 2022-23
+  url: https://eaindustry.nic.in/ici_download_data.asp
+  module: pipelines/sources/oea/core8.py
+licence: GODL
+downloadable: true
+fetch: auto
+frequency: M
+unit: index
+base_year: 2022-23=100
+seasonal_adjustment: none
+transforms:
+- yoy
+- mom
+release:
+  calendar: oea
+  rule: around the 20th, for the previous month
+  lag_days: 30
+validation:
+  range:
+  - 20
+  - 400
+  revision_alert: 3
+pages:
+- page: activity
+  section: core-industries
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: Base 2022-23, from April 2023 (adds iron ore to the eight traditional core
+  industries).

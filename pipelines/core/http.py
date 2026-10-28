@@ -4,19 +4,24 @@ Indian government servers have three recurring quirks handled here:
 - they reject non-browser clients, so we always send browser headers;
 - some (api.mospi.gov.in) need TLS legacy renegotiation, which OpenSSL 3
   disables by default;
-- some (eaindustry.nic.in) send an incomplete certificate chain. Those are
-  handled per source by supplying the missing intermediate, never by turning
-  verification off.
+- some (eaindustry.nic.in) send only their own certificate, without the
+  intermediate. For those hosts we download the intermediate from the address in
+  the certificate's Authority Information Access field and add it to the chain;
+  the chain is still verified up to a trusted root. Verification is never turned off.
 """
 from __future__ import annotations
 
 import hashlib
 import ssl
 import time
+import urllib.request
 from datetime import datetime, timezone
 from urllib.parse import urlparse
 
 import httpx
+from cryptography import x509
+from cryptography.hazmat.primitives.serialization import Encoding
+from cryptography.x509.oid import AuthorityInformationAccessOID, ExtensionOID
 
 from pipelines.core import Raw
 
@@ -28,16 +33,58 @@ HEADERS = {
 }
 # Hosts that only speak TLS with legacy renegotiation enabled.
 LEGACY_TLS_HOSTS = {"api.mospi.gov.in"}
+# Hosts that omit the intermediate certificate (see module docstring).
+INCOMPLETE_CHAIN_HOSTS = {"eaindustry.nic.in"}
+_intermediates: dict[str, str] = {}
 # Seconds between requests to the same host; government servers are fragile.
 POLITE_DELAY = 1.0
 _last_hit: dict[str, float] = {}
 
 
+def _aia_issuer(cert: x509.Certificate) -> x509.Certificate | None:
+    """The issuer certificate named in `cert`'s AIA "CA Issuers" URL, if any."""
+    try:
+        aia = cert.extensions.get_extension_for_oid(ExtensionOID.AUTHORITY_INFORMATION_ACCESS).value
+    except x509.ExtensionNotFound:
+        return None
+    url = next((d.access_location.value for d in aia
+                if d.access_method == AuthorityInformationAccessOID.CA_ISSUERS), None)
+    if url is None:
+        return None
+    with urllib.request.urlopen(url, timeout=30) as resp:  # noqa: S310 - CA URL taken from the cert
+        der = resp.read()
+    return x509.load_der_x509_certificate(der)
+
+
+def _missing_intermediates(host: str, max_depth: int = 4) -> str:
+    """PEM of the certificates between `host`'s leaf and a root, found by walking AIA links.
+
+    Self-signed certificates are never included: the chain must still end at a root
+    already in the trust store. AIA downloads are plain HTTP, which is why these
+    certificates are only path-building aids (see _ssl_context), never trust anchors.
+    """
+    if host not in _intermediates:
+        cert = x509.load_pem_x509_certificate(ssl.get_server_certificate((host, 443)).encode())
+        chain = []
+        for _ in range(max_depth):
+            cert = _aia_issuer(cert)
+            if cert is None or cert.issuer == cert.subject:
+                break
+            chain.append(cert.public_bytes(Encoding.PEM).decode())
+        _intermediates[host] = "".join(chain)
+    return _intermediates[host]
+
+
 def _ssl_context(host: str) -> ssl.SSLContext:
-    """Default verifying context, plus legacy renegotiation for hosts that need it."""
+    """Default verifying context, plus the per-host fixes described in the module docstring."""
     ctx = ssl.create_default_context()
     if host in LEGACY_TLS_HOSTS:
         ctx.options |= getattr(ssl, "OP_LEGACY_SERVER_CONNECT", 0x4)
+    if host in INCOMPLETE_CHAIN_HOSTS:
+        # Without partial-chain mode, the added certificates only help build the path;
+        # verification must still reach a self-signed root from the trust store.
+        ctx.verify_flags &= ~getattr(ssl, "VERIFY_X509_PARTIAL_CHAIN", 0)
+        ctx.load_verify_locations(cadata=_missing_intermediates(host))
     return ctx
 
 

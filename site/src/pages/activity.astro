@@ -25,6 +25,16 @@ const use = ["primary_goods", "capital_goods", "intermediate_goods", "infra_cons
     lines={[{ id: "iip_capital_goods_index", how: "yoy", label: "Capital goods" }, { id: "iip_infra_construction_index", how: "yoy", label: "Infrastructure/construction" },
             { id: "iip_consumer_durables_index", how: "yoy", label: "Consumer durables" }, { id: "iip_consumer_nondurables_index", how: "yoy", label: "Consumer non-durables" }]} years={3} />
 
+  <h2>Core industries</h2>
+  <LineChart title="Index of Core Industries" subtitle="% change on a year earlier"
+    lines={[{ id: "core_overall_index", how: "yoy", label: "Core industries" }, { id: "iip_general_index", how: "yoy", label: "IIP" }]} years={2} />
+  <PeriodTable heading="% y/y" n={6} rows={[
+    { id: "core_overall_index", how: "yoy", label: "Overall" },
+    ...["coal", "natural_gas", "crude_oil", "refinery", "fertilizers", "steel", "cement", "electricity", "iron_ore"]
+      .map((k) => ({ id: `core_${k}_index`, how: "yoy", indent: true })),
+  ]} />
+  <p class="chart-sub">Office of the Economic Adviser, DPIIT; base 2022-23 (which adds iron ore to the eight traditional industries). Released about a week before IIP, so it is an early read on industry.</p>
+
   <h2>Still to come on this page</h2>
-  <p class="chart-sub">Eight core industries, power demand, GST and e-way bills, auto sales, fuel consumption, rail freight, air traffic, UPI, PMI headline. Checklist: docs/guidebook/05-pages/activity.md.</p>
+  <p class="chart-sub">Power demand, GST and e-way bills, auto sales, fuel consumption, rail freight, air traffic, UPI, PMI headline. Checklist: docs/guidebook/05-pages/activity.md.</p>
 </Base>
