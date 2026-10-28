@@ -1,0 +1,37 @@
+id: bop_cab_pct_gdp
+title: Current account balance as % of GDP, quarterly
+short_title: Current account, % of GDP
+area: external
+source:
+  agency: RBI
+  dataset: Developments in India's Balance of Payments (press releases)
+  url: https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx
+  module: pipelines/sources/rbi/bop.py
+licence: unverified
+downloadable: false
+fetch: auto
+frequency: Q
+unit: percent
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+release:
+  calendar: rbi
+  rule: quarterly, about two to three months after the quarter
+  lag_days: 100
+validation:
+  range:
+  - -10
+  - 10
+  revision_alert: 20
+pages:
+- page: home
+  section: key-indicators
+- page: external
+  section: bop
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: As stated in RBI's release; negative = deficit.

@@ -20,7 +20,7 @@ tiles:
   - {series: sensex_close, transform: level, label: "Sensex", href: "/markets/", fmt: "num0", show: ytd}
   - {series: brent_inr, transform: level, label: "Brent in ₹", href: "/markets/", fmt: "num0", show: ytd}
 # Planned tiles (no numbers shown until their series exist): see registry/backlog.yaml
-planned: ["Services trade", "Current account", "UPI", "MGNREGA work demand"]
+planned: ["UPI", "MGNREGA work demand", "Auto sales"]
 # "India in questions" cards. stat: latest | year_ago | avg4 (mean of the last 4 periods).
 questions:
   - q: "Is inflation near RBI's 4% target?"
@@ -46,8 +46,8 @@ questions:
       - {label: "Youth (15–29) unemployment", series: plfs_ur_youth_monthly, transform: level, stat: latest, fmt: pct1}
   - q: "Is the external position under strain?"
     href: "/external/"
-    text: "The monthly merchandise trade balance and RBI's foreign exchange reserves, which cushion the rupee against swings in capital flows."
+    text: "The goods trade gap, the overall current account (goods, services, income and remittances) and RBI's reserves, which cushion the rupee against swings in capital flows."
     metrics:
       - {label: "Trade balance, latest month", series: merch_trade_balance, transform: level, stat: latest, fmt: usd_bn1}
-      - {label: "Same month a year earlier", series: merch_trade_balance, transform: level, stat: year_ago, fmt: usd_bn1}
+      - {label: "Current account, % of GDP", series: bop_cab_pct_gdp, transform: level, stat: latest, fmt: pct1}
       - {label: "FX reserves", series: fx_reserves_total, transform: level, stat: latest, fmt: usd_bn1}

@@ -5,11 +5,11 @@
 ## Must include
 - [x] Monthly merchandise exports, imports and trade balance (US$ bn, y/y), oil vs non-oil, gold imports
 - [x] Services exports and imports (monthly, RBI actuals, not the Commerce projection)
-- [ ] Current account balance (quarterly, US$ bn and % GDP)
+- [x] Current account balance (quarterly, US$ bn and % GDP; monthly since 2026)
 - [x] FX reserves (weekly) (import cover needs monthly imports)
 - [ ] REER and NEER (40-currency), y/y
-- [ ] Net FDI, FPI, ECB flows
-- [ ] Remittances (quarterly BoP)
+- [x] Net FDI, FPI flows (ECB still to add)
+- [x] Remittances (quarterly BoP, as net secondary income)
 - [ ] Chart: USD/INR with RBI reserve changes
 
 ## Must NOT include

@@ -1,0 +1,36 @@
+id: bop_primary_income_net
+title: 'Balance of payments: primary income (net), quarterly'
+short_title: Primary income (net)
+area: external
+source:
+  agency: RBI
+  dataset: Developments in India's Balance of Payments (press releases)
+  url: https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx
+  module: pipelines/sources/rbi/bop.py
+licence: unverified
+downloadable: false
+fetch: auto
+frequency: Q
+unit: usd_bn
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+release:
+  calendar: rbi
+  rule: quarterly, about two to three months after the quarter
+  lag_days: 100
+validation:
+  range:
+  - -60
+  - 20
+  revision_alert: 10
+pages:
+- page: external
+  section: bop
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: US$ billion, net. The latest quarter is preliminary; the next release revises
+  the year-earlier quarter.

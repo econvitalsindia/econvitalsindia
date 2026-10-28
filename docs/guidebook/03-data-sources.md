@@ -61,7 +61,8 @@ Small 200 responses (MoSPI 2.6 KB, eSankhyiki 1.2 KB, NREGA 0.5 KB, FBIL 1.5 KB)
 |---|---|---|---|---|---|---|
 | Ministry of Commerce | Monthly merchandise trade (SDDS table); press release (merchandise + services) | JSON listing `commerce.gov.in/ministryofcommerce/api/v1/statistics-trade/current-figures-trade`; files under `commerce.gov.in/files/...` | auto | GODL | **live** (merchandise) | SDDS PDFs have three layouts (with and without spaces). The site is behind Akamai: headless browsers are blocked, plain HTTP with browser headers works. Services trade is only in the press-release PDF (to do) |
 | RBI | Trade in services (monthly press release) | Listing `rbi.org.in/Scripts/Pr_DataRelease.aspx?SectionID=352` → `BS_PressReleaseDisplay.aspx?prid=<n>` | auto | unverified | **live** (2026-10-28) | Each release covers the financial year to date; earlier months revised with BoP data. Prefer this to Commerce's monthly services projection |
-| RBI | BoP/CAD (quarterly), REER/NEER, ECB, remittances | data.rbi.org.in; BoP press releases | ? | check | to-scout | |
+| RBI | Balance of payments: quarterly and (from 2026) monthly press releases | Found by POSTing the press-release index `BS_PressReleaseDisplay.aspx` with `hdnYear`/`hdnMonth` (plus the page's hidden fields) and matching titles 'Developments in India's Balance of Payments' | auto | unverified | **live** (2026-10-28) | Three quarterly table layouts (normal, split 'January-March \| 2025', en dash). % of GDP is read only from a sentence naming a quarter. Releases that can't be parsed are skipped with a log line |
+| RBI | REER/NEER, ECB | data.rbi.org.in | ? | check | to-scout | |
 
 ## Markets and finance
 

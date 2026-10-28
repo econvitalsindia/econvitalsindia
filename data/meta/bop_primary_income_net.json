@@ -1,0 +1,53 @@
+{
+  "id": "bop_primary_income_net",
+  "title": "Balance of payments: primary income (net), quarterly",
+  "short_title": "Primary income (net)",
+  "unit": "usd_bn",
+  "frequency": "Q",
+  "base_year": null,
+  "source": {
+    "agency": "RBI",
+    "dataset": "Developments in India's Balance of Payments (press releases)",
+    "url": "https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx",
+    "module": "pipelines/sources/rbi/bop.py"
+  },
+  "licence": "unverified",
+  "downloadable": false,
+  "first_period": "2023-04-01",
+  "last_period": "2026-04-01",
+  "last_value": -10.5,
+  "observations": 13,
+  "updated_at": "2026-10-28T13:03:20+00:00",
+  "fetched_from": [
+    "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=58783",
+    "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=59395",
+    "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=60095",
+    "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=60727",
+    "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=61129",
+    "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=61714",
+    "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=62317",
+    "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=62890",
+    "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=62935",
+    "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63159",
+    "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63373",
+    "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63493",
+    "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63596",
+    "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63813"
+  ],
+  "raw_files": [
+    "data/raw/rbi_bop/20261028T130300-066f075687.html",
+    "data/raw/rbi_bop/20261028T130301-025e5b6b12.html",
+    "data/raw/rbi_bop/20261028T130303-e8368437c4.html",
+    "data/raw/rbi_bop/20261028T130304-9e3f8e1a90.html",
+    "data/raw/rbi_bop/20261028T130306-66d275dad8.html",
+    "data/raw/rbi_bop/20261028T130308-397ebbe0d4.html",
+    "data/raw/rbi_bop/20261028T130309-841a9456ad.html",
+    "data/raw/rbi_bop/20261028T130311-0836ccdc1d.html",
+    "data/raw/rbi_bop/20261028T130312-f4cee15af4.html",
+    "data/raw/rbi_bop/20261028T130314-65cd172ee9.html",
+    "data/raw/rbi_bop/20261028T130316-c72afc2a2b.html",
+    "data/raw/rbi_bop/20261028T130317-a1a98d44dd.html",
+    "data/raw/rbi_bop/20261028T130319-841ea4c967.html",
+    "data/raw/rbi_bop/20261028T130320-542702b768.html"
+  ]
+}

@@ -39,6 +39,21 @@ const fx = latest(series("fx_reserves_total"));
   </div>
   <p class="chart-sub">RBI's monthly data on trade in services, about 45 days after the month; the latest two months are provisional. India runs a large surplus on services, which offsets much of the merchandise deficit. Shown with attribution; download pending a check of RBI's terms.</p>
 
+  <h2>Balance of payments</h2>
+  <div class="grid2">
+    <LineChart title="Current account balance" subtitle="% of GDP, quarterly (negative = deficit)" lines={[{ id: "bop_cab_pct_gdp", label: "Current account" }]} years={4} />
+    <LineChart title="Capital flows" subtitle="US$ billion per quarter, net" lines={[{ id: "bop_fdi_net", label: "Foreign direct investment" }, { id: "bop_portfolio_net", label: "Portfolio investment" }]} years={4} />
+  </div>
+  <PeriodTable heading="US$ billion, net" n={5} digits={1} freq="Q" rows={[
+    { id: "bop_current_account", label: "Current account" }, { id: "bop_goods_net", label: "Goods", indent: true },
+    { id: "bop_services_net", label: "Services", indent: true }, { id: "bop_primary_income_net", label: "Primary income", indent: true },
+    { id: "bop_secondary_income_net", label: "Secondary income (mainly remittances)", indent: true },
+    { id: "bop_cab_pct_gdp", label: "Current account, % of GDP" },
+    { id: "bop_fdi_net", label: "Net FDI" }, { id: "bop_portfolio_net", label: "Net portfolio flows" },
+  ]} />
+  <LineChart title="Current account, monthly" subtitle="US$ billion (RBI's monthly balance of payments, published since 2026; preliminary)" lines={[{ id: "bop_cab_monthly", label: "Current account" }]} years={2} />
+  <p class="chart-sub">RBI's balance-of-payments releases. The latest quarter is preliminary and each release revises the same quarter a year earlier; we keep the latest figure.</p>
+
   <h2>Still to come on this page</h2>
   <p class="chart-sub"> the current account (quarterly balance of payments), REER/NEER, capital flows, remittances and external debt. Checklist: docs/guidebook/05-pages/external.md.</p>
 </Base>

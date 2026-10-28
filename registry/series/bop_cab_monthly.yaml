@@ -1,0 +1,35 @@
+id: bop_cab_monthly
+title: Current account balance, monthly (preliminary)
+short_title: Current account (monthly)
+area: external
+source:
+  agency: RBI
+  dataset: Developments in India's Balance of Payments (press releases)
+  url: https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx
+  module: pipelines/sources/rbi/bop.py
+licence: unverified
+downloadable: false
+fetch: auto
+frequency: M
+unit: usd_bn
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+release:
+  calendar: rbi
+  rule: monthly, about six weeks after the month
+  lag_days: 60
+validation:
+  range:
+  - -40
+  - 30
+  revision_alert: 20
+pages:
+- page: external
+  section: bop
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: RBI began publishing monthly balance of payments in 2026; preliminary.
