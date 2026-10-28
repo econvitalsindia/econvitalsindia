@@ -1,0 +1,16 @@
+name: probe-sources
+# Manual run: checks which portals GitHub's (US) runners can reach.
+on: workflow_dispatch
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - run: uv sync
+      - run: uv run python scripts/probe_sources.py --label actions-us
+      - uses: actions/upload-artifact@v4
+        with:
+          name: probe-actions-us
+          path: data/probes/actions-us.json

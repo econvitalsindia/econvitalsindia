@@ -1,0 +1,285 @@
+{
+  "label": "india",
+  "run_at": "2026-10-28T10:03:20+00:00",
+  "results": {
+    "mospi": {
+      "url": "https://www.mospi.gov.in/",
+      "status": 200,
+      "final_url": "https://www.mospi.gov.in/",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 2644,
+      "seconds": 0.4,
+      "error": null
+    },
+    "esankhyiki": {
+      "url": "https://esankhyiki.mospi.gov.in/",
+      "status": 200,
+      "final_url": "https://esankhyiki.mospi.gov.in/",
+      "content_type": "text/html",
+      "bytes": 1198,
+      "seconds": 0.4,
+      "error": null
+    },
+    "oea_dpiit": {
+      "url": "https://eaindustry.nic.in/",
+      "status": null,
+      "final_url": null,
+      "content_type": "",
+      "bytes": 0,
+      "seconds": 0.2,
+      "error": "ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)"
+    },
+    "labour_bureau": {
+      "url": "https://labourbureau.gov.in/",
+      "status": 200,
+      "final_url": "https://labourbureau.gov.in/",
+      "content_type": "text/html; charset=UTF-8",
+      "bytes": 507172,
+      "seconds": 1.0,
+      "error": null
+    },
+    "epfo": {
+      "url": "https://www.epfindia.gov.in/",
+      "status": 200,
+      "final_url": "https://www.epfo.gov.in/",
+      "content_type": "text/html; charset=UTF-8",
+      "bytes": 280621,
+      "seconds": 0.4,
+      "error": null
+    },
+    "nrega": {
+      "url": "https://nrega.nic.in/",
+      "status": 200,
+      "final_url": "https://nrega.nic.in/",
+      "content_type": "text/html",
+      "bytes": 453,
+      "seconds": 0.3,
+      "error": null
+    },
+    "rbi": {
+      "url": "https://www.rbi.org.in/",
+      "status": 200,
+      "final_url": "https://www.rbi.org.in/",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 154199,
+      "seconds": 0.3,
+      "error": null
+    },
+    "rbi_website": {
+      "url": "https://website.rbi.org.in/",
+      "status": 200,
+      "final_url": "https://www.rbi.org.in/",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 154097,
+      "seconds": 0.9,
+      "error": null
+    },
+    "rbi_dbie": {
+      "url": "https://data.rbi.org.in/",
+      "status": 200,
+      "final_url": "https://data.rbi.org.in/",
+      "content_type": "text/html; charset=UTF-8",
+      "bytes": 50732,
+      "seconds": 0.5,
+      "error": null
+    },
+    "cga": {
+      "url": "https://cga.nic.in/",
+      "status": 200,
+      "final_url": "https://cga.nic.in/",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 347852,
+      "seconds": 3.0,
+      "error": null
+    },
+    "pib": {
+      "url": "https://www.pib.gov.in/",
+      "status": 200,
+      "final_url": "https://www.pib.gov.in/index.aspx?reg=48&lang=2",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 307483,
+      "seconds": 0.2,
+      "error": null
+    },
+    "indiabudget": {
+      "url": "https://www.indiabudget.gov.in/",
+      "status": 200,
+      "final_url": "https://www.indiabudget.gov.in/",
+      "content_type": "text/html; charset=UTF-8",
+      "bytes": 354821,
+      "seconds": 0.8,
+      "error": null
+    },
+    "commerce": {
+      "url": "https://www.commerce.gov.in/",
+      "status": 200,
+      "final_url": "https://www.commerce.gov.in/",
+      "content_type": "text/html; charset=UTF-8",
+      "bytes": 9273,
+      "seconds": 0.8,
+      "error": null
+    },
+    "tradestat": {
+      "url": "https://tradestat.commerce.gov.in/",
+      "status": 200,
+      "final_url": "https://tradestat.commerce.gov.in/eidb/commodity_wise_export",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 30981,
+      "seconds": 0.5,
+      "error": null
+    },
+    "fbil": {
+      "url": "https://www.fbil.org.in/",
+      "status": 200,
+      "final_url": "https://www.fbil.org.in/",
+      "content_type": "text/html; charset=UTF-8",
+      "bytes": 1519,
+      "seconds": 0.2,
+      "error": null
+    },
+    "ccil": {
+      "url": "https://www.ccilindia.com/",
+      "status": 200,
+      "final_url": "https://www.ccilindia.com/",
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 329902,
+      "seconds": 1.7,
+      "error": null
+    },
+    "nse": {
+      "url": "https://www.nseindia.com/",
+      "status": 403,
+      "final_url": "https://www.nseindia.com/",
+      "content_type": "text/html",
+      "bytes": 368,
+      "seconds": 0.3,
+      "error": null
+    },
+    "nse_api": {
+      "url": "https://www.nseindia.com/api/allIndices",
+      "status": 200,
+      "final_url": "https://www.nseindia.com/api/allIndices",
+      "content_type": "application/json; charset=utf-8",
+      "bytes": 114354,
+      "seconds": 0.1,
+      "error": null
+    },
+    "bse": {
+      "url": "https://www.bseindia.com/",
+      "status": 200,
+      "final_url": "https://www.bseindia.com/",
+      "content_type": "text/html",
+      "bytes": 14287,
+      "seconds": 0.1,
+      "error": null
+    },
+    "yahoo_nifty": {
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/%5ENSEI?range=5d&interval=1d",
+      "status": 429,
+      "final_url": "https://query1.finance.yahoo.com/v8/finance/chart/%5ENSEI?range=5d&interval=1d",
+      "content_type": "text/html",
+      "bytes": 19,
+      "seconds": 0.4,
+      "error": null
+    },
+    "nsdl_fpi": {
+      "url": "https://www.fpi.nsdl.co.in/",
+      "status": 200,
+      "final_url": "https://www.fpi.nsdl.co.in/",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 70466,
+      "seconds": 7.3,
+      "error": null
+    },
+    "amfi": {
+      "url": "https://www.amfiindia.com/",
+      "status": 200,
+      "final_url": "https://www.amfiindia.com/",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 248659,
+      "seconds": 0.2,
+      "error": null
+    },
+    "grid_india": {
+      "url": "https://grid-india.in/",
+      "status": 200,
+      "final_url": "https://grid-india.in/",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 8782,
+      "seconds": 1.5,
+      "error": null
+    },
+    "npci": {
+      "url": "https://www.npci.org.in/",
+      "status": 403,
+      "final_url": "https://www.npci.org.in/",
+      "content_type": "text/html",
+      "bytes": 373,
+      "seconds": 0.2,
+      "error": null
+    },
+    "ppac": {
+      "url": "https://ppac.gov.in/",
+      "status": 200,
+      "final_url": "https://ppac.gov.in/",
+      "content_type": "text/html; charset=UTF-8",
+      "bytes": 314172,
+      "seconds": 1.0,
+      "error": null
+    },
+    "dgca": {
+      "url": "https://www.dgca.gov.in/",
+      "status": 200,
+      "final_url": "https://www.dgca.gov.in/digigov-portal/",
+      "content_type": "text/html;charset=utf-8",
+      "bytes": 207662,
+      "seconds": 0.6,
+      "error": null
+    },
+    "imd": {
+      "url": "https://mausam.imd.gov.in/",
+      "status": 200,
+      "final_url": "https://mausam.imd.gov.in/",
+      "content_type": "text/html; charset=UTF-8",
+      "bytes": 228670,
+      "seconds": 0.7,
+      "error": null
+    },
+    "cwc": {
+      "url": "https://cwc.gov.in/",
+      "status": 200,
+      "final_url": "https://cwc.gov.in/",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 208497,
+      "seconds": 2.5,
+      "error": null
+    },
+    "fca_prices": {
+      "url": "https://fcainfoweb.nic.in/",
+      "status": 200,
+      "final_url": "https://fcainfoweb.nic.in/",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 99302,
+      "seconds": 2.3,
+      "error": null
+    },
+    "gst": {
+      "url": "https://www.gst.gov.in/",
+      "status": 200,
+      "final_url": "https://www.gst.gov.in/",
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 35423,
+      "seconds": 0.3,
+      "error": null
+    },
+    "world_bank_api": {
+      "url": "https://api.worldbank.org/v2/country/IND/indicator/NY.GDP.MKTP.KD.ZG?format=json&per_page=2",
+      "status": 200,
+      "final_url": "https://api.worldbank.org/v2/country/IND/indicator/NY.GDP.MKTP.KD.ZG?format=json&per_page=2",
+      "content_type": "application/json;charset=utf-8",
+      "bytes": 515,
+      "seconds": 0.6,
+      "error": null
+    }
+  }
+}

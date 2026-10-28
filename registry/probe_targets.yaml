@@ -1,0 +1,34 @@
+# Portal URLs probed by scripts/probe_sources.py to decide fetch: auto vs manual.
+# Run locally (India) and via the probe-sources workflow (GitHub, US IPs); compare.
+targets:
+  - {name: mospi,            url: "https://www.mospi.gov.in/"}
+  - {name: esankhyiki,       url: "https://esankhyiki.mospi.gov.in/"}
+  - {name: oea_dpiit,        url: "https://eaindustry.nic.in/"}
+  - {name: labour_bureau,    url: "https://labourbureau.gov.in/"}
+  - {name: epfo,             url: "https://www.epfindia.gov.in/"}
+  - {name: nrega,            url: "https://nrega.nic.in/"}
+  - {name: rbi,              url: "https://www.rbi.org.in/"}
+  - {name: rbi_website,      url: "https://website.rbi.org.in/"}
+  - {name: rbi_dbie,         url: "https://data.rbi.org.in/"}
+  - {name: cga,              url: "https://cga.nic.in/"}
+  - {name: pib,              url: "https://www.pib.gov.in/"}
+  - {name: indiabudget,      url: "https://www.indiabudget.gov.in/"}
+  - {name: commerce,         url: "https://www.commerce.gov.in/"}
+  - {name: tradestat,        url: "https://tradestat.commerce.gov.in/"}
+  - {name: fbil,             url: "https://www.fbil.org.in/"}
+  - {name: ccil,             url: "https://www.ccilindia.com/"}
+  - {name: nse,              url: "https://www.nseindia.com/"}
+  - {name: nse_api,          url: "https://www.nseindia.com/api/allIndices"}
+  - {name: bse,              url: "https://www.bseindia.com/"}
+  - {name: yahoo_nifty,      url: "https://query1.finance.yahoo.com/v8/finance/chart/%5ENSEI?range=5d&interval=1d"}
+  - {name: nsdl_fpi,         url: "https://www.fpi.nsdl.co.in/"}
+  - {name: amfi,             url: "https://www.amfiindia.com/"}
+  - {name: grid_india,       url: "https://grid-india.in/"}
+  - {name: npci,             url: "https://www.npci.org.in/"}
+  - {name: ppac,             url: "https://ppac.gov.in/"}
+  - {name: dgca,             url: "https://www.dgca.gov.in/"}
+  - {name: imd,              url: "https://mausam.imd.gov.in/"}
+  - {name: cwc,              url: "https://cwc.gov.in/"}
+  - {name: fca_prices,       url: "https://fcainfoweb.nic.in/"}
+  - {name: gst,              url: "https://www.gst.gov.in/"}
+  - {name: world_bank_api,   url: "https://api.worldbank.org/v2/country/IND/indicator/NY.GDP.MKTP.KD.ZG?format=json&per_page=2"}
