@@ -3,7 +3,7 @@
 **Purpose:** How are trade, the current account, capital flows, reserves and the rupee doing?
 
 ## Must include
-- [ ] Monthly merchandise exports, imports and trade balance (US$ bn, y/y), oil vs non-oil, gold imports
+- [x] Monthly merchandise exports, imports and trade balance (US$ bn, y/y), oil vs non-oil, gold imports
 - [ ] Services exports and imports (monthly estimate)
 - [ ] Current account balance (quarterly, US$ bn and % GDP)
 - [x] FX reserves (weekly) (import cover needs monthly imports)

@@ -1,0 +1,38 @@
+id: merch_trade_balance
+title: Merchandise trade balance, monthly
+short_title: Trade balance
+area: external
+source:
+  agency: Department of Commerce, Ministry of Commerce & Industry
+  dataset: Merchandise trade (SDDS table, monthly press release)
+  url: https://www.commerce.gov.in/
+  module: pipelines/sources/commerce/trade.py
+licence: GODL
+downloadable: true
+fetch: auto
+frequency: M
+unit: usd_bn
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+release:
+  calendar: commerce
+  rule: around the 15th, for the previous month
+  lag_days: 20
+validation:
+  range:
+  - -150
+  - 50
+  revision_alert: 5
+pages:
+- page: home
+  section: key-indicators
+- page: external
+  section: trade
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: US$ million in the source, shown in billions. The latest month is provisional;
+  the next year's release revises it (note column).

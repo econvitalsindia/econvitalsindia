@@ -1,0 +1,37 @@
+id: gst_refunds
+title: GST refunds, monthly
+short_title: GST refunds
+area: fiscal
+source:
+  agency: GSTN / Ministry of Finance
+  dataset: GST gross and net collections (statistics workbook)
+  url: https://www.gst.gov.in/download/gststatistics
+  module: pipelines/sources/gst/collections.py
+licence: GODL
+downloadable: true
+fetch: auto
+frequency: M
+unit: inr_lakh_crore
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+release:
+  calendar: gst
+  rule: workbook updated after the monthly collections release (1st of month)
+  lag_days: 75
+validation:
+  range:
+  - 0
+  - 3
+  revision_alert: 5
+pages:
+- page: fiscal
+  section: gst
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: From April 2024. Each month from its own sheet; growth compares the month with
+  the year-earlier column of the same sheet, so both are on one definition (later
+  sheets exclude compensation cess).

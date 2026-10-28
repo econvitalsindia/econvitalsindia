@@ -3,10 +3,10 @@
 **Purpose:** Is the Union government on track for its budgeted deficit, and how are revenues and capex doing?
 
 ## Must include
-- [ ] Fiscal deficit FYTD as % of Budget Estimate, vs the same point in the previous 3 years
+- [x] Fiscal deficit FYTD as % of Budget Estimate, vs the same point in the previous 3 years
 - [ ] Revenue: gross tax revenue, net tax to Centre, non-tax, disinvestment, FYTD vs BE
-- [ ] Spending: revenue expenditure, capital expenditure, interest payments, FYTD vs BE
-- [ ] GST gross collections (monthly, y/y), direct tax collections
+- [x] Spending: revenue expenditure, capital expenditure, interest payments, FYTD vs BE
+- [x] GST gross collections (monthly, y/y) (direct tax collections still to add)
 - [ ] Union Budget headline numbers (BE, RE, Actuals) for the current and last FY
 - [ ] General government (Centre + states) deficit and debt, % of GDP (annual)
 - [ ] States: link to the States page for state fiscal ratios

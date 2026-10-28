@@ -1,0 +1,36 @@
+id: cga_capex_fytd
+title: Union Government capital expenditure, financial year to date
+short_title: Capital expenditure
+area: fiscal
+source:
+  agency: Controller General of Accounts, Ministry of Finance
+  dataset: Union Government Accounts at a Glance (monthly)
+  url: https://cga.nic.in/
+  module: pipelines/sources/cga/monthly_accounts.py
+licence: GODL
+downloadable: true
+fetch: auto
+frequency: M
+unit: inr_lakh_crore
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+release:
+  calendar: cga
+  rule: last working day of the month, for the previous month
+  lag_days: 40
+validation:
+  range:
+  - -30
+  - 80
+  revision_alert: 2
+pages:
+- page: fiscal
+  section: monthly-accounts
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: Cumulative from April of the financial year to the month shown. ₹ crore in
+  the source.

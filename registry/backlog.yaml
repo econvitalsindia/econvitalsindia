@@ -1,10 +1,7 @@
 # Indicators planned but not yet built. Remove an entry when its registry/series yaml lands.
 # Phase 1 core set (~25). Source rows: docs/guidebook/03-data-sources.md
-# Built so far: see registry/series/ (84 series). Remaining Phase 1 items below.
+# Built so far: see registry/series/ (112 series). Remaining Phase 1 items below.
 phase1:
-  - {id: merch_trade_balance,    area: external,  source: Commerce,     page: external}
-  - {id: gst_gross_collections,  area: fiscal,    source: MoF/PIB,      page: home}
-  - {id: cga_fiscal_deficit_fytd, area: fiscal,   source: CGA,          page: fiscal}
   - {id: mgnrega_hh_demanded,    area: jobs,      source: MoRD,         page: jobs}
   - {id: power_energy_met,       area: activity,  source: Grid-India,   page: activity}
   - {id: upi_volume,             area: activity,  source: NPCI,         page: activity}

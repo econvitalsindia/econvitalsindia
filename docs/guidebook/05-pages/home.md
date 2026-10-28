@@ -16,8 +16,8 @@
   - [x] USD/INR (FBIL reference, % YTD)
   - [x] Brent in ₹ per barrel (% YTD)
   - [x] FX reserves (US$ bn, weekly)
-  - [ ] GST collections (₹ lakh crore, % y/y)
-- [~] "India in four questions" cards (3 of 4 live: inflation, growth, jobs; external waits for reserves/CAD), each with 2–3 numbers and a link:
+  - [x] GST collections (% y/y)
+- [x] "India in four questions" cards (external uses trade balance and reserves; CAD to add), each with 2–3 numbers and a link:
   1. Is inflation near 4%? (CPI y/y, core y/y, 3-month momentum, the 2–6% band)
   2. Is growth holding up? (real GDP y/y, GVA y/y, private consumption y/y)
   3. Are jobs being created? (PLFS unemployment and LFPR now vs a year ago, EPFO net adds 3mma)

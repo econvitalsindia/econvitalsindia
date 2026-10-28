@@ -50,8 +50,8 @@ Small 200 responses (MoSPI 2.6 KB, eSankhyiki 1.2 KB, NREGA 0.5 KB, FBIL 1.5 KB)
 
 | Publisher | Datasets | Portal | Access | Licence | Status | Notes |
 |---|---|---|---|---|---|---|
-| Controller General of Accounts | Centre's monthly accounts | cga.nic.in | ? | GODL | to-scout | Last working day of month, with a 1-month lag |
-| Ministry of Finance / PIB | GST collections, direct tax collections | pib.gov.in, gst.gov.in | ? | GODL | to-scout | GST on the 1st of the month via press release |
+| Controller General of Accounts | Centre's monthly accounts ('Accounts at a Glance') | `cga.nic.in/writereaddata/MonthAccount/<m><yyyy>/DATA<fy>.htm` (some months .HTM) | auto | GODL | **live** (2026-10-28) | Word-exported HTML; April pages say 'for April', March pages are 'PROVISIONAL ACCOUNTS FOR yyyy-yyyy' compared with Revised Estimates. The dashboard workbook on the site stops at Feb 2026, so don't use it |
+| GSTN / Ministry of Finance | GST gross/net collections; e-way bills; state-wise GST | `tutorial.gst.gov.in/offlineutilities/gst_statistics/Gross_Net_Tax_collection.xlsx` (one sheet per month) and `ewb-data-<fy>.xlsx`, listed at gst.gov.in/download/gststatistics | auto | GODL | **live** (collections) | The workbook lags the 1st-of-month press release by about two months. Sheet Jan-25 is malformed in the source (headers swapped), so it is skipped. Later sheets drop compensation cess |
 | Union Budget | BE/RE/Actuals | indiabudget.gov.in | ? | GODL | to-scout | Budget Explorer (Phase 4) |
 | PRS Legislative Research | State budget analyses | prsindia.org | ? | check | to-scout | Secondary. Prefer RBI State Finances |
 
@@ -59,7 +59,7 @@ Small 200 responses (MoSPI 2.6 KB, eSankhyiki 1.2 KB, NREGA 0.5 KB, FBIL 1.5 KB)
 
 | Publisher | Datasets | Portal | Access | Licence | Status | Notes |
 |---|---|---|---|---|---|---|
-| Ministry of Commerce | Monthly merchandise + services trade (press release), TradeStat | commerce.gov.in, tradestat.commerce.gov.in | ? | GODL | to-scout | Mid-month |
+| Ministry of Commerce | Monthly merchandise trade (SDDS table); press release (merchandise + services) | JSON listing `commerce.gov.in/ministryofcommerce/api/v1/statistics-trade/current-figures-trade`; files under `commerce.gov.in/files/...` | auto | GODL | **live** (merchandise) | SDDS PDFs have three layouts (with and without spaces). The site is behind Akamai: headless browsers are blocked, plain HTTP with browser headers works. Services trade is only in the press-release PDF (to do) |
 | RBI | BoP/CAD (quarterly), FX reserves (weekly), REER/NEER, ECB, remittances | data.rbi.org.in | ? | check | to-scout | |
 
 ## Markets and finance

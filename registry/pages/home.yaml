@@ -6,17 +6,20 @@ tiles:
   - {series: cpi_core_index, transform: yoy, label: "Core CPI", href: "/inflation/", fmt: "pct2", show: year_ago}
   - {series: iip_general_growth, transform: level, label: "IIP growth", href: "/activity/", fmt: "pct1", show: year_ago}
   - {series: plfs_ur_monthly, transform: level, label: "Unemployment", href: "/jobs/", fmt: "pct1", show: year_ago}
+  - {series: gst_gross_growth, transform: level, label: "GST growth", href: "/fiscal/", fmt: "pct1", show: year_ago}
+  - {series: cga_fiscal_deficit_pct_be, transform: level, label: "Fiscal deficit, % of BE", href: "/fiscal/", fmt: "pct1"}
   - {series: scb_credit_growth, transform: level, label: "Bank credit growth", href: "/money/", fmt: "pct1"}
   - {series: repo_rate, transform: level, label: "Repo rate", href: "/markets/", fmt: "pct2"}
   - {series: gsec_10y_yield, transform: level, label: "10-yr G-sec", href: "/markets/", fmt: "pct2", show: ytd}
   - {series: tbill_91d, transform: level, label: "91-day T-bill", href: "/markets/", fmt: "pct2"}
+  - {series: merch_trade_balance, transform: level, label: "Trade balance", href: "/external/", fmt: "usd_bn1", show: year_ago}
   - {series: fx_reserves_total, transform: level, label: "FX reserves", href: "/external/", fmt: "usd_bn1"}
   - {series: usdinr_ref, transform: level, label: "USD/INR", href: "/markets/", fmt: "num2", show: ytd}
   - {series: nifty50_close, transform: level, label: "Nifty 50", href: "/markets/", fmt: "num0", show: ytd}
   - {series: sensex_close, transform: level, label: "Sensex", href: "/markets/", fmt: "num0", show: ytd}
   - {series: brent_inr, transform: level, label: "Brent in ₹", href: "/markets/", fmt: "num0", show: ytd}
 # Planned tiles (no numbers shown until their series exist): see registry/backlog.yaml
-planned: ["GST collections", "Trade balance", "Fiscal deficit"]
+planned: ["Services trade", "Current account", "UPI", "Power demand"]
 # "India in questions" cards. stat: latest | year_ago | avg4 (mean of the last 4 periods).
 questions:
   - q: "Is inflation near RBI's 4% target?"
@@ -40,3 +43,10 @@ questions:
       - {label: "Unemployment rate", series: plfs_ur_monthly, transform: level, stat: latest, fmt: pct1}
       - {label: "A year earlier", series: plfs_ur_monthly, transform: level, stat: year_ago, fmt: pct1}
       - {label: "Youth (15–29) unemployment", series: plfs_ur_youth_monthly, transform: level, stat: latest, fmt: pct1}
+  - q: "Is the external position under strain?"
+    href: "/external/"
+    text: "The monthly merchandise trade balance and RBI's foreign exchange reserves, which cushion the rupee against swings in capital flows."
+    metrics:
+      - {label: "Trade balance, latest month", series: merch_trade_balance, transform: level, stat: latest, fmt: usd_bn1}
+      - {label: "Same month a year earlier", series: merch_trade_balance, transform: level, stat: year_ago, fmt: usd_bn1}
+      - {label: "FX reserves", series: fx_reserves_total, transform: level, stat: latest, fmt: usd_bn1}

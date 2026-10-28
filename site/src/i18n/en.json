@@ -1,8 +1,8 @@
 {
-  "nav": {"home": "Home", "growth": "Growth", "jobs": "Jobs", "activity": "Activity", "money": "Money", "external": "External", "inflation": "Inflation", "markets": "Markets", "data": "Data", "about": "About", "status": "Status"},
+  "nav": {"home": "Home", "growth": "Growth", "jobs": "Jobs", "activity": "Activity", "money": "Money", "external": "External", "fiscal": "Fiscal", "inflation": "Inflation", "markets": "Markets", "data": "Data", "about": "About", "status": "Status"},
   "home": {
     "key_indicators": "Key indicators",
-    "questions": "India in three questions",
+    "questions": "India in four questions",
     "planned": "Coming next",
     "inflation_heading": "Inflation against RBI's target",
     "rupee_heading": "The rupee"
