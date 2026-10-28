@@ -1,0 +1,48 @@
+---
+import Base from "../layouts/Base.astro";
+import LineChart from "../components/LineChart.astro";
+import { series } from "../lib/data.js";
+import { num, period, signed } from "../lib/format.js";
+import fs from "node:fs";
+import yaml from "js-yaml";
+
+const spec = yaml.load(fs.readFileSync("../registry/pages/markets.yaml", "utf8"));
+const groups = spec.sections.find((s) => s.id === "cross-asset").groups.map((g) => ({
+  label: g.label,
+  rows: g.series.map((id) => series(id)),
+}));
+const fmtChange = (s, v) => s.changes?.kind === "bp" ? signed(v, 0, " bp") : signed(v, 2, "%");
+const digits = (s) => (s.unit === "index" ? 2 : s.unit === "percent" ? 2 : 4);
+---
+<Base current="markets" title="Markets & rates">
+  <h1>Markets &amp; rates</h1>
+  <p class="lede">RBI's policy corridor, money-market and government bond rates, the rupee and equity indices. Read daily from the RBI home page; rupee history from FBIL.</p>
+
+  <div class="scroll">
+    <table class="data">
+      <thead><tr><th>Series</th><th>Latest</th><th>As of</th><th>1-day</th><th>1-week</th><th>YTD</th><th>Note</th></tr></thead>
+      <tbody>
+        {groups.map((g) => (
+          <>
+            <tr class="group"><td colspan="7">{g.label}</td></tr>
+            {g.rows.map((s) => (
+              <tr>
+                <td>{s.short_title}</td>
+                <td>{num(s.data.at(-1)[1], digits(s))}{s.unit === "percent" ? "%" : ""}</td>
+                <td>{period(s.data.at(-1)[0], "D")}</td>
+                <td>{fmtChange(s, s.changes?.d1)}</td>
+                <td>{fmtChange(s, s.changes?.w1)}</td>
+                <td>{fmtChange(s, s.changes?.ytd)}</td>
+                <td>{s.data.at(-1)[2]}</td>
+              </tr>
+            ))}
+          </>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  <p class="chart-sub">Rate changes in basis points; other changes in percent. "–" means there is not yet enough history: most of these series are daily snapshots that began on 28 Oct 2026 and fill in as the site updates each day. Index levels are shown with attribution only and are not offered for download.</p>
+
+  <h2>The rupee</h2>
+  <LineChart title="USD/INR reference rate" subtitle="Rupees per US dollar, FBIL 1 pm fixing" lines={[{ id: "usdinr_ref" }]} years={1} />
+</Base>

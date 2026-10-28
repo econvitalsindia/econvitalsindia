@@ -5,8 +5,9 @@ Every measure we construct, rather than copy from an agency, is listed here and 
 ## Planned
 
 ### Core CPI (Phase 1)
-- **What:** CPI excluding food and beverages, and fuel and light.
-- **Method:** re-weight the remaining groups using the 2024-base weights. The index is the weighted average of group indices, normalised. Also publish the variant that additionally excludes petrol, diesel (vehicle fuel) and gold, if item indices are available.
+- **What:** CPI excluding food and energy.
+- **Open question (2026-10-28):** the 2024 base uses COICOP 2018 divisions, so there is no "fuel and light" group any more. Energy now sits inside division 04 (housing, water, electricity, gas and other fuels) and division 07 (transport: fuels and lubricants). Core therefore has to be built from class or item indices with 2024 weights. Agree the exact exclusion list with the maintainer before building it.
+- **Method:** re-weight the remaining classes using the 2024-base weights. The index is the weighted average of group indices, normalised. Also publish the variant that additionally excludes petrol, diesel (vehicle fuel) and gold, if item indices are available.
 - **Validate:** compare with published third-party core estimates for the last 12 months. Must be within 0.1 pp. Record the result here.
 
 ### Linked series across base years (Phase 2)

@@ -1,0 +1,38 @@
+id: nifty50_close
+title: Nifty 50, close
+short_title: Nifty 50
+area: markets
+source:
+  agency: NSE Indices (as republished on the RBI home page)
+  dataset: Market Trends panel, RBI home page
+  url: https://www.rbi.org.in/
+  module: pipelines/sources/rbi/home_rates.py
+licence: show-only
+downloadable: false
+fetch: auto
+frequency: D
+unit: index
+base_year: 1995-11-03=1000
+seasonal_adjustment: none
+transforms:
+- level
+- yoy
+release:
+  calendar: none
+  rule: previous trading day's close, read daily
+  lag_days: 5
+validation:
+  range:
+  - 1000
+  - 100000
+  revision_alert: 0.5
+pages:
+- page: home
+  section: key-indicators
+- page: markets
+  section: cross-asset
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: ''

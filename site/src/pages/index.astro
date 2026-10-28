@@ -1,0 +1,33 @@
+---
+import Base from "../layouts/Base.astro";
+import Tile from "../components/Tile.astro";
+import LineChart from "../components/LineChart.astro";
+import { config } from "../lib/config.js";
+import { home } from "../lib/data.js";
+import { t } from "../lib/i18n.js";
+import fs from "node:fs";
+import yaml from "js-yaml";
+
+const { tiles } = home();
+const spec = yaml.load(fs.readFileSync("../registry/pages/home.yaml", "utf8"));
+---
+<Base current="home">
+  <h1>{config.site.tagline}</h1>
+  <p class="lede">{config.site.description}</p>
+
+  <h2>{t("home.key_indicators")}</h2>
+  <div class="tiles">{tiles.map((tile) => <Tile tile={tile} />)}</div>
+  <p class="planned">{t("home.planned")}: {spec.planned.join(" · ")}</p>
+
+  <div class="grid2">
+    <section>
+      <h2>{t("home.inflation_heading")}</h2>
+      <LineChart title="CPI inflation" subtitle="% change on a year earlier, as published · RBI target 4% (dashed), tolerance band 2–6% (shaded)"
+        lines={[{ id: "cpi_headline_inflation" }]} reference={{ target: 4, band: [2, 6] }} years={10} />
+    </section>
+    <section>
+      <h2>{t("home.rupee_heading")}</h2>
+      <LineChart title="USD/INR reference rate" subtitle="Rupees per US dollar, FBIL 1 pm fixing" lines={[{ id: "usdinr_ref" }]} years={1} />
+    </section>
+  </div>
+</Base>

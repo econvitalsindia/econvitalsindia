@@ -1,7 +1,7 @@
 # Indicators planned but not yet built. Remove an entry when its registry/series yaml lands.
 # Phase 1 core set (~25). Source rows: docs/guidebook/03-data-sources.md
+# Built so far: see registry/series/ (CPI x5, policy rates, CRR/SLR, USD/INR, 10y G-sec, 91d T-bill, Nifty, Sensex).
 phase1:
-  - {id: cpi_headline_index,     area: inflation, source: MoSPI,        page: home}
   - {id: cpi_food_index,         area: inflation, source: MoSPI,        page: inflation}
   - {id: cpi_fuel_index,         area: inflation, source: MoSPI,        page: inflation}
   - {id: cpi_core_index,         area: inflation, source: computed,     page: home, original: true}
@@ -11,14 +11,8 @@ phase1:
   - {id: gdp_real_level,         area: growth,    source: MoSPI,        page: home}
   - {id: gva_real_level,         area: growth,    source: MoSPI,        page: growth}
   - {id: plfs_ur_monthly,        area: jobs,      source: MoSPI,        page: home}
-  - {id: repo_rate,              area: money,     source: RBI,          page: home}
   - {id: wacr,                   area: money,     source: RBI,          page: money-banking}
   - {id: scb_credit,             area: money,     source: RBI,          page: money-banking}
-  - {id: tbill_91d,              area: markets,   source: RBI/FBIL,     page: markets}
-  - {id: gsec_10y_yield,         area: markets,   source: FBIL/CCIL,    page: home}
-  - {id: nifty50_close,          area: markets,   source: Yahoo/NSE,    page: home, licence: show-only}
-  - {id: sensex_close,           area: markets,   source: Yahoo/BSE,    page: home, licence: show-only}
-  - {id: usdinr_fbil,            area: markets,   source: FBIL,         page: home}
   - {id: brent_usd,              area: markets,   source: Yahoo,        page: home, licence: show-only}
   - {id: gold_inr,               area: markets,   source: Yahoo/IBJA,   page: markets, licence: show-only}
   - {id: fx_reserves_total,      area: external,  source: RBI,          page: home}

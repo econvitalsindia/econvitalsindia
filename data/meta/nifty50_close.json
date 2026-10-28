@@ -1,0 +1,27 @@
+{
+  "id": "nifty50_close",
+  "title": "Nifty 50, close",
+  "short_title": "Nifty 50",
+  "unit": "index",
+  "frequency": "D",
+  "base_year": "1995-11-03=1000",
+  "source": {
+    "agency": "NSE Indices (as republished on the RBI home page)",
+    "dataset": "Market Trends panel, RBI home page",
+    "url": "https://www.rbi.org.in/",
+    "module": "pipelines/sources/rbi/home_rates.py"
+  },
+  "licence": "show-only",
+  "downloadable": false,
+  "first_period": "2026-10-27",
+  "last_period": "2026-10-27",
+  "last_value": 22749.75,
+  "observations": 1,
+  "updated_at": "2026-10-28T10:24:21+00:00",
+  "fetched_from": [
+    "https://www.rbi.org.in/"
+  ],
+  "raw_files": [
+    "data/raw/rbi_home_rates/20261028T102420-34bd1419b9.html"
+  ]
+}

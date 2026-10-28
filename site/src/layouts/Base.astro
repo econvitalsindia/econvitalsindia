@@ -1,0 +1,47 @@
+---
+import "../styles/global.css";
+import { config } from "../lib/config.js";
+import { site } from "../lib/data.js";
+import { t } from "../lib/i18n.js";
+import { period } from "../lib/format.js";
+
+const { title, description, current } = Astro.props;
+const s = site();
+const c = config.brand.colors;
+const nav = [["home", "/"], ["inflation", "/inflation/"], ["markets", "/markets/"], ["data", "/data/"], ["about", "/about/"]];
+const pageTitle = title ? `${title} · ${config.site.name}` : config.site.name;
+---
+<!doctype html>
+<html lang={config.site.language}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description ?? config.site.description} />
+    <meta name="robots" content="noindex" />
+    <link rel="icon" href="/mark.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Literata:wght@400;600&display=swap" rel="stylesheet" />
+    <style set:html={`:root{--primary:${c.primary};--accent:${c.accent};--ink:${c.ink};--paper:${c.paper};}`}></style>
+  </head>
+  <body>
+    <header class="site">
+      <div class="wrap">
+        <a class="brand" href="/"><img src="/mark.svg" alt="" /><b>{config.site.name}</b></a>
+        <nav class="main">
+          {nav.map(([k, href]) => <a href={href} aria-current={current === k ? "page" : undefined}>{t(`nav.${k}`)}</a>)}
+        </nav>
+        {s.as_of && <span class="asof">{t("common.as_of")} {period(s.as_of, "D")}</span>}
+      </div>
+    </header>
+    <main class="wrap"><slot /></main>
+    <footer class="site">
+      <div class="wrap">
+        <p>{config.site.tagline}. Every number is drawn from official public sources; see <a href="/data/">Data</a> for sources and licences.</p>
+        <p>{config.credit.inspired_by_text} <a href={config.credit.inspired_by_url}>{config.credit.inspired_by_url.replace("https://", "")}</a></p>
+        <p>Private preview, built {period(s.built_on, "D")}. <a href="/status/">{t("nav.status")}</a></p>
+      </div>
+    </footer>
+  </body>
+</html>

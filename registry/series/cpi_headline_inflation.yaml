@@ -1,0 +1,38 @@
+id: cpi_headline_inflation
+title: CPI inflation, all-India, combined, as officially published
+short_title: CPI inflation
+area: inflation
+source:
+  agency: MoSPI (NSO)
+  dataset: CPI inflation (base 2024 back/current; base 2012 for 2025)
+  url: https://esankhyiki.mospi.gov.in/macroindicators?product=cpi
+  module: pipelines/sources/mospi/cpi.py
+licence: GODL
+downloadable: true
+fetch: auto
+frequency: M
+unit: percent
+base_year: as published (see note column)
+seasonal_adjustment: none
+transforms:
+- level
+release:
+  calendar: mospi
+  rule: 12th of month, 16:00 IST, for previous month
+  lag_days: 45
+validation:
+  range:
+  - -5
+  - 20
+  revision_alert: 2
+pages:
+- page: home
+  section: key-indicators
+- page: inflation
+  section: summary-table
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: Headline y/y rate exactly as MoSPI published it; the note column records which
+  base series each value comes from.

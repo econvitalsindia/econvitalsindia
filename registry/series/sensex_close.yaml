@@ -1,0 +1,38 @@
+id: sensex_close
+title: S&P BSE Sensex, close
+short_title: Sensex
+area: markets
+source:
+  agency: BSE (as republished on the RBI home page)
+  dataset: Market Trends panel, RBI home page
+  url: https://www.rbi.org.in/
+  module: pipelines/sources/rbi/home_rates.py
+licence: show-only
+downloadable: false
+fetch: auto
+frequency: D
+unit: index
+base_year: 1978-79=100
+seasonal_adjustment: none
+transforms:
+- level
+- yoy
+release:
+  calendar: none
+  rule: previous trading day's close, read daily
+  lag_days: 5
+validation:
+  range:
+  - 5000
+  - 300000
+  revision_alert: 0.5
+pages:
+- page: home
+  section: key-indicators
+- page: markets
+  section: cross-asset
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: ''

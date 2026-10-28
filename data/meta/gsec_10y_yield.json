@@ -1,0 +1,27 @@
+{
+  "id": "gsec_10y_yield",
+  "title": "10-year Government of India benchmark bond yield",
+  "short_title": "10-yr G-sec",
+  "unit": "percent",
+  "frequency": "D",
+  "base_year": null,
+  "source": {
+    "agency": "RBI",
+    "dataset": "Market Trends panel, RBI home page",
+    "url": "https://www.rbi.org.in/",
+    "module": "pipelines/sources/rbi/home_rates.py"
+  },
+  "licence": "unverified",
+  "downloadable": false,
+  "first_period": "2026-10-27",
+  "last_period": "2026-10-27",
+  "last_value": 7.4533,
+  "observations": 1,
+  "updated_at": "2026-10-28T10:24:21+00:00",
+  "fetched_from": [
+    "https://www.rbi.org.in/"
+  ],
+  "raw_files": [
+    "data/raw/rbi_home_rates/20261028T102420-34bd1419b9.html"
+  ]
+}

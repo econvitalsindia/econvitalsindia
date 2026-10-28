@@ -3,16 +3,17 @@
 **Purpose:** In 60 seconds, how is the Indian economy doing, and what's coming up?
 
 ## Must include
-- [ ] "As of" date in the header (latest data date across series, IST)
+- [x] "As of" date in the header (latest data date across series, IST)
 - [ ] Key-indicator strip of 12 tiles. Each shows value, period and change, and links to its page:
   - [ ] Real GDP growth (% y/y, latest quarter)
-  - [ ] CPI headline (% y/y) and core CPI (% y/y, Original, computed)
+  - [x] CPI headline (% y/y)
+  - [ ] Core CPI (% y/y, Original, computed): blocked on the core definition for the 2024 basket (08-original-measures.md)
   - [ ] IIP (% y/y)
   - [ ] Unemployment rate (PLFS monthly, CWS, 15+)
-  - [ ] Repo rate (with date of last change)
-  - [ ] 10-year G-sec yield (bp change YTD)
-  - [ ] Nifty 50 and Sensex (% YTD)
-  - [ ] USD/INR (FBIL reference, % YTD)
+  - [x] Repo rate (with date of last change)
+  - [x] 10-year G-sec yield (bp change YTD)
+  - [x] Nifty 50 and Sensex (% YTD)
+  - [x] USD/INR (FBIL reference, % YTD)
   - [ ] Brent in ₹ per barrel (% YTD)
   - [ ] FX reserves (US$ bn, weekly)
   - [ ] GST collections (₹ lakh crore, % y/y)
@@ -24,7 +25,7 @@
 - [ ] "Today / coming up" strip from the calendar (next 3 releases + next MPC date)
 - [ ] Newsletter signup (hidden until Phase 3; behind `newsletter.enabled`)
 - [ ] One summary table per topic (as econvitals does), each linking to its page (Phase 2)
-- [ ] Footer credit line from `site.config.yaml → credit.inspired_by_text`
+- [x] Footer credit line from `site.config.yaml → credit.inspired_by_text`
 
 ## Must NOT include
 - Any number not generated from `data/series`

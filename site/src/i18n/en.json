@@ -1,0 +1,11 @@
+{
+  "nav": {"home": "Home", "inflation": "Inflation", "markets": "Markets & rates", "data": "Data", "about": "About", "status": "Status"},
+  "home": {
+    "key_indicators": "Key indicators",
+    "planned": "Coming next",
+    "inflation_heading": "Inflation against RBI's target",
+    "rupee_heading": "The rupee"
+  },
+  "chart": {"download_csv": "Download CSV", "source": "Source"},
+  "common": {"as_of": "Data as of", "year_ago": "a year ago", "ytd": "YTD", "original": "Original"}
+}

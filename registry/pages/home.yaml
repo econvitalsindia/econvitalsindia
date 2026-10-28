@@ -1,0 +1,12 @@
+# Machine-readable twin of docs/guidebook/05-pages/home.md
+page: home
+tiles:
+  - {series: cpi_headline_inflation, transform: level, label: "CPI inflation", href: "/inflation/", fmt: "pct2", show: year_ago}
+  - {series: repo_rate, transform: level, label: "Repo rate", href: "/markets/", fmt: "pct2"}
+  - {series: gsec_10y_yield, transform: level, label: "10-yr G-sec", href: "/markets/", fmt: "pct2", show: ytd}
+  - {series: tbill_91d, transform: level, label: "91-day T-bill", href: "/markets/", fmt: "pct2"}
+  - {series: usdinr_ref, transform: level, label: "USD/INR", href: "/markets/", fmt: "num2", show: ytd}
+  - {series: nifty50_close, transform: level, label: "Nifty 50", href: "/markets/", fmt: "num0", show: ytd}
+  - {series: sensex_close, transform: level, label: "Sensex", href: "/markets/", fmt: "num0", show: ytd}
+# Planned tiles (no numbers shown until their series exist): see registry/backlog.yaml
+planned: ["Real GDP growth", "Core CPI", "IIP", "Unemployment (PLFS)", "FX reserves", "GST collections", "Brent in ₹"]

@@ -34,10 +34,10 @@ def check_series(path: Path, pages: set[str]) -> list[str]:
     if s["fetch"] not in FETCH:
         errs.append(f"fetch '{s['fetch']}' not in {sorted(FETCH)}")
     lic = str(s["licence"])
-    if not (lic in {"GODL", "show-only"} or lic.startswith("other:")):
-        errs.append(f"licence '{lic}' must be GODL, show-only or other:<text>")
-    if lic == "show-only" and s["downloadable"]:
-        errs.append("show-only series cannot be downloadable")
+    if not (lic in {"GODL", "show-only", "unverified"} or lic.startswith("other:")):
+        errs.append(f"licence '{lic}' must be GODL, show-only, unverified or other:<text>")
+    if lic in {"show-only", "unverified"} and s["downloadable"]:
+        errs.append(f"{lic} series cannot be downloadable")
     bad_t = set(s["transforms"]) - TRANSFORMS
     if bad_t:
         errs.append(f"unknown transforms {sorted(bad_t)}")

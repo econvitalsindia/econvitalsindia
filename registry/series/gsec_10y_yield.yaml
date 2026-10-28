@@ -1,0 +1,39 @@
+id: gsec_10y_yield
+title: 10-year Government of India benchmark bond yield
+short_title: 10-yr G-sec
+area: markets
+source:
+  agency: RBI
+  dataset: Market Trends panel, RBI home page
+  url: https://www.rbi.org.in/
+  module: pipelines/sources/rbi/home_rates.py
+licence: unverified
+downloadable: false
+fetch: auto
+frequency: D
+unit: percent
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+- diff
+release:
+  calendar: rbi
+  rule: previous business day's yield, read daily
+  lag_days: 5
+validation:
+  range:
+  - 2
+  - 15
+  revision_alert: 0.5
+pages:
+- page: home
+  section: key-indicators
+- page: markets
+  section: cross-asset
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: The listed security whose maturity is closest to 10 years; the security name
+  is in the note column (it changes when the benchmark rolls).

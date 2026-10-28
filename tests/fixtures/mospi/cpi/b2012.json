@@ -1,0 +1,48 @@
+{
+ "data": [
+  {
+   "baseyear": "2012",
+   "year": 2025,
+   "month": "December",
+   "state": "All India",
+   "sector": "Combined",
+   "group": "General",
+   "subgroup": "General-Overall",
+   "index": "198.0",
+   "inflation": "1.33",
+   "status": "F"
+  },
+  {
+   "baseyear": "2012",
+   "year": 2025,
+   "month": "November",
+   "state": "All India",
+   "sector": "Combined",
+   "group": "General",
+   "subgroup": "General-Overall",
+   "index": "197.9",
+   "inflation": "0.71",
+   "status": "F"
+  },
+  {
+   "baseyear": "2012",
+   "year": 2025,
+   "month": "October",
+   "state": "All India",
+   "sector": "Combined",
+   "group": "General",
+   "subgroup": "General-Overall",
+   "index": "197.3",
+   "inflation": "0.25",
+   "status": "F"
+  }
+ ],
+ "meta_data": {
+  "page": 1,
+  "totalRecords": 336,
+  "totalPages": 1,
+  "recordPerPage": 100
+ },
+ "msg": "Data fetched successfully",
+ "statusCode": true
+}

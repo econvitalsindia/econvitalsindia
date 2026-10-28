@@ -8,8 +8,8 @@
 | title, short_title | str | non-empty |
 | area | str | growth, inflation, jobs, activity, money, markets, fiscal, external, states |
 | source.agency, source.dataset, source.module | str | module path exists once implemented |
-| licence | str | `GODL`, `show-only`, or `other:<text>` |
-| downloadable | bool | must be false when licence is `show-only` |
+| licence | str | `GODL`, `show-only`, `unverified` (terms not yet read), or `other:<text>` |
+| downloadable | bool | must be false when licence is `show-only` or `unverified` |
 | fetch | str | auto, manual |
 | frequency | str | D, W, F, M, Q, A |
 | unit | str | non-empty |

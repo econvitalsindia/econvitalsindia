@@ -8,8 +8,8 @@ source:
   dataset: "CPI (base 2024)"
   url: ""                       # landing page of the release
   module: "pipelines/sources/mospi/cpi.py"
-licence: GODL                   # GODL | show-only | other:<text>
-downloadable: true              # false for show-only sources
+licence: GODL                   # GODL | show-only | unverified | other:<text>
+downloadable: true              # false for show-only / unverified
 fetch: auto                     # auto (GitHub Actions) | manual (make india-update from India)
 frequency: M                    # D | W | F | M | Q | A
 unit: "index"                   # index | percent | inr_lakh_crore | inr_crore | usd_bn | bp | count | ...

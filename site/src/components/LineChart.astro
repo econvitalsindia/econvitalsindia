@@ -1,0 +1,30 @@
+---
+// Line chart of one or more series/transforms. Data is embedded as JSON and drawn
+// client-side with Observable Plot (src/scripts/charts.js).
+import { series as load } from "../lib/data.js";
+import { t } from "../lib/i18n.js";
+
+const { title, subtitle, lines, reference = null, years = 5, yLabel = "" } = Astro.props;
+const loaded = lines.map((l) => ({ ...l, s: load(l.id) }));
+const payload = loaded.map(({ s, how = "level", label }) => ({
+  label: label ?? s.short_title,
+  points: (how === "level" ? s.data : s.transforms[how]).map((p) => [p[0], p[1]]),
+}));
+const sources = [...new Set(loaded.map(({ s }) => s.source.agency))].join("; ");
+const bases = [...new Set(loaded.map(({ s }) => s.base_year).filter((b) => b && b !== "null"))].join("; ");
+const derived = loaded.some(({ how }) => how && how !== "level");
+const downloads = loaded.filter(({ s }) => s.downloadable).map(({ s }) => s.id);
+---
+<figure class="chart">
+  <p class="chart-title">{title}</p>
+  {subtitle && <p class="chart-sub">{subtitle}</p>}
+  <div class="plot" data-chart={JSON.stringify({ series: payload, reference, years, yLabel })}></div>
+  <figcaption>
+    <span>{t("chart.source")}: {sources}{derived ? "; site calculations" : ""}.</span>
+    {bases && <span>Base: {bases}.</span>}
+    {downloads.map((id) => <a href={`/data/${id}.csv`} download>{t("chart.download_csv")} ({id})</a>)}
+  </figcaption>
+</figure>
+<script>
+  import "../scripts/charts.js";
+</script>

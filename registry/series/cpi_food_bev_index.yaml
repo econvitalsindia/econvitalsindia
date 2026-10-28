@@ -1,0 +1,36 @@
+id: cpi_food_bev_index
+title: Consumer Price Index, all-India, food and beverages (combined)
+short_title: CPI food & beverages
+area: inflation
+source:
+  agency: MoSPI (NSO)
+  dataset: CPI, base 2024 (current + official back series)
+  url: https://esankhyiki.mospi.gov.in/macroindicators?product=cpi
+  module: pipelines/sources/mospi/cpi.py
+licence: GODL
+downloadable: true
+fetch: auto
+frequency: M
+unit: index
+base_year: 2024=100
+seasonal_adjustment: none
+transforms:
+- yoy
+- mom
+release:
+  calendar: mospi
+  rule: 12th of month, 16:00 IST, for previous month
+  lag_days: 45
+validation:
+  range:
+  - 30
+  - 400
+  revision_alert: 0.5
+pages:
+- page: inflation
+  section: summary-table
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: COICOP 2018 division 01 in the 2024 base. Starts January 2025 - MoSPI's official back series covers only the general index, so y/y begins January 2026.

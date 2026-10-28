@@ -1,0 +1,35 @@
+id: tbill_91d
+title: 91-day Treasury bill, cut-off yield at the last auction
+short_title: 91-day T-bill
+area: markets
+source:
+  agency: RBI
+  dataset: Market Trends panel, RBI home page
+  url: https://www.rbi.org.in/
+  module: pipelines/sources/rbi/home_rates.py
+licence: unverified
+downloadable: false
+fetch: auto
+frequency: D
+unit: percent
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+release:
+  calendar: rbi
+  rule: weekly auction (Wednesday); snapshot read daily
+  lag_days: 10
+validation:
+  range:
+  - 0
+  - 15
+  revision_alert: 0.5
+pages:
+- page: markets
+  section: cross-asset
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: ''

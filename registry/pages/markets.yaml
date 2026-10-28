@@ -1,0 +1,13 @@
+# Machine-readable twin of docs/guidebook/05-pages/markets.md
+page: markets
+sections:
+  - id: cross-asset
+    kind: table
+    groups:
+      - {label: "Policy and money market", series: [repo_rate, sdf_rate, msf_rate, tbill_91d]}
+      - {label: "Bonds", series: [gsec_10y_yield]}
+      - {label: "Currency", series: [usdinr_ref]}
+      - {label: "Equities", series: [nifty50_close, sensex_close]}
+  - id: usdinr-chart
+    kind: line
+    series: [usdinr_ref]

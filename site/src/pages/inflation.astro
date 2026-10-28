@@ -1,0 +1,60 @@
+---
+import Base from "../layouts/Base.astro";
+import LineChart from "../components/LineChart.astro";
+import { series, latest, valueAt } from "../lib/data.js";
+import { num, period } from "../lib/format.js";
+
+const ids = ["cpi_headline_index", "cpi_rural_index", "cpi_urban_index", "cpi_food_bev_index"];
+const rows = ids.map((id) => {
+  const s = series(id);
+  const last = latest(s, "level");
+  const lastYoy = latest(s, "yoy");
+  const prevMonth = s.data.at(-2)?.[0];
+  const yearAgo = `${Number(last.period.slice(0, 4)) - 1}${last.period.slice(4)}`;
+  return {
+    s, last,
+    mom: valueAt(s, "mom", last.period),
+    yoy: lastYoy && lastYoy.period === last.period ? lastYoy.value : null,
+    yoyPrev: prevMonth ? valueAt(s, "yoy", prevMonth) : null,
+    yoyYearAgo: valueAt(s, "yoy", yearAgo),
+  };
+});
+const latestPeriod = rows[0].last.period;
+const published = series("cpi_headline_inflation");
+---
+<Base current="inflation" title="Inflation">
+  <h1>Inflation</h1>
+  <p class="lede">Is inflation close to RBI's 4% target? Consumer prices from MoSPI on the 2024 base, linked to 2013 through MoSPI's official back series.</p>
+
+  <LineChart title="CPI inflation, as published" subtitle="% change on a year earlier · RBI target 4% (dashed), tolerance band 2–6% (shaded)"
+    lines={[{ id: "cpi_headline_inflation" }]} reference={{ target: 4, band: [2, 6] }} years={12} />
+  <p class="chart-sub">Values for 2025 are the rates MoSPI published on the 2012 base; the 2024-base series begins in January 2025 and carries no inflation rates for that year. The note in each data row records which series it comes from.</p>
+
+  <h2>Consumer prices, {period(latestPeriod, "M")}</h2>
+  <div class="scroll">
+    <table class="data">
+      <thead><tr><th>Index (2024=100)</th><th>Index</th><th>1-month % change</th><th>12-month %, latest</th><th>12-month %, previous month</th><th>12-month %, a year ago</th></tr></thead>
+      <tbody>
+        {rows.map((r) => (
+          <tr>
+            <td>{r.s.short_title}{r.s.id === "cpi_food_bev_index" && <span class="badge">from Jan 2025</span>}</td>
+            <td>{num(r.last.value, 2)}</td>
+            <td>{num(r.mom, 2)}</td>
+            <td>{num(r.yoy, 2)}</td>
+            <td>{num(r.yoyPrev, 2)}</td>
+            <td>{num(r.yoyYearAgo, 2)}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  <p class="chart-sub">Changes computed from the published indices (site calculations); MoSPI's own headline rate for {period(latestPeriod, "M")} is {num(latest(published).value, 2)}%. Not seasonally adjusted. Food and beverages on the 2024 base starts in January 2025, so its 12-month change starts in January 2026.</p>
+
+  <h2>Rural and urban</h2>
+  <LineChart title="CPI inflation, rural and urban" subtitle="% change on a year earlier, computed from the indices"
+    lines={[{ id: "cpi_rural_index", how: "yoy", label: "Rural" }, { id: "cpi_urban_index", how: "yoy", label: "Urban" }]}
+    reference={{ target: 4, band: [2, 6] }} years={12} />
+
+  <h2>Still to come on this page</h2>
+  <p class="chart-sub">Core CPI (needs a definition for the new COICOP-based 2024 basket, which has no separate "fuel and light" group), contributions by division, WPI, CPI-IW, RBI household inflation expectations and RBI projections. Checklist: docs/guidebook/05-pages/inflation.md.</p>
+</Base>

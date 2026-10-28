@@ -1,0 +1,27 @@
+{
+  "id": "sensex_close",
+  "title": "S&P BSE Sensex, close",
+  "short_title": "Sensex",
+  "unit": "index",
+  "frequency": "D",
+  "base_year": "1978-79=100",
+  "source": {
+    "agency": "BSE (as republished on the RBI home page)",
+    "dataset": "Market Trends panel, RBI home page",
+    "url": "https://www.rbi.org.in/",
+    "module": "pipelines/sources/rbi/home_rates.py"
+  },
+  "licence": "show-only",
+  "downloadable": false,
+  "first_period": "2026-10-27",
+  "last_period": "2026-10-27",
+  "last_value": 73598.67,
+  "observations": 1,
+  "updated_at": "2026-10-28T10:24:21+00:00",
+  "fetched_from": [
+    "https://www.rbi.org.in/"
+  ],
+  "raw_files": [
+    "data/raw/rbi_home_rates/20261028T102420-34bd1419b9.html"
+  ]
+}

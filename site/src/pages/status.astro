@@ -1,0 +1,26 @@
+---
+import Base from "../layouts/Base.astro";
+import { site, catalogue } from "../lib/data.js";
+const s = site();
+const fetchMode = Object.fromEntries(catalogue().map((r) => [r.id, r.fetch]));
+const rows = Object.entries(s.status);
+---
+<Base title="Status">
+  <h1>Status</h1>
+  <p class="lede">Freshness of every series (internal until launch). A stale series keeps its last good values on the site.</p>
+  <div class="scroll">
+    <table class="data">
+      <thead><tr><th>Series</th><th>Fetch</th><th>Latest period</th><th>Last success (UTC)</th><th>State</th><th>Last error</th></tr></thead>
+      <tbody>
+        {rows.map(([id, e]) => (
+          <tr>
+            <td><code>{id}</code></td><td>{fetchMode[id]}</td><td>{e.last_period ?? "–"}</td>
+            <td>{e.last_success?.replace("T", " ").replace("+00:00", "") ?? "never"}</td>
+            <td class={e.stale ? "neg" : "pos"}>{e.stale ? "stale" : "ok"}</td>
+            <td>{e.last_error ?? ""}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</Base>

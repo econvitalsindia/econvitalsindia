@@ -1,0 +1,21 @@
+---
+// One key-indicator tile. All values come from home.json (pipelines/build/site_data.py).
+import { byFmt, period, signed, num } from "../lib/format.js";
+import { t } from "../lib/i18n.js";
+const { tile } = Astro.props;
+const ch = tile.changes;
+let extra = "";
+let cls = "";
+if (tile.show === "year_ago" && tile.year_ago !== null) {
+  extra = `${byFmt(tile.year_ago, tile.fmt)} ${t("common.year_ago")}`;
+} else if (tile.show === "ytd" && ch && ch.ytd !== null) {
+  extra = ch.kind === "bp" ? `${signed(ch.ytd, 0, " bp")} ${t("common.ytd")}` : `${signed(ch.ytd, 1, "%")} ${t("common.ytd")}`;
+  cls = ch.ytd > 0 ? "pos" : ch.ytd < 0 ? "neg" : "";
+}
+---
+<a class="tile" href={tile.href}>
+  <div class="k">{tile.title}</div>
+  <div class="v">{byFmt(tile.value, tile.fmt)}</div>
+  <div class="p">{period(tile.period, tile.frequency)}</div>
+  {extra && <div class={`c ${cls}`}>{extra}</div>}
+</a>

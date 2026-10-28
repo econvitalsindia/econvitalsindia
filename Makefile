@@ -1,11 +1,11 @@
-# See AGENTS.md → Commands. Stubs print "not implemented yet" until their phase lands.
+# See AGENTS.md → Commands.
 PY ?= uv run python
 
 .PHONY: setup check test update update-auto india-update build dev archive-raw
 
 setup:
 	uv sync
-	@[ -f site/package.json ] && (cd site && npm install) || echo "site/ not scaffolded yet (Phase 1)"
+	cd site && npm install
 
 check:
 	$(PY) scripts/validate_registry.py
@@ -15,20 +15,32 @@ check:
 test:
 	uv run pytest -q
 
+# make update SOURCE=<source name or series id>
 update:
-	@echo "not implemented yet (Phase 1): make update SOURCE=$(SOURCE)"
+	@test -n "$(SOURCE)" || (echo "usage: make update SOURCE=<source-or-series-id>" && exit 2)
+	$(PY) -m pipelines.run $(SOURCE)
 
 update-auto:
-	@echo "not implemented yet (Phase 1)"
+	$(PY) -m pipelines.run --fetch auto
 
+# Run from a machine in India: fetches every `fetch: manual` series and opens a PR.
 india-update:
-	@echo "not implemented yet (Phase 1): runs all fetch: manual series and opens a PR"
+	$(PY) -m pipelines.run --fetch manual; \
+	git add data/series data/meta data/revisions data/status.json; \
+	if git diff --cached --quiet; then echo "no changes"; exit 0; fi; \
+	branch=india-update-$$(date +%Y%m%d-%H%M); \
+	git switch -c $$branch && \
+	git commit -m "data: manual (India) update $$(date +%F)" && \
+	git push -u origin $$branch && \
+	gh pr create --fill --label indicator && git switch -
 
 build:
-	@echo "not implemented yet (Phase 1)"
+	$(PY) -m pipelines.build.site_data
+	cd site && npx astro build
 
 dev:
-	@echo "not implemented yet (Phase 1)"
+	$(PY) -m pipelines.build.site_data
+	cd site && npx astro dev
 
 archive-raw:
-	@echo "not implemented yet (Phase 1)"
+	@echo "not implemented yet: monthly bundle of data/raw/ as a GitHub Release asset"

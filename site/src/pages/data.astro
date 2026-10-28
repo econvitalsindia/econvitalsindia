@@ -1,0 +1,29 @@
+---
+import Base from "../layouts/Base.astro";
+import { catalogue } from "../lib/data.js";
+import { period } from "../lib/format.js";
+const rows = catalogue().sort((a, b) => a.area.localeCompare(b.area) || a.id.localeCompare(b.id));
+const licence = { GODL: "Open (NDSAP/GODL)", "show-only": "Shown with attribution, no download", unverified: "Terms under review, no download" };
+---
+<Base current="data" title="Data">
+  <h1>Data &amp; sources</h1>
+  <p class="lede">Every series on the site, where it comes from, and whether you can download it. Generated from the series registry.</p>
+  <div class="scroll">
+    <table class="data">
+      <thead><tr><th>Series</th><th>Source</th><th>Freq.</th><th>Unit</th><th>Coverage</th><th>Licence</th><th>Download</th></tr></thead>
+      <tbody>
+        {rows.map((r) => (
+          <tr>
+            <td><b>{r.short_title}</b><br /><span class="chart-sub">{r.title} · <code>{r.id}</code></span>{r.notes && <><br /><span class="chart-sub">{r.notes}</span></>}</td>
+            <td>{r.source_url ? <a href={r.source_url}>{r.agency}</a> : r.agency}</td>
+            <td>{r.frequency}</td>
+            <td>{r.unit}{r.base_year && r.base_year !== "null" ? ` (${r.base_year})` : ""}</td>
+            <td>{r.first_period ? `${period(r.first_period, r.frequency)} – ${period(r.last_period, r.frequency)}` : "–"}<br /><span class="chart-sub">{r.observations} obs.</span></td>
+            <td>{licence[r.licence] ?? r.licence}</td>
+            <td>{r.downloadable && r.observations ? <a href={`/data/${r.id}.csv`} download>CSV</a> : "–"}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</Base>

@@ -1,0 +1,15 @@
+{
+  "name": "site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@observablehq/plot": "0.6.17",
+    "astro": "7.4.2",
+    "js-yaml": "4.1.0"
+  }
+}

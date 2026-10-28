@@ -29,7 +29,7 @@ Small 200 responses (MoSPI 2.6 KB, eSankhyiki 1.2 KB, NREGA 0.5 KB, FBIL 1.5 KB)
 
 | Publisher | Datasets | Portal | Access | Licence | Status | Notes |
 |---|---|---|---|---|---|---|
-| MoSPI (NSO) | National accounts (quarterly GDP/GVA, AE/PE), CPI (base 2024), IIP (base 2022-23), PLFS (monthly, quarterly, annual) | mospi.gov.in; eSankhyiki: esankhyiki.mospi.gov.in | ? | GODL | to-scout | eSankhyiki has an API and a pilot MCP server. Check endpoints, auth and rate limits. Release calendar (ARC) is a PDF on mospi.gov.in |
+| MoSPI (NSO) | CPI (base 2024 + official back series to 2013), IIP, NAS (GDP, base 2022-23), PLFS, WPI | REST API `https://api.mospi.gov.in/api/<product>/...` (no key). Specs: `https://esankhyiki.mospi.gov.in/layout/swagger_user_<cpi|iip|nas|plfs|wpi>.yaml`. Codes: MCP server `https://mcp.mospi.gov.in/mcp` tool `get_metadata` | auto | GODL (released under NDSAP/GSDD) | **live** (CPI) | Scouted 2026-10-28. Needs TLS legacy renegotiation (handled in `core/http.py`). Max 100 rows/page (base 2012) or 200 (base 2024). CPI 2024 base uses COICOP 2018 divisions (no 'fuel and light' group). Back series covers the general index only. CPI params: base_year, series (Current/Back), state_code (1 = All India for 2024; 99 for 2012), sector_code (1 R, 2 U, 3 C), division_code; 2012 base needs level=Group |
 | Office of the Economic Adviser (DPIIT) | WPI, Index of Eight Core Industries | eaindustry.nic.in | ? | GODL | to-scout | Monthly, around the 14th (WPI) and 20th (core) |
 | Labour Bureau | CPI-IW, CPI-AL/RL | labourbureau.gov.in | ? | GODL | to-scout | |
 | EPFO | Net payroll additions | epfindia.gov.in | manual | GODL | to-scout | Monthly, heavily revised. Store vintages |
@@ -39,6 +39,7 @@ Small 200 responses (MoSPI 2.6 KB, eSankhyiki 1.2 KB, NREGA 0.5 KB, FBIL 1.5 KB)
 
 | Dataset | Portal | Access | Licence | Status | Notes |
 |---|---|---|---|---|---|
+| RBI home page rates panel: repo/SDF/MSF, CRR/SLR, FBIL rates (1 pm today), benchmark G-sec yields, T-bill cut-offs, Sensex/Nifty closes | www.rbi.org.in | auto | unverified | **live** | Scouted 2026-10-28. Snapshot only (no history): we store one value per day. Footnotes give the 'as on' dates |
 | DBIE time series (money, credit, rates, BoP, reserves, state finances) | data.rbi.org.in (moved from dbie.rbi.org.in, June 2024) | ? | check (RBI terms) | to-scout | No documented public API found. Scrape downloads |
 | Weekly Statistical Supplement (WSS) | rbi.org.in | ? | check | to-scout | Friday. FX reserves, liquidity, rates |
 | Press releases: MPC statements, minutes, policy rates | rbi.org.in | ? | check | to-scout | Minutes carry each member's statement (MPC Speak, Phase 4) |

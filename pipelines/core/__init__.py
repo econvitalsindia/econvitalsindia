@@ -1,13 +1,15 @@
 """Shared pipeline code. Every data source subclasses `Source`.
 
 Contract (docs/guidebook/01-architecture.md):
-    fetch()    -> Raw (bytes + receipt). Saved to data/raw/, never committed.
-    parse()    -> tidy DataFrame with columns: series_id, period, value, vintage.
-    validate() -> list of problems; non-empty means nothing is published.
-    publish()  -> writes data/series/<id>.csv, data/meta/<id>.json, updates data/status.json.
+    fetch()    -> list[Raw]: downloaded files + receipts. Archived to data/raw/, never committed.
+    parse()    -> tidy DataFrame with columns: series_id, period, value, [note].
+    validate   -> done by pipelines.core.validate using each series' registry yaml.
+    publish    -> done by pipelines.core.store: upserts into data/series/<id>.csv.
 
+Publishing is an upsert: periods in the new data are added or revised, periods
+not in the new data are kept. This lets snapshot sources (one value per day,
+e.g. the RBI home page) build history, and full-history sources refresh it.
 A failure at any step leaves existing data untouched and marks the series stale.
-Implemented in Phase 1.
 """
 from __future__ import annotations
 
@@ -25,18 +27,23 @@ class Raw:
     url: str
     fetched_at: datetime
     sha256: str
-    suffix: str  # file extension, e.g. ".xlsx"
+    suffix: str  # file extension, e.g. ".json"
 
 
 class Source(ABC):
-    """One publisher dataset; may produce several series ids."""
+    """One publisher dataset; may produce several series ids.
 
+    Subclasses set `name` (unique, used on the command line) and `series_ids`
+    (every id it can produce; each needs a registry/series yaml).
+    """
+
+    name: str = ""
     series_ids: tuple[str, ...] = ()
 
     @abstractmethod
-    def fetch(self) -> Raw:
-        """Download the latest release."""
+    def fetch(self) -> list[Raw]:
+        """Download everything parse() needs."""
 
     @abstractmethod
-    def parse(self, raw: Raw) -> pd.DataFrame:
-        """Return tidy rows: series_id, period (ISO period start), value, vintage."""
+    def parse(self, raws: list[Raw]) -> pd.DataFrame:
+        """Return tidy rows: series_id, period (ISO date of period start), value, optional note."""

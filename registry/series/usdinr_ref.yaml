@@ -1,0 +1,39 @@
+id: usdinr_ref
+title: Rupee reference rate, INR per US dollar (FBIL)
+short_title: USD/INR
+area: markets
+source:
+  agency: FBIL (via RBI home page and fbil.org.in)
+  dataset: FBIL reference rate, 1:00 pm IST
+  url: https://www.fbil.org.in/
+  module: pipelines/sources/rbi/home_rates.py; backfill pipelines/sources/fbil/refrates.py
+licence: unverified
+downloadable: false
+fetch: auto
+frequency: D
+unit: inr_per_usd
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+- yoy
+release:
+  calendar: fbil
+  rule: every Mumbai business day, 13:00 IST
+  lag_days: 5
+validation:
+  range:
+  - 40
+  - 200
+  revision_alert: 0.01
+pages:
+- page: home
+  section: key-indicators
+- page: markets
+  section: cross-asset
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: FBIL publishes subscription terms for its benchmarks; licence to be checked
+  before offering downloads.

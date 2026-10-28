@@ -1,0 +1,35 @@
+id: slr
+title: Statutory Liquidity Ratio
+short_title: SLR
+area: money
+source:
+  agency: RBI
+  dataset: Current rates panel, RBI home page
+  url: https://www.rbi.org.in/
+  module: pipelines/sources/rbi/home_rates.py
+licence: unverified
+downloadable: false
+fetch: auto
+frequency: D
+unit: percent
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+release:
+  calendar: rbi
+  rule: snapshot read daily
+  lag_days: 3
+validation:
+  range:
+  - 5
+  - 40
+  revision_alert: 0.1
+pages:
+- page: money-banking
+  section: reserve-ratios
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: ''

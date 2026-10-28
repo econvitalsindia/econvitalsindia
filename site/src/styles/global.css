@@ -1,0 +1,63 @@
+/* Brand colours arrive as CSS variables from site.config.yaml (see layouts/Base.astro). */
+:root {
+  --rule: #e4e1d8;
+  --muted: #6b6b6b;
+  --band: rgba(232, 137, 43, 0.10);
+  --pos: #1b7a4b;
+  --neg: #b23a2b;
+  --maxw: 1120px;
+  font-family: "Literata", Georgia, serif;
+  color: var(--ink);
+  background: var(--paper);
+}
+@media (prefers-color-scheme: dark) {
+  :root { --ink: #ece9e1; --paper: #15171f; --rule: #2c2f3a; --muted: #9a9a9a; --primary-text: #aeb8ff; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; line-height: 1.5; }
+a { color: var(--primary-text, var(--primary)); }
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 16px; }
+.sans { font-family: "Inter", system-ui, sans-serif; }
+
+header.site { border-bottom: 3px solid var(--primary); }
+header.site .wrap { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; padding-top: 12px; padding-bottom: 12px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; }
+.brand img { width: 34px; height: 34px; }
+.brand b { font-size: 1.25rem; }
+nav.main { display: flex; gap: 18px; flex-wrap: wrap; font-family: "Inter", system-ui, sans-serif; font-size: 0.92rem; }
+nav.main a { text-decoration: none; color: inherit; padding-bottom: 2px; }
+nav.main a[aria-current="page"] { border-bottom: 2px solid var(--accent); }
+.asof { margin-left: auto; font-family: "Inter", system-ui, sans-serif; font-size: 0.8rem; color: var(--muted); }
+
+main { padding: 24px 0 48px; }
+h1 { font-size: 1.7rem; margin: 0 0 6px; }
+h2 { font-size: 1.2rem; margin: 36px 0 10px; padding-top: 10px; border-top: 1px solid var(--rule); }
+.lede { color: var(--muted); margin: 0 0 20px; max-width: 70ch; }
+
+.tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+.tile { background: var(--paper); padding: 12px 14px; text-decoration: none; color: inherit; display: block; }
+.tile:hover { background: color-mix(in srgb, var(--paper) 92%, var(--primary)); }
+.tile .k { font-family: "Inter", system-ui, sans-serif; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.tile .v { font-size: 1.5rem; font-weight: 600; margin: 2px 0; }
+.tile .p, .tile .c { font-family: "Inter", system-ui, sans-serif; font-size: 0.75rem; color: var(--muted); }
+.pos { color: var(--pos); } .neg { color: var(--neg); }
+
+.planned { font-family: "Inter", system-ui, sans-serif; font-size: 0.8rem; color: var(--muted); margin-top: 8px; }
+
+table.data { border-collapse: collapse; width: 100%; font-family: "Inter", system-ui, sans-serif; font-size: 0.86rem; font-variant-numeric: tabular-nums; }
+table.data th, table.data td { padding: 6px 8px; border-bottom: 1px solid var(--rule); text-align: right; vertical-align: top; }
+table.data th:first-child, table.data td:first-child { text-align: left; }
+table.data td:not(:first-child):not(:last-child) { white-space: nowrap; }
+table.data thead th { font-weight: 600; color: var(--muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em; }
+table.data tr.group td { font-weight: 600; text-align: left; padding-top: 14px; color: var(--primary-text, var(--primary)); }
+.scroll { overflow-x: auto; }
+
+figure.chart { margin: 0 0 8px; }
+figure.chart .plot { min-height: 260px; }
+figure.chart figcaption { font-family: "Inter", system-ui, sans-serif; font-size: 0.75rem; color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 16px; }
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+.chart-title { font-weight: 600; margin: 0; }
+.chart-sub { font-family: "Inter", system-ui, sans-serif; font-size: 0.8rem; color: var(--muted); margin: 0 0 6px; }
+.badge { font-family: "Inter", system-ui, sans-serif; font-size: 0.68rem; border: 1px solid currentColor; border-radius: 3px; padding: 0 4px; color: var(--muted); }
+
+footer.site { border-top: 1px solid var(--rule); padding: 20px 0 40px; font-family: "Inter", system-ui, sans-serif; font-size: 0.8rem; color: var(--muted); }
