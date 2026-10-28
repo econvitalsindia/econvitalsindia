@@ -14,8 +14,10 @@ export function signed(v, digits = 1, suffix = "") {
 }
 
 export function byFmt(v, fmt) {
-  if (fmt === "usd_bn1") return `$${num(v, 1)} bn`;
-  if (fmt === "inr_lc1") return `₹${num(v, 1)} lakh cr`;
+  // Currency amounts: sign before the symbol, unit attached ("−$30.2bn") so tiles don't wrap.
+  const sign = v < 0 ? MINUS : "";
+  if (fmt === "usd_bn1") return `${sign}$${num(Math.abs(v), 1)}bn`;
+  if (fmt === "inr_lc1") return `${sign}₹${num(Math.abs(v), 1)} lakh cr`;
   const map = { pct1: [1, "%"], pct2: [2, "%"], num0: [0, ""], num1: [1, ""], num2: [2, ""] };
   const [d, suf] = map[fmt] ?? [1, ""];
   return num(v, d) + suf;

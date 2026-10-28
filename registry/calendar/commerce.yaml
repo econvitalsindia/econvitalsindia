@@ -1,0 +1,13 @@
+# Department of Commerce, SDDS Advance Release Calendar (merchandise trade):
+# "Monthly Press Release of Overall (Merchandise plus Services) Trade data ... By 15th of the following month".
+# Source: https://www.commerce.gov.in/files/2026-07/SDDS-2025_04.pdf
+# Only "by the 15th" is committed, so dates are estimated; weekends move to the previous Friday.
+publisher: Department of Commerce
+source_url: https://www.commerce.gov.in/files/2026-07/SDDS-2025_04.pdf
+holiday_rule: previous_working_day
+releases:
+  - {date: 2026-11-15, title: "Merchandise and services trade", period: "Oct 2026", series: [merch_trade_balance], estimated: true}
+  - {date: 2026-12-15, title: "Merchandise and services trade", period: "Nov 2026", series: [merch_trade_balance], estimated: true}
+  - {date: 2027-01-15, title: "Merchandise and services trade", period: "Dec 2026", series: [merch_trade_balance], estimated: true}
+  - {date: 2027-02-15, title: "Merchandise and services trade", period: "Jan 2027", series: [merch_trade_balance], estimated: true}
+  - {date: 2027-03-15, title: "Merchandise and services trade", period: "Feb 2027", series: [merch_trade_balance], estimated: true}

@@ -1,0 +1,54 @@
+---
+import Base from "../layouts/Base.astro";
+import { num, period, byFmt } from "../lib/format.js";
+import fs from "node:fs";
+
+const rows = JSON.parse(fs.readFileSync("src/data/generated/calendar.json", "utf8"));
+const upcoming = rows.filter((r) => r.status === "upcoming");
+const recent = rows.filter((r) => r.status === "released").slice(-6).reverse();
+const byMonth = Object.groupBy(upcoming, (r) => r.date.slice(0, 7));
+const fmtLatest = (l) => {
+  if (!l) return "–";
+  const v = l.unit === "percent" ? `${num(l.value, 2)}%` : l.unit === "usd_bn" ? byFmt(l.value, "usd_bn1") : num(l.value, 2);
+  const what = l.show === "yoy" ? " y/y" : "";
+  return `${v}${what} (${period(l.period, l.frequency)})`;
+};
+const weekday = (d) => new Date(d + "T00:00:00").toLocaleDateString("en-GB", { weekday: "short" });
+---
+<Base current="calendar" title="Calendar">
+  <h1>Release calendar</h1>
+  <p class="lede">Upcoming Indian data releases from the publishers' own advance release calendars (MoSPI, RBI, OEA, Commerce, CGA), with the last published value. <a href="/calendar.ics">Add to your calendar (.ics)</a>.</p>
+
+  {Object.entries(byMonth).map(([month, items]) => (
+    <>
+      <h2>{period(`${month}-01`, "M")}</h2>
+      <div class="scroll">
+        <table class="data">
+          <thead><tr><th>Release</th><th>Date</th><th>Covers</th><th>Publisher</th><th>Last published</th></tr></thead>
+          <tbody>
+            {items.map((r) => (
+              <tr>
+                <td>{r.highlight ? <b>{r.title}</b> : r.title}</td>
+                <td>{weekday(r.date)} {period(r.date, "D")}{r.time_ist ? `, ${r.time_ist}` : ""}
+                  {r.estimated ? <> <span class="badge">estimated</span></> : null}
+                  {r.adjusted ? <> <span class="badge" title={`scheduled ${r.scheduled}; moved off a weekend`}>moved</span></> : null}</td>
+                <td>{r.period}</td>
+                <td><a href={r.source_url}>{r.publisher}</a></td>
+                <td>{fmtLatest(r.latest)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </>
+  ))}
+
+  <h2>Recently released</h2>
+  <div class="scroll">
+    <table class="data">
+      <thead><tr><th>Release</th><th>Date</th><th>Covers</th><th>Latest value</th></tr></thead>
+      <tbody>{recent.map((r) => <tr><td>{r.title}</td><td>{period(r.date, "D")}</td><td>{r.period}</td><td>{fmtLatest(r.latest)}</td></tr>)}</tbody>
+    </table>
+  </div>
+  <p class="chart-sub">"Estimated" means the publisher gives a rule rather than a date (e.g. trade "by the 15th"); "moved" means a weekend date shifted by the publisher's holiday rule. Public holidays can move releases further; we check dates against the official calendars each month.</p>
+</Base>

@@ -1,0 +1,29 @@
+# MoSPI Advance Release Calendar 2026-27 (version updated September 2026).
+# Source: https://www.mospi.gov.in/uploads/documents/releaseCalender/1791356248513-ARC_2026_27_Sept_2026.pdf
+# Rule stated in the ARC: "In case of holidays, reports release on next working day".
+publisher: MoSPI
+source_url: https://www.mospi.gov.in/uploads/documents/releaseCalender/1791356248513-ARC_2026_27_Sept_2026.pdf
+holiday_rule: next_working_day
+time_ist: "16:00"
+releases:
+  - {date: 2026-10-28, title: "Index of Industrial Production", period: "Sep 2026", series: [iip_general_growth]}
+  - {date: 2026-11-10, title: "PLFS quarterly bulletin", period: "Jul–Sep 2026", series: []}
+  - {date: 2026-11-12, title: "Consumer Price Index", period: "Oct 2026", series: [cpi_headline_inflation]}
+  - {date: 2026-11-15, title: "PLFS monthly bulletin", period: "Oct 2026", series: [plfs_ur_monthly]}
+  - {date: 2026-11-28, title: "Index of Industrial Production", period: "Oct 2026", series: [iip_general_growth]}
+  - {date: 2026-11-30, title: "GDP, quarterly estimates", period: "Q2 FY27", series: [gdp_real_growth]}
+  - {date: 2026-12-12, title: "Consumer Price Index", period: "Nov 2026", series: [cpi_headline_inflation]}
+  - {date: 2026-12-15, title: "PLFS monthly bulletin", period: "Nov 2026", series: [plfs_ur_monthly]}
+  - {date: 2026-12-28, title: "Index of Industrial Production", period: "Nov 2026", series: [iip_general_growth]}
+  - {date: 2027-01-07, title: "GDP, first advance estimates", period: "FY27", series: []}
+  - {date: 2027-01-12, title: "Consumer Price Index", period: "Dec 2026", series: [cpi_headline_inflation]}
+  - {date: 2027-01-15, title: "PLFS monthly bulletin", period: "Dec 2026", series: [plfs_ur_monthly]}
+  - {date: 2027-01-28, title: "Index of Industrial Production", period: "Dec 2026", series: [iip_general_growth]}
+  - {date: 2027-02-10, title: "PLFS quarterly bulletin", period: "Oct–Dec 2026", series: []}
+  - {date: 2027-02-12, title: "Consumer Price Index", period: "Jan 2027", series: [cpi_headline_inflation]}
+  - {date: 2027-02-15, title: "PLFS monthly bulletin", period: "Jan 2027", series: [plfs_ur_monthly]}
+  - {date: 2027-02-26, title: "GDP: second advance estimates FY27 and Q3 FY27", period: "Q3 FY27", series: [gdp_real_growth]}
+  - {date: 2027-02-28, title: "Index of Industrial Production", period: "Jan 2027", series: [iip_general_growth]}
+  - {date: 2027-03-12, title: "Consumer Price Index", period: "Feb 2027", series: [cpi_headline_inflation]}
+  - {date: 2027-03-15, title: "PLFS monthly bulletin", period: "Feb 2027", series: [plfs_ur_monthly]}
+  - {date: 2027-03-28, title: "Index of Industrial Production", period: "Feb 2027", series: [iip_general_growth]}

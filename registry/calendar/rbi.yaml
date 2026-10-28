@@ -1,0 +1,9 @@
+# RBI Monetary Policy Committee meetings 2026-27 (press release 2025-2026/2306, 23 Mar 2026).
+# Source: https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=62422
+# The decision is announced on the last day of each meeting (listed here).
+publisher: RBI
+source_url: https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=62422
+holiday_rule: none
+releases:
+  - {date: 2026-12-04, time_ist: "10:00", title: "MPC policy decision (meeting 2–4 Dec)", period: "Dec 2026 meeting", series: [repo_rate], highlight: true, estimated_time: true}
+  - {date: 2027-02-05, time_ist: "10:00", title: "MPC policy decision (meeting 3–5 Feb)", period: "Feb 2027 meeting", series: [repo_rate], highlight: true, estimated_time: true}

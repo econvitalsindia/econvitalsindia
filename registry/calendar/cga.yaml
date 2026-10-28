@@ -1,0 +1,11 @@
+# Controller General of Accounts: monthly accounts, usually on the last working day of the
+# following month. No published calendar found yet, so all dates are estimated.
+publisher: CGA
+source_url: https://cga.nic.in/
+holiday_rule: previous_working_day
+releases:
+  - {date: 2026-10-31, title: "Union government monthly accounts", period: "Sep 2026", series: [cga_fiscal_deficit_pct_be], estimated: true}
+  - {date: 2026-11-30, title: "Union government monthly accounts", period: "Oct 2026", series: [cga_fiscal_deficit_pct_be], estimated: true}
+  - {date: 2026-12-31, title: "Union government monthly accounts", period: "Nov 2026", series: [cga_fiscal_deficit_pct_be], estimated: true}
+  - {date: 2027-01-31, title: "Union government monthly accounts", period: "Dec 2026", series: [cga_fiscal_deficit_pct_be], estimated: true}
+  - {date: 2027-02-28, title: "Union government monthly accounts", period: "Jan 2027", series: [cga_fiscal_deficit_pct_be], estimated: true}

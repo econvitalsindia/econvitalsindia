@@ -37,7 +37,7 @@ When an agency rebases (as in 2026 for GDP, CPI and IIP):
 
 - Check the Actions minutes used (Status page).
 - Archive `data/raw/` from the month as a GitHub Release asset (`make archive-raw`).
-- Refresh `registry/calendar/` from any new published calendars (MoSPI ARC updates, the RBI MPC schedule).
+- Refresh `registry/calendar/` from the official calendars (MoSPI ARC, OEA ICI/WPI ARC, RBI MPC schedule, Commerce SDDS calendar). Check the coming month's dates for public holidays (the build only shifts weekends) and confirm any `estimated: true` dates you can. Extend each file so it always covers at least the next three months. At the start of each financial year, add the new ARC files and MPC schedule.
 
 ## Secrets
 

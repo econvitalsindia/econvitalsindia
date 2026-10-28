@@ -38,7 +38,7 @@ h2 { font-size: 1.2rem; margin: 36px 0 10px; padding-top: 10px; border-top: 1px 
 .tile { background: var(--paper); padding: 12px 14px; text-decoration: none; color: inherit; display: block; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
 .tile:hover { background: color-mix(in srgb, var(--paper) 92%, var(--primary)); }
 .tile .k { font-family: "Inter", system-ui, sans-serif; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
-.tile .v { font-size: 1.5rem; font-weight: 600; margin: 2px 0; }
+.tile .v { font-size: 1.4rem; font-weight: 600; margin: 2px 0; white-space: nowrap; }
 .tile .p, .tile .c { font-family: "Inter", system-ui, sans-serif; font-size: 0.75rem; color: var(--muted); }
 .pos { color: var(--pos); } .neg { color: var(--neg); }
 
@@ -72,3 +72,4 @@ footer.site { border-top: 1px solid var(--rule); padding: 20px 0 40px; font-fami
 .question dt span { color: var(--muted); font-size: 0.72rem; margin-left: 4px; }
 .question dd { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; }
 .question .qt { font-family: "Inter", system-ui, sans-serif; font-size: 0.75rem; color: var(--muted); margin: 10px 0 0; }
+.upnext { font-family: "Inter", system-ui, sans-serif; font-size: 0.82rem; margin: 6px 0 0; padding: 8px 10px; border-left: 3px solid var(--accent); background: color-mix(in srgb, var(--paper) 94%, var(--accent)); }

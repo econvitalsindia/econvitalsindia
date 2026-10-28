@@ -22,7 +22,7 @@
   2. Is growth holding up? (real GDP y/y, GVA y/y, private consumption y/y)
   3. Are jobs being created? (PLFS unemployment and LFPR now vs a year ago, EPFO net adds 3mma)
   4. Is the external position under strain? (CAD % GDP, reserves in months of imports, INR YTD)
-- [ ] "Today / coming up" strip from the calendar (next 3 releases + next MPC date)
+- [x] "Today / coming up" strip from the calendar (next 5 releases)
 - [ ] Newsletter signup (hidden until Phase 3; behind `newsletter.enabled`)
 - [ ] One summary table per topic (as econvitals does), each linking to its page (Phase 2)
 - [x] Footer credit line from `site.config.yaml → credit.inspired_by_text`

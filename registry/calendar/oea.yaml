@@ -1,0 +1,19 @@
+# Office of the Economic Adviser, DPIIT.
+# Core industries: ARC for ICI monthly release, last updated 13/04/2026
+#   https://eaindustry.nic.in/uploaded_files/Advance_Release_Calander_ICI.pdf
+# WPI: the WPI ARC is a scanned image (not machine-readable), so WPI dates follow the usual
+#   mid-month release and are marked estimated until checked against that PDF by a person.
+publisher: OEA (DPIIT)
+source_url: https://eaindustry.nic.in/uploaded_files/Advance_Release_Calander_ICI.pdf
+holiday_rule: next_working_day
+releases:
+  - {date: 2026-11-20, time_ist: "17:00", title: "Index of Core Industries", period: "Oct 2026", series: [core_overall_index], show: yoy}
+  - {date: 2026-12-21, time_ist: "17:00", title: "Index of Core Industries", period: "Nov 2026", series: [core_overall_index], show: yoy}
+  - {date: 2027-01-20, time_ist: "17:00", title: "Index of Core Industries", period: "Dec 2026", series: [core_overall_index], show: yoy}
+  - {date: 2027-02-22, time_ist: "17:00", title: "Index of Core Industries", period: "Jan 2027", series: [core_overall_index], show: yoy}
+  - {date: 2027-03-22, time_ist: "17:00", title: "Index of Core Industries", period: "Feb 2027", series: [core_overall_index], show: yoy}
+  - {date: 2026-11-14, title: "Wholesale Price Index", period: "Oct 2026", series: [wpi_headline_index], show: yoy, estimated: true, source_url: "https://eaindustry.nic.in/uploaded_files/wpi/Advance_Release_Calander_WPI_OPPI_IPPI.pdf"}
+  - {date: 2026-12-14, title: "Wholesale Price Index", period: "Nov 2026", series: [wpi_headline_index], show: yoy, estimated: true, source_url: "https://eaindustry.nic.in/uploaded_files/wpi/Advance_Release_Calander_WPI_OPPI_IPPI.pdf"}
+  - {date: 2027-01-14, title: "Wholesale Price Index", period: "Dec 2026", series: [wpi_headline_index], show: yoy, estimated: true, source_url: "https://eaindustry.nic.in/uploaded_files/wpi/Advance_Release_Calander_WPI_OPPI_IPPI.pdf"}
+  - {date: 2027-02-14, title: "Wholesale Price Index", period: "Jan 2027", series: [wpi_headline_index], show: yoy, estimated: true, source_url: "https://eaindustry.nic.in/uploaded_files/wpi/Advance_Release_Calander_WPI_OPPI_IPPI.pdf"}
+  - {date: 2027-03-14, title: "Wholesale Price Index", period: "Feb 2027", series: [wpi_headline_index], show: yoy, estimated: true, source_url: "https://eaindustry.nic.in/uploaded_files/wpi/Advance_Release_Calander_WPI_OPPI_IPPI.pdf"}

@@ -16,6 +16,7 @@ from datetime import date
 import pandas as pd
 import yaml
 
+from pipelines.build import calendar
 from pipelines.core import registry, store
 
 OUT = store.ROOT / "site" / "src" / "data" / "generated"
@@ -202,6 +203,22 @@ def main() -> int:
                   "observations": len(payloads[sid]["data"]) if sid in payloads else 0}
                  for sid, spec in specs.items()]
     write_json(OUT / "catalogue.json", catalogue)
+
+    # Release calendar, with each release's latest published value attached.
+    today = date.today().isoformat()
+    cal = calendar.load(set(specs))
+    for r in cal:
+        r["status"] = "released" if r["date"] <= today else "upcoming"
+        sid = r["series"][0] if r["series"] else None
+        if sid in payloads:
+            pts = payloads[sid]["data"] if r["show"] == "level" else payloads[sid]["transforms"][r["show"]]
+            unit = "percent" if r["show"] in ("yoy", "mom") else payloads[sid]["unit"]
+            r["latest"] = {"series": sid, "period": pts[-1][0], "value": pts[-1][1], "unit": unit,
+                           "frequency": payloads[sid]["frequency"], "title": payloads[sid]["short_title"],
+                           "show": r["show"]}
+    write_json(OUT / "calendar.json", cal)
+    PUBLIC.parent.mkdir(parents=True, exist_ok=True)
+    (PUBLIC.parent / "calendar.ics").write_text(calendar.ics(cal, registry.site_config()["site"]["name"]))
 
     as_of = max((p["data"][-1][0] for p in payloads.values()), default=None)
     write_json(OUT / "site.json", {"built_on": date.today().isoformat(), "as_of": as_of,
