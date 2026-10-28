@@ -18,12 +18,19 @@ EXEMPT_DIRS = ("docs/guidebook/decisions/",)
 
 
 def tracked_files() -> list[str]:
-    """Return files git knows about (tracked or untracked, not ignored)."""
+    """Files git knows about, minus anything .gitignore covers.
+
+    A generated file that was committed before being ignored is still "tracked";
+    it is skipped here because its content comes from the build, not from a person.
+    """
     out = subprocess.run(
         ["git", "ls-files", "--cached", "--others", "--exclude-standard"],
         cwd=ROOT, capture_output=True, text=True, check=True,
     )
-    return [f for f in out.stdout.splitlines() if f]
+    files = [f for f in out.stdout.splitlines() if f]
+    ignored = subprocess.run(["git", "check-ignore", "--no-index", "--stdin"], cwd=ROOT,
+                             input="\n".join(files), capture_output=True, text=True).stdout.split()
+    return [f for f in files if f not in set(ignored)]
 
 
 def main() -> int:
