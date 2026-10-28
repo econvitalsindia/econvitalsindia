@@ -1,0 +1,676 @@
+{
+ "calendar.today": {
+  "source": "registry/calendar",
+  "text": "Index of Industrial Production (Sep 2026)"
+ },
+ "calendar.next": {
+  "source": "registry/calendar",
+  "text": "Union government monthly accounts (Sep 2026) on 30 Oct 2026; PLFS quarterly bulletin (Jul–Sep 2026) on 10 Nov 2026; Consumer Price Index (Oct 2026) on 12 Nov 2026; Merchandise and services trade (Oct 2026) on 13 Nov 2026"
+ },
+ "calendar.next_highlight": {
+  "source": "registry/calendar",
+  "text": "MPC policy decision (meeting 2–4 Dec) on 4 Dec 2026"
+ },
+ "calendar.past_week": {
+  "source": "registry/calendar",
+  "text": "Index of Industrial Production (Sep 2026) on 28 Oct 2026"
+ },
+ "calendar.next_week": {
+  "source": "registry/calendar",
+  "text": "Union government monthly accounts (Sep 2026) on 30 Oct 2026"
+ },
+ "nifty50_close.latest": {
+  "series": "nifty50_close",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://www.rbi.org.in/",
+  "text": "22,698.85"
+ },
+ "nifty50_close.latest_period": {
+  "series": "nifty50_close",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://www.rbi.org.in/",
+  "text": "28 Oct 2026"
+ },
+ "nifty50_close.prev": {
+  "series": "nifty50_close",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://www.rbi.org.in/",
+  "text": "22,749.75"
+ },
+ "nifty50_close.prev_period": {
+  "series": "nifty50_close",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://www.rbi.org.in/",
+  "text": "27 Oct 2026"
+ },
+ "nifty50_close.change": {
+  "series": "nifty50_close",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://www.rbi.org.in/",
+  "text": "50.90"
+ },
+ "nifty50_close.direction": {
+  "series": "nifty50_close",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://www.rbi.org.in/",
+  "text": "fell"
+ },
+ "nifty50_close.direction_noun": {
+  "series": "nifty50_close",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://www.rbi.org.in/",
+  "text": "a decrease"
+ },
+ "nifty50_close.change_phrase": {
+  "series": "nifty50_close",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://www.rbi.org.in/",
+  "text": "down 50.90"
+ },
+ "nifty50_close.pct_phrase": {
+  "series": "nifty50_close",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://www.rbi.org.in/",
+  "text": "down 0.22%"
+ },
+ "nifty50_close.week_phrase": {
+  "series": "nifty50_close",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://www.rbi.org.in/",
+  "text": "down 0.49%"
+ },
+ "nifty50_close.year_ago": {
+  "series": "nifty50_close",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://www.rbi.org.in/",
+  "text": "25,936.20"
+ },
+ "nifty50_close.year_ago_period": {
+  "series": "nifty50_close",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://www.rbi.org.in/",
+  "text": "28 Oct 2025"
+ },
+ "nifty50_close.change_yoy": {
+  "series": "nifty50_close",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://www.rbi.org.in/",
+  "text": "3,237.35"
+ },
+ "nifty50_close.direction_yoy": {
+  "series": "nifty50_close",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://www.rbi.org.in/",
+  "text": "fell"
+ },
+ "nifty50_close.change_phrase_yoy": {
+  "series": "nifty50_close",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://www.rbi.org.in/",
+  "text": "down 3,237.35"
+ },
+ "sensex_close.latest": {
+  "series": "sensex_close",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://www.rbi.org.in/",
+  "text": "73,246.03"
+ },
+ "sensex_close.latest_period": {
+  "series": "sensex_close",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://www.rbi.org.in/",
+  "text": "28 Oct 2026"
+ },
+ "sensex_close.prev": {
+  "series": "sensex_close",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://www.rbi.org.in/",
+  "text": "73,598.67"
+ },
+ "sensex_close.prev_period": {
+  "series": "sensex_close",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://www.rbi.org.in/",
+  "text": "27 Oct 2026"
+ },
+ "sensex_close.change": {
+  "series": "sensex_close",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://www.rbi.org.in/",
+  "text": "352.64"
+ },
+ "sensex_close.direction": {
+  "series": "sensex_close",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://www.rbi.org.in/",
+  "text": "fell"
+ },
+ "sensex_close.direction_noun": {
+  "series": "sensex_close",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://www.rbi.org.in/",
+  "text": "a decrease"
+ },
+ "sensex_close.change_phrase": {
+  "series": "sensex_close",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://www.rbi.org.in/",
+  "text": "down 352.64"
+ },
+ "sensex_close.pct_phrase": {
+  "series": "sensex_close",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://www.rbi.org.in/",
+  "text": "down 0.48%"
+ },
+ "sensex_close.week_phrase": {
+  "series": "sensex_close",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://www.rbi.org.in/",
+  "text": "down 0.63%"
+ },
+ "sensex_close.year_ago": {
+  "series": "sensex_close",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://www.rbi.org.in/",
+  "text": "84,628.16"
+ },
+ "sensex_close.year_ago_period": {
+  "series": "sensex_close",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://www.rbi.org.in/",
+  "text": "28 Oct 2025"
+ },
+ "sensex_close.change_yoy": {
+  "series": "sensex_close",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://www.rbi.org.in/",
+  "text": "11,382.13"
+ },
+ "sensex_close.direction_yoy": {
+  "series": "sensex_close",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://www.rbi.org.in/",
+  "text": "fell"
+ },
+ "sensex_close.change_phrase_yoy": {
+  "series": "sensex_close",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://www.rbi.org.in/",
+  "text": "down 11,382.13"
+ },
+ "indiavix_close.latest": {
+  "series": "indiavix_close",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://finance.yahoo.com/",
+  "text": "16.25"
+ },
+ "indiavix_close.latest_period": {
+  "series": "indiavix_close",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://finance.yahoo.com/",
+  "text": "28 Oct 2026"
+ },
+ "indiavix_close.prev": {
+  "series": "indiavix_close",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://finance.yahoo.com/",
+  "text": "16.40"
+ },
+ "indiavix_close.prev_period": {
+  "series": "indiavix_close",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://finance.yahoo.com/",
+  "text": "27 Oct 2026"
+ },
+ "indiavix_close.change": {
+  "series": "indiavix_close",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://finance.yahoo.com/",
+  "text": "0.15"
+ },
+ "indiavix_close.direction": {
+  "series": "indiavix_close",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://finance.yahoo.com/",
+  "text": "fell"
+ },
+ "indiavix_close.direction_noun": {
+  "series": "indiavix_close",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://finance.yahoo.com/",
+  "text": "a decrease"
+ },
+ "indiavix_close.change_phrase": {
+  "series": "indiavix_close",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://finance.yahoo.com/",
+  "text": "down 0.15"
+ },
+ "indiavix_close.pct_phrase": {
+  "series": "indiavix_close",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://finance.yahoo.com/",
+  "text": "down 0.91%"
+ },
+ "indiavix_close.week_phrase": {
+  "series": "indiavix_close",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://finance.yahoo.com/",
+  "text": "up 3.64%"
+ },
+ "indiavix_close.year_ago": {
+  "series": "indiavix_close",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://finance.yahoo.com/",
+  "text": "11.95"
+ },
+ "indiavix_close.year_ago_period": {
+  "series": "indiavix_close",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://finance.yahoo.com/",
+  "text": "28 Oct 2025"
+ },
+ "indiavix_close.change_yoy": {
+  "series": "indiavix_close",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://finance.yahoo.com/",
+  "text": "4.30"
+ },
+ "indiavix_close.direction_yoy": {
+  "series": "indiavix_close",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://finance.yahoo.com/",
+  "text": "rose"
+ },
+ "indiavix_close.change_phrase_yoy": {
+  "series": "indiavix_close",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://finance.yahoo.com/",
+  "text": "up 4.30"
+ },
+ "usdinr_ref.latest": {
+  "series": "usdinr_ref",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://www.fbil.org.in/",
+  "text": "95.23"
+ },
+ "usdinr_ref.latest_period": {
+  "series": "usdinr_ref",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://www.fbil.org.in/",
+  "text": "28 Oct 2026"
+ },
+ "usdinr_ref.prev": {
+  "series": "usdinr_ref",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://www.fbil.org.in/",
+  "text": "94.77"
+ },
+ "usdinr_ref.prev_period": {
+  "series": "usdinr_ref",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://www.fbil.org.in/",
+  "text": "19 Oct 2026"
+ },
+ "usdinr_ref.change": {
+  "series": "usdinr_ref",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://www.fbil.org.in/",
+  "text": "0.46"
+ },
+ "usdinr_ref.direction": {
+  "series": "usdinr_ref",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://www.fbil.org.in/",
+  "text": "rose"
+ },
+ "usdinr_ref.direction_noun": {
+  "series": "usdinr_ref",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://www.fbil.org.in/",
+  "text": "an increase"
+ },
+ "usdinr_ref.change_phrase": {
+  "series": "usdinr_ref",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://www.fbil.org.in/",
+  "text": "up 0.46"
+ },
+ "usdinr_ref.pct_phrase": {
+  "series": "usdinr_ref",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://www.fbil.org.in/",
+  "text": "up 0.48%"
+ },
+ "usdinr_ref.week_phrase": {
+  "series": "usdinr_ref",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://www.fbil.org.in/",
+  "text": "up 0.48%"
+ },
+ "usdinr_ref.year_ago": {
+  "series": "usdinr_ref",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://www.fbil.org.in/",
+  "text": "88.30"
+ },
+ "usdinr_ref.year_ago_period": {
+  "series": "usdinr_ref",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://www.fbil.org.in/",
+  "text": "28 Oct 2025"
+ },
+ "usdinr_ref.change_yoy": {
+  "series": "usdinr_ref",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://www.fbil.org.in/",
+  "text": "6.93"
+ },
+ "usdinr_ref.direction_yoy": {
+  "series": "usdinr_ref",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://www.fbil.org.in/",
+  "text": "rose"
+ },
+ "usdinr_ref.change_phrase_yoy": {
+  "series": "usdinr_ref",
+  "transform": "level",
+  "period": "2026-10-28",
+  "source": "https://www.fbil.org.in/",
+  "text": "up 6.93"
+ },
+ "gsec_10y_yield.latest": {
+  "series": "gsec_10y_yield",
+  "transform": "level",
+  "period": "2026-10-27",
+  "source": "https://www.rbi.org.in/",
+  "text": "7.45%"
+ },
+ "gsec_10y_yield.latest_period": {
+  "series": "gsec_10y_yield",
+  "transform": "level",
+  "period": "2026-10-27",
+  "source": "https://www.rbi.org.in/",
+  "text": "27 Oct 2026"
+ },
+ "brent_usd.latest": {
+  "series": "brent_usd",
+  "transform": "level",
+  "period": "2026-10-27",
+  "source": "https://finance.yahoo.com/",
+  "text": "113.88"
+ },
+ "brent_usd.latest_period": {
+  "series": "brent_usd",
+  "transform": "level",
+  "period": "2026-10-27",
+  "source": "https://finance.yahoo.com/",
+  "text": "27 Oct 2026"
+ },
+ "brent_usd.prev": {
+  "series": "brent_usd",
+  "transform": "level",
+  "period": "2026-10-27",
+  "source": "https://finance.yahoo.com/",
+  "text": "115.81"
+ },
+ "brent_usd.prev_period": {
+  "series": "brent_usd",
+  "transform": "level",
+  "period": "2026-10-27",
+  "source": "https://finance.yahoo.com/",
+  "text": "26 Oct 2026"
+ },
+ "brent_usd.change": {
+  "series": "brent_usd",
+  "transform": "level",
+  "period": "2026-10-27",
+  "source": "https://finance.yahoo.com/",
+  "text": "1.93"
+ },
+ "brent_usd.direction": {
+  "series": "brent_usd",
+  "transform": "level",
+  "period": "2026-10-27",
+  "source": "https://finance.yahoo.com/",
+  "text": "fell"
+ },
+ "brent_usd.direction_noun": {
+  "series": "brent_usd",
+  "transform": "level",
+  "period": "2026-10-27",
+  "source": "https://finance.yahoo.com/",
+  "text": "a decrease"
+ },
+ "brent_usd.change_phrase": {
+  "series": "brent_usd",
+  "transform": "level",
+  "period": "2026-10-27",
+  "source": "https://finance.yahoo.com/",
+  "text": "down 1.93"
+ },
+ "brent_usd.pct_phrase": {
+  "series": "brent_usd",
+  "transform": "level",
+  "period": "2026-10-27",
+  "source": "https://finance.yahoo.com/",
+  "text": "down 1.67%"
+ },
+ "brent_usd.week_phrase": {
+  "series": "brent_usd",
+  "transform": "level",
+  "period": "2026-10-27",
+  "source": "https://finance.yahoo.com/",
+  "text": "up 4.68%"
+ },
+ "brent_usd.year_ago": {
+  "series": "brent_usd",
+  "transform": "level",
+  "period": "2026-10-27",
+  "source": "https://finance.yahoo.com/",
+  "text": "65.62"
+ },
+ "brent_usd.year_ago_period": {
+  "series": "brent_usd",
+  "transform": "level",
+  "period": "2026-10-27",
+  "source": "https://finance.yahoo.com/",
+  "text": "27 Oct 2025"
+ },
+ "brent_usd.change_yoy": {
+  "series": "brent_usd",
+  "transform": "level",
+  "period": "2026-10-27",
+  "source": "https://finance.yahoo.com/",
+  "text": "48.26"
+ },
+ "brent_usd.direction_yoy": {
+  "series": "brent_usd",
+  "transform": "level",
+  "period": "2026-10-27",
+  "source": "https://finance.yahoo.com/",
+  "text": "rose"
+ },
+ "brent_usd.change_phrase_yoy": {
+  "series": "brent_usd",
+  "transform": "level",
+  "period": "2026-10-27",
+  "source": "https://finance.yahoo.com/",
+  "text": "up 48.26"
+ },
+ "brent_inr.latest": {
+  "series": "brent_inr",
+  "transform": "level",
+  "period": "2026-10-23",
+  "source": "",
+  "text": "11,061.45"
+ },
+ "brent_inr.latest_period": {
+  "series": "brent_inr",
+  "transform": "level",
+  "period": "2026-10-23",
+  "source": "",
+  "text": "23 Oct 2026"
+ },
+ "brent_inr.prev": {
+  "series": "brent_inr",
+  "transform": "level",
+  "period": "2026-10-23",
+  "source": "",
+  "text": "10,725.02"
+ },
+ "brent_inr.prev_period": {
+  "series": "brent_inr",
+  "transform": "level",
+  "period": "2026-10-23",
+  "source": "",
+  "text": "22 Oct 2026"
+ },
+ "brent_inr.change": {
+  "series": "brent_inr",
+  "transform": "level",
+  "period": "2026-10-23",
+  "source": "",
+  "text": "336.43"
+ },
+ "brent_inr.direction": {
+  "series": "brent_inr",
+  "transform": "level",
+  "period": "2026-10-23",
+  "source": "",
+  "text": "rose"
+ },
+ "brent_inr.direction_noun": {
+  "series": "brent_inr",
+  "transform": "level",
+  "period": "2026-10-23",
+  "source": "",
+  "text": "an increase"
+ },
+ "brent_inr.change_phrase": {
+  "series": "brent_inr",
+  "transform": "level",
+  "period": "2026-10-23",
+  "source": "",
+  "text": "up 336.43"
+ },
+ "brent_inr.pct_phrase": {
+  "series": "brent_inr",
+  "transform": "level",
+  "period": "2026-10-23",
+  "source": "",
+  "text": "up 3.14%"
+ },
+ "brent_inr.week_phrase": {
+  "series": "brent_inr",
+  "transform": "level",
+  "period": "2026-10-23",
+  "source": "",
+  "text": "up 5.96%"
+ },
+ "brent_inr.year_ago": {
+  "series": "brent_inr",
+  "transform": "level",
+  "period": "2026-10-23",
+  "source": "",
+  "text": "5,803.65"
+ },
+ "brent_inr.year_ago_period": {
+  "series": "brent_inr",
+  "transform": "level",
+  "period": "2026-10-23",
+  "source": "",
+  "text": "23 Oct 2025"
+ },
+ "brent_inr.change_yoy": {
+  "series": "brent_inr",
+  "transform": "level",
+  "period": "2026-10-23",
+  "source": "",
+  "text": "5,257.80"
+ },
+ "brent_inr.direction_yoy": {
+  "series": "brent_inr",
+  "transform": "level",
+  "period": "2026-10-23",
+  "source": "",
+  "text": "rose"
+ },
+ "brent_inr.change_phrase_yoy": {
+  "series": "brent_inr",
+  "transform": "level",
+  "period": "2026-10-23",
+  "source": "",
+  "text": "up 5,257.80"
+ },
+ "const.rbi_inflation_target": {
+  "constant": "rbi_inflation_target",
+  "source": "RBI Act s.45ZA; flexible inflation target notified by the Government of India (CPI, 4% +/- 2%)",
+  "text": "4%"
+ },
+ "const.rbi_tolerance_band": {
+  "constant": "rbi_tolerance_band",
+  "source": "RBI Act s.45ZA; flexible inflation target notified by the Government of India (CPI, 4% +/- 2%)",
+  "text": "2–6%"
+ }
+}
