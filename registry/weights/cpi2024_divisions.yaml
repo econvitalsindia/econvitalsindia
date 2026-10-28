@@ -1,0 +1,17 @@
+# CPI 2024=100, all-India combined, division weights (per cent of the basket).
+# Source: RBI Bulletin Table 19(c), Consumer Price Index (Base: 2024=100): Combined.
+#   https://www.rbi.org.in/scripts/BS_ViewBulletin.aspx?Id=24400 (MoSPI weights; sum = 100.00)
+source: "https://www.rbi.org.in/scripts/BS_ViewBulletin.aspx?Id=24400"
+weights:
+  cpi_food_bev_index: 36.75
+  cpi_paan_tobacco_index: 2.99
+  cpi_clothing_index: 6.38
+  cpi_housing_utilities_index: 17.66
+  cpi_household_goods_index: 4.47
+  cpi_health_index: 6.10
+  cpi_transport_index: 8.80
+  cpi_info_comm_index: 3.61
+  cpi_recreation_index: 1.52
+  cpi_education_index: 3.33
+  cpi_restaurants_index: 3.35
+  cpi_personal_care_index: 5.04

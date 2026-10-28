@@ -14,7 +14,7 @@
 - [ ] Food watch link (monsoon and essential-commodity prices, Phase 4)
 - [ ] State-wise CPI y/y map (links to States, Phase 4)
 - [x] Clear definition of core: CPI excluding food and beverages, and fuel and light (and the variant also excluding petrol, diesel and gold, if we publish it). Weights and method in `08-original-measures.md`
-- [ ] Detail page `/inflation/detail`: all CPI groups and subgroups, item-level for vegetables, pulses, cereals
+- [x] Detail page `/inflation/detail`: all 12 COICOP divisions with weights and contributions (groups and items still to add)
 
 ## Must NOT include
 - Unlinked 2012-base and 2024-base CPI on one axis

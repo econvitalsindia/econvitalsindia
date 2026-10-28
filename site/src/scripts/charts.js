@@ -2,7 +2,9 @@
 import * as Plot from "@observablehq/plot";
 
 const css = getComputedStyle(document.documentElement);
-const palette = [css.getPropertyValue("--primary").trim(), css.getPropertyValue("--accent").trim(), "#5b8c5a", "#8c5a7a"];
+// Brand colours first, then muted distinguishable hues for charts with many components.
+const palette = [css.getPropertyValue("--primary").trim(), css.getPropertyValue("--accent").trim(), "#5b8c5a", "#8c5a7a",
+  "#3f8fb5", "#c4a23a", "#b0605a", "#6f6fb0", "#4f9e8f", "#9a7b5c", "#a35f9e", "#7f8c8d"];
 
 function drawStacked(el, spec) {
   const rows = spec.rows.map((r) => ({ ...r, date: new Date(r.period) }));

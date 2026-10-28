@@ -1,0 +1,50 @@
+---
+import Base from "../../layouts/Base.astro";
+import StackedBars from "../../components/StackedBars.astro";
+import { series, valueAt } from "../../lib/data.js";
+import { num, period } from "../../lib/format.js";
+import fs from "node:fs";
+import yaml from "js-yaml";
+
+const weights = yaml.load(fs.readFileSync("../registry/weights/cpi2024_divisions.yaml", "utf8")).weights;
+const contrib = JSON.parse(fs.readFileSync("src/data/generated/cpi_division_contributions.json", "utf8"));
+const latestPeriod = contrib.reduce((m, r) => (r.period > m ? r.period : m), "");
+const prevPeriod = [...new Set(contrib.map((r) => r.period))].sort().at(-2);
+const rows = Object.entries(weights).map(([id, w]) => {
+  const s = series(id);
+  const c = contrib.find((r) => r.series === id && r.period === latestPeriod);
+  return { id, s, w, index: valueAt(s, "level", latestPeriod), mom: valueAt(s, "mom", latestPeriod),
+           yoy: valueAt(s, "yoy", latestPeriod), yoyPrev: valueAt(s, "yoy", prevPeriod), pp: c?.pp ?? null };
+}).sort((a, b) => (b.pp ?? -99) - (a.pp ?? -99));
+const total = rows.reduce((t, r) => t + (r.pp ?? 0), 0);
+const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
+const published = valueAt(series("cpi_headline_inflation"), "level", latestPeriod);
+---
+<Base current="inflation" title="Inflation detail">
+  <p class="chart-sub"><a href="/inflation/">← Inflation</a></p>
+  <h1>Inflation by division</h1>
+  <p class="lede">Which parts of the consumer basket are driving inflation? The twelve COICOP divisions of the 2024-base CPI, their weights, and how much each adds to headline inflation ({period(latestPeriod, "M")}).</p>
+
+  <StackedBars title="Contributions to CPI inflation by division" subtitle="Percentage points of the 12-month rate; dots show headline inflation as published"
+    rows={contrib.map(({ period, component, pp }) => ({ period, component, pp }))}
+    total={series("cpi_headline_inflation").data.filter((d) => d[0] >= contrib[0].period).map((d) => [d[0], d[1]])}
+    source="MoSPI; division weights from RBI Bulletin Table 19(c); site calculations." />
+
+  <h2>{period(latestPeriod, "M")}</h2>
+  <div class="scroll">
+    <table class="data">
+      <thead><tr><th>Division</th><th>Weight</th><th>Index</th><th>1-month %</th><th>12-month %</th><th>12-month %, previous month</th><th>Contribution, pp</th></tr></thead>
+      <tbody>
+        {rows.map((r) => (
+          <tr>
+            <td><a href={`/data/${r.id}/`}>{cap(r.s.short_title.replace("CPI ", ""))}</a></td>
+            <td>{num(r.w, 2)}</td><td>{num(r.index, 2)}</td><td>{num(r.mom, 2)}</td>
+            <td>{num(r.yoy, 2)}</td><td>{num(r.yoyPrev, 2)}</td><td><b>{num(r.pp, 2)}</b></td>
+          </tr>
+        ))}
+        <tr><td><b>All divisions</b></td><td><b>100.00</b></td><td></td><td></td><td></td><td></td><td><b>{num(total, 2)}</b></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="chart-sub">Contribution = weight × change in the division index over 12 months ÷ the general index a year earlier. Because CPI 2024 is a fixed-weight index the contributions add up to headline inflation: {num(total, 2)} here against {num(published, 2)}% as published (the gap is rounding). Divisions start in January 2025 on the 2024 base, so contributions start in January 2026. Sorted by contribution.</p>
+</Base>

@@ -1,0 +1,38 @@
+id: cpi_housing_utilities_index
+title: 'Consumer Price Index, all-India combined: housing, water, electricity, gas
+  and other fuels'
+short_title: CPI housing, water, power & fuels
+area: inflation
+source:
+  agency: MoSPI (NSO)
+  dataset: CPI, base 2024 (current series)
+  url: https://esankhyiki.mospi.gov.in/macroindicators?product=cpi
+  module: pipelines/sources/mospi/cpi.py
+licence: GODL
+downloadable: true
+fetch: auto
+frequency: M
+unit: index
+base_year: 2024=100
+seasonal_adjustment: none
+transforms:
+- yoy
+- mom
+release:
+  calendar: mospi
+  rule: 12th of month, 16:00 IST, for previous month
+  lag_days: 45
+validation:
+  range:
+  - 30
+  - 400
+  revision_alert: 0.5
+pages:
+- page: inflation
+  section: divisions
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: COICOP 2018 division on the 2024 base; starts January 2025, so y/y starts January
+  2026.

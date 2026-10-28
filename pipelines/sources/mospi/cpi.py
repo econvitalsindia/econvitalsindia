@@ -16,6 +16,7 @@ Component indices (combined, all-India, 2025 onwards) feed the core CPI measure 
 pipelines/sources/derived/core_cpi.py: food and beverages (division 01), electricity,
 gas and other fuels (group 04.5) and fuels and lubricants for personal transport
 equipment (class 07.2.2) - RBI's "food" and "fuel" in its CPI-excluding-food-and-fuel.
+All 12 COICOP divisions are also stored, for the inflation detail page.
 """
 from __future__ import annotations
 
@@ -49,7 +50,22 @@ COMPONENT_SERIES = {
     ("Transport", "Operation of personal transport equipment",
      "Fuels and lubricants for personal transport equipment"): "cpi_vehicle_fuels_index",
 }
-COMPONENT_DIVISIONS = "1,4,7"
+# Every other COICOP 2018 division (combined, division level).
+DIVISIONS = {
+    "Paan, tobacco and intoxicants": "cpi_paan_tobacco_index",
+    "Clothing and footwear": "cpi_clothing_index",
+    "Housing, water, electricity, gas and other fuels": "cpi_housing_utilities_index",
+    "Furnishings, household equipment and routine household maintenance": "cpi_household_goods_index",
+    "Health": "cpi_health_index",
+    "Transport": "cpi_transport_index",
+    "Information and communication": "cpi_info_comm_index",
+    "Recreation, sport and culture": "cpi_recreation_index",
+    "Education services": "cpi_education_index",
+    "Restaurants and accommodation services": "cpi_restaurants_index",
+    "Personal care, social protection and miscellaneous goods and services": "cpi_personal_care_index",
+}
+COMPONENT_SERIES.update({(div, None, None): sid for div, sid in DIVISIONS.items()})
+COMPONENT_DIVISIONS = ",".join(str(i) for i in range(1, 13))
 
 
 def _period(year, month: str) -> str:
