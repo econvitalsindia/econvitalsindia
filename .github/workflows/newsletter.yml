@@ -1,0 +1,32 @@
+name: newsletter
+# Sunday 10:00 IST: build the weekly digest from briefings already on main and create a
+# DRAFT with the newsletter provider. A person reviews and sends it from the provider's
+# dashboard; nothing is sent from here. Skips quietly until newsletter.enabled is true in
+# site.config.yaml and the BUTTONDOWN_API_KEY secret exists (runbook: "Newsletter").
+on:
+  schedule:
+    - cron: "30 4 * * 0"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: newsletter
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: astral-sh/setup-uv@v5
+      - run: uv sync
+      - name: Create the draft
+        env:
+          BUTTONDOWN_API_KEY: ${{ secrets.BUTTONDOWN_API_KEY }}
+        run: uv run python -m pipelines.newsletter.digest --date "$(TZ=Asia/Kolkata date +%F)"
+      - name: Record the draft (prevents duplicates on rerun)
+        run: |
+          if [ -n "$(git status --porcelain data/newsletter)" ]; then
+            git config user.name "data-bot"; git config user.email "data-bot@users.noreply.github.com"
+            git add data/newsletter && git commit -m "Newsletter draft recorded" && git push
+          fi

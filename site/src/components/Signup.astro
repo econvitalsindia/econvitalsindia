@@ -1,0 +1,13 @@
+---
+// Newsletter signup box. Renders nothing until site.config.yaml newsletter.signup_action is
+// set (the form action from the provider's embed code). Subscribers live with the provider.
+import { config } from "../lib/config.js";
+const n = config.newsletter ?? {};
+---
+{n.enabled && n.signup_action && (
+  <form class="signup" action={n.signup_action} method="post" target="_blank">
+    <label for="nl-email">A weekly email: the Saturday briefing and the week's release notes.</label>
+    <input id="nl-email" type="email" name="email" placeholder="you@example.com" required />
+    <button type="submit">Subscribe</button>
+  </form>
+)}

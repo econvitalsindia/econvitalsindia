@@ -1,4 +1,5 @@
 ---
+import Signup from "../../components/Signup.astro";
 import Base from "../../layouts/Base.astro";
 import { loadBriefings } from "../../lib/briefings.js";
 import { period } from "../../lib/format.js";
@@ -11,4 +12,5 @@ const items = loadBriefings();
   {items.length ? (
     <ul class="briefing-list">{items.map((b) => <li><span class="chart-sub">{period(b.date, "D")}</span> <a href={`/briefings/${b.slug}/`}>{b.title}</a></li>)}</ul>
   ) : <p class="chart-sub">No briefings published yet. The first ones appear after the next major release is drafted and approved.</p>}
+  <Signup />
 </Base>

@@ -46,3 +46,20 @@ When an agency rebases (as in 2026 for GDP, CPI and IIP):
 ## Secrets
 
 Kept in GitHub Actions secrets only: `LLM_API_KEY`, `NEWSLETTER_API_KEY`, `CLOUDFLARE_API_TOKEN`. Never in code, the registry, issues or chat logs.
+
+## Newsletter
+
+A weekly digest goes out by email: the latest weekly briefing plus links to that week's release and MPC notes. Daily notes are left out. `pipelines/newsletter/digest.py` builds it from briefings already on `main`, so it carries nothing that hasn't been reviewed. The `newsletter.yml` workflow (Sunday 10:00 IST) creates it as a **draft** in Buttondown. A person reads it there and presses send. Nothing in this repo sends email, and subscriber addresses live only with the provider.
+
+**Why not Buttondown's RSS-to-email?** It is a paid add-on (+$9/month, checked 28 Oct 2026). Our workflow does the same job for free through the API.
+
+**One-time setup (maintainer):**
+1. Create a free Buttondown account (free up to 100 subscribers). Under Settings → API, check that the API is available on the free plan; we could not confirm this from their public pages.
+2. Copy the API key into a GitHub repo secret named `BUTTONDOWN_API_KEY` (Settings → Secrets and variables → Actions). Never paste it into chat, issues or files.
+3. From Buttondown's embed-form settings, copy the form's `action` URL into `site.config.yaml` → `newsletter.signup_action`. The form must post a field named `email`; check the embed code.
+4. Set `newsletter.enabled: true` and push. The signup box then appears on the home and briefings pages.
+5. Run the `newsletter` workflow by hand once (Actions → newsletter → Run workflow) and check that the draft appears in Buttondown.
+
+**Preview without an account:** `uv run python -m pipelines.newsletter.digest --preview /tmp/digest.md`.
+
+**A draft appears twice:** `data/newsletter/drafted.json` records each drafted date, and the workflow commits it. If the commit failed, delete the duplicate in Buttondown.

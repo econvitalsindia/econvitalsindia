@@ -45,8 +45,14 @@ contact:
   social: {}
 
 newsletter:
-  provider: ""            # buttondown | brevo — decided in Phase 3
-  enabled: false
+  # Weekly digest: the Saturday briefing plus links to the week's release and MPC notes.
+  # pipelines/newsletter/digest.py builds it from published briefings and creates a DRAFT
+  # with the provider; a person reviews and sends it from the provider's dashboard.
+  # Setup: docs/guidebook/06-operations-runbook.md ("Newsletter").
+  provider: "buttondown"  # only buttondown is implemented (its API creates drafts by default)
+  enabled: false          # true once the account exists and BUTTONDOWN_API_KEY is a repo secret
+  signup_action: ""       # the form action from the provider's embed code; the signup box shows when set
+  products: [weekly-briefing, release-note]   # briefing products included (MPC notes are release notes); daily notes left out
 
 briefings:
   require_human_approval: true        # AI drafts -> PR -> human merge publishes

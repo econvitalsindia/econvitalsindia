@@ -1,4 +1,5 @@
 ---
+import Signup from "../components/Signup.astro";
 import Base from "../layouts/Base.astro";
 import Tile from "../components/Tile.astro";
 import QuestionCard from "../components/QuestionCard.astro";
@@ -86,4 +87,5 @@ const spec = yaml.load(fs.readFileSync("../registry/pages/home.yaml", "utf8"));
       <LineChart title="USD/INR reference rate" subtitle="Rupees per US dollar, FBIL 1 pm fixing" lines={[{ id: "usdinr_ref" }]} years={1} />
     </section>
   </div>
+  <Signup />
 </Base>

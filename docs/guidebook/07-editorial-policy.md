@@ -26,7 +26,7 @@ Implemented in `pipelines/briefings/` (Phase 3, live).
 | `daily` | daily-note | weekdays, when the day's market closes are recorded (`trigger_weekdays_only`). **Auto-published** (see below) |
 | `weekly` | weekly-briefing | Saturdays (`trigger_weekday: 5`); reviewed |
 
-Feeds: `/briefings/rss.xml` (all), `/briefings/release-notes.xml`, `/briefings/daily.xml`. A newsletter service can send these as emails.
+Feeds: `/briefings/rss.xml` (all), `/briefings/release-notes.xml`, `/briefings/daily.xml`. The newsletter is a weekly digest built from these same published briefings and created as a *draft* with the provider. A person sends it, so email gets a second human look and never carries unreviewed text (runbook: "Newsletter").
 
 ## The one exception: the daily note is auto-published
 
