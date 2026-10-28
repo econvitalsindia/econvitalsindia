@@ -4,7 +4,7 @@
 
 ## Must include
 - [x] Monthly merchandise exports, imports and trade balance (US$ bn, y/y), oil vs non-oil, gold imports
-- [ ] Services exports and imports (monthly estimate)
+- [x] Services exports and imports (monthly, RBI actuals, not the Commerce projection)
 - [ ] Current account balance (quarterly, US$ bn and % GDP)
 - [x] FX reserves (weekly) (import cover needs monthly imports)
 - [ ] REER and NEER (40-currency), y/y

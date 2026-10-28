@@ -32,6 +32,13 @@ const fx = latest(series("fx_reserves_total"));
   ]} />
   <p class="chart-sub">Department of Commerce (monthly SDDS table). The latest month is provisional; the following year's release revises it, and the revised value is used.</p>
 
+  <h2>Services trade</h2>
+  <div class="grid2">
+    <LineChart title="Services exports and imports" subtitle="US$ billion per month" lines={[{ id: "services_exports", label: "Exports" }, { id: "services_imports", label: "Imports" }]} years={2} />
+    <LineChart title="Services trade growth, as published" subtitle="% change on the same month a year earlier" lines={[{ id: "services_exports_growth", label: "Exports" }, { id: "services_imports_growth", label: "Imports" }]} years={2} />
+  </div>
+  <p class="chart-sub">RBI's monthly data on trade in services, about 45 days after the month; the latest two months are provisional. India runs a large surplus on services, which offsets much of the merchandise deficit. Shown with attribution; download pending a check of RBI's terms.</p>
+
   <h2>Still to come on this page</h2>
-  <p class="chart-sub">Services trade, the current account (quarterly balance of payments), REER/NEER, capital flows, remittances and external debt. Checklist: docs/guidebook/05-pages/external.md.</p>
+  <p class="chart-sub"> the current account (quarterly balance of payments), REER/NEER, capital flows, remittances and external debt. Checklist: docs/guidebook/05-pages/external.md.</p>
 </Base>

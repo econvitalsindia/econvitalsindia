@@ -60,7 +60,8 @@ Small 200 responses (MoSPI 2.6 KB, eSankhyiki 1.2 KB, NREGA 0.5 KB, FBIL 1.5 KB)
 | Publisher | Datasets | Portal | Access | Licence | Status | Notes |
 |---|---|---|---|---|---|---|
 | Ministry of Commerce | Monthly merchandise trade (SDDS table); press release (merchandise + services) | JSON listing `commerce.gov.in/ministryofcommerce/api/v1/statistics-trade/current-figures-trade`; files under `commerce.gov.in/files/...` | auto | GODL | **live** (merchandise) | SDDS PDFs have three layouts (with and without spaces). The site is behind Akamai: headless browsers are blocked, plain HTTP with browser headers works. Services trade is only in the press-release PDF (to do) |
-| RBI | BoP/CAD (quarterly), FX reserves (weekly), REER/NEER, ECB, remittances | data.rbi.org.in | ? | check | to-scout | |
+| RBI | Trade in services (monthly press release) | Listing `rbi.org.in/Scripts/Pr_DataRelease.aspx?SectionID=352` → `BS_PressReleaseDisplay.aspx?prid=<n>` | auto | unverified | **live** (2026-10-28) | Each release covers the financial year to date; earlier months revised with BoP data. Prefer this to Commerce's monthly services projection |
+| RBI | BoP/CAD (quarterly), REER/NEER, ECB, remittances | data.rbi.org.in; BoP press releases | ? | check | to-scout | |
 
 ## Markets and finance
 

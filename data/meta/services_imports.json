@@ -1,0 +1,45 @@
+{
+  "id": "services_imports",
+  "title": "Services imports (payments), monthly",
+  "short_title": "Services imports",
+  "unit": "usd_bn",
+  "frequency": "M",
+  "base_year": null,
+  "source": {
+    "agency": "RBI",
+    "dataset": "Monthly Data on India's International Trade in Services (press release)",
+    "url": "https://rbi.org.in/Scripts/Pr_DataRelease.aspx?SectionID=352",
+    "module": "pipelines/sources/rbi/services_trade.py"
+  },
+  "licence": "unverified",
+  "downloadable": false,
+  "first_period": "2025-07-01",
+  "last_period": "2026-08-01",
+  "last_value": 18.934,
+  "observations": 14,
+  "updated_at": "2026-10-28T12:57:09+00:00",
+  "fetched_from": [
+    "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=61930",
+    "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=62138",
+    "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=62307",
+    "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=62470",
+    "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=62662",
+    "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=62832",
+    "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63054",
+    "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63270",
+    "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63480",
+    "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63699"
+  ],
+  "raw_files": [
+    "data/raw/rbi_services_trade/20261028T125653-6402489a26.html",
+    "data/raw/rbi_services_trade/20261028T125654-bca11c8c19.html",
+    "data/raw/rbi_services_trade/20261028T125656-a4b057fd4b.html",
+    "data/raw/rbi_services_trade/20261028T125659-49603650c6.html",
+    "data/raw/rbi_services_trade/20261028T125701-8fa826c44e.html",
+    "data/raw/rbi_services_trade/20261028T125702-8f629edd61.html",
+    "data/raw/rbi_services_trade/20261028T125704-59cd03d96a.html",
+    "data/raw/rbi_services_trade/20261028T125706-bf5c5f8791.html",
+    "data/raw/rbi_services_trade/20261028T125707-e3dab49ed7.html",
+    "data/raw/rbi_services_trade/20261028T125709-9b2b8e9ab6.html"
+  ]
+}

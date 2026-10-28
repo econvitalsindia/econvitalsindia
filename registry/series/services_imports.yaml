@@ -1,0 +1,36 @@
+id: services_imports
+title: Services imports (payments), monthly
+short_title: Services imports
+area: external
+source:
+  agency: RBI
+  dataset: Monthly Data on India's International Trade in Services (press release)
+  url: https://rbi.org.in/Scripts/Pr_DataRelease.aspx?SectionID=352
+  module: pipelines/sources/rbi/services_trade.py
+licence: unverified
+downloadable: false
+fetch: auto
+frequency: M
+unit: usd_bn
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+release:
+  calendar: rbi
+  rule: end of month, for the month before last (about 45 days' lag)
+  lag_days: 50
+validation:
+  range:
+  - 2
+  - 150
+  revision_alert: 5
+pages:
+- page: external
+  section: trade
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: RBI's actual data, about 45 days after the month; the latest two months are
+  provisional and later revised with balance-of-payments data.
