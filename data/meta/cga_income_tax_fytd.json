@@ -1,0 +1,47 @@
+{
+  "id": "cga_income_tax_fytd",
+  "title": "Income tax collections (taxes on income other than corporate tax), financial year to date",
+  "short_title": "Income tax",
+  "unit": "inr_lakh_crore",
+  "frequency": "M",
+  "base_year": null,
+  "source": {
+    "agency": "Controller General of Accounts, Ministry of Finance",
+    "dataset": "Union Government Accounts: monthly trend of tax revenue by head",
+    "url": "https://cga.nic.in/",
+    "module": "pipelines/sources/cga/tax_heads.py"
+  },
+  "licence": "GODL",
+  "downloadable": true,
+  "first_period": "2015-04-01",
+  "last_period": "2026-08-01",
+  "last_value": 4.9545,
+  "observations": 137,
+  "updated_at": "2026-10-28T14:58:05+00:00",
+  "fetched_from": [
+    "https://cga.nic.in/writereaddata/MonthAccount/32017/DTL31617.HTM",
+    "https://cga.nic.in/writereaddata/MonthAccount/32018/DTL31718.HTM",
+    "https://cga.nic.in/writereaddata/MonthAccount/32019/DTL31819.HTM",
+    "https://cga.nic.in/writereaddata/MonthAccount/32020/DTL31920.HTM",
+    "https://cga.nic.in/writereaddata/MonthAccount/32021/DTL32021.HTM",
+    "https://cga.nic.in/writereaddata/MonthAccount/32022/DTL32122.HTM",
+    "https://cga.nic.in/writereaddata/MonthAccount/32023/DTL32223.HTM",
+    "https://cga.nic.in/writereaddata/MonthAccount/32024/DTL32324.HTM",
+    "https://cga.nic.in/writereaddata/MonthAccount/32025/DTL32425.HTM",
+    "https://cga.nic.in/writereaddata/MonthAccount/32026/DTL32526.HTM",
+    "https://cga.nic.in/writereaddata/MonthAccount/82026/DTL32627.HTM"
+  ],
+  "raw_files": [
+    "data/raw/cga_tax_heads/20261028T145747-1264223665.htm",
+    "data/raw/cga_tax_heads/20261028T145748-d00accbaed.htm",
+    "data/raw/cga_tax_heads/20261028T145750-1be49b8f9d.htm",
+    "data/raw/cga_tax_heads/20261028T145751-bc316bfb61.htm",
+    "data/raw/cga_tax_heads/20261028T145753-61c578da52.htm",
+    "data/raw/cga_tax_heads/20261028T145755-2ecbe07f7d.htm",
+    "data/raw/cga_tax_heads/20261028T145756-b458500fa7.htm",
+    "data/raw/cga_tax_heads/20261028T145758-0de5bd3d21.htm",
+    "data/raw/cga_tax_heads/20261028T145759-3a0919575b.htm",
+    "data/raw/cga_tax_heads/20261028T145801-a6888cff87.htm",
+    "data/raw/cga_tax_heads/20261028T145803-4690f264a8.htm"
+  ]
+}

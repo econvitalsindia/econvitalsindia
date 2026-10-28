@@ -1,0 +1,38 @@
+id: cga_gross_tax_fytd
+title: Gross tax revenue of the Union Government, financial year to date
+short_title: Gross tax revenue
+area: fiscal
+source:
+  agency: Controller General of Accounts, Ministry of Finance
+  dataset: 'Union Government Accounts: monthly trend of tax revenue by head'
+  url: https://cga.nic.in/
+  module: pipelines/sources/cga/tax_heads.py
+licence: GODL
+downloadable: true
+fetch: auto
+frequency: M
+unit: inr_lakh_crore
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+- yoy
+release:
+  calendar: cga
+  rule: last working day of the month, for the previous month
+  lag_days: 40
+validation:
+  range:
+  - 0
+  - 80
+  revision_alert: 2
+pages:
+- page: fiscal
+  section: taxes
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: Cumulative from April of the financial year to the month shown; ₹ crore in
+  the source. Before assignment to states. Excludes NCCD collections transferred to
+  the NDRF.

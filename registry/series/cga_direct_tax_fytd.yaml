@@ -1,0 +1,40 @@
+id: cga_direct_tax_fytd
+title: Direct taxes (corporate tax + income tax), Union Government, financial year
+  to date
+short_title: Direct taxes
+area: fiscal
+source:
+  agency: Controller General of Accounts, Ministry of Finance
+  dataset: 'Union Government Accounts: monthly trend of tax revenue by head'
+  url: https://cga.nic.in/
+  module: pipelines/sources/cga/tax_heads.py
+licence: GODL
+downloadable: true
+fetch: auto
+frequency: M
+unit: inr_lakh_crore
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+- yoy
+release:
+  calendar: cga
+  rule: last working day of the month, for the previous month
+  lag_days: 40
+validation:
+  range:
+  - -1
+  - 50
+  revision_alert: 2
+pages:
+- page: fiscal
+  section: taxes
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: 'Cumulative from April of the financial year to the month shown; ₹ crore in
+  the source. Site calculation: CGA''s corporate tax plus taxes on income other than
+  corporate tax. Excludes securities transaction tax, which has its own head only
+  from FY 2023-24.'
