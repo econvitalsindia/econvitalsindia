@@ -1,0 +1,39 @@
+id: auto_2w_sales
+title: Domestic sales of two-wheelers, monthly
+short_title: Two-wheeler sales
+area: activity
+source:
+  agency: Society of Indian Automobile Manufacturers (SIAM)
+  dataset: Monthly auto industry performance (press release)
+  url: https://www.siam.in/news-&-updates/press-releases
+  module: pipelines/sources/siam/sales.py
+licence: show-only
+downloadable: false
+fetch: auto
+frequency: M
+unit: units
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+- yoy
+release:
+  calendar: none
+  rule: monthly, around the 12th-15th of the following month
+  lag_days: 16
+validation:
+  range:
+  - 200000
+  - 5000000
+  revision_alert: 5
+pages:
+- page: activity
+  section: autos
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: Dispatches from manufacturers to dealers (wholesale), not retail registrations;
+  from SIAM member companies, an industry body, so shown with attribution and not
+  offered for download. From April 2021. Lockdown months (e.g. May 2021) are very
+  low.

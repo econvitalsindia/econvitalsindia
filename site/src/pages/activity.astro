@@ -42,6 +42,29 @@ const use = ["primary_goods", "capital_goods", "intermediate_goods", "infra_cons
   </div>
   <p class="chart-sub">Grid-India daily Power Supply Position reports (operational SCADA data; excludes captive and rooftop generation). Daily data are noisy, so even the 7-day average moves sharply when festivals fall in different weeks from one year to the next, or with weather; compare monthly averages for the underlying trend. Shown with attribution; not offered for download until Grid-India's terms are checked.</p>
 
+  <h2>Vehicle sales</h2>
+  <div class="grid2">
+    <LineChart title="Vehicle sales" subtitle="Domestic sales by manufacturers, lakh units a month"
+      lines={[{ id: "auto_2w_sales", label: "Two-wheelers", scale: 1e5 }, { id: "auto_pv_sales", label: "Passenger vehicles", scale: 1e5 }, { id: "auto_3w_sales", label: "Three-wheelers", scale: 1e5 }]} years={4} />
+    <LineChart title="Vehicle sales, change on a year earlier" subtitle="% change on a year earlier"
+      lines={[{ id: "auto_2w_sales", how: "yoy", label: "Two-wheelers" }, { id: "auto_pv_sales", how: "yoy", label: "Passenger vehicles" }, { id: "auto_3w_sales", how: "yoy", label: "Three-wheelers" }]} years={3} />
+  </div>
+  <p class="chart-sub">SIAM monthly press releases: dispatches from manufacturers to dealers (wholesale), not retail registrations. Passenger vehicles start in April 2023, when Tata Motors joins the total; BMW, Mercedes, JLR and Volvo Auto are never included. Growth rates are site calculations from each month as first published, so they can differ from SIAM's own, which use revised figures for the year before. SIAM is an industry body: shown with attribution, not offered for download.</p>
+
+  <h2>Fuel consumption</h2>
+  <div class="grid2">
+    <LineChart title="Petroleum product consumption" subtitle="% change on a year earlier"
+      lines={[{ id: "fuel_consumption_total", how: "yoy", label: "Total" }, { id: "diesel_consumption", how: "yoy", label: "Diesel" }, { id: "petrol_consumption", how: "yoy", label: "Petrol" }]} years={3} />
+    <LineChart title="Diesel and petrol consumption" subtitle="Thousand tonnes a month"
+      lines={[{ id: "diesel_consumption", label: "Diesel" }, { id: "petrol_consumption", label: "Petrol" }]} years={3} />
+  </div>
+  <PeriodTable heading="% y/y" n={6} rows={[
+    { id: "fuel_consumption_total", how: "yoy", label: "All petroleum products" },
+    { id: "diesel_consumption", how: "yoy", indent: true }, { id: "petrol_consumption", how: "yoy", indent: true },
+    { id: "atf_consumption", how: "yoy", indent: true }, { id: "lpg_consumption", how: "yoy", indent: true },
+  ]} />
+  <p class="chart-sub">Petroleum Planning &amp; Analysis Cell (Ministry of Petroleum and Natural Gas): sales by oil companies plus private direct imports, all provisional. The latest months use prorated import estimates and are revised. Diesel follows freight and farm activity; jet fuel follows air travel. Growth rates are site calculations from the published tonnes. From April 2023.</p>
+
   <h2>Still to come on this page</h2>
-  <p class="chart-sub"> GST and e-way bills, auto sales, fuel consumption, rail freight, air traffic, UPI, PMI headline. Checklist: docs/guidebook/05-pages/activity.md.</p>
+  <p class="chart-sub"> GST and e-way bills, retail vehicle registrations (Vahan), rail freight, air traffic, UPI, PMI headline. Checklist: docs/guidebook/05-pages/activity.md.</p>
 </Base>

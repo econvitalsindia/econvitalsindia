@@ -7,8 +7,9 @@
 - [x] Eight core industries index and components
 - [ ] Power demand (Grid-India daily energy met, 7-day avg y/y)
 - [ ] GST gross collections and e-way bills
-- [ ] Auto: passenger vehicle and two-wheeler sales (wholesale and/or Vahan retail registrations)
-- [ ] Fuel consumption (PPAC): diesel, petrol, ATF
+- [x] Auto: passenger vehicle, two- and three-wheeler sales (SIAM wholesale; PV from Apr 2023)
+- [ ] Auto: Vahan retail registrations (FADA monthly PDF is the easier route)
+- [x] Fuel consumption (PPAC): total, diesel, petrol, ATF, LPG (from Apr 2023)
 - [ ] Rail freight loading
 - [ ] Domestic air passengers
 - [ ] Digital pulse: UPI volume and value (y/y), FASTag (Phase 4)
