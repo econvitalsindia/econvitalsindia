@@ -1,0 +1,40 @@
+id: power_energy_met
+title: All-India energy met (electricity consumption served), daily
+short_title: Power demand (energy met)
+area: activity
+source:
+  agency: Grid Controller of India (Grid-India)
+  dataset: Daily Power Supply Position report (NLDC)
+  url: https://grid-india.in/en/reports/daily-psp-report
+  module: pipelines/sources/gridindia/psp.py
+licence: unverified
+downloadable: false
+fetch: manual
+frequency: D
+unit: mu_per_day
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+- 7dma
+- 7dma_yoy
+release:
+  calendar: none
+  rule: daily, around 10:00 IST, for the previous day
+  lag_days: 4
+validation:
+  range:
+  - 1000
+  - 15000
+  revision_alert: 3
+pages:
+- page: home
+  section: key-indicators
+- page: activity
+  section: power
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: 'Operational SCADA data as reported by NLDC; excludes captive and rooftop generation.
+  Manual source: Grid-India blocks non-Indian servers, so it is updated by `make india-update`.'

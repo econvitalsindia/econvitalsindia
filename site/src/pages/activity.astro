@@ -35,6 +35,13 @@ const use = ["primary_goods", "capital_goods", "intermediate_goods", "infra_cons
   ]} />
   <p class="chart-sub">Office of the Economic Adviser, DPIIT; base 2022-23 (which adds iron ore to the eight traditional industries). Released about a week before IIP, so it is an early read on industry.</p>
 
+  <h2>Electricity demand</h2>
+  <div class="grid2">
+    <LineChart title="Electricity demand met" subtitle="All-India energy met, million units per day, 7-day average" lines={[{ id: "power_energy_met", how: "7dma", label: "Energy met" }]} years={2} />
+    <LineChart title="Electricity demand, change on a year earlier" subtitle="7-day average of energy met, % change on a year earlier" lines={[{ id: "power_energy_met", how: "7dma_yoy", label: "% y/y" }]} years={1} />
+  </div>
+  <p class="chart-sub">Grid-India daily Power Supply Position reports (operational SCADA data; excludes captive and rooftop generation). Daily data are noisy, so even the 7-day average moves sharply when festivals fall in different weeks from one year to the next, or with weather; compare monthly averages for the underlying trend. Shown with attribution; not offered for download until Grid-India's terms are checked.</p>
+
   <h2>Still to come on this page</h2>
-  <p class="chart-sub">Power demand, GST and e-way bills, auto sales, fuel consumption, rail freight, air traffic, UPI, PMI headline. Checklist: docs/guidebook/05-pages/activity.md.</p>
+  <p class="chart-sub"> GST and e-way bills, auto sales, fuel consumption, rail freight, air traffic, UPI, PMI headline. Checklist: docs/guidebook/05-pages/activity.md.</p>
 </Base>

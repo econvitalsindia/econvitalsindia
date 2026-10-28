@@ -36,6 +36,8 @@ Apply these everywhere: data files, charts, tables, briefings.
 | `mom_saar` | Month-on-month, seasonally adjusted, annualised. Only for series we seasonally adjust; document the method |
 | `qoq_saar` | Quarter-on-quarter, seasonally adjusted, annualised |
 | `3mma`, `12mma` | Moving averages |
+| `7dma` | 7-day average for noisy daily series (calendar window, at least 5 observations) |
+| `7dma_yoy` | % change of the 7-day average on the same date a year earlier |
 | `diff` | First difference (used for rates, in bp) |
 | `share_gdp` | % of nominal GDP (use the matching FY's GDP and note the vintage) |
 

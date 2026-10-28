@@ -33,7 +33,7 @@ Small 200 responses (MoSPI 2.6 KB, eSankhyiki 1.2 KB, NREGA 0.5 KB, FBIL 1.5 KB)
 | Office of the Economic Adviser (DPIIT) | WPI (base 2022-23), Index of Core Industries (base 2022-23) | eaindustry.nic.in: `download_data_2223.asp` → `indx_download_2223/wpi_monthly_index_<yyyymm>.xlsx`; `ici_download_data.asp` → `eight_core_infra/Core_Industries_2022_23_<yyyymmdd>.xlsx` | auto | GODL | **live** (2026-10-28) | Monthly, around the 14th (WPI) and 20th (core). **The MoSPI API's WPI (`/api/wpi/getWpiRecords`) stops at April 2026 on the 2011-12 base (checked 2026-10-28), so WPI must come from OEA.** OEA's server sends only its leaf certificate; `core/http.py` walks the AIA chain (YR1 → Root YR cross-signed by ISRG Root X1) without partial-chain trust |
 | Labour Bureau | CPI-IW, CPI-AL/RL | labourbureau.gov.in | ? | GODL | to-scout | |
 | EPFO | Net payroll additions | epfindia.gov.in | manual | GODL | to-scout | Monthly, heavily revised. Store vintages |
-| MGNREGA (MoRD) | Households demanding work, person-days | nrega.nic.in | ? | GODL | to-scout | Report pages are slow and stateful |
+| MGNREGA (MoRD) | Households demanding work, person-days | nrega.nic.in | ? | GODL | **deferred** | Report pages are slow and stateful (ASP.NET postbacks). Scout the MIS 'R1' / 'demand' reports or data.gov.in mirrors before building |
 
 ## RBI
 
@@ -78,8 +78,8 @@ Small 200 responses (MoSPI 2.6 KB, eSankhyiki 1.2 KB, NREGA 0.5 KB, FBIL 1.5 KB)
 
 | Publisher | Datasets | Portal | Access | Licence | Status | Notes |
 |---|---|---|---|---|---|---|
-| Grid-India | Daily all-India peak demand, energy met | grid-india.in | manual | check | to-scout | Daily PSP report (PDF/Excel) |
-| NPCI | UPI volumes and values (monthly; daily from product statistics) | npci.org.in | ? | check | to-scout | |
+| Grid-India | Daily all-India energy met, peak demand, solar/wind generation | File list: POST `webapi.grid-india.in/api/v1/file` `{"_source":"GRDW","_type":"DAILY_PSP_REPORT","_fileDate":"<FY>","_month":"00"}`; files at `webcdn.grid-india.in/<FilePath>` (.xls + .pdf per day) | manual | unverified | **live** (2026-10-28) | Report titled with the data date (`27.10.26_NLDC_PSP`) and published the next morning. Sheet MOP_E, section A, TOTAL column. `.xls` needs python-calamine. Backfilled from 1 Apr 2025 |
+| NPCI | UPI volumes and values (monthly; daily from product statistics) | npci.org.in (page data from `/api/...`) | blocked | check | **deferred** | Akamai bot protection: plain HTTP gets 403 even on `/api/header-menu`, and only a full browser works (checked 2026-10-28). Preferred route: RBI's monthly Payment System Indicators, which include UPI volume and value. Scout that first |
 | PPAC | Petroleum product consumption | ppac.gov.in | ? | GODL | to-scout | |
 | DGCA | Domestic air passengers | dgca.gov.in | ? | GODL | to-scout | Monthly PDF |
 | SIAM / FADA | Vehicle wholesales / retail registrations | siam.in, fada.in | ? | check | to-scout | Industry bodies. Check terms. Vahan dashboard as an alternative |

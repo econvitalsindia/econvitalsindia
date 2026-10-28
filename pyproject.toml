@@ -11,6 +11,7 @@ dependencies = [
     "pdfplumber>=0.11",
     "yfinance>=0.2.40",
     "cryptography>=43",
+    "python-calamine>=0.3",
 ]
 
 [dependency-groups]

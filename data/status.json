@@ -643,6 +643,34 @@
     "last_error": null,
     "last_period": "2026-09-01"
   },
+  "power_energy_met": {
+    "last_attempt": "2026-10-28T12:28:48+00:00",
+    "last_success": "2026-10-28T12:28:48+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-10-27"
+  },
+  "power_peak_demand": {
+    "last_attempt": "2026-10-28T12:28:48+00:00",
+    "last_success": "2026-10-28T12:28:48+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-10-27"
+  },
+  "power_solar_gen": {
+    "last_attempt": "2026-10-28T12:28:49+00:00",
+    "last_success": "2026-10-28T12:28:49+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-10-27"
+  },
+  "power_wind_gen": {
+    "last_attempt": "2026-10-28T12:28:49+00:00",
+    "last_success": "2026-10-28T12:28:49+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-10-27"
+  },
   "repo_rate": {
     "last_attempt": "2026-10-28T11:42:13+00:00",
     "last_success": "2026-10-28T11:42:13+00:00",

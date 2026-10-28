@@ -43,6 +43,14 @@ def transform(df: pd.DataFrame, how: str) -> pd.DataFrame:
         out = pd.Series((s.values / prior.values - 1) * 100, index=s.index).dropna()
     elif how == "diff":
         out = s.diff().dropna() * 100  # percentage points -> basis points
+    elif how in ("7dma", "7dma_yoy"):
+        # 7-day calendar-window average (needs at least 5 observations in the window).
+        ma = s.rolling("7D", min_periods=5).mean().dropna()
+        if how == "7dma":
+            out = ma
+        else:
+            prior = ma.reindex(ma.index - pd.DateOffset(years=1))
+            out = pd.Series((ma.values / prior.values - 1) * 100, index=ma.index).dropna()
     else:
         raise ValueError(f"transform {how!r} not implemented in site build")
     return out.rename("value").reset_index()

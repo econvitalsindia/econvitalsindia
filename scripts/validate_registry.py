@@ -12,7 +12,7 @@ PAGES_DIR = ROOT / "docs" / "guidebook" / "05-pages"
 AREAS = {"growth", "inflation", "jobs", "activity", "money", "markets", "fiscal", "external", "states"}
 FREQS = {"D", "W", "F", "M", "Q", "A"}
 FETCH = {"auto", "manual"}
-TRANSFORMS = {"level", "yoy", "mom", "mom_saar", "qoq_saar", "3mma", "12mma", "diff", "share_gdp"}
+TRANSFORMS = {"level", "yoy", "mom", "mom_saar", "qoq_saar", "3mma", "12mma", "diff", "share_gdp", "7dma", "7dma_yoy"}
 REQUIRED = ["id", "title", "short_title", "area", "source", "licence", "downloadable", "fetch",
             "frequency", "unit", "transforms", "release", "validation", "pages", "verified_against"]
 
