@@ -17,7 +17,7 @@
   "last_period": "2026-09-01",
   "last_value": 52.7,
   "observations": 18,
-  "updated_at": "2026-10-28T11:01:08+00:00",
+  "updated_at": "2026-10-28T11:10:03+00:00",
   "fetched_from": [
     "https://api.mospi.gov.in/api/plfs/getData?indicator_code=1&frequency_code=3&age_code=1&limit=100&page=1&Format=JSON",
     "https://api.mospi.gov.in/api/plfs/getData?indicator_code=1&frequency_code=3&age_code=1&limit=100&page=2&Format=JSON",
@@ -33,17 +33,17 @@
     "https://api.mospi.gov.in/api/plfs/getData?indicator_code=3&frequency_code=3&age_code=2&limit=100&page=2&Format=JSON"
   ],
   "raw_files": [
-    "data/raw/mospi_plfs/20261028T110051-cc5179e7fb.json",
-    "data/raw/mospi_plfs/20261028T110052-185180df6b.json",
-    "data/raw/mospi_plfs/20261028T110054-ff0cbcb55b.json",
-    "data/raw/mospi_plfs/20261028T110056-23828d6c25.json",
-    "data/raw/mospi_plfs/20261028T110057-0944fc14e1.json",
-    "data/raw/mospi_plfs/20261028T110059-1c4472ff49.json",
-    "data/raw/mospi_plfs/20261028T110100-0b17477236.json",
-    "data/raw/mospi_plfs/20261028T110102-7f8df6e1a8.json",
-    "data/raw/mospi_plfs/20261028T110104-b656982a4c.json",
-    "data/raw/mospi_plfs/20261028T110105-49a8930fcf.json",
-    "data/raw/mospi_plfs/20261028T110107-9190a42d0a.json",
-    "data/raw/mospi_plfs/20261028T110108-4d3580e1f9.json"
+    "data/raw/mospi_plfs/20261028T110936-cc5179e7fb.json",
+    "data/raw/mospi_plfs/20261028T110938-185180df6b.json",
+    "data/raw/mospi_plfs/20261028T110941-ff0cbcb55b.json",
+    "data/raw/mospi_plfs/20261028T110943-23828d6c25.json",
+    "data/raw/mospi_plfs/20261028T110946-0944fc14e1.json",
+    "data/raw/mospi_plfs/20261028T110948-1c4472ff49.json",
+    "data/raw/mospi_plfs/20261028T110951-0b17477236.json",
+    "data/raw/mospi_plfs/20261028T110953-7f8df6e1a8.json",
+    "data/raw/mospi_plfs/20261028T110956-b656982a4c.json",
+    "data/raw/mospi_plfs/20261028T110958-49a8930fcf.json",
+    "data/raw/mospi_plfs/20261028T111001-9190a42d0a.json",
+    "data/raw/mospi_plfs/20261028T111003-4d3580e1f9.json"
   ]
 }
