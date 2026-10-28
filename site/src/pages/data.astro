@@ -7,14 +7,14 @@ const licence = { GODL: "Open (NDSAP/GODL)", "show-only": "Shown with attributio
 ---
 <Base current="data" title="Data">
   <h1>Data &amp; sources</h1>
-  <p class="lede">Every series on the site, where it comes from, and whether you can download it. Generated from the series registry.</p>
+  <p class="lede">Every series on the site, where it comes from, and whether you can download it. Click a series for its chart, verification record, revisions and citation. Measures we construct are explained on the <a href="/methods/">Methods</a> page.</p>
   <div class="scroll">
     <table class="data">
       <thead><tr><th>Series</th><th>Source</th><th>Freq.</th><th>Unit</th><th>Coverage</th><th>Licence</th><th>Download</th></tr></thead>
       <tbody>
         {rows.map((r) => (
           <tr>
-            <td><b>{r.short_title}</b><br /><span class="chart-sub">{r.title} · <code>{r.id}</code></span>{r.notes && <><br /><span class="chart-sub">{r.notes}</span></>}</td>
+            <td><b><a href={`/data/${r.id}/`}>{r.short_title}</a></b><br /><span class="chart-sub">{r.title} · <code>{r.id}</code></span>{r.notes && <><br /><span class="chart-sub">{r.notes}</span></>}</td>
             <td>{r.source_url ? <a href={r.source_url}>{r.agency}</a> : r.agency}</td>
             <td>{r.frequency}</td>
             <td>{r.unit}{r.base_year && r.base_year !== "null" ? ` (${r.base_year})` : ""}</td>

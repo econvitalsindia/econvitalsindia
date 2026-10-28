@@ -1,0 +1,17 @@
+---
+// Methods for every Original measure, rendered from the guidebook so the two never differ.
+import Base from "../layouts/Base.astro";
+import { marked } from "marked";
+import fs from "node:fs";
+
+const md = fs.readFileSync("../docs/guidebook/08-original-measures.md", "utf8")
+  .replace(/^# .*\n/, "")                       // page title comes from the layout
+  .replace(/`registry\/[^`]+`|`pipelines\/[^`]+`|`scripts\/[^`]+`|`tests\/[^`]+`/g,
+           (m) => `<code>${m.slice(1, -1)}</code>`);
+const body = marked.parse(md);
+---
+<Base current="data" title="Methods">
+  <h1>Methods</h1>
+  <p class="lede">How we build the measures marked <span class="badge">Original</span> on this site: what they are, how they are computed, and how we checked them. Everything else is published by the agency named on each series' page.</p>
+  <article class="prose" set:html={body} />
+</Base>

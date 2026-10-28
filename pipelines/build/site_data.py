@@ -97,6 +97,15 @@ def changes(df: pd.DataFrame, unit: str, freq: str, step: bool) -> dict | None:
     return out
 
 
+def revisions_of(series_id: str, limit: int = 50) -> list[dict]:
+    """Most recent logged revisions for a series (data/revisions/<id>.csv), newest first."""
+    path = store.REVISIONS / f"{series_id}.csv"
+    if not path.exists():
+        return []
+    rv = pd.read_csv(path, dtype=str).fillna("")
+    return rv.iloc[::-1].head(limit).to_dict("records")
+
+
 def series_payload(series_id: str, spec: dict, df: pd.DataFrame) -> dict:
     transforms = {t: [[p.strftime("%Y-%m-%d"), round(v, 4)]
                       for p, v in transform(df, t).itertuples(index=False)]
@@ -114,6 +123,10 @@ def series_payload(series_id: str, spec: dict, df: pd.DataFrame) -> dict:
         "downloadable": spec["downloadable"],
         "notes": spec.get("notes", ""),
         "original": bool(spec.get("original")),
+        "fetch": spec["fetch"],
+        "release_rule": spec.get("release", {}).get("rule", ""),
+        "verified_against": spec.get("verified_against") or [],
+        "revisions": revisions_of(series_id),
         "data": [[p.strftime("%Y-%m-%d"), v, n] for p, v, n in
                  zip(df["period"], df["value"], df["note"].fillna(""))],
         "transforms": transforms,

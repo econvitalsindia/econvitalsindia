@@ -73,3 +73,11 @@ footer.site { border-top: 1px solid var(--rule); padding: 20px 0 40px; font-fami
 .question dd { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; }
 .question .qt { font-family: "Inter", system-ui, sans-serif; font-size: 0.75rem; color: var(--muted); margin: 10px 0 0; }
 .upnext { font-family: "Inter", system-ui, sans-serif; font-size: 0.82rem; margin: 6px 0 0; padding: 8px 10px; border-left: 3px solid var(--accent); background: color-mix(in srgb, var(--paper) 94%, var(--accent)); }
+table.data.meta td { text-align: left; white-space: normal; }
+table.data.meta td:first-child { width: 220px; color: var(--muted); }
+.cite { font-family: "Inter", system-ui, sans-serif; font-size: 0.85rem; background: color-mix(in srgb, var(--paper) 94%, var(--primary)); padding: 10px 12px; }
+.prose { max-width: 75ch; }
+.prose h2 { font-size: 1.15rem; }
+.prose h3 { font-size: 1.02rem; margin: 26px 0 6px; }
+.prose li { margin: 4px 0; }
+.prose code { font-size: 0.85em; }

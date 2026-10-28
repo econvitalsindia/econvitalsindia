@@ -1,0 +1,73 @@
+---
+// One page per series: chart, metadata, verification record, revisions, download, citation.
+import Base from "../../layouts/Base.astro";
+import LineChart from "../../components/LineChart.astro";
+import { catalogue, series } from "../../lib/data.js";
+import { config } from "../../lib/config.js";
+import { num, period } from "../../lib/format.js";
+
+export function getStaticPaths() {
+  return catalogue().filter((r) => r.observations > 0).map((r) => ({ params: { id: r.id } }));
+}
+const { id } = Astro.params;
+const s = series(id);
+const second = ["yoy", "7dma"].find((h) => s.transforms[h]);
+const unitLabel = { index: "index", percent: "per cent", inr_lakh_crore: "₹ lakh crore", usd_bn: "US$ billion",
+  inr_per_usd: "₹ per US$", usd_per_bbl: "US$ per barrel", usd_per_oz: "US$ per troy ounce", inr_per_bbl: "₹ per barrel",
+  mu_per_day: "million units per day", gw: "gigawatts" }[s.unit] ?? s.unit;
+const freqLabel = { D: "Daily", W: "Weekly", F: "Fortnightly", M: "Monthly", Q: "Quarterly", A: "Annual" }[s.frequency];
+const licence = { GODL: "Open government data (NDSAP / GODL-India): free to reuse with attribution",
+  "show-only": "Shown with attribution only; not redistributed", unverified: "Terms not yet reviewed; not offered for download" }[s.licence] ?? s.licence;
+const last = s.data.at(-1);
+const recent = s.data.slice(-24).reverse();
+const today = new Date().toISOString().slice(0, 10);
+const citation = `${config.site.name} (${today.slice(0, 4)}). ${s.title} [${id}]. Retrieved ${period(today, "D")}. Original source: ${s.source.agency}.`;
+---
+<Base current="data" title={s.short_title} description={s.title}>
+  <p class="chart-sub"><a href="/data/">← All series</a></p>
+  <h1>{s.short_title} {s.original && <span class="badge">Original</span>}</h1>
+  <p class="lede">{s.title}. {freqLabel}, {unitLabel}{s.base_year && s.base_year !== "null" ? `, base ${s.base_year}` : ""}. Latest: {num(last[1], 2)} ({period(last[0], s.frequency)}).</p>
+
+  <div class="grid2">
+    <LineChart title="Level" subtitle={unitLabel} lines={[{ id }]} years={10} />
+    {second && <LineChart title={second === "yoy" ? "Change on a year earlier" : "7-day average"} subtitle={second === "yoy" ? "% change" : unitLabel} lines={[{ id, how: second }]} years={5} />}
+  </div>
+
+  <h2>About this series</h2>
+  <table class="data meta">
+    <tbody>
+      <tr><td>Series id</td><td><code>{id}</code></td></tr>
+      <tr><td>Source</td><td>{s.source.url ? <a href={s.source.url}>{s.source.agency}</a> : s.source.agency}: {s.source.dataset}</td></tr>
+      <tr><td>Coverage</td><td>{period(s.data[0][0], s.frequency)} to {period(last[0], s.frequency)} ({s.data.length} observations)</td></tr>
+      <tr><td>Release</td><td>{s.release_rule}</td></tr>
+      <tr><td>Updated by</td><td>{s.fetch === "auto" ? "Daily automated pipeline" : "Manual run from India (the publisher blocks automated servers abroad)"} · <code>{s.source.module}</code></td></tr>
+      <tr><td>Licence</td><td>{licence}</td></tr>
+      {s.notes && <tr><td>Notes</td><td>{s.notes}</td></tr>}
+      <tr><td>Checked against the official release</td><td>{s.verified_against.length
+        ? s.verified_against.map((v) => <div>{v.checked_on}: {v.result ?? "checked"} (<a href={v.url}>source</a>)</div>)
+        : "Not yet. Values come straight from the publisher, but no one has yet compared them with the press release."}</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Download and cite</h2>
+  <p>{s.downloadable
+    ? <><a href={`/data/${id}.csv`} download>Download CSV</a> <span class="chart-sub">Columns: period, value, vintage (date we first recorded the value), note.</span></>
+    : "Not available for download (see licence)."}</p>
+  <p class="cite"><b>Cite:</b> {citation}</p>
+
+  <h2>Latest observations</h2>
+  <div class="scroll">
+    <table class="data">
+      <thead><tr><th>Period</th><th>Value</th><th>Note</th></tr></thead>
+      <tbody>{recent.map(([p, v, n]) => <tr><td>{period(p, s.frequency)}</td><td>{num(v, 2)}</td><td>{n}</td></tr>)}</tbody>
+    </table>
+  </div>
+
+  <h2>Revisions</h2>
+  {s.revisions.length ? (
+    <div class="scroll"><table class="data">
+      <thead><tr><th>Period</th><th>Old value</th><th>New value</th><th>Recorded</th></tr></thead>
+      <tbody>{s.revisions.map((r) => <tr><td>{r.period}</td><td>{r.old_value}</td><td>{r.new_value}</td><td>{r.new_vintage}</td></tr>)}</tbody>
+    </table></div>
+  ) : <p class="chart-sub">No revisions recorded since this series was added. When the publisher revises a past value, the old and new values appear here.</p>}
+</Base>
