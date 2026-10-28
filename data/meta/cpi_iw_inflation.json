@@ -17,11 +17,11 @@
   "last_period": "2026-08-01",
   "last_value": 4.96,
   "observations": 2,
-  "updated_at": "2026-10-28T14:04:00+00:00",
+  "updated_at": "2026-10-28T14:14:41+00:00",
   "fetched_from": [
     "https://labourbureau.gov.in/uploads/public/notice/Press-Release-CPI-IW-August2026Epdf-7814c1556da667188465b41cb4aee755.pdf"
   ],
   "raw_files": [
-    "data/raw/labourbureau_cpi_iw/20261028T140359-ac8fc9e0b7.pdf"
+    "data/raw/labourbureau_cpi_iw/20261028T141441-ac8fc9e0b7.pdf"
   ]
 }
