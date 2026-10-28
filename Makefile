@@ -37,7 +37,7 @@ india-update:
 
 build:
 	$(PY) -m pipelines.build.site_data
-	cd site && npx astro build
+	cd site && npx astro build && npx pagefind --site dist
 
 dev:
 	$(PY) -m pipelines.build.site_data

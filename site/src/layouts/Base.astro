@@ -19,6 +19,7 @@ const pageTitle = title ? `${title} · ${config.site.name}` : config.site.name;
     <title>{pageTitle}</title>
     <meta name="description" content={description ?? config.site.description} />
     <meta name="robots" content="noindex" />
+    <meta name="color-scheme" content="light" />
     <link rel="icon" href="/mark.svg" type="image/svg+xml" />
     <link rel="alternate" type="application/rss+xml" title={`${config.site.name}: briefings`} href="/briefings/rss.xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -33,10 +34,34 @@ const pageTitle = title ? `${title} · ${config.site.name}` : config.site.name;
         <nav class="main">
           {nav.map(([k, href]) => <a href={href} aria-current={current === k ? "page" : undefined}>{t(`nav.${k}`)}</a>)}
         </nav>
+        <form class="search" action="/search/" method="get" role="search">
+          <input type="search" name="q" placeholder="Search indicators, pages…" aria-label="Search" />
+        </form>
         {s.as_of && <span class="asof">{t("common.as_of")} {period(s.as_of, "D")}</span>}
       </div>
     </header>
-    <main class="wrap"><slot /></main>
+    <main class="wrap" data-pagefind-body>
+      <slot />
+    </main>
+    <script>
+      // "On this page": a contents line under the first heading, built from the h2 headings.
+      const main = document.querySelector("main");
+      const heads = [...main.querySelectorAll("h2")].filter((h) => !/^Still to come/.test(h.textContent));
+      if (heads.length >= 3) {
+        const toc = document.createElement("nav");
+        toc.className = "toc";
+        toc.setAttribute("data-pagefind-ignore", "");
+        toc.append("On this page: ");
+        heads.forEach((h, i) => {
+          h.id ||= h.textContent.trim().toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || `s${i}`;
+          const a = document.createElement("a");
+          a.href = `#${h.id}`; a.textContent = h.textContent.trim();
+          toc.append(a);
+        });
+        const lede = main.querySelector(".lede") ?? main.querySelector("h1");
+        lede?.after(toc);
+      }
+    </script>
     <footer class="site">
       <div class="wrap">
         <p>{config.site.tagline}. Every number is drawn from official public sources; see <a href="/data/">Data</a> for sources and licences.</p>

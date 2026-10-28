@@ -1,6 +1,6 @@
 /* Brand colours arrive as CSS variables from site.config.yaml (see layouts/Base.astro). */
 :root {
-  --rule: #e4e1d8;
+  --rule: #e6e6e6;
   --muted: #6b6b6b;
   --band: rgba(232, 137, 43, 0.10);
   --pos: #1b7a4b;
@@ -9,9 +9,7 @@
   font-family: "Literata", Georgia, serif;
   color: var(--ink);
   background: var(--paper);
-}
-@media (prefers-color-scheme: dark) {
-  :root { --ink: #ece9e1; --paper: #15171f; --rule: #2c2f3a; --muted: #9a9a9a; --primary-text: #aeb8ff; }
+  color-scheme: light;   /* light only: no dark mode, so chart tooltips keep dark text on white */
 }
 * { box-sizing: border-box; }
 body { margin: 0; line-height: 1.5; }
@@ -92,3 +90,16 @@ table.data.meta td:first-child { width: 220px; color: var(--muted); }
 .signup label { flex: 1 1 100%; }
 .signup input { flex: 1 1 220px; padding: 6px 8px; border: 1px solid var(--rule); font: inherit; }
 .signup button { padding: 6px 14px; border: 0; background: var(--primary); color: #fff; font: inherit; cursor: pointer; }
+
+/* Chart tooltips (Observable Plot): always dark text on white */
+figure.chart svg [aria-label="tip"] { color: #1a1a1a; }
+figure.chart svg [aria-label="tip"] path { fill: #ffffff; stroke: #c8c8c8; }
+
+/* Header search */
+form.search { display: flex; }
+form.search input { width: 170px; padding: 5px 8px; border: 1px solid var(--rule); border-radius: 4px; font: 0.85rem "Inter", system-ui, sans-serif; background: #fff; color: var(--ink); }
+
+/* "On this page" contents line, filled from the page's h2 headings */
+nav.toc { font-family: "Inter", system-ui, sans-serif; font-size: 0.82rem; color: var(--muted); margin: 0 0 18px; }
+nav.toc a { margin-right: 14px; white-space: nowrap; }
+nav.toc:empty { display: none; }

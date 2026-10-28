@@ -1,0 +1,17 @@
+---
+// Site search. The index is built after `astro build` by Pagefind (see Makefile `build`),
+// from each page's <main data-pagefind-body>; it is static, so search runs in the browser.
+import Base from "../layouts/Base.astro";
+---
+<Base title="Search">
+  <h1>Search</h1>
+  <p class="lede">Search every page: indicators, charts, briefings and methods notes.</p>
+  <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+  <div id="search" data-pagefind-ignore></div>
+  <script is:inline src="/pagefind/pagefind-ui.js"></script>
+  <script is:inline>
+    const ui = new PagefindUI({ element: "#search", showSubResults: true, showImages: false, resetStyles: false });
+    const q = new URLSearchParams(location.search).get("q");
+    if (q) ui.triggerSearch(q);
+  </script>
+</Base>

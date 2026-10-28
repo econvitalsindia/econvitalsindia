@@ -27,7 +27,7 @@ brand:
     primary: "#1F2A6B"    # deep indigo
     accent: "#E8892B"     # saffron accent (not flag saffron, deliberately)
     ink: "#1A1A1A"
-    paper: "#FBFAF7"
+    paper: "#FFFFFF"     # white, light theme only (the maintainer asked for a light site, 2026-10-28)
   logo_mark: "assets/brand/mark.svg"   # name-independent mark
   fonts:
     serif: "Literata"

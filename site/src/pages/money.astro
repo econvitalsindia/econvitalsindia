@@ -11,6 +11,7 @@ const credit = latest(series("scb_credit_growth"));
 <Base current="money" title="Money & banking">
   <h1>Money &amp; banking</h1>
   <p class="lede">What is RBI's policy stance, where are money-market rates, and how fast are bank credit and deposits growing? The policy repo rate is {num(repo.value, 2)}% ({period(repo.period, "D")}); bank credit grew {num(credit.value, 1)}% on a year earlier in the fortnight to {period(credit.period, "D")}.</p>
+  <p class="chart-sub"><strong>New:</strong> <a href="/money/mpc-speak/">MPC Speak</a>, a hawk–dove reading of each MPC member's statement in the minutes.</p>
 
   <LineChart title="Policy corridor and the call rate" subtitle="Per cent; the call rate (WACR) normally trades between the SDF floor and the MSF ceiling"
     lines={[{ id: "msf_rate", label: "MSF (ceiling)", step: true }, { id: "repo_rate", label: "Repo", step: true }, { id: "sdf_rate", label: "SDF (floor)", step: true }, { id: "wacr", label: "Call rate (WACR)" }]} years={1} />
