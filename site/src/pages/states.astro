@@ -19,10 +19,13 @@ const fin = gfd.ref_period;
 const finYears = gfd.periods.filter((p) => p <= fin).slice(-3);
 const stageOf = (p, per) => Object.values(p.cell_notes ?? {}).map((n) => n[per]).find(Boolean) ?? "";
 const finStates = gfd.rows.map((r) => r.entity).filter((e) => at(gfd, e, fin) !== null).sort();
+const slug = (n) => n.toLowerCase().replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 const entities = [...new Set([...cpi.rows, ...ur.rows, ...gsdp.rows].map((r) => r.entity))].sort();
 ---
 <Base current="states" title="States">
   <h1>States</h1>
+  <p><label>Go to a state: <select id="state-pick" style="font:inherit;padding:3px 6px"><option value="">Choose…</option>
+    {[...new Set([...entities, ...finStates])].sort().map((e) => <option value={`/states/${slug(e)}/`}>{e}</option>)}</select></label></p>
   <p class="lede">How do India's states and union territories compare on prices, jobs and growth? Inflation from MoSPI's state CPI, unemployment and participation from the annual PLFS, and growth from state domestic product estimates.</p>
 
   <div class="grid2">
@@ -45,7 +48,7 @@ const entities = [...new Set([...cpi.rows, ...ur.rows, ...gsdp.rows].map((r) => 
   <div class="scroll"><table class="data">
     <thead><tr><th>State / UT</th>{finYears.map((p) => <th>Fiscal deficit {fyLabel(p)}<br /><span class="chart-sub">{stageOf(gfd, p)}</span></th>)}
       <th>Debt, end-March {Number(fin.slice(0, 4)) + 1}</th><th>Interest {fyLabel(fin)}</th></tr></thead>
-    <tbody>{finStates.map((e) => <tr><td>{e}</td>{finYears.map((p) => <td>{num(at(gfd, e, p), 1)}</td>)}
+    <tbody>{finStates.map((e) => <tr><td><a href={`/states/${slug(e)}/`}>{e}</a></td>{finYears.map((p) => <td>{num(at(gfd, e, p), 1)}</td>)}
       <td>{num(at(debt, e, fin), 1)}</td><td>{num(at(intr, e, fin), 1)}</td></tr>)}</tbody>
   </table></div>
   <p class="chart-sub">% of GSDP at current prices, site calculations from RBI's Handbook (Tables 164, 170, 176) and the Handbook's GSDP (Table 21, 2011-12 base); ratios can differ from RBI's State Finances report, which may use newer GSDP. Recent years are Revised or Budget Estimates, not accounts. RBI's liabilities table for end-March 2015 has rows out of line (the states do not add up to the printed total), so that year is left out.</p>
@@ -56,7 +59,7 @@ const entities = [...new Set([...cpi.rows, ...ur.rows, ...gsdp.rows].map((r) => 
       <thead><tr><th>State / UT</th><th>CPI inflation, {period(cpi.ref_period, "M")}</th><th>Previous month</th><th>Unemployment {ur.ref_period.slice(0, 4)}</th><th>LFPR {lfpr.ref_period.slice(0, 4)}</th><th>Real GSDP growth {fyLabel(gsdp.ref_period)}</th></tr></thead>
       <tbody>
         {entities.map((e) => (
-          <tr><td>{e}</td><td>{num(at(cpi, e, cpi.ref_period), 2)}</td><td>{num(at(cpi, e, prevPeriod(cpi)), 2)}</td>
+          <tr><td><a href={`/states/${slug(e)}/`}>{e}</a></td><td>{num(at(cpi, e, cpi.ref_period), 2)}</td><td>{num(at(cpi, e, prevPeriod(cpi)), 2)}</td>
             <td>{num(at(ur, e, ur.ref_period), 1)}</td><td>{num(at(lfpr, e, lfpr.ref_period), 1)}</td><td>{num(at(gsdp, e, gsdp.ref_period), 1)}</td></tr>
         ))}
         <tr><td><b>All India</b></td><td><b>{num(cpiAllIndia, 2)}</b></td><td></td><td><b>{num(urAllIndia, 1)}</b></td><td></td><td></td></tr>
@@ -65,3 +68,6 @@ const entities = [...new Set([...cpi.rows, ...ur.rows, ...gsdp.rows].map((r) => 
   </div>
   <p class="chart-sub">Per cent. "–" means not reported for that period. Downloads: <a href="/data/">Data</a> (state panels are listed there). A map view will follow once we have a boundary file whose licence and official boundaries we have checked.</p>
 </Base>
+<script>
+  document.getElementById("state-pick")?.addEventListener("change", (e) => { if (e.target.value) location.href = e.target.value; });
+</script>

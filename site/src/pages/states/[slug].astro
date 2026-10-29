@@ -1,0 +1,103 @@
+---
+// One page per state / UT: every state panel on the site, for that state, with its rank.
+import Base from "../../layouts/Base.astro";
+import { series } from "../../lib/data.js";
+import { num, period } from "../../lib/format.js";
+import fs from "node:fs";
+
+export function getStaticPaths() {
+  const ids = ["state_cpi_inflation", "state_ur_cy", "state_gsdp_growth", "state_gfd_pct_gsdp"];
+  const names = new Set(ids.flatMap((id) => JSON.parse(fs.readFileSync(`src/data/generated/panels/${id}.json`, "utf8")).rows.map((r) => r.entity)));
+  const slug = (n) => n.toLowerCase().replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  return [...names].sort().map((name) => ({ params: { slug: slug(name) }, props: { name } }));
+}
+
+const { name } = Astro.props;
+const panel = (id) => JSON.parse(fs.readFileSync(`src/data/generated/panels/${id}.json`, "utf8"));
+const P = {
+  cpi: panel("state_cpi_inflation"), ur: panel("state_ur_cy"), lfpr: panel("state_lfpr_cy"), gsdp: panel("state_gsdp_growth"),
+  gfd: panel("state_gfd_pct_gsdp"), debt: panel("state_debt_pct_gsdp"), intr: panel("state_interest_pct_gsdp"),
+};
+const row = (p) => p.rows.find((r) => r.entity === name);
+const at = (p, per) => row(p)?.values[per] ?? null;
+// Rank among states reporting that period (1 = highest).
+const rank = (p, per) => {
+  const v = at(p, per);
+  if (v === null) return null;
+  const vals = p.rows.map((r) => r.values[per]).filter((x) => x !== null && x !== undefined);
+  return { r: vals.filter((x) => x > v).length + 1, of: vals.length };
+};
+const fyLabel = (iso) => `${iso.slice(0, 4)}-${String(Number(iso.slice(0, 4)) + 1).slice(2)}`;
+const lastN = (p, n) => p.periods.filter((per) => at(p, per) !== null).slice(-n);
+
+// CPI chart: this state against all India (published headline); state CPI starts in 2026.
+const allIndia = series("cpi_headline_inflation").data.map((d) => [d[0], d[1]]);
+const mine = P.cpi.periods.filter((per) => at(P.cpi, per) !== null).map((per) => [per, at(P.cpi, per)]);
+const chart = { series: [{ label: name, curve: "linear", points: mine }, { label: "All India", curve: "linear", points: allIndia }], years: 1, reference: { target: 4 } };
+
+const headline = [
+  { label: `CPI inflation, ${period(P.cpi.ref_period, "M")}`, v: at(P.cpi, P.cpi.ref_period), d: 2, rk: rank(P.cpi, P.cpi.ref_period) },
+  { label: `Unemployment rate, ${P.ur.ref_period.slice(0, 4)}`, v: at(P.ur, P.ur.ref_period), d: 1, rk: rank(P.ur, P.ur.ref_period) },
+  { label: `Real GSDP growth, ${fyLabel(P.gsdp.ref_period)}`, v: at(P.gsdp, P.gsdp.ref_period), d: 1, rk: rank(P.gsdp, P.gsdp.ref_period) },
+  { label: `Fiscal deficit, % GSDP, ${fyLabel(P.gfd.ref_period)}`, v: at(P.gfd, P.gfd.ref_period), d: 1, rk: rank(P.gfd, P.gfd.ref_period) },
+  { label: `Debt, % GSDP, end-March ${Number(P.debt.ref_period.slice(0, 4)) + 1}`, v: at(P.debt, P.debt.ref_period), d: 1, rk: rank(P.debt, P.debt.ref_period) },
+].filter((h) => h.v !== null);
+const finYears = lastN(P.gfd, 5);
+const jobYears = lastN(P.ur, 5);
+const growthYears = lastN(P.gsdp, 6);
+---
+<Base current="states" title={name}>
+  <p class="chart-sub"><a href="/states/">States</a> / {name}</p>
+  <h1>{name}</h1>
+  <p class="lede">Prices, jobs, growth and government finances for {name}, with its rank among the states and union territories that report each figure (1 = highest).</p>
+
+  <div class="scroll"><table class="data">
+    <thead><tr><th></th><th>{name}</th><th>Rank</th></tr></thead>
+    <tbody>{headline.map((h) => <tr><td>{h.label}</td><td>{num(h.v, h.d)}%</td><td>{h.rk ? `${h.rk.r} of ${h.rk.of}` : "–"}</td></tr>)}</tbody>
+  </table></div>
+
+  {mine.length > 0 && <>
+  <h2>Consumer prices</h2>
+  <figure class="chart"><p class="chart-title">CPI inflation: {name} and all India</p><p class="chart-sub">% change on a year earlier, as published; dashed line = RBI's 4% target</p>
+    <div class="plot" data-chart={JSON.stringify(chart)}></div><figcaption><span>Source: MoSPI, CPI (base 2024).</span></figcaption></figure>
+  </>}
+
+  {jobYears.length > 0 && <>
+  <h2>Jobs</h2>
+  <div class="scroll"><table class="data">
+    <thead><tr><th>%, usual status, 15+</th>{jobYears.map((y) => <th>{y.slice(0, 4)}</th>)}</tr></thead>
+    <tbody>
+      <tr><td>Unemployment rate</td>{jobYears.map((y) => <td>{num(at(P.ur, y), 1)}</td>)}</tr>
+      <tr><td>Labour force participation</td>{jobYears.map((y) => <td>{num(at(P.lfpr, y), 1)}</td>)}</tr>
+    </tbody>
+  </table></div>
+  <p class="chart-sub">PLFS annual, calendar years. Small states have small samples, so rates move a lot from year to year.</p>
+  </>}
+
+  {growthYears.length > 0 && <>
+  <h2>Growth</h2>
+  <div class="scroll"><table class="data">
+    <thead><tr><th>Real GSDP growth, %</th>{growthYears.map((y) => <th>{fyLabel(y)}</th>)}</tr></thead>
+    <tbody><tr><td>{name}</td>{growthYears.map((y) => <td>{num(at(P.gsdp, y), 1)}</td>)}</tr></tbody>
+  </table></div>
+  <p class="chart-sub">Constant 2011-12 prices, MoSPI state domestic product.</p>
+  </>}
+
+  {finYears.length > 0 && <>
+  <h2>Government finances</h2>
+  <div class="scroll"><table class="data">
+    <thead><tr><th>% of GSDP</th>{finYears.map((y) => <th>{fyLabel(y)}<br /><span class="chart-sub">{P.gfd.cell_notes?.[name]?.[y] ?? ""}</span></th>)}</tr></thead>
+    <tbody>
+      <tr><td>Gross fiscal deficit</td>{finYears.map((y) => <td>{num(at(P.gfd, y), 1)}</td>)}</tr>
+      <tr><td>Outstanding liabilities (end-March)</td>{finYears.map((y) => <td>{num(at(P.debt, y), 1)}</td>)}</tr>
+      <tr><td>Interest payments</td>{finYears.map((y) => <td>{num(at(P.intr, y), 1)}</td>)}</tr>
+    </tbody>
+  </table></div>
+  <p class="chart-sub">Site calculations from RBI's Handbook of Statistics on Indian States (GSDP on the 2011-12 base); minus = surplus. Recent years are Revised or Budget Estimates.</p>
+  </>}
+
+  <p class="chart-sub"><a href="/states/">← All states</a></p>
+</Base>
+<script>
+  import "../../scripts/charts.js";
+</script>
