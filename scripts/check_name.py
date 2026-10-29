@@ -14,7 +14,8 @@ import yaml
 ROOT = Path(__file__).resolve().parents[1]
 # Historical records may name the site; everything else must not.
 EXEMPT = {"site.config.yaml"}
-EXEMPT_DIRS = ("docs/guidebook/decisions/",)
+# Sent newsletters are a record of what went out (rendered from the config at the time).
+EXEMPT_DIRS = ("docs/guidebook/decisions/", "data/newsletter/morning/")
 
 
 def tracked_files() -> list[str]:

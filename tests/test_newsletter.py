@@ -78,7 +78,8 @@ def test_no_keys_means_nothing_sent(monkeypatch, capsys, tmp_path):
     assert "nothing sent" in capsys.readouterr().out
 
 
-def test_auto_does_nothing_in_manual_mode(monkeypatch, capsys):
+def test_auto_does_nothing_in_manual_mode(monkeypatch, capsys, tmp_path):
+    monkeypatch.setattr(morning, "SENT", tmp_path / "sent.json")      # not the real record
     monkeypatch.setattr(morning, "compose", lambda *a, **k: (_ for _ in ()).throw(AssertionError("composed")))
     cfg = morning.config()
     cfg["newsletter"]["writer"] = "manual"
