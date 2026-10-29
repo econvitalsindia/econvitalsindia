@@ -8,6 +8,8 @@ Archive pages list every week's table as XLSX:
   n=7 Money Stock: Components and Sources (fortnightly; "Outstanding as on" Mar. 31 and the
       latest date, then variations, the last column year-on-year %)
   n=8 Reserve Money: Components and Sources (weekly; same layout)
+  n=13 Certificates of Deposit, n=14 Commercial Paper (fortnightly rows: amount outstanding,
+      amount issued in the fortnight, rate of interest as a range "5.50 - 6.92")
   n=25 Liquidity Operations by RBI (one row per day; the last column is net injection (+) /
       absorption (-), in Rs crore; "-" means none)
 Files are printed tables, so rows are found by their label and dates by their header.
@@ -28,7 +30,7 @@ from pipelines.core.store import load_series
 
 ARCHIVE = "https://www.rbi.org.in/Scripts/WSSViewDetail.aspx?TYPE=Section&PARAM1={n}"
 BACKFILL_WEEKS, RECENT_WEEKS = 60, 6
-SECTION = {2: "fx", 3: "banks", 4: "rates", 7: "money", 8: "reserve_money", 25: "liquidity"}
+SECTION = {2: "fx", 3: "banks", 4: "rates", 7: "money", 8: "reserve_money", 25: "liquidity", 13: "cd", 14: "cp"}
 
 FX_ROWS = {"Total Reserves": "fx_reserves_total", "Foreign Currency Assets": "fx_reserves_fca",
            "Gold": "fx_reserves_gold"}
@@ -188,12 +190,32 @@ def parse_liquidity(df: pd.DataFrame) -> list[dict]:
     return rows
 
 
+def parse_paper(df: pd.DataFrame, prefix: str) -> list[dict]:
+    """CD / CP: per fortnight, outstanding (Rs lakh crore) and the low and high of the rate
+    range on issues during the fortnight."""
+    rows = []
+    for _, r in df.iterrows():
+        cells = [v for v in r if pd.notna(v)]
+        if len(cells) < 4 or not isinstance(cells[0], str):
+            continue
+        day = parse_date(cells[0])
+        rate = re.match(r"\s*(\d+(?:\.\d+)?)\s*[-–]\s*(\d+(?:\.\d+)?)", str(cells[-1]))
+        out = pd.to_numeric(cells[1], errors="coerce")
+        if not (day and rate) or pd.isna(out):
+            continue
+        rows += [{"series_id": f"{prefix}_outstanding", "period": day, "value": round(float(out) / 1e5, 4)},
+                 {"series_id": f"{prefix}_rate_low", "period": day, "value": float(rate.group(1))},
+                 {"series_id": f"{prefix}_rate_high", "period": day, "value": float(rate.group(2))}]
+    return rows
+
+
 PARSERS = {2: parse_fx, 3: parse_banks, 4: parse_rates, 7: parse_money, 8: parse_reserve_money,
-           25: parse_liquidity}
+           25: parse_liquidity, 13: lambda df: parse_paper(df, "cd"), 14: lambda df: parse_paper(df, "cp")}
 # Table titles printed in each file (the section is read from the file, not its name).
 TITLES = {"Foreign Exchange Reserves": 2, "Scheduled Commercial Banks - Business in India": 3,
           "Ratios and Rates": 4, "Money Stock: Components and Sources": 7,
-          "Reserve Money: Components and Sources": 8, "Liquidity Operations by RBI": 25}
+          "Reserve Money: Components and Sources": 8, "Liquidity Operations by RBI": 25,
+          "Certificates of Deposit": 13, "Commercial Paper": 14}
 
 
 def section_of(df: pd.DataFrame) -> int:
@@ -209,14 +231,16 @@ SECTION_SERIES = {2: list(FX_ROWS.values()),
                   4: list(dict.fromkeys(RATE_ROWS.values())),
                   7: ["m3", "m3_growth", "currency_public_growth"],
                   8: ["reserve_money", "reserve_money_growth"],
-                  25: ["liquidity_surplus"]}
+                  25: ["liquidity_surplus"],
+                  13: ["cd_outstanding", "cd_rate_low", "cd_rate_high"],
+                  14: ["cp_outstanding", "cp_rate_low", "cp_rate_high"]}
 
 
 class RbiWSS(Source):
     name = "rbi_wss"
     series_ids = (*FX_ROWS.values(), *BANK_LEVELS.values(), *BANK_GROWTH.values(),
                   *dict.fromkeys(RATE_ROWS.values()), *SECTION_SERIES[7], *SECTION_SERIES[8],
-                  *SECTION_SERIES[25])
+                  *SECTION_SERIES[25], *SECTION_SERIES[13], *SECTION_SERIES[14])
 
     def fetch(self) -> list[Raw]:
         raws = []

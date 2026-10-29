@@ -1,0 +1,35 @@
+id: cd_rate_low
+title: 'Certificates of deposit: lowest rate on issues in the fortnight'
+short_title: CD rate (low)
+area: money
+source:
+  agency: RBI
+  dataset: 'Weekly Statistical Supplement: Certificates of Deposit'
+  url: https://www.rbi.org.in/Scripts/BS_viewWss.aspx
+  module: pipelines/sources/rbi/wss.py
+licence: unverified
+downloadable: false
+fetch: auto
+frequency: F
+unit: percent
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+release:
+  calendar: rbi
+  rule: WSS released Friday evening
+  lag_days: 14
+validation:
+  range:
+  - 0
+  - 20
+  revision_alert: 1
+pages:
+- page: money-banking
+  section: rates-table
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: 'WSS table 10: the low end of the range of rates on CDs issued in the fortnight.'

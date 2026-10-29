@@ -47,3 +47,15 @@ def test_older_layouts(raw_from):
     # Liquidity dates as text ("May 25, 2026") rather than Excel dates.
     df = SOURCE.parse([raw_from("rbi/wss/liquidity_text_dates.xlsx")])
     assert at(df, "liquidity_surplus", "2026-05-25") == 0.7632
+
+
+def test_paper_rates():
+    # CD / CP tables: fortnight, outstanding (Rs crore), amount issued, rate range on issues.
+    import pandas as pd
+    from pipelines.sources.rbi.wss import parse_paper
+    df = pd.DataFrame([["Fortnight ended", "Outstanding", "Issued", "Rate (%)"],
+                       ["Sep. 30, 2026", 574060, 41234, "5.77 - 7.33"],
+                       ["Total", 574060, None, None]])
+    rows = {r["series_id"]: r for r in parse_paper(df, "cd")}
+    assert rows["cd_outstanding"] == {"series_id": "cd_outstanding", "period": "2026-09-30", "value": 5.7406}
+    assert rows["cd_rate_low"]["value"] == 5.77 and rows["cd_rate_high"]["value"] == 7.33

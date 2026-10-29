@@ -56,6 +56,8 @@ const move = (bp) => bp === null ? "–" : bp === 0 ? "hold" : `${bp > 0 ? "+" :
       lines={[{ id: "scb_deposits", label: "Deposits" }, { id: "scb_credit", label: "Credit" }]} years={1} />
   </div>
   <p class="chart-sub">RBI notes that these data include the effect of a non-bank merging into a bank, which lifts year-on-year growth; see the note in the WSS table.</p>
+  <LineChart title="Credit–deposit ratio" subtitle="Bank credit as % of aggregate deposits, scheduled commercial banks, fortnightly (site calculation from the two RBI series)"
+    lines={[{ id: "credit_deposit_ratio", label: "Credit–deposit ratio" }]} years={1} />
 
   <h2 id="sectoral-credit">Who is borrowing: credit by sector</h2>
   <div class="grid2">
@@ -95,5 +97,5 @@ const move = (bp) => bp === null ? "–" : bp === 0 ? "hold" : `${bp > 0 ? "+" :
   <p class="chart-sub">An original measure on {config.site.name}: phrase counts in each member's statement in the RBI minutes. <a href="/money/mpc-speak/">Member by member, and how the score works →</a></p>
 
   <h2>Still to come on this page</h2>
-  <p class="chart-sub">The credit–deposit ratio, and commercial paper and certificate of deposit rates. Checklist: docs/guidebook/05-pages/money-banking.md.</p>
+  <p class="chart-sub">Commercial paper and certificate of deposit rates (the parser is ready; the data will appear once the next download succeeds). Checklist: docs/guidebook/05-pages/money-banking.md.</p>
 </Base>

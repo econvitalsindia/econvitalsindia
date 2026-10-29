@@ -174,6 +174,21 @@
     "last_error": null,
     "last_period": "2025-04-01"
   },
+  "cd_outstanding": {
+    "last_attempt": "2026-10-29T16:55:48+00:00",
+    "stale": true,
+    "last_error": "ValueError: Excel file format cannot be determined, you must specify an engine manually."
+  },
+  "cd_rate_high": {
+    "last_attempt": "2026-10-29T16:55:48+00:00",
+    "stale": true,
+    "last_error": "ValueError: Excel file format cannot be determined, you must specify an engine manually."
+  },
+  "cd_rate_low": {
+    "last_attempt": "2026-10-29T16:55:48+00:00",
+    "stale": true,
+    "last_error": "ValueError: Excel file format cannot be determined, you must specify an engine manually."
+  },
   "centre_debt_pct_gdp": {
     "last_attempt": "2026-10-29T16:36:56+00:00",
     "last_success": "2026-10-29T16:36:56+00:00",
@@ -517,6 +532,21 @@
     "last_error": null,
     "last_period": "2026-09-01"
   },
+  "cp_outstanding": {
+    "last_attempt": "2026-10-29T16:55:48+00:00",
+    "stale": true,
+    "last_error": "ValueError: Excel file format cannot be determined, you must specify an engine manually."
+  },
+  "cp_rate_high": {
+    "last_attempt": "2026-10-29T16:55:48+00:00",
+    "stale": true,
+    "last_error": "ValueError: Excel file format cannot be determined, you must specify an engine manually."
+  },
+  "cp_rate_low": {
+    "last_attempt": "2026-10-29T16:55:48+00:00",
+    "stale": true,
+    "last_error": "ValueError: Excel file format cannot be determined, you must specify an engine manually."
+  },
   "cpi_clothing_index": {
     "last_attempt": "2026-10-28T14:16:12+00:00",
     "last_success": "2026-10-28T14:16:12+00:00",
@@ -692,6 +722,13 @@
     "last_error": null,
     "last_period": "2026-08-01"
   },
+  "credit_deposit_ratio": {
+    "last_attempt": "2026-10-29T16:55:49+00:00",
+    "last_success": "2026-10-29T16:55:49+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-10-15"
+  },
   "credit_gold_growth": {
     "last_attempt": "2026-10-29T16:27:43+00:00",
     "last_success": "2026-10-29T16:27:43+00:00",
@@ -749,16 +786,16 @@
     "last_period": "2026-08-01"
   },
   "crr": {
-    "last_attempt": "2026-10-29T10:59:45+00:00",
+    "last_attempt": "2026-10-29T16:55:48+00:00",
     "last_success": "2026-10-29T10:59:45+00:00",
-    "stale": false,
-    "last_error": null,
+    "stale": true,
+    "last_error": "ValueError: Excel file format cannot be determined, you must specify an engine manually.",
     "last_period": "2026-10-29"
   },
   "currency_public_growth": {
-    "last_attempt": "2026-10-29T07:14:46+00:00",
-    "stale": false,
-    "last_error": null,
+    "last_attempt": "2026-10-29T16:55:48+00:00",
+    "stale": true,
+    "last_error": "ValueError: Excel file format cannot be determined, you must specify an engine manually.",
     "last_success": "2026-10-29T07:14:46+00:00",
     "last_period": "2026-10-15"
   },
@@ -847,24 +884,24 @@
     "last_period": "2026-09-01"
   },
   "fx_reserves_fca": {
-    "last_attempt": "2026-10-29T07:14:46+00:00",
+    "last_attempt": "2026-10-29T16:55:48+00:00",
     "last_success": "2026-10-29T07:14:46+00:00",
-    "stale": false,
-    "last_error": null,
+    "stale": true,
+    "last_error": "ValueError: Excel file format cannot be determined, you must specify an engine manually.",
     "last_period": "2026-10-16"
   },
   "fx_reserves_gold": {
-    "last_attempt": "2026-10-29T07:14:46+00:00",
+    "last_attempt": "2026-10-29T16:55:48+00:00",
     "last_success": "2026-10-29T07:14:46+00:00",
-    "stale": false,
-    "last_error": null,
+    "stale": true,
+    "last_error": "ValueError: Excel file format cannot be determined, you must specify an engine manually.",
     "last_period": "2026-10-16"
   },
   "fx_reserves_total": {
-    "last_attempt": "2026-10-29T07:14:45+00:00",
+    "last_attempt": "2026-10-29T16:55:48+00:00",
     "last_success": "2026-10-29T07:14:45+00:00",
-    "stale": false,
-    "last_error": null,
+    "stale": true,
+    "last_error": "ValueError: Excel file format cannot be determined, you must specify an engine manually.",
     "last_period": "2026-10-16"
   },
   "gdp_nominal_growth": {
@@ -966,10 +1003,10 @@
     "last_period": "2026-10-28"
   },
   "gsec_10y_par_fbil": {
-    "last_attempt": "2026-10-29T07:14:46+00:00",
+    "last_attempt": "2026-10-29T16:55:48+00:00",
     "last_success": "2026-10-29T07:14:46+00:00",
-    "stale": false,
-    "last_error": null,
+    "stale": true,
+    "last_error": "ValueError: Excel file format cannot be determined, you must specify an engine manually.",
     "last_period": "2026-10-16"
   },
   "gsec_10y_yield": {
@@ -1218,9 +1255,9 @@
     "last_period": "2026-10-29"
   },
   "liquidity_surplus": {
-    "last_attempt": "2026-10-29T07:14:46+00:00",
-    "stale": false,
-    "last_error": null,
+    "last_attempt": "2026-10-29T16:55:48+00:00",
+    "stale": true,
+    "last_error": "ValueError: Excel file format cannot be determined, you must specify an engine manually.",
     "last_success": "2026-10-29T07:14:46+00:00",
     "last_period": "2026-10-18"
   },
@@ -1232,16 +1269,16 @@
     "last_period": "2026-09-01"
   },
   "m3": {
-    "last_attempt": "2026-10-29T07:14:46+00:00",
-    "stale": false,
-    "last_error": null,
+    "last_attempt": "2026-10-29T16:55:48+00:00",
+    "stale": true,
+    "last_error": "ValueError: Excel file format cannot be determined, you must specify an engine manually.",
     "last_success": "2026-10-29T07:14:46+00:00",
     "last_period": "2026-10-15"
   },
   "m3_growth": {
-    "last_attempt": "2026-10-29T07:14:46+00:00",
-    "stale": false,
-    "last_error": null,
+    "last_attempt": "2026-10-29T16:55:48+00:00",
+    "stale": true,
+    "last_error": "ValueError: Excel file format cannot be determined, you must specify an engine manually.",
     "last_success": "2026-10-29T07:14:46+00:00",
     "last_period": "2026-10-15"
   },
@@ -1344,10 +1381,10 @@
     "last_period": "2026-10-01"
   },
   "msf_rate": {
-    "last_attempt": "2026-10-29T10:59:45+00:00",
+    "last_attempt": "2026-10-29T16:55:48+00:00",
     "last_success": "2026-10-29T10:59:45+00:00",
-    "stale": false,
-    "last_error": null,
+    "stale": true,
+    "last_error": "ValueError: Excel file format cannot be determined, you must specify an engine manually.",
     "last_period": "2026-10-29"
   },
   "neer_bis_broad": {
@@ -1562,66 +1599,66 @@
     "last_period": "2026-09-01"
   },
   "repo_rate": {
-    "last_attempt": "2026-10-29T10:59:45+00:00",
+    "last_attempt": "2026-10-29T16:55:48+00:00",
     "last_success": "2026-10-29T10:59:45+00:00",
-    "stale": false,
-    "last_error": null,
+    "stale": true,
+    "last_error": "ValueError: Excel file format cannot be determined, you must specify an engine manually.",
     "last_period": "2026-10-29"
   },
   "reserve_money": {
-    "last_attempt": "2026-10-29T07:14:46+00:00",
-    "stale": false,
-    "last_error": null,
+    "last_attempt": "2026-10-29T16:55:48+00:00",
+    "stale": true,
+    "last_error": "ValueError: Excel file format cannot be determined, you must specify an engine manually.",
     "last_success": "2026-10-29T07:14:46+00:00",
     "last_period": "2026-10-15"
   },
   "reserve_money_growth": {
-    "last_attempt": "2026-10-29T07:14:46+00:00",
-    "stale": false,
-    "last_error": null,
+    "last_attempt": "2026-10-29T16:55:48+00:00",
+    "stale": true,
+    "last_error": "ValueError: Excel file format cannot be determined, you must specify an engine manually.",
     "last_success": "2026-10-29T07:14:46+00:00",
     "last_period": "2026-10-15"
   },
   "scb_credit": {
-    "last_attempt": "2026-10-29T07:14:46+00:00",
+    "last_attempt": "2026-10-29T16:55:48+00:00",
     "last_success": "2026-10-29T07:14:46+00:00",
-    "stale": false,
-    "last_error": null,
+    "stale": true,
+    "last_error": "ValueError: Excel file format cannot be determined, you must specify an engine manually.",
     "last_period": "2026-10-15"
   },
   "scb_credit_growth": {
-    "last_attempt": "2026-10-29T07:14:46+00:00",
+    "last_attempt": "2026-10-29T16:55:48+00:00",
     "last_success": "2026-10-29T07:14:46+00:00",
-    "stale": false,
-    "last_error": null,
+    "stale": true,
+    "last_error": "ValueError: Excel file format cannot be determined, you must specify an engine manually.",
     "last_period": "2026-10-15"
   },
   "scb_deposits": {
-    "last_attempt": "2026-10-29T07:14:46+00:00",
+    "last_attempt": "2026-10-29T16:55:48+00:00",
     "last_success": "2026-10-29T07:14:46+00:00",
-    "stale": false,
-    "last_error": null,
+    "stale": true,
+    "last_error": "ValueError: Excel file format cannot be determined, you must specify an engine manually.",
     "last_period": "2026-10-15"
   },
   "scb_deposits_growth": {
-    "last_attempt": "2026-10-29T07:14:46+00:00",
+    "last_attempt": "2026-10-29T16:55:48+00:00",
     "last_success": "2026-10-29T07:14:46+00:00",
-    "stale": false,
-    "last_error": null,
+    "stale": true,
+    "last_error": "ValueError: Excel file format cannot be determined, you must specify an engine manually.",
     "last_period": "2026-10-15"
   },
   "scb_nonfood_credit": {
-    "last_attempt": "2026-10-29T07:14:46+00:00",
+    "last_attempt": "2026-10-29T16:55:48+00:00",
     "last_success": "2026-10-29T07:14:46+00:00",
-    "stale": false,
-    "last_error": null,
+    "stale": true,
+    "last_error": "ValueError: Excel file format cannot be determined, you must specify an engine manually.",
     "last_period": "2026-10-15"
   },
   "sdf_rate": {
-    "last_attempt": "2026-10-29T10:59:45+00:00",
+    "last_attempt": "2026-10-29T16:55:48+00:00",
     "last_success": "2026-10-29T10:59:45+00:00",
-    "stale": false,
-    "last_error": null,
+    "stale": true,
+    "last_error": "ValueError: Excel file format cannot be determined, you must specify an engine manually.",
     "last_period": "2026-10-29"
   },
   "sensex_close": {
@@ -1660,10 +1697,10 @@
     "last_period": "2026-08-01"
   },
   "slr": {
-    "last_attempt": "2026-10-29T10:59:45+00:00",
+    "last_attempt": "2026-10-29T16:55:48+00:00",
     "last_success": "2026-10-29T10:59:45+00:00",
-    "stale": false,
-    "last_error": null,
+    "stale": true,
+    "last_error": "ValueError: Excel file format cannot be determined, you must specify an engine manually.",
     "last_period": "2026-10-29"
   },
   "spf_core_cpi_cur_fy": {
@@ -1821,17 +1858,17 @@
     "last_period": "2025-04-01"
   },
   "tbill_182d_weekly": {
-    "last_attempt": "2026-10-29T07:14:46+00:00",
+    "last_attempt": "2026-10-29T16:55:48+00:00",
     "last_success": "2026-10-29T07:14:46+00:00",
-    "stale": false,
-    "last_error": null,
+    "stale": true,
+    "last_error": "ValueError: Excel file format cannot be determined, you must specify an engine manually.",
     "last_period": "2026-10-16"
   },
   "tbill_364d_weekly": {
-    "last_attempt": "2026-10-29T07:14:46+00:00",
+    "last_attempt": "2026-10-29T16:55:48+00:00",
     "last_success": "2026-10-29T07:14:46+00:00",
-    "stale": false,
-    "last_error": null,
+    "stale": true,
+    "last_error": "ValueError: Excel file format cannot be determined, you must specify an engine manually.",
     "last_period": "2026-10-16"
   },
   "tbill_91d": {
@@ -1842,10 +1879,10 @@
     "last_period": "2026-10-29"
   },
   "tbill_91d_weekly": {
-    "last_attempt": "2026-10-29T07:14:46+00:00",
+    "last_attempt": "2026-10-29T16:55:48+00:00",
     "last_success": "2026-10-29T07:14:46+00:00",
-    "stale": false,
-    "last_error": null,
+    "stale": true,
+    "last_error": "ValueError: Excel file format cannot be determined, you must specify an engine manually.",
     "last_period": "2026-10-16"
   },
   "term_spread_10y_repo": {
@@ -1891,10 +1928,10 @@
     "last_period": "2026-10-29"
   },
   "wacr": {
-    "last_attempt": "2026-10-29T07:14:46+00:00",
+    "last_attempt": "2026-10-29T16:55:48+00:00",
     "last_success": "2026-10-29T07:14:46+00:00",
-    "stale": false,
-    "last_error": null,
+    "stale": true,
+    "last_error": "ValueError: Excel file format cannot be determined, you must specify an engine manually.",
     "last_period": "2026-10-16"
   },
   "wpi_food_articles_index": {

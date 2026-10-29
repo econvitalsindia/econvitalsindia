@@ -1,0 +1,35 @@
+id: cp_rate_high
+title: 'Commercial paper: highest rate on issues in the fortnight'
+short_title: CP rate (high)
+area: money
+source:
+  agency: RBI
+  dataset: 'Weekly Statistical Supplement: Commercial Paper'
+  url: https://www.rbi.org.in/Scripts/BS_viewWss.aspx
+  module: pipelines/sources/rbi/wss.py
+licence: unverified
+downloadable: false
+fetch: auto
+frequency: F
+unit: percent
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+release:
+  calendar: rbi
+  rule: WSS released Friday evening
+  lag_days: 14
+validation:
+  range:
+  - 0
+  - 30
+  revision_alert: 1
+pages:
+- page: money-banking
+  section: rates-table
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: 'WSS table 11: the high end of the range.'
