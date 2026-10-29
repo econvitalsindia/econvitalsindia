@@ -359,6 +359,31 @@ def policy_rule_inputs() -> dict:
     return {"rows": rows}
 
 
+def budget_demands() -> dict:
+    """Budget explorer: every demand for grants with Actuals Y-2, BE and RE Y-1, BE Y, the
+    planned change on last year's RE and the share of total spending (site calculations)."""
+    stages = {sid: store.load_panel(sid) for sid in ("budget_demand_actuals", "budget_demand_be", "budget_demand_re")}
+    be = stages["budget_demand_be"]
+    if be.empty:
+        return {"rows": []}
+    year = int(be["period"].max()[:4])
+    fy = lambda y: f"{y}-{str(y + 1)[2:]}"
+    cols = [("budget_demand_actuals", year - 2, f"{fy(year - 2)} Actuals"), ("budget_demand_be", year - 1, f"{fy(year - 1)} BE"),
+            ("budget_demand_re", year - 1, f"{fy(year - 1)} RE"), ("budget_demand_be", year, f"{fy(year)} BE")]
+    look = {sid: {(r.entity, r.period): float(r.value) for r in df.itertuples()} for sid, df in stages.items()}
+    notes = {r.entity: r.note for r in be.itertuples()}
+    total = sum(v for (e, p), v in look["budget_demand_be"].items() if p == f"{year}-04-01")
+    rows = []
+    for e in sorted({e for e, p in look["budget_demand_be"] if p == f"{year}-04-01"}):
+        vals = [look[sid].get((e, f"{y}-04-01")) for sid, y, _ in cols]
+        re_, now = vals[2], vals[3]
+        rows.append({"name": e, "demand": notes.get(e, ""), "values": vals,
+                     "change_pct": None if not re_ or now is None else round(100 * (now / re_ - 1), 1),
+                     "share": round(100 * now / total, 2)})
+    rows.sort(key=lambda r: -r["values"][3])
+    return {"year": fy(year), "columns": [c[2] for c in cols], "total": round(total, 3), "rows": rows}
+
+
 def division_label(spec: dict) -> str:
     """'CPI food & beverages' -> 'Food & beverages'."""
     s = spec["short_title"].removeprefix("CPI ")
@@ -521,6 +546,7 @@ def main() -> int:
     write_json(OUT / "calendar.json", cal)
     write_json(OUT / "mpc_decisions.json", mpc_decisions(cal))
     write_json(OUT / "budget.json", budget_table())
+    write_json(OUT / "budget_demands.json", budget_demands())
     write_json(OUT / "yield_curve.json", yield_curve())
     write_json(OUT / "cpi_momentum_base.json", cpi_momentum_base())
     write_json(OUT / "policy_rule.json", policy_rule_inputs())

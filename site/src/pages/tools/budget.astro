@@ -1,0 +1,35 @@
+---
+// Union Budget explorer: spending by ministry/department (demand for grants), Statement 3.
+import Base from "../../layouts/Base.astro";
+import RankedBars from "../../components/RankedBars.astro";
+import { num } from "../../lib/format.js";
+import fs from "node:fs";
+const d = JSON.parse(fs.readFileSync("src/data/generated/budget_demands.json", "utf8"));
+const top = d.rows.slice(0, 15).map((r) => ({ label: r.name, value: Math.round(r.values[3] * 100) / 100 }));
+const cell = (v) => (v === null || v === undefined ? "–" : num(v * 100, 0));   // lakh crore -> ₹ '000 crore
+---
+<Base current="tools" title="Budget explorer">
+  <p class="chart-sub">Tools / Budget explorer</p>
+  <h1>Union Budget {d.year}: who spends what</h1>
+  <p class="lede">Spending by each ministry and department (each "demand for grants") in the Union Budget, with last year's estimates and the latest actuals. Total spending in {d.year}: ₹{num(d.total, 2)} lakh crore.</p>
+
+  <RankedBars title="The fifteen largest demands" subtitle={`₹ lakh crore, ${d.year} Budget Estimates`} rows={top} decimals={2} source="Ministry of Finance, Expenditure Profile, Statement 3." />
+
+  <h2 id="all">All {d.rows.length} demands</h2>
+  <p><label>Search: <input type="search" id="demand-filter" placeholder="e.g. health, railways, defence" style="width:min(320px,90%);padding:4px 6px;font:inherit" /></label></p>
+  <div class="scroll"><table class="data" id="demand-table">
+    <thead><tr><th>Ministry / department</th>{d.columns.map((c) => <th>{c}</th>)}<th>BE vs last RE</th><th>Share of total</th></tr></thead>
+    <tbody>{d.rows.map((r) => <tr data-name={r.name.toLowerCase()}><td>{r.name} <span class="chart-sub">({r.demand})</span></td>
+      {r.values.map((v) => <td>{cell(v)}</td>)}
+      <td>{r.change_pct === null ? "–" : `${r.change_pct > 0 ? "+" : ""}${num(r.change_pct, 1)}%`}</td><td>{num(r.share, 1)}%</td></tr>)}</tbody>
+  </table></div>
+  <p class="chart-sub">₹ thousand crore (₹ crore ÷ 1,000), revenue plus capital spending. BE: Budget Estimates; RE: Revised Estimates; Actuals: the outturn as printed in the Budget. "BE vs last RE" and the shares are site calculations. Interest payments, pensions and transfers to states appear as their own demands. The demands add up to the Budget's total expenditure; we check that every time the data are read. Source: Ministry of Finance, Expenditure Profile {d.year}, Statement 3. Downloads: <a href="/data/budget_demand_be/">Budget Estimates</a>, <a href="/data/budget_demand_re/">Revised Estimates</a>, <a href="/data/budget_demand_actuals/">Actuals</a>.</p>
+</Base>
+<script>
+  const input = document.getElementById("demand-filter");
+  const rows = [...document.querySelectorAll("#demand-table tbody tr")];
+  input?.addEventListener("input", () => {
+    const q = input.value.trim().toLowerCase();
+    rows.forEach((tr) => { tr.style.display = !q || tr.dataset.name.includes(q) ? "" : "none"; });
+  });
+</script>

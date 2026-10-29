@@ -1,0 +1,40 @@
+id: budget_demand_be
+title: 'Union Budget spending by ministry/department: Budget Estimates'
+short_title: Spending by ministry (Budget Estimates)
+area: fiscal
+source:
+  agency: Ministry of Finance
+  dataset: 'Expenditure Profile, Statement 3: Expenditure of Ministries and Departments'
+  url: https://www.indiabudget.gov.in/
+  module: pipelines/sources/budget/demands.py
+licence: GODL
+downloadable: true
+fetch: auto
+frequency: A
+unit: inr_lakh_crore
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+release:
+  calendar: none
+  rule: Union Budget day (usually 1 February)
+  lag_days: 0
+validation:
+  range:
+  - -1
+  - 100
+  revision_alert: 5
+pages:
+- page: tools
+  section: budget-explorer
+original: true
+discontinued: null
+owner: ''
+verified_against: []
+notes: Budget Estimates, total (revenue + capital) spending of each demand for grants,
+  ₹ lakh crore (₹ crore in the file); period = 1 April of the financial year. The
+  demands add up to the Budget's total expenditure (checked on every run). History
+  builds up one Budget at a time from 2024-25.
+panel: true
+entity: demand

@@ -17,3 +17,13 @@ def test_budget_at_a_glance(raw_from):
     assert at(df, "budget_be", "Revenue deficit", "2026-04-01") == 5.9234
     assert set(df.entity) == set(ORDER)
     assert len(df) == len(ORDER) * 4
+
+
+def test_demands_add_up(raw_from):
+    from pipelines.sources.budget.demands import SOURCE as DEMANDS
+    df = DEMANDS.parse([raw_from("budget/stat3a_2026-27.xlsx")])
+    be = df[(df.series_id == "budget_demand_be") & (df.period == "2026-04-01")]
+    assert be.entity.nunique() == 102
+    assert round(be.value.sum(), 3) == 53.473                       # Grand Total, Rs 53,47,315 crore
+    rail = be[be.entity == "Ministry of Railways"].iloc[0]
+    assert (rail.value, rail.note) == (2.81377, "Demand No. 85")

@@ -146,6 +146,27 @@
     "last_error": null,
     "last_period": "2026-04-01"
   },
+  "budget_demand_actuals": {
+    "last_attempt": "2026-10-29T10:55:01+00:00",
+    "last_success": "2026-10-29T10:55:01+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2024-04-01"
+  },
+  "budget_demand_be": {
+    "last_attempt": "2026-10-29T10:55:01+00:00",
+    "last_success": "2026-10-29T10:55:01+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-04-01"
+  },
+  "budget_demand_re": {
+    "last_attempt": "2026-10-29T10:55:01+00:00",
+    "last_success": "2026-10-29T10:55:01+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2025-04-01"
+  },
   "budget_re": {
     "last_attempt": "2026-10-29T09:55:02+00:00",
     "last_success": "2026-10-29T09:55:02+00:00",

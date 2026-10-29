@@ -44,7 +44,7 @@ function drawHbar(el, spec) {
     marks.push(Plot.text([spec.reference], { x: (d) => d, frameAnchor: "top", dy: -4, text: () => `${spec.referenceLabel} ${spec.reference.toFixed(spec.decimals ?? 1)}`, fill: palette[1], fontSize: 10 }));
   }
   el.replaceChildren(Plot.plot({
-    width, height: Math.max(260, rows.length * 16 + 50), marginLeft: Math.min(230, width * 0.42), marginRight: 40, marginTop: 24,
+    width, height: Math.max(260, rows.length * 16 + 50), marginLeft: Math.min(290, width * 0.45), marginRight: 40, marginTop: 24,
     style: { fontFamily: "Inter, system-ui, sans-serif", fontSize: "11px", background: "transparent" },
     x: { grid: true, label: spec.xLabel ?? null }, y: { label: null }, marks,
   }));

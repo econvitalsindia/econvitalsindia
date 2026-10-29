@@ -81,6 +81,7 @@ export const more = [
     ["MPC Speak", "/money/mpc-speak/"],
     ["Policy rule for RBI", "/tools/policy-rule/"],
     ["India and its peers", "/tools/peers/"],
+    ["Budget explorer", "/tools/budget/"],
     ["Core CPI (ex food and fuel)", "/inflation/#core-cpi"],
     ["Inflation by division", "/inflation/detail/"],
     ["Brent crude in rupees", "/markets/"],
