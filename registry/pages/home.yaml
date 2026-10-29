@@ -6,6 +6,7 @@ tiles:
   - {series: cpi_core_index, transform: yoy, label: "Core CPI", href: "/inflation/", fmt: "pct2", show: year_ago}
   - {series: iip_general_growth, transform: level, label: "IIP growth", href: "/activity/", fmt: "pct1", show: year_ago}
   - {series: power_energy_met, transform: 7dma_yoy, label: "Power demand, y/y", href: "/activity/", fmt: "pct1"}
+  - {series: upi_volume, transform: yoy, label: "UPI transactions, y/y", href: "/activity/#digital", fmt: "pct1"}
   - {series: plfs_ur_monthly, transform: level, label: "Unemployment", href: "/jobs/", fmt: "pct1", show: year_ago}
   - {series: gst_gross_growth, transform: level, label: "GST growth", href: "/fiscal/", fmt: "pct1", show: year_ago}
   - {series: cga_fiscal_deficit_pct_be, transform: level, label: "Fiscal deficit, % of BE", href: "/fiscal/", fmt: "pct1"}
@@ -20,7 +21,7 @@ tiles:
   - {series: sensex_close, transform: level, label: "Sensex", href: "/markets/", fmt: "num0", show: ytd}
   - {series: brent_inr, transform: level, label: "Brent in ₹", href: "/markets/", fmt: "num0", show: ytd}
 # Planned tiles (no numbers shown until their series exist): see registry/backlog.yaml
-planned: ["UPI", "MGNREGA work demand"]
+planned: ["MGNREGA work demand"]
 # "India in questions" cards. stat: latest | year_ago | avg4 (mean of the last 4 periods).
 questions:
   - q: "Is inflation near RBI's 4% target?"

@@ -1,0 +1,43 @@
+{
+  "id": "ewaybills_count",
+  "title": "E-way bills generated, all India, per month",
+  "short_title": "E-way bills",
+  "unit": "crore",
+  "frequency": "M",
+  "base_year": null,
+  "source": {
+    "agency": "GSTN (GST portal)",
+    "dataset": "E-way bill statistics",
+    "url": "https://www.gst.gov.in/download/gststatistics",
+    "module": "pipelines/sources/gst/ewaybills.py"
+  },
+  "licence": "GODL",
+  "downloadable": true,
+  "first_period": "2018-07-01",
+  "last_period": "2026-08-01",
+  "last_value": 13.7283,
+  "observations": 98,
+  "updated_at": "2026-10-29T09:37:32+00:00",
+  "fetched_from": [
+    "https://tutorial.gst.gov.in/offlineutilities/gst_statistics/ewb-data-2018-19.xlsx",
+    "https://tutorial.gst.gov.in/offlineutilities/gst_statistics/ewb-data-2019-20.xlsx",
+    "https://tutorial.gst.gov.in/offlineutilities/gst_statistics/ewb-data-2020-21.xlsx",
+    "https://tutorial.gst.gov.in/offlineutilities/gst_statistics/ewb-data-2021-22.xlsx",
+    "https://tutorial.gst.gov.in/offlineutilities/gst_statistics/ewb-data-2022-23.xlsx",
+    "https://tutorial.gst.gov.in/offlineutilities/gst_statistics/ewb-data-2023-24.xlsx",
+    "https://tutorial.gst.gov.in/offlineutilities/gst_statistics/ewb-data-2024-25.xlsx",
+    "https://tutorial.gst.gov.in/offlineutilities/gst_statistics/ewb-data-2025-26.xlsx",
+    "https://tutorial.gst.gov.in/offlineutilities/gst_statistics/ewb-data-2026-27.xlsx"
+  ],
+  "raw_files": [
+    "data/raw/gst_ewaybills/20261029T093723-2ead507315.xlsx",
+    "data/raw/gst_ewaybills/20261029T093724-1c1fa7ef1e.xlsx",
+    "data/raw/gst_ewaybills/20261029T093725-b9a7ec04d4.xlsx",
+    "data/raw/gst_ewaybills/20261029T093726-95def477f8.xlsx",
+    "data/raw/gst_ewaybills/20261029T093727-739b50801b.xlsx",
+    "data/raw/gst_ewaybills/20261029T093729-26a86a0bd3.xlsx",
+    "data/raw/gst_ewaybills/20261029T093730-0b8f437f10.xlsx",
+    "data/raw/gst_ewaybills/20261029T093731-0071a702c0.xlsx",
+    "data/raw/gst_ewaybills/20261029T093732-e250b58ebc.xlsx"
+  ]
+}

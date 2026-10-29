@@ -1,0 +1,36 @@
+id: air_freight_total
+title: Air freight handled, all Indian airports, per month
+short_title: Air freight
+area: activity
+source:
+  agency: Airports Authority of India
+  dataset: Traffic News (monthly air traffic report)
+  url: https://www.aai.aero/en/business-opportunities/aai-traffic-news
+  module: pipelines/sources/aai/traffic.py
+licence: unverified
+downloadable: false
+fetch: auto
+frequency: M
+unit: thousand_tonnes
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+- yoy
+release:
+  calendar: none
+  rule: AAI traffic report, about three weeks after the month
+  lag_days: 30
+validation:
+  range:
+  - 50
+  - 2000
+  revision_alert: 5
+pages:
+- page: activity
+  section: air
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: '''000 tonnes, domestic plus international, at all operational airports.'

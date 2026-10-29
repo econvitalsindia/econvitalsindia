@@ -35,6 +35,9 @@ export const topics = [
     ["Electricity demand", "/activity/#electricity"],
     ["Vehicle sales", "/activity/#vehicles"],
     ["Fuel consumption", "/activity/#fuel"],
+    ["UPI payments", "/activity/#digital"],
+    ["E-way bills", "/activity/#ewaybills"],
+    ["Air traffic", "/activity/#air"],
   ] },
   { key: "money", label: "Money", href: "/money/", items: [
     ["Policy rates and the call rate", "/money/"],

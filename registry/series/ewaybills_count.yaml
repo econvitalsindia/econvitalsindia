@@ -1,0 +1,39 @@
+id: ewaybills_count
+title: E-way bills generated, all India, per month
+short_title: E-way bills
+area: activity
+source:
+  agency: GSTN (GST portal)
+  dataset: E-way bill statistics
+  url: https://www.gst.gov.in/download/gststatistics
+  module: pipelines/sources/gst/ewaybills.py
+licence: GODL
+downloadable: true
+fetch: auto
+frequency: M
+unit: crore
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+- yoy
+release:
+  calendar: none
+  rule: GST statistics workbook, updated about a month after the month
+  lag_days: 40
+validation:
+  range:
+  - 0.3
+  - 50
+  revision_alert: 3
+pages:
+- page: activity
+  section: ewaybills
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: 'Crore e-way bills a month: the sum over states of within-state and outgoing
+  bills (incoming bills are other states'' outgoing, so they are not added). An e-way
+  bill is needed to move goods worth over ₹50,000, so the count tracks goods movement.
+  From July 2018.'

@@ -1,0 +1,43 @@
+{
+  "id": "air_passengers_domestic",
+  "title": "Domestic air passengers, all Indian airports, per month",
+  "short_title": "Domestic air passengers",
+  "unit": "million",
+  "frequency": "M",
+  "base_year": null,
+  "source": {
+    "agency": "Airports Authority of India",
+    "dataset": "Traffic News (monthly air traffic report)",
+    "url": "https://www.aai.aero/en/business-opportunities/aai-traffic-news",
+    "module": "pipelines/sources/aai/traffic.py"
+  },
+  "licence": "unverified",
+  "downloadable": false,
+  "first_period": "2025-01-01",
+  "last_period": "2026-09-01",
+  "last_value": 24.0,
+  "observations": 18,
+  "updated_at": "2026-10-29T09:37:15+00:00",
+  "fetched_from": [
+    "https://www.aai.aero/sites/default/files/traffic-news/TRApr2k26.pdf",
+    "https://www.aai.aero/sites/default/files/traffic-news/TRAug2k26.pdf",
+    "https://www.aai.aero/sites/default/files/traffic-news/TRFeb2k26.pdf",
+    "https://www.aai.aero/sites/default/files/traffic-news/TRJan2k26_0.pdf",
+    "https://www.aai.aero/sites/default/files/traffic-news/TRJun2k26.pdf",
+    "https://www.aai.aero/sites/default/files/traffic-news/TRMar2k26_2.pdf",
+    "https://www.aai.aero/sites/default/files/traffic-news/TRMay2k26.pdf",
+    "https://www.aai.aero/sites/default/files/traffic-news/TRSep2k_26.pdf",
+    "https://www.aai.aero/sites/default/files/traffic-news/TRjul2k26.pdf"
+  ],
+  "raw_files": [
+    "data/raw/aai_traffic/20261029T093637-2467bef0ee.pdf",
+    "data/raw/aai_traffic/20261029T093643-d0d8b07d19.pdf",
+    "data/raw/aai_traffic/20261029T093650-84ff72bd2d.pdf",
+    "data/raw/aai_traffic/20261029T093653-ad09b7711b.pdf",
+    "data/raw/aai_traffic/20261029T093659-bd60aa9d1e.pdf",
+    "data/raw/aai_traffic/20261029T093704-c073c40b27.pdf",
+    "data/raw/aai_traffic/20261029T093707-959dc4b4e9.pdf",
+    "data/raw/aai_traffic/20261029T093709-0d1fc670a4.pdf",
+    "data/raw/aai_traffic/20261029T093714-4f01cc9dee.pdf"
+  ]
+}

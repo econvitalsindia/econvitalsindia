@@ -1,0 +1,38 @@
+id: upi_volume
+title: UPI transactions, number per month
+short_title: UPI transactions
+area: activity
+source:
+  agency: RBI
+  dataset: Payment System Indicators
+  url: https://www.rbi.org.in/Scripts/PSIUserView.aspx
+  module: pipelines/sources/rbi/payments.py
+licence: unverified
+downloadable: false
+fetch: auto
+frequency: M
+unit: crore
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+- yoy
+release:
+  calendar: none
+  rule: RBI PSI, about three weeks after the month
+  lag_days: 35
+validation:
+  range:
+  - 100
+  - 10000
+  revision_alert: 5
+pages:
+- page: activity
+  section: digital
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: Crore transactions a month (lakh in the source). NPCI publishes the same data
+  but its site refuses scripted requests, so we take RBI's reprint. The latest month
+  is provisional and revised in the next month's file.

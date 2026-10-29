@@ -1,0 +1,39 @@
+id: air_passengers_domestic
+title: Domestic air passengers, all Indian airports, per month
+short_title: Domestic air passengers
+area: activity
+source:
+  agency: Airports Authority of India
+  dataset: Traffic News (monthly air traffic report)
+  url: https://www.aai.aero/en/business-opportunities/aai-traffic-news
+  module: pipelines/sources/aai/traffic.py
+licence: unverified
+downloadable: false
+fetch: auto
+frequency: M
+unit: million
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+- yoy
+release:
+  calendar: none
+  rule: AAI traffic report, about three weeks after the month
+  lag_days: 30
+validation:
+  range:
+  - 1
+  - 100
+  revision_alert: 5
+pages:
+- page: activity
+  section: air
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: Million passengers handled at all operational airports (AAI and private), domestic.
+  Only the current year's reports
+  are linked on AAI's page; the year before comes from each report's year-earlier
+  column.

@@ -7,7 +7,7 @@ const use = ["primary_goods", "capital_goods", "intermediate_goods", "infra_cons
 ---
 <Base current="activity" title="Activity">
   <h1>Activity</h1>
-  <p class="lede">What do the monthly indicators say about momentum before GDP comes out? Industrial production from MoSPI (Index of Industrial Production, base 2022-23).</p>
+  <p class="lede">What do the monthly indicators say about momentum before GDP comes out? Industrial production from MoSPI (Index of Industrial Production, base 2022-23), then high-frequency signals: power, vehicles, fuel, UPI payments, e-way bills and air traffic.</p>
 
   <LineChart title="Industrial production growth, as published" subtitle="IIP, % change on a year earlier"
     lines={[{ id: "iip_general_growth", label: "IIP" }]} years={6} />
@@ -65,6 +65,33 @@ const use = ["primary_goods", "capital_goods", "intermediate_goods", "infra_cons
   ]} />
   <p class="chart-sub">Petroleum Planning &amp; Analysis Cell (Ministry of Petroleum and Natural Gas): sales by oil companies plus private direct imports, all provisional. The latest months use prorated import estimates and are revised. Diesel follows freight and farm activity; jet fuel follows air travel. Growth rates are site calculations from the published tonnes. From April 2023.</p>
 
+  <h2 id="digital">Digital payments (UPI)</h2>
+  <div class="grid2">
+    <LineChart title="UPI transactions" subtitle="Crore transactions a month"
+      lines={[{ id: "upi_volume", label: "Number" }]} years={2} />
+    <LineChart title="UPI, change on a year earlier" subtitle="% change in number and value of transactions"
+      lines={[{ id: "upi_volume", how: "yoy", label: "Number" }, { id: "upi_value", how: "yoy", label: "Value" }]} years={2} />
+  </div>
+  <p class="chart-sub">Unified Payments Interface transactions, as reprinted in RBI's monthly Payment System Indicators (NPCI's own pages can't be read by our scripts). The latest month is provisional. Growth rates are site calculations.</p>
+
+  <h2 id="ewaybills">E-way bills</h2>
+  <div class="grid2">
+    <LineChart title="E-way bills generated" subtitle="Crore a month, all India"
+      lines={[{ id: "ewaybills_count", label: "E-way bills" }]} years={4} />
+    <LineChart title="E-way bills, change on a year earlier" subtitle="% change in number and in the value of goods covered"
+      lines={[{ id: "ewaybills_count", how: "yoy", label: "Number" }, { id: "ewaybills_value", how: "yoy", label: "Value" }]} years={3} />
+  </div>
+  <p class="chart-sub">An e-way bill is needed to move goods worth more than ₹50,000, so the count is a monthly read on goods movement. All-India totals are site sums over states of within-state and outgoing bills (incoming bills are other states' outgoing ones). Source: GST portal, e-way bill statistics, from July 2018. The value series is in current prices.</p>
+
+  <h2 id="air">Air traffic</h2>
+  <div class="grid2">
+    <LineChart title="Air passengers" subtitle="Million a month, all Indian airports"
+      lines={[{ id: "air_passengers_domestic", label: "Domestic" }, { id: "air_passengers_international", label: "International" }]} years={2} />
+    <LineChart title="Air traffic, change on a year earlier" subtitle="%"
+      lines={[{ id: "air_passengers_domestic", how: "yoy", label: "Domestic passengers" }, { id: "air_passengers_international", how: "yoy", label: "International passengers" }, { id: "air_freight_total", how: "yoy", label: "Freight" }]} years={2} />
+  </div>
+  <p class="chart-sub">Passengers handled at all operational airports, as AAI reports them. Source: Airports Authority of India, monthly traffic reports. AAI's page lists only the current year's reports, so the series starts in January 2025 (from the year-earlier columns) and has a gap for October–December 2025 that fills as next year's reports appear.</p>
+
   <h2>Still to come on this page</h2>
-  <p class="chart-sub"> GST and e-way bills, retail vehicle registrations (Vahan), rail freight, air traffic, UPI, PMI headline. Checklist: docs/guidebook/05-pages/activity.md.</p>
+  <p class="chart-sub">Retail vehicle registrations (Vahan), rail freight loading, PMI headline. Checklist: docs/guidebook/05-pages/activity.md.</p>
 </Base>

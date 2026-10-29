@@ -1,0 +1,36 @@
+id: upi_value
+title: UPI transactions, value per month
+short_title: UPI value
+area: activity
+source:
+  agency: RBI
+  dataset: Payment System Indicators
+  url: https://www.rbi.org.in/Scripts/PSIUserView.aspx
+  module: pipelines/sources/rbi/payments.py
+licence: unverified
+downloadable: false
+fetch: auto
+frequency: M
+unit: inr_lakh_crore
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+- yoy
+release:
+  calendar: none
+  rule: RBI PSI, about three weeks after the month
+  lag_days: 35
+validation:
+  range:
+  - 5
+  - 200
+  revision_alert: 5
+pages:
+- page: activity
+  section: digital
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: ₹ lakh crore a month (₹ crore in the source). Latest month provisional.
