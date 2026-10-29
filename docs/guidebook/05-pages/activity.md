@@ -10,7 +10,7 @@
 - [x] Auto: passenger vehicle, two- and three-wheeler sales (SIAM wholesale; PV from Apr 2023)
 - [x] Auto: Vahan retail registrations, from FADA's monthly PDF (pipelines/sources/fada/retail.py; newest release wins)
 - [x] Fuel consumption (PPAC): total, diesel, petrol, ATF, LPG (from Apr 2023)
-- [ ] Rail freight loading
+- [ ] Rail freight loading (blocked 2026-10-29: no scriptable source; see 03-data-sources.md, Indian Railways row)
 - [x] Domestic and international air passengers, air freight (AAI monthly traffic reports, from Jan 2025)
 - [x] Digital pulse: UPI volume and value (y/y) via RBI Payment System Indicators. FASTag still to add (Phase 4)
 - [ ] PMI manufacturing/services headline (cited only; licensed)
