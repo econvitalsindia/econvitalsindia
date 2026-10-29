@@ -1,0 +1,38 @@
+id: peer_cpi_inflation
+title: Consumer price inflation, India and emerging-market peers
+short_title: CPI inflation (peers)
+area: external
+source:
+  agency: BIS
+  dataset: Consumer prices (WS_LONG_CPI), % on a year earlier
+  url: https://data.bis.org/topics/CPI
+  module: pipelines/sources/intl/peers.py
+licence: other:BIS / World Bank terms, reuse with attribution
+downloadable: true
+fetch: auto
+frequency: M
+unit: percent
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+release:
+  calendar: none
+  rule: updated by the BIS and World Bank as countries publish
+  lag_days: 45
+validation:
+  range:
+  - -10
+  - 100
+  revision_alert: 2
+pages:
+- page: tools
+  section: peers
+original: true
+discontinued: null
+owner: ''
+verified_against: []
+notes: '% on a year earlier, monthly, as compiled by the BIS from national sources.
+  Since 2015.'
+panel: true
+entity: country

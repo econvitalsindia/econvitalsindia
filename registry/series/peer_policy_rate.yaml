@@ -1,0 +1,38 @@
+id: peer_policy_rate
+title: Central bank policy rates, India and emerging-market peers
+short_title: Policy rates (peers)
+area: external
+source:
+  agency: BIS
+  dataset: Central bank policy rates (WS_CBPOL)
+  url: https://data.bis.org/topics/CBPOL
+  module: pipelines/sources/intl/peers.py
+licence: other:BIS / World Bank terms, reuse with attribution
+downloadable: true
+fetch: auto
+frequency: M
+unit: percent
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+release:
+  calendar: none
+  rule: updated by the BIS and World Bank as countries publish
+  lag_days: 45
+validation:
+  range:
+  - -1
+  - 60
+  revision_alert: 2
+pages:
+- page: tools
+  section: peers
+original: true
+discontinued: null
+owner: ''
+verified_against: []
+notes: End of month, % a year, as compiled by the BIS from each central bank. Since
+  2015.
+panel: true
+entity: country

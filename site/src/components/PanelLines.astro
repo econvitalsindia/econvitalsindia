@@ -1,0 +1,17 @@
+---
+// Lines for chosen entities of a panel JSON (e.g. countries), drawn by charts.js like LineChart.
+const { title, subtitle, panel, entities, years = 5, reference = null, source } = Astro.props;
+const series = entities.map((e) => {
+  const row = panel.rows.find((r) => r.entity === e);
+  return { label: e, curve: "linear", points: panel.periods.filter((p) => row?.values[p] != null).map((p) => [p, row.values[p]]) };
+}).filter((s) => s.points.length);
+---
+<figure class="chart">
+  <p class="chart-title">{title}</p>
+  {subtitle && <p class="chart-sub">{subtitle}</p>}
+  <div class="plot" data-chart={JSON.stringify({ series, years, reference })}></div>
+  <figcaption><span>Source: {source}</span></figcaption>
+</figure>
+<script>
+  import "../scripts/charts.js";
+</script>

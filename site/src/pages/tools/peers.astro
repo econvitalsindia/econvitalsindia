@@ -1,0 +1,43 @@
+---
+// India against emerging-market peers: policy rates, inflation and growth (BIS, World Bank).
+import Base from "../../layouts/Base.astro";
+import PanelLines from "../../components/PanelLines.astro";
+import RankedBars from "../../components/RankedBars.astro";
+import { num, period } from "../../lib/format.js";
+import fs from "node:fs";
+
+const panel = (id) => JSON.parse(fs.readFileSync(`src/data/generated/panels/${id}.json`, "utf8"));
+const policy = panel("peer_policy_rate"), cpi = panel("peer_cpi_inflation"), gdp = panel("peer_gdp_growth");
+// Latest month every country has reported (ref_period), so the comparison is like for like.
+const ref = cpi.ref_period;
+const at = (p, e, per) => p.rows.find((r) => r.entity === e)?.values[per] ?? null;
+const gdpYear = gdp.ref_period;
+const countries = policy.rows.map((r) => r.entity);
+const table = countries.map((e) => {
+  const rate = at(policy, e, ref), infl = at(cpi, e, ref);
+  return { e, rate, infl, real: rate !== null && infl !== null ? rate - infl : null, growth: at(gdp, e, gdpYear) };
+}).sort((a, b) => (b.real ?? -99) - (a.real ?? -99));
+const bars = table.filter((r) => r.real !== null).map((r) => ({ label: r.e, value: Math.round(r.real * 100) / 100, highlight: r.e === "India" }));
+const show = ["India", "China", "Indonesia", "Brazil", "South Africa", "Mexico"];
+---
+<Base current="tools" title="India and its peers">
+  <p class="chart-sub">Tools / India and its peers</p>
+  <h1>India and its peers</h1>
+  <p class="lede">Policy rates, inflation and growth in India and eight other emerging economies, from the same international sources for every country. Latest month all countries have reported: {period(ref, "M")}.</p>
+
+  <div class="scroll"><table class="data">
+    <thead><tr><th>Country</th><th>Policy rate, %</th><th>CPI inflation, %</th><th>Real policy rate</th><th>Real GDP growth, {gdpYear.slice(0, 4)}</th></tr></thead>
+    <tbody>{table.map((r) => <tr><td>{r.e === "India" ? <b>India</b> : r.e}</td><td>{r.rate === null ? "–" : num(r.rate, 2)}</td>
+      <td>{r.infl === null ? "–" : num(r.infl, 1)}</td><td>{r.real === null ? "–" : num(r.real, 1)}</td><td>{r.growth === null ? "–" : `${num(r.growth, 1)}%`}</td></tr>)}</tbody>
+  </table></div>
+  <p class="chart-sub">Real policy rate = policy rate minus the latest 12-month CPI inflation (site calculation); it looks backward, not at expected inflation. Rows are sorted by it.</p>
+
+  <RankedBars title="Real policy rates" subtitle={`Policy rate minus CPI inflation, percentage points, ${period(ref, "M")}`} rows={bars} source="BIS; site calculation." />
+
+  <div class="grid2">
+    <PanelLines title="Policy rates" subtitle="%, end of month" panel={policy} entities={show} years={5} source="BIS central bank policy rates." />
+    <PanelLines title="CPI inflation" subtitle="% on a year earlier" panel={cpi} entities={show} years={5} source="BIS consumer prices." />
+  </div>
+  <PanelLines title="Real GDP growth" subtitle="Annual %, World Bank" panel={gdp} entities={show} years={10} source="World Bank, World Development Indicators." />
+  <p class="chart-sub">Each source applies its own definitions, so India's figures here can differ slightly from the national figures elsewhere on this site (for example, the World Bank's year for India may not match the financial year on the Growth page). The IMF's data API refuses our scripts, so IMF projections are not shown. All nine countries are in the <a href="/data/">data downloads</a>.</p>
+</Base>

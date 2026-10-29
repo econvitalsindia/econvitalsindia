@@ -9,7 +9,7 @@
 - [ ] **Union Budget explorer**: BE/RE/Actuals by ministry and major heads, over time
 - [ ] **Monsoon and food watch**: rainfall vs LPA by subdivision, reservoir storage, daily prices of key vegetables, vs CPI food
 - [ ] **Base-year bridge explorer**: old vs new base series in the overlap period
-- [ ] **India vs peers**: growth, inflation and policy rates vs EM peers (IMF/World Bank data)
+- [x] (`/tools/peers/`: BIS policy rates and CPI, World Bank GDP; IMF API returns 403) **India vs peers**: growth, inflation and policy rates vs EM peers (IMF/World Bank data)
 
 ## Must NOT include
 - Tools that need a server at runtime (everything precomputed or client-side)

@@ -80,6 +80,7 @@ export const more = [
   { key: "tools", label: "Tools", href: "/money/mpc-speak/", items: [
     ["MPC Speak", "/money/mpc-speak/"],
     ["Policy rule for RBI", "/tools/policy-rule/"],
+    ["India and its peers", "/tools/peers/"],
     ["Core CPI (ex food and fuel)", "/inflation/#core-cpi"],
     ["Inflation by division", "/inflation/detail/"],
     ["Brent crude in rupees", "/markets/"],

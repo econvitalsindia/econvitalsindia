@@ -1,0 +1,38 @@
+id: peer_gdp_growth
+title: Real GDP growth, India and emerging-market peers
+short_title: GDP growth (peers)
+area: external
+source:
+  agency: World Bank
+  dataset: World Development Indicators, NY.GDP.MKTP.KD.ZG
+  url: https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG
+  module: pipelines/sources/intl/peers.py
+licence: other:CC BY 4.0 (World Bank)
+downloadable: true
+fetch: auto
+frequency: A
+unit: percent
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+release:
+  calendar: none
+  rule: updated by the BIS and World Bank as countries publish
+  lag_days: 45
+validation:
+  range:
+  - -30
+  - 30
+  revision_alert: 2
+pages:
+- page: tools
+  section: peers
+original: true
+discontinued: null
+owner: ''
+verified_against: []
+notes: Annual %, constant prices, as published by the World Bank. Its year for India
+  may not match the financial-year figures on our Growth page.
+panel: true
+entity: country
