@@ -1,28 +1,26 @@
 ---
 // Newsletter signup box. Renders nothing until site.config.yaml newsletter.enabled is true
-// and newsletter.buttondown_username is set. Subscribers live with Buttondown (double
-// opt-in: they confirm by email before the first send). The form posts into a hidden
-// iframe, so the reader stays on the page and sees a closable confirmation instead of a
-// new tab.
+// and newsletter.buttondown_username is set. The form posts to /api/subscribe (a Cloudflare
+// Pages Function, functions/api/subscribe.js), which adds the reader through Buttondown's
+// API; Buttondown then emails them a confirmation link (double opt-in). The reader stays
+// on the page and sees a closable message with the real result.
 import { config } from "../lib/config.js";
 const n = config.newsletter ?? {};
-const action = n.buttondown_username ? `https://buttondown.com/api/emails/embed-subscribe/${n.buttondown_username}` : "";
 const id = `nl-${Math.random().toString(36).slice(2, 8)}`;
 const email = config.contact?.feedback_email ?? "";
 ---
-{n.enabled && action && (
+{n.enabled && n.buttondown_username && (
   <div class="signup-wrap" data-signup={id}>
-    <form class="signup" action={action} method="post" target={`${id}-frame`}>
+    <form class="signup" action="/api/subscribe" method="post" novalidate>
       <label for={`${id}-email`}>Every morning: a short email on India's economy, written by AI from the data on this site, with every number checked against the source.</label>
       <input id={`${id}-email`} type="email" name="email" placeholder="you@example.com" required autocomplete="email" />
-      <input type="hidden" value="1" name="embed" />
+      <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" class="signup-hp" />
       <button type="submit">Subscribe</button>
     </form>
     <div class="signup-done" role="status" hidden>
       <span class="signup-msg"></span>
       <button type="button" class="signup-close" aria-label="Close">×</button>
     </div>
-    <iframe name={`${id}-frame`} title="Newsletter signup" hidden></iframe>
   </div>
 )}
 <script define:vars={{ email }}>
@@ -30,26 +28,29 @@ const email = config.contact?.feedback_email ?? "";
     if (wrap.dataset.ready) return;
     wrap.dataset.ready = "1";
     const form = wrap.querySelector("form"), done = wrap.querySelector(".signup-done");
-    const msg = wrap.querySelector(".signup-msg"), frame = wrap.querySelector("iframe");
-    const button = form.querySelector("button");
-    let pending = false, timer;
+    const msg = wrap.querySelector(".signup-msg"), button = form.querySelector("button");
+    const input = form.querySelector('input[type="email"]');
+    const fallback = `Something went wrong. Please try again${email ? `, or write to ${email}` : ""}.`;
     const show = (ok, text) => {
-      pending = false; clearTimeout(timer);
       button.disabled = false; button.textContent = "Subscribe";
       done.classList.toggle("signup-error", !ok);
       msg.textContent = text;
       done.hidden = false;
       if (ok) { form.hidden = true; form.reset(); }
     };
-    form.addEventListener("submit", () => {
-      pending = true;
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      if (!input.checkValidity()) { show(false, "Please enter a valid email address."); return; }
       button.disabled = true; button.textContent = "Subscribing…";
-      timer = setTimeout(() => pending && show(false,
-        `Something went wrong. Please try again${email ? `, or write to ${email}` : ""}.`), 15000);
-    });
-    // The hidden frame loads once Buttondown has answered the form.
-    frame.addEventListener("load", () => {
-      if (pending) show(true, "✓ Almost done: check your inbox (and spam folder) for a confirmation email from Buttondown and click the link in it.");
+      try {
+        const r = await fetch(form.action, { method: "POST", body: new FormData(form) });
+        const res = await r.json().catch(() => ({}));
+        if (res.ok && res.status === "exists") show(true, "✓ You're already signed up. If you haven't confirmed yet, look for the confirmation email from Buttondown (check spam too).");
+        else if (res.ok) show(true, "✓ Almost done: check your inbox (and spam folder) for a confirmation email from Buttondown and click the link in it.");
+        else show(false, res.error || fallback);
+      } catch {
+        show(false, fallback);
+      }
     });
     wrap.querySelector(".signup-close").addEventListener("click", () => {
       done.hidden = true; form.hidden = false;

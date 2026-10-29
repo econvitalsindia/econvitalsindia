@@ -123,6 +123,7 @@ table.data.meta td:first-child { width: 220px; color: var(--muted); }
 .signup-done[hidden], .signup[hidden] { display: none; }
 .signup-done.signup-error { border-color: var(--neg, #c0261d); background: color-mix(in srgb, var(--neg, #c0261d) 8%, transparent); }
 .signup-msg { flex: 1; }
+.signup-hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
 .signup-close { border: 0; background: none; font-size: 1.2rem; line-height: 1; cursor: pointer; color: inherit; padding: 0 2px; }
 
 /* Chart tooltips (Observable Plot): always dark text on white */
