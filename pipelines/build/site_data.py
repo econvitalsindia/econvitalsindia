@@ -491,6 +491,35 @@ def open_issues() -> list[dict] | None:
             if keep & {lb["name"] for lb in i["labels"]}]
 
 
+def actions_minutes() -> dict | None:
+    """Estimated GitHub Actions minutes this calendar month (UTC), from the workflow runs'
+    start and end times, each rounded up to a whole minute as GitHub bills jobs. An estimate:
+    the exact figure (Settings -> Billing) needs organisation-admin access the build lacks."""
+    import math
+    import shutil
+    import subprocess
+    if not shutil.which("gh"):
+        return None
+    start = date.today().replace(day=1).isoformat()
+    try:
+        out = subprocess.run(["gh", "api", "--paginate", f"repos/{{owner}}/{{repo}}/actions/runs?created=>={start}&per_page=100",
+                              "--jq", ".workflow_runs[] | [.name, .run_started_at, .updated_at, .status] | @tsv"],
+                             cwd=store.ROOT, capture_output=True, text=True, timeout=120, check=True).stdout
+    except (subprocess.SubprocessError, OSError):
+        return None
+    total, runs, by_workflow = 0, 0, {}
+    for line in out.splitlines():
+        name, began, ended, status = (line.split("\t") + ["", "", "", ""])[:4]
+        if status != "completed" or not began or not ended:
+            continue
+        secs = (pd.Timestamp(ended) - pd.Timestamp(began)).total_seconds()
+        mins = max(1, math.ceil(secs / 60))
+        total, runs = total + mins, runs + 1
+        by_workflow[name] = by_workflow.get(name, 0) + mins
+    top = sorted(by_workflow.items(), key=lambda kv: -kv[1])[:6]
+    return {"month": start[:7], "minutes": total, "runs": runs, "limit": 2000, "by_workflow": top}
+
+
 def panel_payload(series_id: str, spec: dict, min_entities: int = 20) -> dict | None:
     """Entity x period panel for the site. `ref_period` is the latest period that at least
     `min_entities` entities have reported (late reporters otherwise skew rankings)."""
@@ -605,7 +634,8 @@ def main() -> int:
     write_json(OUT / "site.json", {"built_on": date.today().isoformat(), "as_of": as_of, "status": status})
     write_json(OUT / "health.json", {
         "series": [health(spec, payloads.get(sid), status.get(sid, {}), today) for sid, spec in specs.items()],
-        "issues": open_issues()})
+        "issues": open_issues(),
+        "actions": actions_minutes()})
 
     # Downloadable CSVs (licence permitting) are copied into the site's public folder.
     PUBLIC.mkdir(parents=True, exist_ok=True)

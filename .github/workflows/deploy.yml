@@ -13,6 +13,7 @@ concurrency:
 permissions:
   contents: read
   issues: read
+  actions: read   # the status page estimates this month's Actions minutes from run times
 jobs:
   deploy:
     runs-on: ubuntu-latest

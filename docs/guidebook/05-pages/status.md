@@ -6,7 +6,7 @@
 - [x] Table of every series: last fetched, last new data, next expected release, stale/overdue/discontinued state, last error, fetch mode
 - [x] Manual queue: `fetch: manual` series waiting on `make india-update`
 - [x] Open `scraper-broken` and `large-revision` issues (via the gh CLI at build time)
-- [ ] Actions minutes used this month vs the 2,000 free limit
+- [x] Actions minutes used this month vs the 2,000 free limit (estimate from run times; `actions_minutes` in site_data.py)
 - [x] Generated from `data/status.json`
 
 ## Must NOT include
