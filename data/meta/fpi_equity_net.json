@@ -1,0 +1,49 @@
+{
+  "id": "fpi_equity_net",
+  "title": "Foreign portfolio investors: net investment in equity, per month",
+  "short_title": "FPI equity flows",
+  "unit": "inr_crore",
+  "frequency": "M",
+  "base_year": null,
+  "source": {
+    "agency": "NSDL",
+    "dataset": "FPI monthly net investment (calendar year report)",
+    "url": "https://www.fpi.nsdl.co.in/web/Reports/Yearwise.aspx?RptType=6",
+    "module": "pipelines/sources/nsdl/fpi.py"
+  },
+  "licence": "unverified",
+  "downloadable": false,
+  "first_period": "2015-01-01",
+  "last_period": "2026-10-01",
+  "last_value": -34040.0,
+  "observations": 142,
+  "updated_at": "2026-10-29T10:21:42+00:00",
+  "fetched_from": [
+    "https://www.fpi.nsdl.co.in/web/Reports/Yearwise.aspx?RptType=6&year=2015",
+    "https://www.fpi.nsdl.co.in/web/Reports/Yearwise.aspx?RptType=6&year=2016",
+    "https://www.fpi.nsdl.co.in/web/Reports/Yearwise.aspx?RptType=6&year=2017",
+    "https://www.fpi.nsdl.co.in/web/Reports/Yearwise.aspx?RptType=6&year=2018",
+    "https://www.fpi.nsdl.co.in/web/Reports/Yearwise.aspx?RptType=6&year=2019",
+    "https://www.fpi.nsdl.co.in/web/Reports/Yearwise.aspx?RptType=6&year=2020",
+    "https://www.fpi.nsdl.co.in/web/Reports/Yearwise.aspx?RptType=6&year=2021",
+    "https://www.fpi.nsdl.co.in/web/Reports/Yearwise.aspx?RptType=6&year=2022",
+    "https://www.fpi.nsdl.co.in/web/Reports/Yearwise.aspx?RptType=6&year=2023",
+    "https://www.fpi.nsdl.co.in/web/Reports/Yearwise.aspx?RptType=6&year=2024",
+    "https://www.fpi.nsdl.co.in/web/Reports/Yearwise.aspx?RptType=6&year=2025",
+    "https://www.fpi.nsdl.co.in/web/Reports/Yearwise.aspx?RptType=6&year=2026"
+  ],
+  "raw_files": [
+    "data/raw/nsdl_fpi/20261029T102141-990701ae96.html",
+    "data/raw/nsdl_fpi/20261029T102141-5fe709d1f6.html",
+    "data/raw/nsdl_fpi/20261029T102141-07c4400721.html",
+    "data/raw/nsdl_fpi/20261029T102142-0d4b3d008b.html",
+    "data/raw/nsdl_fpi/20261029T102142-b9feb1d625.html",
+    "data/raw/nsdl_fpi/20261029T102142-e4164bece4.html",
+    "data/raw/nsdl_fpi/20261029T102142-00e2ec4fe4.html",
+    "data/raw/nsdl_fpi/20261029T102142-96c3a9f4d5.html",
+    "data/raw/nsdl_fpi/20261029T102142-074e9004db.html",
+    "data/raw/nsdl_fpi/20261029T102142-4a812ed7fe.html",
+    "data/raw/nsdl_fpi/20261029T102142-9e4ab864df.html",
+    "data/raw/nsdl_fpi/20261029T102142-616095daad.html"
+  ]
+}

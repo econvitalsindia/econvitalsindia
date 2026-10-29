@@ -262,6 +262,30 @@ def budget_table() -> dict:
     return {"year": fy(year), "columns": [c[2] for c in cols], "rows": rows}
 
 
+def yield_curve() -> dict:
+    """FBIL par yield curve on the latest date, about a month earlier, and the last date of
+    the previous financial year (31 March or the last business day before it)."""
+    from pipelines.sources.fbil.gsec_curve import TENORS
+    df = store.load_panel("gsec_par_yield")
+    if df.empty:
+        return {"curves": []}
+    df["value"] = df["value"].astype(float)
+    days = sorted(df["period"].unique())
+    last = days[-1]
+    month_ago = max(d for d in days if d <= (pd.Timestamp(last) - pd.DateOffset(months=1)).date().isoformat())
+    fy_end = f"{int(last[:4]) - (1 if last[5:7] <= '03' else 0)}-03-31"
+    year_end = max((d for d in days if d <= fy_end), default=None)
+    years = {label: t for t, label in TENORS.items()}
+    curves = []
+    for day, name, main in [(last, "Latest", True), (month_ago, "A month earlier", False), (year_end, "End of last FY", False)]:
+        if day is None:
+            continue
+        sub = df[df["period"] == day]
+        pts = sorted([[years[e], v] for e, v in zip(sub["entity"], sub["value"]) if e in years])
+        curves.append({"label": f"{name} ({pd.Timestamp(day):%d %b %Y})", "date": day, "main": main, "points": pts})
+    return {"curves": curves}
+
+
 def division_label(spec: dict) -> str:
     """'CPI food & beverages' -> 'Food & beverages'."""
     s = spec["short_title"].removeprefix("CPI ")
@@ -424,6 +448,7 @@ def main() -> int:
     write_json(OUT / "calendar.json", cal)
     write_json(OUT / "mpc_decisions.json", mpc_decisions(cal))
     write_json(OUT / "budget.json", budget_table())
+    write_json(OUT / "yield_curve.json", yield_curve())
     PUBLIC.parent.mkdir(parents=True, exist_ok=True)
     (PUBLIC.parent / "calendar.ics").write_text(calendar.ics(cal, registry.site_config()["site"]["name"]))
 

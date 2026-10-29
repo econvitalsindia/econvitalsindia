@@ -1,0 +1,36 @@
+id: term_spread_10y_repo
+title: 'Term spread: 10-year G-sec par yield minus repo rate'
+short_title: 10y – repo spread
+area: markets
+source:
+  agency: FBIL; site calculation
+  dataset: FBIL par yield curve
+  url: https://www.fbil.org.in/
+  module: pipelines/sources/derived/term_spread.py
+licence: unverified
+downloadable: false
+fetch: auto
+frequency: D
+unit: percent
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+release:
+  calendar: none
+  rule: daily, with the FBIL curve
+  lag_days: 10
+validation:
+  range:
+  - -5
+  - 8
+  revision_alert: 0.5
+pages:
+- page: markets
+  section: yield-curve
+original: true
+discontinued: null
+owner: ''
+verified_against: []
+notes: 'Percentage points. Site calculation: FBIL 10-year par yield minus the policy
+  repo rate in force on that day.'

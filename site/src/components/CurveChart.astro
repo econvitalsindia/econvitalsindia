@@ -1,0 +1,14 @@
+---
+// Yield curve: one line per date, x = tenor (log scale). Data from yield_curve.json (site_data.py).
+import { t } from "../lib/i18n.js";
+const { title, subtitle, curves, source } = Astro.props;
+---
+<figure class="chart">
+  <p class="chart-title">{title}</p>
+  {subtitle && <p class="chart-sub">{subtitle}</p>}
+  <div class="plot" data-chart={JSON.stringify({ kind: "curve", curves })}></div>
+  <figcaption><span>{t("chart.source")}: {source}.</span></figcaption>
+</figure>
+<script>
+  import "../scripts/charts.js";
+</script>

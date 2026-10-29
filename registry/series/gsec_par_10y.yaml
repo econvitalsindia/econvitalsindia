@@ -1,0 +1,36 @@
+id: gsec_par_10y
+title: 10-year G-sec par yield, daily (FBIL curve)
+short_title: 10-yr par yield (FBIL)
+area: markets
+source:
+  agency: Financial Benchmarks India (FBIL)
+  dataset: FBIL par yield curve
+  url: https://www.fbil.org.in/
+  module: pipelines/sources/derived/term_spread.py
+licence: unverified
+downloadable: false
+fetch: auto
+frequency: D
+unit: percent
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+release:
+  calendar: none
+  rule: daily, with the FBIL curve
+  lag_days: 10
+validation:
+  range:
+  - 0
+  - 20
+  revision_alert: 0.5
+pages:
+- page: markets
+  section: yield-curve
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: The 10-year point of FBIL's daily par yield curve, % a year, semi-annual. Public
+  files lag about a week.

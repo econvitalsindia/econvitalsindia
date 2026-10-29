@@ -1,0 +1,39 @@
+id: gsec_par_yield
+title: Government of India par yield curve, by tenor (FBIL)
+short_title: G-sec par yields
+area: markets
+source:
+  agency: Financial Benchmarks India (FBIL)
+  dataset: FBIL G-Sec prices and par yields (daily)
+  url: https://www.fbil.org.in/
+  module: pipelines/sources/fbil/gsec_curve.py
+licence: unverified
+downloadable: false
+fetch: auto
+frequency: D
+unit: percent
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+release:
+  calendar: none
+  rule: daily on business days; the public files lag about a week
+  lag_days: 10
+validation:
+  range:
+  - 0
+  - 20
+  revision_alert: 0.5
+pages:
+- page: markets
+  section: yield-curve
+original: true
+discontinued: null
+owner: ''
+verified_against: []
+notes: Par yield (the coupon at which a bond of that maturity would price at par),
+  % a year, semi-annual compounding, for 3 months to 40 years. FBIL fits the curve
+  to traded and polled government bond prices. From January 2025.
+panel: true
+entity: tenor

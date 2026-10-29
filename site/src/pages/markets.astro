@@ -1,6 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import LineChart from "../components/LineChart.astro";
+import CurveChart from "../components/CurveChart.astro";
 import { series } from "../lib/data.js";
 import { num, period, signed } from "../lib/format.js";
 import fs from "node:fs";
@@ -13,6 +14,7 @@ const groups = spec.sections.find((s) => s.id === "cross-asset").groups.map((g) 
 }));
 const fmtChange = (s, v) => s.changes?.kind === "bp" ? signed(v, 0, " bp") : signed(v, 2, "%");
 const digits = (s) => (s.unit === "inr_per_usd" ? 4 : 2);
+const curve = JSON.parse(fs.readFileSync("src/data/generated/yield_curve.json", "utf8"));
 ---
 <Base current="markets" title="Markets & rates">
   <h1>Markets &amp; rates</h1>
@@ -50,4 +52,29 @@ const digits = (s) => (s.unit === "inr_per_usd" ? 4 : 2);
     <LineChart title="Brent crude in rupees" subtitle="₹ per barrel (Brent front-month future × FBIL USD/INR)" lines={[{ id: "brent_inr" }]} years={1} />
   </div>
   <p class="chart-sub">Index and futures prices from Yahoo Finance, shown with attribution only. Brent in rupees is a site calculation.</p>
+
+  <h2 id="yield-curve">Government bond yield curve</h2>
+  {curve.curves.length > 0 && <CurveChart title="Par yield curve" subtitle="% a year (semi-annual), by years to maturity; latest, a month earlier and the end of last financial year"
+    curves={curve.curves} source="FBIL (Financial Benchmarks India), daily G-sec par yields" />}
+  <LineChart title="Term spread" subtitle="10-year G-sec par yield minus the repo rate, percentage points"
+    lines={[{ id: "term_spread_10y_repo", label: "10-year minus repo" }]} reference={{ target: 0 }} years={2} />
+  <p class="chart-sub">Par yields are the coupon at which a government bond of each maturity would trade at par, from FBIL's daily curve (publicly released with about a week's delay). The term spread is a site calculation using the repo rate in force on each day. From January 2025.</p>
+
+  <h2 id="flows">Foreign portfolio flows</h2>
+  <div class="grid2">
+    <LineChart title="FPI net investment: equity and debt" subtitle="₹ crore a month"
+      lines={[{ id: "fpi_equity_net", label: "Equity" }, { id: "fpi_debt_net", label: "Debt" }]} reference={{ target: 0 }} years={4} />
+    <LineChart title="FPI net investment, total" subtitle="₹ crore a month, all categories"
+      lines={[{ id: "fpi_total_net", label: "Total" }]} reference={{ target: 0 }} years={10} />
+  </div>
+  <p class="chart-sub">Net purchases by foreign portfolio investors, from custodians' reports compiled by NSDL. The current month runs to the previous trading day. Debt adds the general limit, voluntary retention and fully accessible routes. Domestic institutional (DII) flows come from NSE, whose site blocks our scripts, so they are not shown.</p>
+
+  <h2 id="mf">Mutual funds</h2>
+  <div class="grid2">
+    <LineChart title="Net inflows into equity mutual funds" subtitle="₹ crore a month, open-ended equity schemes"
+      lines={[{ id: "mf_net_inflow_equity", label: "Equity schemes" }]} reference={{ target: 0 }} years={5} />
+    <LineChart title="Mutual fund assets" subtitle="₹ lakh crore, end of month, all schemes"
+      lines={[{ id: "mf_aum_total", label: "Assets under management" }]} years={7} />
+  </div>
+  <p class="chart-sub">From AMFI's monthly reports, from April 2019. Equity schemes exclude hybrid funds, index funds and ETFs. Debt-scheme flows (including liquid funds) are much larger and swing between months, so they are in the data downloads rather than charted. SIP contributions are not in AMFI's monthly workbook and are not shown yet.</p>
 </Base>

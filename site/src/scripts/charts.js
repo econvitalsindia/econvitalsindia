@@ -50,9 +50,34 @@ function drawHbar(el, spec) {
   }));
 }
 
+function drawCurve(el, spec) {
+  // Yield curves: x = tenor in years (log scale, so the short end is readable), one line per date.
+  const rows = spec.curves.flatMap((c) => c.points.map(([t, v]) => ({ tenor: t, value: v, label: c.label })));
+  const colour = Object.fromEntries(spec.curves.map((c, i) => [c.label, palette[i % palette.length]]));
+  const width = el.clientWidth || 600;
+  const marks = [];
+  for (const c of spec.curves) {
+    const pts = rows.filter((r) => r.label === c.label);
+    marks.push(Plot.lineY(pts, { x: "tenor", y: "value", stroke: colour[c.label], strokeWidth: c.main ? 2.2 : 1.5, strokeDasharray: c.main ? null : "4,3" }));
+    marks.push(Plot.dot(pts, { x: "tenor", y: "value", fill: colour[c.label], r: c.main ? 2.5 : 1.5 }));
+  }
+  marks.push(Plot.tip(rows, Plot.pointer({ x: "tenor", y: "value", stroke: (d) => colour[d.label],
+    title: (d) => `${d.label}\n${d.tenor < 1 ? `${Math.round(d.tenor * 12)} months` : `${d.tenor} years`}: ${d.value.toFixed(2)}%` })));
+  const plot = Plot.plot({
+    width, height: Math.max(240, Math.min(340, width * 0.55)), marginLeft: 40,
+    style: { fontFamily: "Inter, system-ui, sans-serif", fontSize: "11px", background: "transparent" },
+    x: { type: "log", label: "Years to maturity", ticks: [0.25, 0.5, 1, 2, 3, 5, 10, 20, 40], tickFormat: (t) => (t < 1 ? `${t * 12}m` : `${t}y`) },
+    y: { grid: true, label: "%", zero: false }, marks,
+  });
+  const legend = Plot.legend({ color: { type: "categorical", domain: spec.curves.map((c) => c.label), range: spec.curves.map((c) => colour[c.label]) },
+    style: { fontFamily: "Inter, system-ui, sans-serif", fontSize: "11px", background: "transparent" } });
+  el.replaceChildren(legend, plot);
+}
+
 function draw(el) {
   const spec = JSON.parse(el.dataset.chart);
   if (spec.kind === "stacked") return drawStacked(el, spec);
+  if (spec.kind === "curve") return drawCurve(el, spec);
   if (spec.kind === "hbar") return drawHbar(el, spec);
   const rows = spec.series.flatMap((s) => s.points.map(([d, v]) => ({ date: new Date(d), value: v, label: s.label })));
   const last = rows.reduce((m, r) => (r.date > m ? r.date : m), new Date(0));

@@ -1,0 +1,37 @@
+id: fpi_debt_net
+title: 'Foreign portfolio investors: net investment in debt, per month'
+short_title: FPI debt flows
+area: markets
+source:
+  agency: NSDL
+  dataset: FPI monthly net investment (calendar year report)
+  url: https://www.fpi.nsdl.co.in/web/Reports/Yearwise.aspx?RptType=6
+  module: pipelines/sources/nsdl/fpi.py
+licence: unverified
+downloadable: false
+fetch: auto
+frequency: M
+unit: inr_crore
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+release:
+  calendar: none
+  rule: daily, to the previous trading day
+  lag_days: 2
+validation:
+  range:
+  - -300000
+  - 300000
+  revision_alert: 1000000
+pages:
+- page: markets
+  section: flows
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: '₹ crore a month: the sum of NSDL''s debt columns (general limit, voluntary
+  retention route and fully accessible route, as each existed). Excludes mutual funds''
+  debt schemes.'

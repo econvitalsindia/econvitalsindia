@@ -1,0 +1,36 @@
+id: fpi_total_net
+title: 'Foreign portfolio investors: total net investment, per month'
+short_title: FPI total flows
+area: markets
+source:
+  agency: NSDL
+  dataset: FPI monthly net investment (calendar year report)
+  url: https://www.fpi.nsdl.co.in/web/Reports/Yearwise.aspx?RptType=6
+  module: pipelines/sources/nsdl/fpi.py
+licence: unverified
+downloadable: false
+fetch: auto
+frequency: M
+unit: inr_crore
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+release:
+  calendar: none
+  rule: daily, to the previous trading day
+  lag_days: 2
+validation:
+  range:
+  - -400000
+  - 400000
+  revision_alert: 1000000
+pages:
+- page: markets
+  section: flows
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: ₹ crore a month, all FPI categories (equity, debt, hybrid, mutual funds, AIFs)
+  as NSDL totals them.

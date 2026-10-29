@@ -1,0 +1,25 @@
+{
+  "id": "term_spread_10y_repo",
+  "title": "Term spread: 10-year G-sec par yield minus repo rate",
+  "short_title": "10y \u2013 repo spread",
+  "unit": "percent",
+  "frequency": "D",
+  "base_year": null,
+  "source": {
+    "agency": "FBIL; site calculation",
+    "dataset": "FBIL par yield curve",
+    "url": "https://www.fbil.org.in/",
+    "module": "pipelines/sources/derived/term_spread.py"
+  },
+  "licence": "unverified",
+  "downloadable": false,
+  "first_period": "2025-01-01",
+  "last_period": "2026-10-22",
+  "last_value": 2.0,
+  "observations": 437,
+  "updated_at": "2026-10-29T10:13:32+00:00",
+  "fetched_from": [
+    "derived: derived_term_spread"
+  ],
+  "raw_files": []
+}

@@ -51,6 +51,9 @@ export const topics = [
   ] },
   { key: "markets", label: "Markets", href: "/markets/", items: [
     ["Stocks, rupee, bonds, oil, gold", "/markets/"],
+    ["Government bond yield curve", "/markets/#yield-curve"],
+    ["Foreign portfolio flows", "/markets/#flows"],
+    ["Mutual funds", "/markets/#mf"],
   ] },
   { key: "fiscal", label: "Fiscal", href: "/fiscal/", items: [
     ["Fiscal deficit and capex", "/fiscal/"],

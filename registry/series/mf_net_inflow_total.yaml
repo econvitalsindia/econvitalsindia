@@ -1,0 +1,36 @@
+id: mf_net_inflow_total
+title: 'Mutual funds: net inflow, all schemes, per month'
+short_title: MF net inflow
+area: markets
+source:
+  agency: AMFI
+  dataset: AMFI monthly report
+  url: https://www.amfiindia.com/research-information/amfi-monthly
+  module: pipelines/sources/amfi/monthly.py
+licence: unverified
+downloadable: false
+fetch: auto
+frequency: M
+unit: inr_crore
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+release:
+  calendar: none
+  rule: AMFI report, about ten days after the month
+  lag_days: 12
+validation:
+  range:
+  - -600000
+  - 600000
+  revision_alert: 1000
+pages:
+- page: markets
+  section: mf
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: ₹ crore a month, all schemes (open-ended, close-ended, interval). From April
+  2019.
