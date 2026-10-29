@@ -17,7 +17,7 @@
   "last_period": "2026-10-01",
   "last_value": 0.427,
   "observations": 62,
-  "updated_at": "2026-10-28T15:11:09+00:00",
+  "updated_at": "2026-10-29T19:00:08+00:00",
   "fetched_from": [
     "derived: derived_mpc_committee"
   ],
