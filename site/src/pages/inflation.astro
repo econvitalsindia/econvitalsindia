@@ -1,6 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import LineChart from "../components/LineChart.astro";
+import ProjectionTable from "../components/ProjectionTable.astro";
 import StackedBars from "../components/StackedBars.astro";
 import RankedBars from "../components/RankedBars.astro";
 import PeriodTable from "../components/PeriodTable.astro";
@@ -34,6 +35,7 @@ const foodRows = [...food.rows].sort((a, b) => (b.values[foodLast] ?? -99) - (a.
 const contribTotal = published.data.filter((d) => d[0] >= contrib[0]?.period).map((d) => [d[0], d[1]]);
 const wpiYoy = latest(series("wpi_headline_index"), "yoy");
 const indent = new Set(["cpi_elec_gas_fuels_index", "cpi_vehicle_fuels_index"]);
+const proj = JSON.parse(fs.readFileSync("src/data/generated/rbi_projections.json", "utf8"));
 ---
 <Base current="inflation" title="Inflation">
   <h1>Inflation</h1>
@@ -63,6 +65,9 @@ const indent = new Set(["cpi_elec_gas_fuels_index", "cpi_vehicle_fuels_index"]);
     <tbody>{foodRows.map((r) => <tr><td>{r.entity}</td>{foodCols.map((c) => <td>{num(r.values[c], 1)}</td>)}</tr>)}</tbody>
   </table></div>
   <p class="chart-sub">Classes and sub-classes of the CPI food basket, inflation as MoSPI publishes it; on the 2024 base these rates start in January 2026. Vegetable prices swing widely from month to month. Rainfall and reservoir data, planned for this section, are not yet available in a form we can read (IMD publishes them as images).</p>
+
+  <h2 id="rbi-projections">RBI's projections and what happened</h2>
+  <ProjectionTable rows={proj.cpi} label="inflation" source="RBI, MPC resolutions (in the minutes); MoSPI." outturnNote="Projections are whole-year CPI inflation as stated in each MPC resolution. Outturn: the average of the twelve monthly inflation rates as published, April to March (site calculation); RBI may compute its own annual figure differently." />
 
   <h2 id="momentum">Momentum or base effect?</h2>
   <StackedBars title="Why the inflation rate changed this month" subtitle="Change in 12-month CPI inflation (dots), split into this month's price change and last year's (log points, close to percentage points)"
@@ -122,5 +127,5 @@ const indent = new Set(["cpi_elec_gas_fuels_index", "cpi_vehicle_fuels_index"]);
   <p class="chart-sub">Labour Bureau's CPI-IW (2016=100): {num(latest(series("cpi_iw_inflation")).value, 2)}% in {period(latest(series("cpi_iw_inflation")).period, "M")}. History is built from each monthly press note (no archive is published), so the series is short. <a href="/data/cpi_iw_index/">Series page</a></p>
 
   <h2>Still to come on this page</h2>
-  <p class="chart-sub">RBI's inflation projections against the outturn. (State-wise CPI is on the <a href="/states/">States</a> page.) Checklist: docs/guidebook/05-pages/inflation.md.</p>
+  <p class="chart-sub">State-wise CPI is on the <a href="/states/">States</a> page; a state map will follow. Checklist: docs/guidebook/05-pages/inflation.md.</p>
 </Base>

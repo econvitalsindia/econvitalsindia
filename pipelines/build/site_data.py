@@ -394,6 +394,40 @@ def reserves_change(weeks: int = 60) -> dict:
                      for p, v in d.items()]}
 
 
+def rbi_projections() -> dict:
+    """RBI's whole-year projections at each MPC meeting against the outturn, by financial year.
+    Outturn: real GDP growth = MoSPI's latest annual estimate (with its stage); CPI inflation =
+    mean of the twelve monthly published rates, April to March (site calculation)."""
+    out = {}
+    cpi = load("cpi_headline_inflation").set_index("period")["value"]
+    gdp_fy = store.load_series("gdp_real_growth_fy")
+    for key, sid in (("cpi", "mpc_cpi_projection"), ("gdp", "mpc_gdp_projection")):
+        df = store.load_series(sid)
+        years = {}
+        for r in df.itertuples():
+            fy = str(r.note).replace("for ", "")
+            years.setdefault(fy, []).append({"meeting": r.period, "value": float(r.value)})
+        rows = []
+        for fy, proj in sorted(years.items()):
+            if fy < "2023-24":        # older statements project half-years; pairings unreliable
+                continue
+            start = pd.Timestamp(f"{fy[:4]}-04-01")
+            outturn, basis = None, ""
+            if key == "cpi":
+                months = cpi[(cpi.index >= start) & (cpi.index < start + pd.DateOffset(years=1))]
+                if len(months) == 12:
+                    outturn, basis = round(float(months.mean()), 1), "average of monthly rates"
+            else:
+                hit = gdp_fy[gdp_fy["period"] == f"{fy[:4]}-04-01"]
+                if len(hit):
+                    outturn, basis = float(hit["value"].iloc[0]), str(hit["note"].iloc[0])
+            proj = sorted(proj, key=lambda p: p["meeting"])
+            rows.append({"fy": fy, "first": proj[0], "last": proj[-1], "path": proj, "outturn": outturn, "basis": basis,
+                         "miss": None if outturn is None else round(outturn - proj[0]["value"], 1)})
+        out[key] = rows
+    return out
+
+
 def division_label(spec: dict) -> str:
     """'CPI food & beverages' -> 'Food & beverages'."""
     s = spec["short_title"].removeprefix("CPI ")
@@ -561,6 +595,7 @@ def main() -> int:
     write_json(OUT / "cpi_momentum_base.json", cpi_momentum_base())
     write_json(OUT / "policy_rule.json", policy_rule_inputs())
     write_json(OUT / "reserves_change.json", reserves_change())
+    write_json(OUT / "rbi_projections.json", rbi_projections())
     PUBLIC.parent.mkdir(parents=True, exist_ok=True)
     (PUBLIC.parent / "calendar.ics").write_text(calendar.ics(cal, registry.site_config()["site"]["name"]))
 

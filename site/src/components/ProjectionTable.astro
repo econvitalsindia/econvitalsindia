@@ -1,0 +1,26 @@
+---
+// RBI's whole-year projections vs the outturn (rbi_projections.json, site_data.py).
+import { num, period } from "../lib/format.js";
+const { rows, label, outturnNote, source } = Astro.props;
+const shown = [...rows].reverse();
+// Chart: one line per financial year, x = meeting date, y = projection; dot = outturn.
+const series = shown.map((r) => ({ label: r.fy, curve: "linear", points: r.path.map((p) => [p.meeting, p.value]) }));
+---
+<div class="scroll"><table class="data">
+  <thead><tr><th>Financial year</th><th>First projection</th><th>Latest projection</th><th>Outturn</th><th>Outturn minus first projection</th></tr></thead>
+  <tbody>{shown.map((r) => <tr>
+    <td>{r.fy}</td>
+    <td>{num(r.first.value, 1)}% <span class="chart-sub">({period(r.first.meeting, "M")})</span></td>
+    <td>{num(r.last.value, 1)}% <span class="chart-sub">({period(r.last.meeting, "M")})</span></td>
+    <td>{r.outturn === null ? "not yet" : <>{num(r.outturn, 1)}% <span class="chart-sub">({r.basis})</span></>}</td>
+    <td>{r.miss === null ? "–" : `${r.miss > 0 ? "+" : ""}${num(r.miss, 1)} pp`}</td>
+  </tr>)}</tbody>
+</table></div>
+<figure class="chart"><p class="chart-title">How RBI's {label} projection moved</p>
+  <p class="chart-sub">% for each financial year, at each MPC meeting</p>
+  <div class="plot" data-chart={JSON.stringify({ series, years: 4 })}></div>
+  <figcaption><span>Source: {source}</span></figcaption></figure>
+<p class="chart-sub">{outturnNote}</p>
+<script>
+  import "../scripts/charts.js";
+</script>

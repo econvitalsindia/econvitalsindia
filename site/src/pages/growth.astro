@@ -1,6 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import LineChart from "../components/LineChart.astro";
+import ProjectionTable from "../components/ProjectionTable.astro";
 import PeriodTable from "../components/PeriodTable.astro";
 import StackedBars from "../components/StackedBars.astro";
 import fs from "node:fs";
@@ -20,6 +21,7 @@ const fy = (id) => Object.fromEntries(series(id).data.map((p) => [p[0], p]));
 const annual = { real: fy("gdp_real_growth_fy"), nominal: fy("gdp_nominal_growth_fy"), gva: fy("gva_real_growth_fy") };
 const years = Object.keys(annual.real).sort().reverse();
 const fyLabel = (p) => `${p.slice(0, 4)}-${String(Number(p.slice(0, 4)) + 1).slice(2)}`;
+const proj = JSON.parse(fs.readFileSync("src/data/generated/rbi_projections.json", "utf8"));
 ---
 <Base current="growth" title="Growth">
   <h1>Growth</h1>
@@ -64,6 +66,9 @@ const fyLabel = (p) => `${p.slice(0, 4)}-${String(Number(p.slice(0, 4)) + 1).sli
   <LineChart title="Nominal and real GDP growth" subtitle="% change on a year earlier, as published; the gap is GDP deflator inflation"
     lines={[{ id: "gdp_nominal_growth", label: "Nominal" }, { id: "gdp_real_growth", label: "Real" }]} years={10} />
 
+  <h2 id="rbi-projections">RBI's projections and what happened</h2>
+  <ProjectionTable rows={proj.gdp} label="growth" source="RBI, MPC resolutions (in the minutes); MoSPI." outturnNote="Projections are whole-year real GDP growth as stated in each MPC resolution (February meetings project the coming year). Outturn: MoSPI’s latest annual estimate and its stage. RBI’s projections up to early 2026 were made on the old 2011-12 base and the outturns are on the new 2022-23 base, so part of any gap reflects the change of base." />
+
   <h2 id="forecasts">Forecasts and sentiment</h2>
   <div class="grid2">
     <LineChart title="Professional forecasters: growth and inflation" subtitle="Median forecast for the current financial year at each survey round, %; the year forecast changes each April"
@@ -79,5 +84,5 @@ const fyLabel = (p) => `${p.slice(0, 4)}-${String(Number(p.slice(0, 4)) + 1).sli
   <p class="chart-sub">RBI's bi-monthly Survey of Professional Forecasters and Consumer Confidence Surveys, released with each MPC decision. They are respondents' views, not RBI's. Columns are the months the results were released; some older rounds are missing because their PDFs use a different layout.</p>
 
   <h2>Still to come on this page</h2>
-  <p class="chart-sub">RBI's growth projections against the outturn, and a longer record of how annual estimates were revised (it builds up as MoSPI publishes new estimates). Checklist: docs/guidebook/05-pages/growth.md.</p>
+  <p class="chart-sub">A longer record of how annual estimates were revised (it builds up as MoSPI publishes new estimates). Checklist: docs/guidebook/05-pages/growth.md.</p>
 </Base>

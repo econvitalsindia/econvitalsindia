@@ -10,7 +10,7 @@
 - [x] WPI headline, WPI food, WPI manufactured products
 - [x] CPI-IW (Labour Bureau; history builds from monthly press notes)
 - [x] RBI household inflation expectations (3-month and 1-year ahead, plus current perception)
-- [ ] RBI's CPI projections (latest MPC) vs outturn
+- [x] RBI's CPI projections (each MPC, from 2023-24) vs outturn (`mpc_cpi_projection`, `rbi_projections.json`)
 - [x] Food watch: CPI inflation for 15 food classes/items (`cpi_food_inflation`). Monsoon and reservoir data still missing: IMD publishes rainfall as images/PDFs, CWC blocks US runners, DCA daily prices sit behind a captcha
 - [ ] State-wise CPI y/y map (links to States, Phase 4)
 - [x] Clear definition of core: CPI excluding food and beverages, and fuel and light (and the variant also excluding petrol, diesel and gold, if we publish it). Weights and method in `08-original-measures.md`

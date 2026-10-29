@@ -25,3 +25,11 @@ def test_stance_after_outlook_and_size_split(raw_from):
     assert decision(t) == (5.5, "neutral")
     assert size_split(t) == "1 member voted for 25 bp"
     assert size_split(text(raw_from, "2025-02")) == ""
+
+
+def test_projections_skip_quarters(raw_from):
+    from pipelines.sources.rbi.mpc_decisions import projection
+    t = text(raw_from, "2025-06")
+    head = t[:t.find("Statement by")]
+    assert projection(head, "CPI inflation") == ("2025-26", 3.7)
+    assert projection(head, "GDP growth") == ("2025-26", 6.5)
