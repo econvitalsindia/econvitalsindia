@@ -1,16 +1,58 @@
 ---
 // Newsletter signup box. Renders nothing until site.config.yaml newsletter.enabled is true
 // and newsletter.buttondown_username is set. Subscribers live with Buttondown (double
-// opt-in: they confirm by email before the first send).
+// opt-in: they confirm by email before the first send). The form posts into a hidden
+// iframe, so the reader stays on the page and sees a closable confirmation instead of a
+// new tab.
 import { config } from "../lib/config.js";
 const n = config.newsletter ?? {};
 const action = n.buttondown_username ? `https://buttondown.com/api/emails/embed-subscribe/${n.buttondown_username}` : "";
+const id = `nl-${Math.random().toString(36).slice(2, 8)}`;
+const email = config.contact?.feedback_email ?? "";
 ---
 {n.enabled && action && (
-  <form class="signup" action={action} method="post" target="_blank">
-    <label for="nl-email">Every morning: a short email on India's economy, written by AI from the data on this site, with every number checked against the source.</label>
-    <input id="nl-email" type="email" name="email" placeholder="you@example.com" required />
-    <input type="hidden" value="1" name="embed" />
-    <button type="submit">Subscribe</button>
-  </form>
+  <div class="signup-wrap" data-signup={id}>
+    <form class="signup" action={action} method="post" target={`${id}-frame`}>
+      <label for={`${id}-email`}>Every morning: a short email on India's economy, written by AI from the data on this site, with every number checked against the source.</label>
+      <input id={`${id}-email`} type="email" name="email" placeholder="you@example.com" required autocomplete="email" />
+      <input type="hidden" value="1" name="embed" />
+      <button type="submit">Subscribe</button>
+    </form>
+    <div class="signup-done" role="status" hidden>
+      <span class="signup-msg"></span>
+      <button type="button" class="signup-close" aria-label="Close">×</button>
+    </div>
+    <iframe name={`${id}-frame`} title="Newsletter signup" hidden></iframe>
+  </div>
 )}
+<script define:vars={{ email }}>
+  document.querySelectorAll("[data-signup]").forEach((wrap) => {
+    if (wrap.dataset.ready) return;
+    wrap.dataset.ready = "1";
+    const form = wrap.querySelector("form"), done = wrap.querySelector(".signup-done");
+    const msg = wrap.querySelector(".signup-msg"), frame = wrap.querySelector("iframe");
+    const button = form.querySelector("button");
+    let pending = false, timer;
+    const show = (ok, text) => {
+      pending = false; clearTimeout(timer);
+      button.disabled = false; button.textContent = "Subscribe";
+      done.classList.toggle("signup-error", !ok);
+      msg.textContent = text;
+      done.hidden = false;
+      if (ok) { form.hidden = true; form.reset(); }
+    };
+    form.addEventListener("submit", () => {
+      pending = true;
+      button.disabled = true; button.textContent = "Subscribing…";
+      timer = setTimeout(() => pending && show(false,
+        `Something went wrong. Please try again${email ? `, or write to ${email}` : ""}.`), 15000);
+    });
+    // The hidden frame loads once Buttondown has answered the form.
+    frame.addEventListener("load", () => {
+      if (pending) show(true, "✓ Almost done: check your inbox (and spam folder) for a confirmation email from Buttondown and click the link in it.");
+    });
+    wrap.querySelector(".signup-close").addEventListener("click", () => {
+      done.hidden = true; form.hidden = false;
+    });
+  });
+</script>

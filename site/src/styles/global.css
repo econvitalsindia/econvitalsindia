@@ -118,6 +118,12 @@ table.data.meta td:first-child { width: 220px; color: var(--muted); }
 .signup label { flex: 1 1 100%; }
 .signup input { flex: 1 1 220px; padding: 6px 8px; border: 1px solid var(--rule); font: inherit; }
 .signup button { padding: 6px 14px; border: 0; background: var(--primary); color: #fff; font: inherit; cursor: pointer; }
+.signup button:disabled { opacity: 0.6; cursor: wait; }
+.signup-done { display: flex; align-items: flex-start; gap: 12px; margin: 24px 0; padding: 14px 16px; border: 1px solid var(--pos, #3a9a2e); background: color-mix(in srgb, var(--pos, #3a9a2e) 8%, transparent); font-family: "Inter", system-ui, sans-serif; font-size: 0.88rem; }
+.signup-done[hidden], .signup[hidden] { display: none; }
+.signup-done.signup-error { border-color: var(--neg, #c0261d); background: color-mix(in srgb, var(--neg, #c0261d) 8%, transparent); }
+.signup-msg { flex: 1; }
+.signup-close { border: 0; background: none; font-size: 1.2rem; line-height: 1; cursor: pointer; color: inherit; padding: 0 2px; }
 
 /* Chart tooltips (Observable Plot): always dark text on white */
 figure.chart svg [aria-label="tip"] { color: #1a1a1a; }
