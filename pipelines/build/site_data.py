@@ -329,6 +329,36 @@ def write_bulk_zip(specs: dict) -> None:
     (out / "all-data.zip").write_bytes(buf.getvalue())
 
 
+def policy_rule_inputs() -> dict:
+    """Monthly inputs for the policy-rule tool (the rule itself is computed in the reader's
+    browser from parameters they choose): headline CPI inflation as published, real GDP
+    growth of the quarter the month falls in (as published), and the repo rate set at the
+    latest MPC meeting (mpc_repo_decision, in force from the month of the meeting)."""
+    cpi = load("cpi_headline_inflation").set_index("period")["value"]
+    gdp = load("gdp_real_growth").set_index("period")["value"]
+    repo = load("mpc_repo_decision").set_index("period")["value"]
+    if cpi.empty or gdp.empty or repo.empty:
+        return {"rows": []}
+    months = pd.date_range(max(repo.index.min(), cpi.index.min()), cpi.index.max(), freq="MS")
+    # Financial-year quarters start in Jan/Apr/Jul/Oct, as do calendar quarters.
+    quarter = months.to_period("Q").start_time
+    rows = []
+    for m, q in zip(months, quarter):
+        g = gdp.get(q)
+        r = repo[repo.index <= m]
+        if m not in cpi.index or r.empty:
+            continue
+        rows.append({"month": m.strftime("%Y-%m-%d"), "cpi": round(float(cpi[m]), 2),
+                     "growth": None if g is None or pd.isna(g) else round(float(g), 2), "repo": float(r.iloc[-1])})
+    # Months whose quarter has no GDP yet use the latest published quarter (flagged).
+    last = None
+    for row in rows:
+        if row["growth"] is None and last is not None:
+            row["growth"], row["growth_carried"] = last, True
+        last = row["growth"]
+    return {"rows": rows}
+
+
 def division_label(spec: dict) -> str:
     """'CPI food & beverages' -> 'Food & beverages'."""
     s = spec["short_title"].removeprefix("CPI ")
@@ -493,6 +523,7 @@ def main() -> int:
     write_json(OUT / "budget.json", budget_table())
     write_json(OUT / "yield_curve.json", yield_curve())
     write_json(OUT / "cpi_momentum_base.json", cpi_momentum_base())
+    write_json(OUT / "policy_rule.json", policy_rule_inputs())
     PUBLIC.parent.mkdir(parents=True, exist_ok=True)
     (PUBLIC.parent / "calendar.ics").write_text(calendar.ics(cal, registry.site_config()["site"]["name"]))
 

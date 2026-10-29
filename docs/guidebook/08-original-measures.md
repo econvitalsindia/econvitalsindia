@@ -40,6 +40,12 @@ Every measure we construct, rather than copy from an agency, is listed here and 
 ### Term spread
 - **What:** `term_spread_10y_repo` = FBIL 10-year par yield minus the policy repo rate in force that day (`pipelines/sources/derived/term_spread.py`).
 
+### Policy rule for RBI (tool)
+- **What:** `/tools/policy-rule/`: rule rate = r* + π + a(π − π*) + b(g − g*), against the repo rate set at each MPC meeting. Computed in the reader's browser; inputs in `policy_rule.json` (`policy_rule_inputs` in site_data.py).
+- **Data:** π = headline CPI inflation as published (monthly); g = real GDP growth of the quarter the month falls in, as published (the latest quarter carried forward, flagged); repo = `mpc_repo_decision`, in force from the month of each meeting, from October 2016.
+- **Defaults:** r* = 1.5, π* = 4, a = 0.5, g* = 6.5, b = 0.5. They are placeholders the reader changes, not estimates, and the page says so.
+- **Why a growth gap:** the 2022-23-base national accounts start in 2022-23, too short for a trend or HP-filter output gap; revisit when a linked long series exists.
+
 ## Planned
 
 ### Linked series across base years (Phase 2)

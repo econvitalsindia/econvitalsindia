@@ -1,0 +1,76 @@
+---
+// RBI policy rule (Taylor-type), computed in the reader's browser from parameters they choose.
+// Inputs: policy_rule.json (site_data.py). Method: docs/guidebook/08-original-measures.md.
+import Base from "../../layouts/Base.astro";
+import fs from "node:fs";
+const data = JSON.parse(fs.readFileSync("src/data/generated/policy_rule.json", "utf8"));
+const first = data.rows[0]?.month.slice(0, 7), lastMonth = data.rows.at(-1)?.month.slice(0, 7);
+---
+<Base current="tools" title="Policy rule">
+  <p class="chart-sub">Tools / Policy rule</p>
+  <h1>A policy rule for RBI</h1>
+  <p class="lede">Where would the repo rate be if RBI followed a simple Taylor-type rule? Choose the assumptions; the chart compares the rule's rate with the repo rate the MPC actually set, from {first} to {lastMonth}.</p>
+
+  <div class="rule-controls">
+    <label>Neutral real rate (r*), % <input type="number" id="rstar" value="1.5" step="0.25" min="-2" max="5" /></label>
+    <label>Inflation target, % <input type="number" id="target" value="4" step="0.5" min="0" max="10" /></label>
+    <label>Weight on inflation gap <input type="number" id="a" value="0.5" step="0.1" min="0" max="3" /></label>
+    <label>Potential growth, % <input type="number" id="gstar" value="6.5" step="0.25" min="0" max="12" /></label>
+    <label>Weight on growth gap <input type="number" id="b" value="0.5" step="0.1" min="0" max="3" /></label>
+  </div>
+  <p class="rule-formula">Rule rate = r* + inflation + a × (inflation − target) + b × (GDP growth − potential growth)</p>
+  <p class="lede" id="rule-latest"></p>
+  <figure class="chart"><div id="rule-plot" class="plot"></div>
+    <figcaption><span>Source: MoSPI (CPI, GDP), RBI (MPC decisions); rule computed in your browser.</span></figcaption></figure>
+
+  <h2>How it works</h2>
+  <p>The rule says the policy rate should equal a neutral real rate plus current inflation, raised when inflation is above target and when the economy grows faster than its potential. <b>Inflation</b> is headline CPI, % on a year earlier, as MoSPI published it. <b>Growth</b> is real GDP growth in the quarter the month falls in, as published; months whose quarter is not out yet use the latest published quarter. <b>Actual</b> is the repo rate set at the most recent MPC meeting.</p>
+  <p>The defaults are placeholders, not estimates: the neutral rate and potential growth cannot be observed, and reasonable people choose different values. Use the rule to see how much each assumption matters, not as a forecast of what the MPC will do. The original Taylor rule uses an output gap; India's national accounts on the 2022-23 base start too recently to estimate a trend, so this version uses a growth gap instead. Because it reacts to year-on-year growth, the rule jumps around 2020-22, when published GDP growth swung from deep contraction to rebound; set the growth weight to 0 to see the inflation-only version.</p>
+  <p class="chart-sub">Data downloads: <a href="/data/cpi_headline_inflation/">CPI inflation</a>, <a href="/data/gdp_real_growth/">GDP growth</a>, <a href="/data/mpc_repo_decision/">MPC decisions</a>.</p>
+
+  <script id="rule-data" type="application/json" set:html={JSON.stringify(data.rows)}></script>
+</Base>
+
+<style>
+  .rule-controls { display: flex; flex-wrap: wrap; gap: 12px 20px; margin: 16px 0 8px; }
+  .rule-controls label { display: flex; flex-direction: column; font-size: 13px; gap: 4px; }
+  .rule-controls input { width: 110px; padding: 4px 6px; font: inherit; }
+  .rule-formula { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; }
+</style>
+
+<script>
+  import * as Plot from "@observablehq/plot";
+  const rows = JSON.parse(document.getElementById("rule-data").textContent).map((r) => ({ ...r, date: new Date(r.month) }));
+  const css = getComputedStyle(document.documentElement);
+  const colours = [css.getPropertyValue("--primary").trim(), css.getPropertyValue("--accent").trim()];
+  const val = (id) => Number(document.getElementById(id).value);
+  const fmt = (v) => v.toFixed(2);
+  function draw() {
+    const [rstar, target, a, gstar, b] = ["rstar", "target", "a", "gstar", "b"].map(val);
+    const ruled = rows.map((r) => ({ ...r, rule: rstar + r.cpi + a * (r.cpi - target) + b * (r.growth - gstar) }));
+    const long = ruled.flatMap((r) => [{ date: r.date, value: r.repo, label: "Repo rate (actual)" },
+                                       { date: r.date, value: r.rule, label: "Rule" }]);
+    const last = ruled.at(-1);
+    document.getElementById("rule-latest").textContent =
+      `With these assumptions the rule gives ${fmt(last.rule)}% for ${last.month.slice(0, 7)}, against a repo rate of ${fmt(last.repo)}% ` +
+      `(CPI inflation ${fmt(last.cpi)}%, GDP growth ${fmt(last.growth)}%${last.growth_carried ? ", latest published quarter" : ""}).`;
+    const el = document.getElementById("rule-plot");
+    const width = el.clientWidth || 700;
+    el.replaceChildren(Plot.plot({
+      width, height: Math.max(260, Math.min(380, width * 0.5)), marginLeft: 40,
+      style: { fontFamily: "Inter, system-ui, sans-serif", fontSize: "11px", background: "transparent" },
+      x: { type: "utc" }, y: { grid: true, label: "%" },
+      color: { domain: ["Repo rate (actual)", "Rule"], range: colours, legend: true },
+      marks: [
+        Plot.ruleY([0], { stroke: "currentColor", strokeOpacity: 0.25 }),
+        Plot.lineY(long.filter((d) => d.label === "Rule"), { x: "date", y: "value", stroke: "label", strokeWidth: 1.8 }),
+        Plot.lineY(long.filter((d) => d.label !== "Rule"), { x: "date", y: "value", stroke: "label", strokeWidth: 2, curve: "step-after" }),
+        Plot.tip(long, Plot.pointerX({ x: "date", y: "value", stroke: "label",
+          title: (d) => `${d.label}\n${d.date.toISOString().slice(0, 7)}: ${fmt(d.value)}%` })),
+      ],
+    }));
+  }
+  document.querySelectorAll(".rule-controls input").forEach((i) => i.addEventListener("input", draw));
+  window.addEventListener("resize", draw);
+  draw();
+</script>
