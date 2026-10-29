@@ -1,0 +1,35 @@
+id: reserve_money_growth
+title: Reserve money growth, y/y, as published
+short_title: Reserve money growth
+area: money
+source:
+  agency: RBI
+  dataset: 'Weekly Statistical Supplement: Reserve Money: Components and Sources'
+  url: https://www.rbi.org.in/Scripts/BS_viewWss.aspx
+  module: pipelines/sources/rbi/wss.py
+licence: unverified
+downloadable: false
+fetch: auto
+frequency: F
+unit: percent
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+release:
+  calendar: rbi
+  rule: WSS released Friday evening
+  lag_days: 10
+validation:
+  range:
+  - -30
+  - 60
+  revision_alert: 1
+pages:
+- page: money-banking
+  section: money-supply
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: RBI's published year-on-year growth.

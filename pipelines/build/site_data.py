@@ -213,6 +213,33 @@ def gdp_contributions() -> list[dict]:
     return {"rows": rows, "total": totals}
 
 
+def mpc_decisions(cal: list[dict]) -> dict:
+    """One row per MPC meeting, newest first: rate set, change in basis points, stance and
+    vote split on the rate resolution; plus the next scheduled decision from the calendar."""
+    df = store.load_series("mpc_repo_decision")
+    if df.empty:
+        return {"rows": [], "next": None}
+    df["value"] = df["value"].astype(float)
+    df["change_bp"] = (df["value"].diff() * 100).round()
+    against = store.load_panel("mpc_member_dissent").astype({"value": float})
+    votes = against.groupby("period")["value"].agg(["size", "sum"])
+    rows = []
+    for _, r in df.iterrows():
+        dates, _, rest = r["note"].partition("; stance: ")
+        stance, _, size = rest.partition("; size: ")
+        n, no = votes.loc[r["period"]] if r["period"] in votes.index else (None, None)
+        rows.append({"period": r["period"], "dates": dates, "rate": r["value"],
+                     "change_bp": None if pd.isna(r["change_bp"]) else int(r["change_bp"]),
+                     "stance": stance, "size_split": size, "votes_for": None if n is None else int(n - no),
+                     "votes_against": None if n is None else int(no)})
+    today = date.today().isoformat()
+    upcoming = [c for c in cal if c["date"] > today and "repo_rate" in c["series"]
+                and "MPC" in c["title"]]
+    nxt = min(upcoming, key=lambda c: c["date"]) if upcoming else None
+    return {"rows": rows[::-1], "next": nxt and {"date": nxt["date"], "title": nxt["title"],
+                                                  "days": (date.fromisoformat(nxt["date"]) - date.today()).days}}
+
+
 def division_label(spec: dict) -> str:
     """'CPI food & beverages' -> 'Food & beverages'."""
     s = spec["short_title"].removeprefix("CPI ")
@@ -373,6 +400,7 @@ def main() -> int:
                            "frequency": payloads[sid]["frequency"], "title": payloads[sid]["short_title"],
                            "show": r["show"]}
     write_json(OUT / "calendar.json", cal)
+    write_json(OUT / "mpc_decisions.json", mpc_decisions(cal))
     PUBLIC.parent.mkdir(parents=True, exist_ok=True)
     (PUBLIC.parent / "calendar.ics").write_text(calendar.ics(cal, registry.site_config()["site"]["name"]))
 

@@ -1,0 +1,37 @@
+id: reserve_money
+title: Reserve money outstanding
+short_title: Reserve money
+area: money
+source:
+  agency: RBI
+  dataset: 'Weekly Statistical Supplement: Reserve Money: Components and Sources'
+  url: https://www.rbi.org.in/Scripts/BS_viewWss.aspx
+  module: pipelines/sources/rbi/wss.py
+licence: unverified
+downloadable: false
+fetch: auto
+frequency: F
+unit: inr_lakh_crore
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+- yoy
+release:
+  calendar: rbi
+  rule: WSS released Friday evening
+  lag_days: 10
+validation:
+  range:
+  - 10
+  - 500
+  revision_alert: 1
+pages:
+- page: money-banking
+  section: money-supply
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: ₹ crore in the source,
+  shown in ₹ lakh crore.

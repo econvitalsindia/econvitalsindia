@@ -38,7 +38,10 @@ export const topics = [
   ] },
   { key: "money", label: "Money", href: "/money/", items: [
     ["Policy rates and the call rate", "/money/"],
+    ["MPC decisions and votes", "/money/#decisions"],
+    ["Liquidity", "/money/#liquidity"],
     ["Bank credit and deposits", "/money/#credit"],
+    ["Money supply (M3)", "/money/#money-supply"],
     ["Rates, recent weeks", "/money/#rates-table"],
     ["MPC Speak: hawkish or dovish?", "/money/mpc-speak/"],
   ] },

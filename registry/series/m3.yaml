@@ -1,0 +1,37 @@
+id: m3
+title: Broad money (M3) outstanding
+short_title: M3
+area: money
+source:
+  agency: RBI
+  dataset: 'Weekly Statistical Supplement: Money Stock: Components and Sources'
+  url: https://www.rbi.org.in/Scripts/BS_viewWss.aspx
+  module: pipelines/sources/rbi/wss.py
+licence: unverified
+downloadable: false
+fetch: auto
+frequency: F
+unit: inr_lakh_crore
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+- yoy
+release:
+  calendar: rbi
+  rule: WSS released Friday evening
+  lag_days: 14
+validation:
+  range:
+  - 100
+  - 2000
+  revision_alert: 1
+pages:
+- page: money-banking
+  section: money-supply
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: Reporting fortnight. ₹ crore in the source, shown in ₹ lakh crore. Includes
+  the effect of a non-bank merging into a bank w.e.f. 14 July 2023 (RBI note).

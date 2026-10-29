@@ -1,0 +1,38 @@
+id: mpc_repo_decision
+title: Policy repo rate set at each MPC meeting
+short_title: MPC decision
+area: money
+source:
+  agency: RBI
+  dataset: Minutes of the Monetary Policy Committee Meeting
+  url: https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx
+  module: pipelines/sources/rbi/mpc_decisions.py
+licence: unverified
+downloadable: false
+fetch: auto
+frequency: M
+unit: percent
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+release:
+  calendar: rbi
+  rule: Minutes published about two weeks after the meeting
+  lag_days: 14
+validation:
+  range:
+  - 0
+  - 15
+  revision_alert: 1
+pages:
+- page: money-banking
+  section: mpc-decisions
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: Rate after the decision, from the resolution in each set of minutes; period
+  is the month in which the meeting ended. The note gives the meeting dates and the
+  stance, read from the minutes (when the minutes do not restate the stance, the previous
+  meeting's stance is carried forward).

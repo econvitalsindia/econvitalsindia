@@ -1,0 +1,38 @@
+id: liquidity_surplus
+title: 'Banking system liquidity: net absorption by RBI'
+short_title: Liquidity surplus
+area: money
+source:
+  agency: RBI
+  dataset: 'Weekly Statistical Supplement: Liquidity Operations by RBI'
+  url: https://www.rbi.org.in/Scripts/BS_viewWss.aspx
+  module: pipelines/sources/rbi/wss.py
+licence: unverified
+downloadable: false
+fetch: auto
+frequency: D
+unit: inr_lakh_crore
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+release:
+  calendar: rbi
+  rule: WSS released Friday evening
+  lag_days: 7
+validation:
+  range:
+  - -10
+  - 10
+  revision_alert: 1
+pages:
+- page: money-banking
+  section: liquidity
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: Net of all RBI liquidity operations (LAF repo and reverse repo, variable-rate
+  operations, MSF, SDF, standing facilities and outright OMOs). RBI prints net injection
+  (+) / absorption (-); we flip the sign so that a positive value is a surplus in
+  the banking system. ₹ crore in the source, shown in ₹ lakh crore.

@@ -25,3 +25,25 @@ def test_parse_date():
     assert parse_date("Outstanding as on Oct. 15, 2026") == "2026-10-15"
     assert parse_date("Sep. 18", 2026) == "2026-09-18"
     assert parse_date("Sept. 18", 2026) == "2026-09-18"
+
+
+def test_money_and_liquidity(raw_from):
+    raws = [raw_from(f"rbi/wss/2026-10-23.s{n}.xlsx") for n in (7, 8, 25)]
+    df = SOURCE.parse(raws)
+    assert at(df, "m3", "2026-10-15") == 333.003                          # ₹ lakh crore
+    assert at(df, "m3_growth", "2026-10-15") == 16.0                      # y/y %, last column
+    assert at(df, "currency_public_growth", "2026-10-15") == 14.1
+    assert at(df, "reserve_money", "2026-10-15") == 53.24881
+    assert at(df, "reserve_money_growth", "2026-10-15") == 10.3
+    # Net injection -134,268 crore = a surplus of 1.34 lakh crore (sign flipped).
+    assert at(df, "liquidity_surplus", "2026-10-18") == 1.3427
+    assert len(df[df.series_id == "liquidity_surplus"]) == 7
+
+
+def test_older_layouts(raw_from):
+    # "May 1" stored by Excel as 2015-05-01, with the year one row lower: keep month and day.
+    df = SOURCE.parse([raw_from("rbi/wss/reserve_money_excel_date.xlsx")])
+    assert at(df, "reserve_money", "2026-05-01") == 52.12071
+    # Liquidity dates as text ("May 25, 2026") rather than Excel dates.
+    df = SOURCE.parse([raw_from("rbi/wss/liquidity_text_dates.xlsx")])
+    assert at(df, "liquidity_surplus", "2026-05-25") == 0.7632

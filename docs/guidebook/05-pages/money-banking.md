@@ -4,13 +4,13 @@
 
 ## Must include
 - [x] Policy corridor chart: repo, SDF, MSF, with WACR overlaid (weekly from WSS; daily snapshots since 28 Oct 2026)
-- [ ] Table of MPC decisions: date, decision, vote split, stance wording (from statements)
-- [ ] Next MPC date and countdown
-- [ ] Net LAF liquidity (₹ lakh crore, + = surplus)
+- [x] Table of MPC decisions: date, decision, vote split, stance wording (from the resolution in the minutes; `mpc_repo_decision`, built into `mpc_decisions.json`). Size splits ("1 member voted for 25 bp") are shown where the minutes record them
+- [x] Next MPC date and countdown (from `registry/calendar/rbi.yaml`; the countdown is fixed at build time)
+- [x] Net liquidity (₹ lakh crore, + = surplus), daily, from WSS table 8 (`liquidity_surplus`; RBI's sign flipped). It covers all RBI operations, not LAF alone
 - [x] CRR and SLR with change dates
 - [x] Scheduled commercial bank credit and deposit growth y/y (fortnightly) (credit–deposit ratio still to add)
 - [ ] Sectoral deployment of credit (monthly): industry, services, personal loans, agriculture
-- [ ] Money supply M3 growth, reserve money
+- [x] Money supply M3 growth, reserve money (WSS tables 6 and 7, fortnightly)
 - [x] T-bill yields (91d, 182d, 364d) (CP and CD rates still to add)
 - [x] MPC Speak section and link (committee tone chart; member page at /money/mpc-speak/)
 
@@ -19,7 +19,7 @@
 - Bank-level data (out of scope)
 
 ## Series (planned)
-repo_rate, sdf_rate, msf_rate, wacr, laf_net_liquidity, crr, slr, scb_credit, scb_deposits, credit_<sector>, m3, reserve_money, tbill_91d, tbill_182d, tbill_364d
+repo_rate, sdf_rate, msf_rate, wacr, liquidity_surplus, mpc_repo_decision, crr, slr, scb_credit, scb_deposits, credit_<sector>, m3, m3_growth, currency_public_growth, reserve_money, reserve_money_growth, tbill_91d, tbill_182d, tbill_364d
 
 ## Phase
 1 (repo, WACR, credit), 2 (page)

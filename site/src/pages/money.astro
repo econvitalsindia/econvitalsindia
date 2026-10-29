@@ -5,17 +5,48 @@ import PeriodTable from "../components/PeriodTable.astro";
 import { series, latest } from "../lib/data.js";
 import { num, period } from "../lib/format.js";
 import { config } from "../lib/config.js";
+import fs from "node:fs";
 const repo = latest(series("repo_rate"));
 const credit = latest(series("scb_credit_growth"));
+const liquidity = latest(series("liquidity_surplus"));
+const m3 = latest(series("m3_growth"));
+const mpc = JSON.parse(fs.readFileSync("src/data/generated/mpc_decisions.json", "utf8"));
+const lastMpc = mpc.rows[0];
+const move = (bp) => bp === null ? "–" : bp === 0 ? "hold" : `${bp > 0 ? "+" : "−"}${Math.abs(bp)} bp`;
 ---
 <Base current="money" title="Money & banking">
   <h1>Money &amp; banking</h1>
-  <p class="lede">What is RBI's policy stance, where are money-market rates, and how fast are bank credit and deposits growing? The policy repo rate is {num(repo.value, 2)}% ({period(repo.period, "D")}); bank credit grew {num(credit.value, 1)}% on a year earlier in the fortnight to {period(credit.period, "D")}.</p>
+  <p class="lede">What is RBI's policy stance, where are money-market rates, and how fast are bank credit and deposits growing? The policy repo rate is {num(repo.value, 2)}% ({period(repo.period, "D")}); bank credit grew {num(credit.value, 1)}% on a year earlier in the fortnight to {period(credit.period, "D")}. The banking system's liquidity was in {liquidity.value >= 0 ? "surplus" : "deficit"} by ₹{num(Math.abs(liquidity.value), 2)} lakh crore on {period(liquidity.period, "D")}, and broad money (M3) grew {num(m3.value, 1)}% on a year earlier.</p>
+  {mpc.next && <p class="chart-sub"><strong>Next MPC decision:</strong> {period(mpc.next.date, "D")} ({mpc.next.days} days). Last decision ({lastMpc.dates}): {move(lastMpc.change_bp)} to {num(lastMpc.rate, 2)}%, stance {lastMpc.stance}. <a href="/calendar/">Calendar →</a></p>}
   <p class="chart-sub"><strong>New:</strong> <a href="/money/mpc-speak/">MPC Speak</a>, a hawk–dove reading of each MPC member's statement in the minutes.</p>
 
   <LineChart title="Policy corridor and the call rate" subtitle="Per cent; the call rate (WACR) normally trades between the SDF floor and the MSF ceiling"
     lines={[{ id: "msf_rate", label: "MSF (ceiling)", step: true }, { id: "repo_rate", label: "Repo", step: true }, { id: "sdf_rate", label: "SDF (floor)", step: true }, { id: "wacr", label: "Call rate (WACR)" }]} years={1} />
   <p class="chart-sub">Week-ended values from RBI's Weekly Statistical Supplement, plus daily readings of RBI's home page since 28 Oct 2026.</p>
+
+  <h2 id="decisions">MPC decisions</h2>
+  <div class="scroll"><table class="data">
+    <thead><tr><th>Meeting</th><th>Repo rate</th><th>Change</th><th>Vote on the rate</th><th>Stance</th></tr></thead>
+    <tbody>
+      {mpc.rows.slice(0, 12).map((r) => <tr><td>{r.dates}</td><td>{num(r.rate, 2)}%</td><td>{move(r.change_bp)}</td>
+        <td>{r.votes_for === null ? "–" : `${r.votes_for}–${r.votes_against}`}{r.size_split ? ` (${r.size_split})` : ""}</td><td>{r.stance}</td></tr>)}
+    </tbody>
+  </table></div>
+  <details><summary>All {mpc.rows.length} meetings since October 2016</summary>
+    <div class="scroll"><table class="data">
+      <thead><tr><th>Meeting</th><th>Repo rate</th><th>Change</th><th>Vote</th><th>Stance</th></tr></thead>
+      <tbody>
+        {mpc.rows.slice(12).map((r) => <tr><td>{r.dates}</td><td>{num(r.rate, 2)}%</td><td>{move(r.change_bp)}</td>
+          <td>{r.votes_for === null ? "–" : `${r.votes_for}–${r.votes_against}`}{r.size_split ? ` (${r.size_split})` : ""}</td><td>{r.stance}</td></tr>)}
+      </tbody>
+    </table></div>
+  </details>
+  <p class="chart-sub">From the resolution in each set of MPC minutes. Vote: members for and against the rate resolution; since 2025 the minutes also record the size of move each member voted for, and members who backed a different size are noted. The stance is as worded in the minutes; when the minutes don't restate it, the previous meeting's stance is shown. Source: RBI, minutes of the MPC meetings.</p>
+
+  <h2 id="liquidity">Liquidity</h2>
+  <LineChart title="Banking system liquidity" subtitle="₹ lakh crore, daily; net absorption (+) or injection (−) by RBI across all its operations. Above zero, banks hold surplus funds"
+    lines={[{ id: "liquidity_surplus", label: "Surplus (+) / deficit (−)" }]} reference={{ target: 0 }} years={2} />
+  <p class="chart-sub">RBI prints this as net injection (+) / absorption (−); the sign is flipped here so that a surplus is positive. Includes LAF repo and reverse repo (fixed and variable rate), MSF, SDF, standing liquidity facilities and outright open-market operations. Source: RBI, Weekly Statistical Supplement, table 8.</p>
 
   <h2 id="credit">Bank credit and deposits</h2>
   <div class="grid2">
@@ -25,6 +56,15 @@ const credit = latest(series("scb_credit_growth"));
       lines={[{ id: "scb_deposits", label: "Deposits" }, { id: "scb_credit", label: "Credit" }]} years={1} />
   </div>
   <p class="chart-sub">RBI notes that these data include the effect of a non-bank merging into a bank, which lifts year-on-year growth; see the note in the WSS table.</p>
+
+  <h2 id="money-supply">Money supply</h2>
+  <div class="grid2">
+    <LineChart title="Broad money (M3) and reserve money growth" subtitle="% change on a year earlier, as published"
+      lines={[{ id: "m3_growth", label: "M3" }, { id: "reserve_money_growth", label: "Reserve money" }, { id: "currency_public_growth", label: "Currency with the public" }]} years={2} />
+    <LineChart title="Outstanding" subtitle="₹ lakh crore"
+      lines={[{ id: "m3", label: "M3" }]} years={2} />
+  </div>
+  <p class="chart-sub">Fortnightly. M3 includes the effect of a non-bank merging into a bank from July 2023 (RBI's note). Source: RBI, Weekly Statistical Supplement, tables 6 and 7.</p>
 
   <h2 id="rates-table">Rates, recent weeks</h2>
   <PeriodTable heading="Per cent, week ended" n={6} digits={2} rows={[
@@ -39,5 +79,5 @@ const credit = latest(series("scb_credit_growth"));
   <p class="chart-sub">An original measure on {config.site.name}: phrase counts in each member's statement in the RBI minutes. <a href="/money/mpc-speak/">Member by member, and how the score works →</a></p>
 
   <h2>Still to come on this page</h2>
-  <p class="chart-sub">LAF liquidity, sectoral credit, money supply (M3), a table of MPC decisions and vote splits. Checklist: docs/guidebook/05-pages/money-banking.md.</p>
+  <p class="chart-sub">Sectoral deployment of bank credit (industry, services, personal loans, agriculture). Checklist: docs/guidebook/05-pages/money-banking.md.</p>
 </Base>
