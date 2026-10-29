@@ -40,5 +40,8 @@ export async function onRequestPost({ request, env }) {
   if (r.status === 400 && /already|exist|collision|subscribed/i.test(text)) return json({ ok: true, status: "exists" });
   if (r.status === 429) return json({ ok: false, error: "Too many sign-ups just now; please try again later." }, 429);
   console.log(`buttondown ${r.status}: ${text.slice(0, 300)}`);
-  return json({ ok: false, error: "The sign-up service didn't accept that address." }, 502);
+  let code = "", detail = "";
+  try { ({ code = "", detail = "" } = JSON.parse(text)); } catch { detail = text.slice(0, 200); }
+  return json({ ok: false, error: "The sign-up service didn't accept that address.", provider_status: r.status,
+                provider_code: code, provider_detail: String(detail).slice(0, 300) }, 502);
 }
