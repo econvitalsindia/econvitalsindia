@@ -72,7 +72,7 @@ Data is refreshed by **data bots**, modelled on econvitals' data repo: one workf
 
 **Adding a source:** put its name in one bot in `registry/bots.yaml`; derived measures go in the bot that fetches their inputs. **Adding a bot:** add it to `registry/bots.yaml` and copy one `bot-*.yml` with a staggered time.
 
-**Free-tier budget.** A private repo gets 2,000 Action-minutes a month,. The bots plus deploys come to roughly 600–700 minutes a month (markets runs take about half a minute). Track actual use in the repo's Settings → Billing. Public repos (after launch) are unlimited.
+**Actions minutes.** The repository has been public since 2026-10-29, so GitHub-hosted runner minutes are free and unlimited (a private repo on the free plan gets 2,000 a month). What still limits us: about 20 concurrent jobs on the free plan (the data bots share one queue, `data-bots`, on purpose, so their commits don't race), 6 hours per job, and scheduled workflows in a public repo switch off after 60 days with no repository activity (the bots' commits count; if they ever stop for two months, re-enable the schedules in the Actions tab). The real limit on how often we fetch is the sources: RBI's file server showed a captcha after heavy downloading on 2026-10-29, so the RBI bot stays at once a day. MoSPI has a 20:00 IST catch-up run and the ministries bot also runs daily at 13:00 IST.
 
 ## The foreign-IP fallback
 

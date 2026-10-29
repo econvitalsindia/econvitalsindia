@@ -43,7 +43,11 @@ const when = (s) => (s ? s.replace("T", " ").slice(0, 16) + " UTC" : "never");
   <h2 id="actions">GitHub Actions minutes this month</h2>
   {h.actions ? (
     <>
-      <p><b>About {h.actions.minutes.toLocaleString("en-IN")} of {h.actions.limit.toLocaleString("en-IN")}</b> free minutes used in {h.actions.month} ({h.actions.runs} runs), {Math.round(100 * h.actions.minutes / h.actions.limit)}% of the monthly allowance for a private repository.</p>
+      {h.actions.limit ? (
+        <p><b>About {h.actions.minutes.toLocaleString("en-IN")} of {h.actions.limit.toLocaleString("en-IN")}</b> free minutes used in {h.actions.month} ({h.actions.runs} runs), {Math.round(100 * h.actions.minutes / h.actions.limit)}% of the monthly allowance for a private repository.</p>
+      ) : (
+        <p><b>About {h.actions.minutes.toLocaleString("en-IN")} minutes</b> used in {h.actions.month} ({h.actions.runs} runs). The repository is public, so there is no monthly limit.</p>
+      )}
       <ul>{h.actions.by_workflow.map(([name, m]) => <li>{name}: about {m} minutes</li>)}</ul>
       <p class="chart-sub">Estimated from each run's start and end times, rounded up to whole minutes. The exact figure is in the organisation's Settings → Billing. Public repositories have no limit.</p>
     </>

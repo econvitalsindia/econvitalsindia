@@ -11,11 +11,11 @@ bots:
     when: "Mon-Fri 10:00, 12:00, 14:00, 16:00, 18:00"
     sources: [rbi_home_rates, yahoo_markets, derived_brent_inr, fbil_gsec_curve, derived_term_spread, nsdl_fpi]
   mospi:
-    when: "Mon-Sat 17:00 (MoSPI releases at 16:00)"
+    when: "Mon-Sat 17:00 (MoSPI releases at 16:00), catch-up 20:00"
     sources: [mospi_cpi, mospi_cpi_food, mospi_iip, mospi_nas, mospi_nas_oldbase, mospi_nas_annual, mospi_nas_annual_sectors, mospi_plfs, mospi_states, labourbureau_cpi_iw, derived_core_cpi]
   rbi:
     when: "Mon-Sat 18:30"
     sources: [rbi_wss, rbi_payments, rbi_sectoral_credit, rbi_bop, rbi_external_debt, rbi_ecb, rbi_services_trade, rbi_surveys, rbi_iesh, rbi_mpc_minutes, rbi_mpc_decisions, fbil_refrates, derived_mpc_committee, derived_credit_deposit, rbi_general_government, rbi_state_finances, derived_state_fiscal_ratios]
   ministries:
-    when: "Mon-Sat 19:30"
+    when: "Mon-Sat 19:30, and daily 13:00"
     sources: [commerce_trade, gst_collections, cga_monthly_accounts, cga_tax_heads, oea_wpi, oea_core_industries, ppac_consumption, siam_sales, fada_retail, gst_ewaybills, aai_traffic, bis_eer, budget_glance, budget_demands, amfi_monthly, intl_peers]

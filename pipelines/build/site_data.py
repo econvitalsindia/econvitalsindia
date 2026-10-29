@@ -528,6 +528,11 @@ def actions_minutes() -> dict | None:
                              cwd=store.ROOT, capture_output=True, text=True, timeout=120, check=True).stdout
     except (subprocess.SubprocessError, OSError):
         return None
+    try:                                                    # public repositories have no limit
+        private = subprocess.run(["gh", "api", "repos/{owner}/{repo}", "--jq", ".private"], cwd=store.ROOT,
+                                 capture_output=True, text=True, timeout=60, check=True).stdout.strip() != "false"
+    except (subprocess.SubprocessError, OSError):
+        private = True
     total, runs, by_workflow = 0, 0, {}
     for line in out.splitlines():
         name, began, ended, status = (line.split("\t") + ["", "", "", ""])[:4]
@@ -538,7 +543,7 @@ def actions_minutes() -> dict | None:
         total, runs = total + mins, runs + 1
         by_workflow[name] = by_workflow.get(name, 0) + mins
     top = sorted(by_workflow.items(), key=lambda kv: -kv[1])[:6]
-    return {"month": start[:7], "minutes": total, "runs": runs, "limit": 2000, "by_workflow": top}
+    return {"month": start[:7], "minutes": total, "runs": runs, "limit": 2000 if private else None, "by_workflow": top}
 
 
 def panel_payload(series_id: str, spec: dict, min_entities: int = 20) -> dict | None:

@@ -1,8 +1,9 @@
 name: mospi-bot
-# MoSPI releases (CPI, IIP, GDP, PLFS, states) and CPI-IW, Mon-Sat 17:00 IST. Sources: registry/bots.yaml. Times are IST; cron is UTC.
+# MoSPI releases (CPI, IIP, GDP, PLFS, states) and CPI-IW, Mon-Sat 17:00 IST with a 20:00 catch-up. Sources: registry/bots.yaml. Times are IST; cron is UTC.
 on:
   schedule:
-    - cron: "30 11 * * 1-6"
+    - cron: "30 11 * * 1-6"   # 17:00 IST
+    - cron: "30 14 * * 1-6"   # 20:00 IST catch-up for late uploads, before the 20:30 briefing
   workflow_dispatch:
 permissions:
   contents: write
