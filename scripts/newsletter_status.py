@@ -44,6 +44,15 @@ def main() -> int:
             body = r.json()
             subs += body.get("results", [])
             url = body.get("next")
+        # The default list leaves some types out; ask for each explicitly too.
+        seen = {s.get("id") for s in subs}
+        for t in ("unactivated", "regular", "removed", "blocked", "spammy", "complained", "undeliverable",
+                  "gifted", "premium", "churning", "past_due", "trialed", "unpaid"):
+            r = c.get(f"{API}/subscribers", params={"type": t, "page_size": 100})
+            if r.status_code == 200:
+                extra = [x for x in r.json().get("results", []) if x.get("id") not in seen]
+                seen |= {x.get("id") for x in extra}
+                subs += extra
         types = Counter(s.get("type") or s.get("subscriber_type") for s in subs)
         print(f"subscribers: {len(subs)} total; by type: {dict(types)}")
         for s in sorted(subs, key=lambda s: s.get("creation_date", "")):
