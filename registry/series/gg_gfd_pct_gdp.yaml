@@ -1,0 +1,36 @@
+id: gg_gfd_pct_gdp
+title: General government (Centre + states) gross fiscal deficit, % of GDP
+short_title: General govt fiscal deficit
+area: fiscal
+source:
+  agency: RBI
+  dataset: Handbook of Statistics on the Indian Economy (tables 239, 240)
+  url: https://www.rbi.org.in/Scripts/AnnualPublications.aspx?head=Handbook+of+Statistics+on+Indian+Economy
+  module: pipelines/sources/rbi/general_government.py
+licence: unverified
+downloadable: false
+fetch: auto
+frequency: A
+unit: percent
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+release:
+  calendar: none
+  rule: Handbook published each year (around August)
+  lag_days: 150
+validation:
+  range:
+  - -5
+  - 20
+  revision_alert: 1
+pages:
+- page: fiscal
+  section: general-government
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: 'Combined Centre and states, from Table 239. Note: stage of recent years (Revised
+  / Budget Estimates). From 1988-89. Period = 1 April of the financial year.'

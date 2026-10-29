@@ -68,6 +68,7 @@ export const topics = [
     ["Union government accounts", "/fiscal/#accounts"],
     ["GST collections", "/fiscal/#gst"],
     ["Direct taxes and other tax heads", "/fiscal/#taxes"],
+    ["Centre and states together", "/fiscal/#general-government"],
   ] },
   { key: "external", label: "External", href: "/external/", items: [
     ["Merchandise trade", "/external/#merchandise"],

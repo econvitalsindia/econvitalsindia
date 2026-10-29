@@ -1,0 +1,36 @@
+id: centre_debt_pct_gdp
+title: Central government liabilities, % of GDP, end-March
+short_title: Centre debt
+area: fiscal
+source:
+  agency: RBI
+  dataset: Handbook of Statistics on the Indian Economy (tables 239, 240)
+  url: https://www.rbi.org.in/Scripts/AnnualPublications.aspx?head=Handbook+of+Statistics+on+Indian+Economy
+  module: pipelines/sources/rbi/general_government.py
+licence: unverified
+downloadable: false
+fetch: auto
+frequency: A
+unit: percent
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+release:
+  calendar: none
+  rule: Handbook published each year (around August)
+  lag_days: 150
+validation:
+  range:
+  - 10
+  - 120
+  revision_alert: 1
+pages:
+- page: fiscal
+  section: general-government
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: Domestic plus external liabilities of the Centre, external at current exchange
+  rates (Table 240). Period = 1 April of the financial year.

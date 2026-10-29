@@ -1,0 +1,37 @@
+id: gg_debt_pct_gdp
+title: General government debt (combined liabilities), % of GDP, end-March
+short_title: General govt debt
+area: fiscal
+source:
+  agency: RBI
+  dataset: Handbook of Statistics on the Indian Economy (tables 239, 240)
+  url: https://www.rbi.org.in/Scripts/AnnualPublications.aspx?head=Handbook+of+Statistics+on+Indian+Economy
+  module: pipelines/sources/rbi/general_government.py
+licence: unverified
+downloadable: false
+fetch: auto
+frequency: A
+unit: percent
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+release:
+  calendar: none
+  rule: Handbook published each year (around August)
+  lag_days: 150
+validation:
+  range:
+  - 20
+  - 150
+  revision_alert: 1
+pages:
+- page: fiscal
+  section: general-government
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: Combined liabilities of Centre and states at end-March of the year, net of
+  intergovernmental holdings, so not the sum of the two (Table 240). From 1985-86.
+  Period = 1 April of the financial year.

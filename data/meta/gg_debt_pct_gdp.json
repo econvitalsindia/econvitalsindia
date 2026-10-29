@@ -1,0 +1,29 @@
+{
+  "id": "gg_debt_pct_gdp",
+  "title": "General government debt (combined liabilities), % of GDP, end-March",
+  "short_title": "General govt debt",
+  "unit": "percent",
+  "frequency": "A",
+  "base_year": null,
+  "source": {
+    "agency": "RBI",
+    "dataset": "Handbook of Statistics on the Indian Economy (tables 239, 240)",
+    "url": "https://www.rbi.org.in/Scripts/AnnualPublications.aspx?head=Handbook+of+Statistics+on+Indian+Economy",
+    "module": "pipelines/sources/rbi/general_government.py"
+  },
+  "licence": "unverified",
+  "downloadable": false,
+  "first_period": "1985-04-01",
+  "last_period": "2025-04-01",
+  "last_value": 81.85,
+  "observations": 41,
+  "updated_at": "2026-10-29T16:36:56+00:00",
+  "fetched_from": [
+    "https://rbidocs.rbi.org.in/rdocs/Publications/DOCs/239T_HBIE310720261CF5E46AB00E42B1900CB03790C5220D.XLSX",
+    "https://rbidocs.rbi.org.in/rdocs/Publications/DOCs/240T_HBIE310720264546295512044DE1833D086A6B16F116.XLSX"
+  ],
+  "raw_files": [
+    "data/raw/rbi_general_government/20261029T163655-f3962567a6.t239.xlsx",
+    "data/raw/rbi_general_government/20261029T163656-b9c617e9ba.t240.xlsx"
+  ]
+}

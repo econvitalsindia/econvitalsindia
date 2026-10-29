@@ -1,0 +1,36 @@
+id: gg_primary_deficit_pct_gdp
+title: General government gross primary deficit, % of GDP
+short_title: General govt primary deficit
+area: fiscal
+source:
+  agency: RBI
+  dataset: Handbook of Statistics on the Indian Economy (tables 239, 240)
+  url: https://www.rbi.org.in/Scripts/AnnualPublications.aspx?head=Handbook+of+Statistics+on+Indian+Economy
+  module: pipelines/sources/rbi/general_government.py
+licence: unverified
+downloadable: false
+fetch: auto
+frequency: A
+unit: percent
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+release:
+  calendar: none
+  rule: Handbook published each year (around August)
+  lag_days: 150
+validation:
+  range:
+  - -10
+  - 15
+  revision_alert: 1
+pages:
+- page: fiscal
+  section: general-government
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: Fiscal deficit less interest payments, combined Centre and states (Table 239).
+  Period = 1 April of the financial year.
