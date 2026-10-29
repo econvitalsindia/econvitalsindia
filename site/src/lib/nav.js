@@ -7,10 +7,12 @@
 export const topics = [
   { key: "growth", label: "Growth", href: "/growth/", items: [
     ["GDP growth", "/growth/"],
+    ["Annual estimates", "/growth/#annual"],
     ["Growth by sector", "/growth/#by-sector"],
     ["Growth by spending component", "/growth/#by-spending"],
     ["Nominal and real", "/growth/#nominal-real"],
     ["Forecasts and sentiment", "/growth/#forecasts"],
+    ["Growth detail: sectors and levels", "/growth/detail/"],
   ] },
   { key: "inflation", label: "Inflation", href: "/inflation/", items: [
     ["Headline and core CPI", "/inflation/"],

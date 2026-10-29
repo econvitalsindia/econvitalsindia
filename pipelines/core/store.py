@@ -77,8 +77,11 @@ def upsert(series_id: str, new: pd.DataFrame, vintage: str) -> tuple[pd.DataFram
         "old_vintage": merged.loc[changed, "vintage"].values,
         "new_vintage": vintage,
     })
-    # Unchanged periods keep their original vintage (the date the value first appeared).
+    # Unchanged periods keep their original vintage (the date the value first appeared), but
+    # take the latest note (e.g. an estimate moving from "Provisional" to "Revised" at the
+    # same value).
     unchanged = common.difference(changed)
+    merged.loc[unchanged, "note"] = incoming.loc[unchanged, "note"].values
     incoming = incoming.drop(index=unchanged)
     merged = pd.concat([merged.drop(index=changed), incoming]).sort_index()
     return merged.reset_index()[COLUMNS], revised
@@ -156,7 +159,9 @@ def upsert_panel(series_id: str, new: pd.DataFrame, vintage: str) -> pd.DataFram
     inc = inc.set_index(["entity", "period"])[["value", "vintage", "note"]]
     same = old.index.intersection(inc.index)
     same = same[old.loc[same, "value"].astype(float).round(10).values == inc.loc[same, "value"].astype(float).round(10).values]
-    merged = pd.concat([old.drop(index=inc.index.intersection(old.index)), inc.drop(index=same), old.loc[same]])
+    kept = old.loc[same].copy()
+    kept["note"] = inc.loc[same, "note"].values          # latest note, first vintage
+    merged = pd.concat([old.drop(index=inc.index.intersection(old.index)), inc.drop(index=same), kept])
     return merged.reset_index().sort_values(["entity", "period"])[PANEL_COLUMNS]
 
 

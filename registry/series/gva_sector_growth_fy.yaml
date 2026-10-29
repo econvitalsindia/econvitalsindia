@@ -1,0 +1,38 @@
+id: gva_sector_growth_fy
+title: Real GVA growth by sector, financial year
+short_title: GVA growth by sector (FY)
+area: growth
+source:
+  agency: MoSPI
+  dataset: National Accounts Statistics, annual estimates (eSankhyiki API)
+  url: https://esankhyiki.mospi.gov.in/
+  module: pipelines/sources/mospi/nas_annual_sectors.py
+licence: GODL
+downloadable: true
+fetch: auto
+frequency: A
+unit: percent
+base_year: as published (see note column)
+seasonal_adjustment: none
+transforms:
+- level
+release:
+  calendar: mospi
+  rule: with the annual estimates
+  lag_days: 60
+validation:
+  range:
+  - -50
+  - 100
+  revision_alert: 1
+pages:
+- page: growth
+  section: detail
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: '% change on the previous financial year, constant prices, base 2022-23, eight
+  broad sectors. Note: estimate stage.'
+panel: true
+entity: sector

@@ -1,0 +1,38 @@
+id: gdp_real_growth_fy
+title: Real GDP growth, financial year
+short_title: Real GDP growth (FY)
+area: growth
+source:
+  agency: MoSPI
+  dataset: National Accounts Statistics, annual estimates (eSankhyiki API)
+  url: https://esankhyiki.mospi.gov.in/
+  module: pipelines/sources/mospi/nas_annual.py
+licence: GODL
+downloadable: true
+fetch: auto
+frequency: A
+unit: percent
+base_year: as published (see note column)
+seasonal_adjustment: none
+transforms:
+- level
+release:
+  calendar: mospi
+  rule: advance estimates in January and February, provisional in May, revised in
+    February of later years
+  lag_days: 60
+validation:
+  range:
+  - -30
+  - 40
+  revision_alert: 0.5
+pages:
+- page: growth
+  section: annual
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: '% change on the previous financial year, constant prices, base 2022-23. The
+  note gives the estimate the year currently stands at (advance, provisional, revised,
+  final); earlier estimates are kept in the revision log as MoSPI replaces them.'

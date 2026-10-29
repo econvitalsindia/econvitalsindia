@@ -1,0 +1,25 @@
+entity,period,value,vintage,note
+Agriculture,2023-04-01,2.7,2026-10-29,Final Estimates
+Agriculture,2024-04-01,4.1,2026-10-29,First Revised Estimates
+Agriculture,2025-04-01,3.3,2026-10-29,Provisional Estimates
+Construction,2023-04-01,9.7,2026-10-29,Final Estimates
+Construction,2024-04-01,6.6,2026-10-29,First Revised Estimates
+Construction,2025-04-01,7.2,2026-10-29,Provisional Estimates
+"Finance, real estate",2023-04-01,6.6,2026-10-29,Final Estimates
+"Finance, real estate",2024-04-01,9.0,2026-10-29,First Revised Estimates
+"Finance, real estate",2025-04-01,10.5,2026-10-29,Provisional Estimates
+Manufacturing,2023-04-01,10.7,2026-10-29,Final Estimates
+Manufacturing,2024-04-01,10.0,2026-10-29,First Revised Estimates
+Manufacturing,2025-04-01,8.8,2026-10-29,Provisional Estimates
+Mining,2023-04-01,0.9,2026-10-29,Final Estimates
+Mining,2024-04-01,13.5,2026-10-29,First Revised Estimates
+Mining,2025-04-01,7.1,2026-10-29,Provisional Estimates
+Public administration and other,2023-04-01,6.9,2026-10-29,Final Estimates
+Public administration and other,2024-04-01,5.1,2026-10-29,First Revised Estimates
+Public administration and other,2025-04-01,6.3,2026-10-29,Provisional Estimates
+"Trade, hotels, transport",2023-04-01,11.5,2026-10-29,Final Estimates
+"Trade, hotels, transport",2024-04-01,7.0,2026-10-29,First Revised Estimates
+"Trade, hotels, transport",2025-04-01,11.3,2026-10-29,Provisional Estimates
+Utilities,2023-04-01,11.7,2026-10-29,Final Estimates
+Utilities,2024-04-01,2.8,2026-10-29,First Revised Estimates
+Utilities,2025-04-01,2.1,2026-10-29,Provisional Estimates

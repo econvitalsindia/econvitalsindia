@@ -762,6 +762,13 @@
     "last_error": null,
     "last_period": "2026-04-01"
   },
+  "gdp_nominal_growth_fy": {
+    "last_attempt": "2026-10-29T10:41:12+00:00",
+    "last_success": "2026-10-29T10:41:12+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2025-04-01"
+  },
   "gdp_nominal_level": {
     "last_attempt": "2026-10-28T14:17:52+00:00",
     "last_success": "2026-10-28T14:17:52+00:00",
@@ -775,6 +782,13 @@
     "stale": false,
     "last_error": null,
     "last_period": "2026-04-01"
+  },
+  "gdp_real_growth_fy": {
+    "last_attempt": "2026-10-29T10:41:12+00:00",
+    "last_success": "2026-10-29T10:41:12+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2025-04-01"
   },
   "gdp_real_level": {
     "last_attempt": "2026-10-28T14:17:52+00:00",
@@ -915,6 +929,20 @@
     "stale": false,
     "last_error": null,
     "last_period": "2026-04-01"
+  },
+  "gva_real_growth_fy": {
+    "last_attempt": "2026-10-29T10:41:12+00:00",
+    "last_success": "2026-10-29T10:41:12+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2025-04-01"
+  },
+  "gva_sector_growth_fy": {
+    "last_attempt": "2026-10-29T10:41:15+00:00",
+    "last_success": "2026-10-29T10:41:15+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2025-04-01"
   },
   "gva_trade_growth": {
     "last_attempt": "2026-10-28T14:17:52+00:00",

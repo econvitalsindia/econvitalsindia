@@ -1,0 +1,29 @@
+{
+  "id": "gdp_nominal_growth_fy",
+  "title": "Nominal GDP growth, financial year",
+  "short_title": "Nominal GDP growth (FY)",
+  "unit": "percent",
+  "frequency": "A",
+  "base_year": "as published (see note column)",
+  "source": {
+    "agency": "MoSPI",
+    "dataset": "National Accounts Statistics, annual estimates (eSankhyiki API)",
+    "url": "https://esankhyiki.mospi.gov.in/",
+    "module": "pipelines/sources/mospi/nas_annual.py"
+  },
+  "licence": "GODL",
+  "downloadable": true,
+  "first_period": "2023-04-01",
+  "last_period": "2025-04-01",
+  "last_value": 8.6,
+  "observations": 3,
+  "updated_at": "2026-10-29T10:41:12+00:00",
+  "fetched_from": [
+    "https://api.mospi.gov.in/api/nas/getNASData?frequency_code=Annually&base_year=2022-23&indicator_code=21&limit=100&page=1&Format=JSON",
+    "https://api.mospi.gov.in/api/nas/getNASData?frequency_code=Annually&base_year=2022-23&indicator_code=22&limit=100&page=1&Format=JSON"
+  ],
+  "raw_files": [
+    "data/raw/mospi_nas_annual/20261029T104110-e0ffb360be.json",
+    "data/raw/mospi_nas_annual/20261029T104112-1051f10ba8.json"
+  ]
+}

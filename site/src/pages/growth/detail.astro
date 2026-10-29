@@ -1,0 +1,39 @@
+---
+// Growth detail: annual and quarterly growth by sector, and quarterly levels in ₹ lakh crore.
+import Base from "../../layouts/Base.astro";
+import PeriodTable from "../../components/PeriodTable.astro";
+import { num } from "../../lib/format.js";
+import fs from "node:fs";
+
+const panel = JSON.parse(fs.readFileSync("src/data/generated/panels/gva_sector_growth_fy.json", "utf8"));
+const periods = [...panel.periods].reverse();
+const fyLabel = (p) => `${p.slice(0, 4)}-${String(Number(p.slice(0, 4)) + 1).slice(2)}`;
+const stage = (e, p) => panel.cell_notes?.[e]?.[p] ?? "";
+const sectors = ["agri", "mining", "mfg", "utilities", "construction", "trade", "finance", "public"];
+---
+<Base current="growth" title="Growth detail">
+  <p class="chart-sub"><a href="/growth/">Growth</a> / Detail</p>
+  <h1>Growth detail</h1>
+  <p class="lede">Sector by sector: annual and quarterly real growth of gross value added, and the quarterly national accounts in ₹ lakh crore. MoSPI, base 2022-23.</p>
+
+  <h2 id="annual-sectors">Annual real GVA growth by sector</h2>
+  <div class="scroll"><table class="data">
+    <thead><tr><th>% on the previous year</th>{periods.map((p) => <th>{fyLabel(p)}<br /><span class="chart-sub">{stage(panel.rows[0].entity, p)}</span></th>)}</tr></thead>
+    <tbody>{panel.rows.map((r) => <tr><td>{r.entity}</td>{periods.map((p) => <td>{r.values[p] === null || r.values[p] === undefined ? "–" : `${num(r.values[p], 1)}%`}</td>)}</tr>)}</tbody>
+  </table></div>
+
+  <h2 id="quarterly-sectors">Quarterly real GVA growth by sector</h2>
+  <PeriodTable heading="Real GVA, % y/y" n={8} rows={[
+    { id: "gva_real_growth", label: "Total GVA" },
+    ...sectors.map((s) => ({ id: `gva_${s}_growth`, indent: true })),
+  ]} />
+
+  <h2 id="levels">Quarterly levels</h2>
+  <PeriodTable heading="₹ lakh crore" n={8} digits={2} rows={[
+    { id: "gdp_nominal_level", label: "GDP, current prices" },
+    { id: "gdp_real_level", label: "GDP, constant prices" },
+    { id: "pfce_real_level", indent: true }, { id: "gfce_real_level", indent: true }, { id: "gfcf_real_level", indent: true },
+    { id: "exports_real_level", indent: true }, { id: "imports_real_level", indent: true },
+  ]} />
+  <p class="chart-sub">Spending components at constant prices; they do not add up to GDP because change in stocks, valuables and the statistical discrepancy are not shown. Source: MoSPI national accounts (eSankhyiki API). Downloads: <a href="/data/">Data</a>.</p>
+</Base>
