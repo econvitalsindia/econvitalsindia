@@ -1,0 +1,25 @@
+name: newsletter-release
+# Release a sign-up that Buttondown's spam filter marked "blocked": sets it to "unactivated",
+# so Buttondown sends the reader a fresh confirmation email. Actions -> newsletter-release ->
+# Run workflow -> enter the address.
+on:
+  workflow_dispatch:
+    inputs:
+      email:
+        description: "Address to release"
+        required: true
+permissions:
+  contents: read
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+      - run: uv sync
+      - env:
+          BUTTONDOWN_API_KEY: ${{ secrets.BUTTONDOWN_API_KEY }}
+          EMAIL: ${{ inputs.email }}
+        run: uv run python -m scripts.newsletter_release "$EMAIL"
