@@ -16,7 +16,7 @@ from __future__ import annotations
 
 import argparse
 import sys
-from datetime import date
+from datetime import date, timedelta
 
 import yaml
 
@@ -51,6 +51,9 @@ def build_ledger(front: dict, on: str | None = None) -> Ledger:
         sid, _, how = view.partition(":")
         ledger.add_view(sid, how or "level")
     ledger.add_constants(TEMPLATES / "constants.yaml")
+    when = date.fromisoformat(on) if on else date.today()
+    # The month just ended (the monthly briefing is drafted on the 1st).
+    ledger.facts["today.month"] = (when.replace(day=1) - timedelta(days=1)).strftime("%B %Y")
     return ledger
 
 
@@ -60,11 +63,14 @@ def triggered(front: dict, on: str) -> bool:
     trigger_calendar: a calendar release whose title starts with this text is dated `on`
                       (e.g. MPC decisions: a hold deserves a note as much as a change).
     trigger_weekday:  `on` falls on this weekday (0 = Monday ... 5 = Saturday).
+    trigger_monthday: `on` is this day of the month (1 = the monthly briefing).
     trigger:          the series' newest observation was first recorded on `on`;
                       with trigger_weekdays_only, only Monday-Friday.
     """
     if "trigger_weekday" in front:
         return date.fromisoformat(on).weekday() == int(front["trigger_weekday"])
+    if "trigger_monthday" in front:
+        return date.fromisoformat(on).day == int(front["trigger_monthday"])
     if "trigger_calendar" in front:
         from pipelines.build import calendar as cal
         from pipelines.core.registry import all_series

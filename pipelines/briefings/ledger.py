@@ -169,6 +169,19 @@ class Ledger:
                     pct = (last["value"] / ref - 1) * 100
                     put["week_phrase"] = ("unchanged" if round(pct, 2) == 0
                                           else f"{'up' if pct > 0 else 'down'} {abs(pct):.2f}%")
+        if freq in ("D", "W"):
+            # Over the month: against the last value 28-35 days earlier.
+            target = last["period"] - pd.Timedelta(days=28)
+            before = pts[(pts["period"] <= target) & (pts["period"] >= target - pd.Timedelta(days=7))]
+            if len(before):
+                ref = before["value"].iloc[-1]
+                if unit == "percent":
+                    bp = round((last["value"] - ref) * 100)
+                    put["month_phrase"] = "unchanged" if bp == 0 else f"{'up' if bp > 0 else 'down'} {abs(bp)} basis points"
+                elif ref > 0 and last["value"] > 0:
+                    pct = (last["value"] / ref - 1) * 100
+                    put["month_phrase"] = ("unchanged" if round(pct, 2) == 0
+                                           else f"{'up' if pct > 0 else 'down'} {abs(pct):.2f}%")
         if len(ya):
             d = last["value"] - ya["value"].iloc[0]
             put.update(year_ago=fmt_value(ya["value"].iloc[0], unit, dec),
@@ -215,6 +228,14 @@ class Ledger:
                                             or "no scheduled releases")
         self.facts["calendar.next_week"] = ("; ".join(when(r) for r in rows if on < r["date"] <= end)
                                             or "no scheduled releases")
+        # The previous calendar month and the next 30 days (monthly briefing).
+        first = pd.Timestamp(on).replace(day=1)
+        prev_start = (first - pd.DateOffset(months=1)).strftime("%Y-%m-%d")
+        self.facts["calendar.past_month"] = ("; ".join(when(r) for r in rows if prev_start <= r["date"] < first.strftime("%Y-%m-%d"))
+                                             or "no scheduled releases")
+        month_end = (pd.Timestamp(on) + pd.Timedelta(days=30)).strftime("%Y-%m-%d")
+        self.facts["calendar.next_month"] = ("; ".join(when(r) for r in rows if on < r["date"] <= month_end)
+                                             or "no scheduled releases")
         self.facts["calendar.next_highlight"] = (f"{highlight['title']} on {fmt_period(highlight['date'], 'D')}"
                                                  if highlight else "not yet scheduled")
         for k in ("calendar.today", "calendar.next", "calendar.next_highlight",

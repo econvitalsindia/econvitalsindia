@@ -6,8 +6,8 @@
 - [x] Daily note (weekday evenings): market closes, today's releases, what's coming (table and chart still to add)
 - [x] Release notes for CPI, GDP, IIP, PLFS, trade and the MPC decision (calendar-triggered, so holds get a note too)
 - [x] Weekly briefing (Saturday; markets over the week, RBI weekly data, scheduled releases, where things stand)
-- [ ] Monthly briefing
-- [ ] Human-written posts ("From the editor")
+- [x] Monthly briefing (template `registry/briefings/monthly.md`, drafted on the 1st, reviewed via PR)
+- [x] Human-written posts ("From the editor": `product: editor`, playbook `playbooks/editor-post.md`)
 - [x] Each item shows how it was drafted and that a person reviewed it
 - [x] RSS per product (all, release notes, daily note)
 - [x] Archive page (list; search and filter still to add)
