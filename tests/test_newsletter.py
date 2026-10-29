@@ -47,7 +47,7 @@ def test_ai_draft_with_tokens_is_rendered(monkeypatch):
     email = morning.compose(date(2026, 10, 29), morning.config())
     assert email["drafted_by"].startswith("AI")
     assert "{{" not in email["body"] and "%" in email["body"].split("\n")[0]      # the value, filled in
-    assert "not typed by the AI" in email["body"]
+    assert "not typed by the writer" in email["body"]
 
 
 def test_typed_number_is_rejected_then_retry_then_template(monkeypatch):
@@ -70,9 +70,67 @@ def test_no_keys_means_nothing_sent(monkeypatch, capsys, tmp_path):
     monkeypatch.delenv("BUTTONDOWN_API_KEY", raising=False)
     monkeypatch.setattr(morning, "SENT", tmp_path / "sent.json")
     monkeypatch.setattr(morning, "send", lambda *a: (_ for _ in ()).throw(AssertionError("sent")))
-    monkeypatch.setattr("sys.argv", ["morning", "--date", "2026-10-29"])
+    cfg = morning.config()
+    cfg["newsletter"]["writer"] = "api"
+    monkeypatch.setattr(morning, "config", lambda: cfg)
+    monkeypatch.setattr("sys.argv", ["morning", "auto", "--date", "2026-10-29"])
     assert morning.main() == 0
     assert "nothing sent" in capsys.readouterr().out
+
+
+def test_auto_does_nothing_in_manual_mode(monkeypatch, capsys):
+    monkeypatch.setattr(morning, "compose", lambda *a, **k: (_ for _ in ()).throw(AssertionError("composed")))
+    cfg = morning.config()
+    cfg["newsletter"]["writer"] = "manual"
+    monkeypatch.setattr(morning, "config", lambda: cfg)
+    monkeypatch.setattr("sys.argv", ["morning", "auto", "--date", "2026-10-29"])
+    assert morning.main() == 0 and "written by hand" in capsys.readouterr().out
+
+
+def manual_dirs(monkeypatch, tmp_path):
+    monkeypatch.setattr(morning, "PACKS", tmp_path / "packs")
+    monkeypatch.setattr(morning, "DRAFTS", tmp_path / "drafts")
+    monkeypatch.setattr(morning, "SENT", tmp_path / "sent.json")
+    monkeypatch.setattr(morning, "ARCHIVE", tmp_path / "archive")
+
+
+def test_pack_check_send(monkeypatch, tmp_path, capsys):
+    """Manual mode end to end: pack -> draft with tokens -> check -> send (faked)."""
+    manual_dirs(monkeypatch, tmp_path)
+    on = date(2026, 10, 29)
+    pack_path, draft_path = morning.pack(on)
+    text = open(pack_path).read()
+    assert "{{cpi_headline_inflation.latest}} = " in text and "Never type a digit" in text
+    open(draft_path, "w").write("**Prices.** CPI inflation was {{cpi_headline_inflation.latest}}.")
+    assert morning.check_draft(on) == []
+    cfg = morning.config()
+    cfg["newsletter"]["enabled"] = True
+    monkeypatch.setattr(morning, "config", lambda: cfg)
+    monkeypatch.setenv("BUTTONDOWN_API_KEY", "test")
+    sent = []
+    monkeypatch.setattr(morning, "send", lambda subject, body, key: sent.append((subject, body)) or "email-1")
+    monkeypatch.setattr("sys.argv", ["morning", "send", "--date", on.isoformat()])
+    assert morning.main() == 0
+    subject, body = sent[0]
+    assert "{{" not in subject + body and "%" in body and "Written each morning with AI" in body
+    assert (tmp_path / "archive" / f"{on}.md").exists()
+    assert morning.main() == 0 and len(sent) == 1                    # second run: already sent
+
+
+def test_send_refuses_typed_number(monkeypatch, tmp_path):
+    manual_dirs(monkeypatch, tmp_path)
+    on = date(2026, 10, 29)
+    _, draft_path = morning.pack(on)
+    open(draft_path, "w").write("Inflation was 5.5%.")
+    monkeypatch.setattr(morning, "send", lambda *a: (_ for _ in ()).throw(AssertionError("sent")))
+    monkeypatch.setattr("sys.argv", ["morning", "send", "--date", on.isoformat()])
+    assert morning.main() == 1
+
+
+def test_send_without_draft_sends_nothing(monkeypatch, tmp_path, capsys):
+    manual_dirs(monkeypatch, tmp_path)
+    monkeypatch.setattr("sys.argv", ["morning", "send", "--date", "2026-10-29"])
+    assert morning.main() == 0 and "nothing to send" in capsys.readouterr().out
 
 
 def test_fallback_template_passes_checker():

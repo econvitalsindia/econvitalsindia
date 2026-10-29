@@ -145,7 +145,7 @@ class Ledger:
         }
         if prev is not None:
             d = last["value"] - prev["value"]
-            put.update(prev=fmt_value(prev["value"], unit, dec),
+            put.update(prev=fmt_value(prev["value"], unit, dec), prev_abs=fmt_value(abs(prev["value"]), unit, dec),
                        prev_period=fmt_period(prev["period"].strftime("%Y-%m-%d"), freq),
                        change=fmt_change(d, unit, dec))
             put["direction"], put["direction_noun"] = direction(d)
@@ -153,7 +153,7 @@ class Ledger:
             if unit == "percent":
                 bp = round(abs(d) * 100)
                 put["bp_phrase"] = "unchanged" if bp == 0 else f"{'up' if d > 0 else 'down'} {bp} basis points"
-            elif prev["value"]:
+            elif prev["value"] > 0 and last["value"] > 0:      # a % change of a negative balance means nothing
                 pct = (last["value"] / prev["value"] - 1) * 100
                 put["pct_phrase"] = ("unchanged" if round(pct, 2) == 0
                                      else f"{'up' if pct > 0 else 'down'} {abs(pct):.2f}%")
@@ -165,13 +165,14 @@ class Ledger:
                 if unit == "percent":
                     bp = round((last["value"] - ref) * 100)
                     put["week_phrase"] = "unchanged" if bp == 0 else f"{'up' if bp > 0 else 'down'} {abs(bp)} basis points"
-                elif ref:
+                elif ref > 0 and last["value"] > 0:
                     pct = (last["value"] / ref - 1) * 100
                     put["week_phrase"] = ("unchanged" if round(pct, 2) == 0
                                           else f"{'up' if pct > 0 else 'down'} {abs(pct):.2f}%")
         if len(ya):
             d = last["value"] - ya["value"].iloc[0]
             put.update(year_ago=fmt_value(ya["value"].iloc[0], unit, dec),
+                       year_ago_abs=fmt_value(abs(ya["value"].iloc[0]), unit, dec),
                        year_ago_period=fmt_period(ya_target.strftime("%Y-%m-%d"), freq),
                        change_yoy=fmt_change(d, unit, dec))
             put["direction_yoy"], _ = direction(d)

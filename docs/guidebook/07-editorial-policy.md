@@ -26,7 +26,7 @@ Implemented in `pipelines/briefings/` (Phase 3, live).
 | `daily` | daily-note | weekdays, when the day's market closes are recorded (`trigger_weekdays_only`). **Auto-published** (see below) |
 | `weekly` | weekly-briefing | Saturdays (`trigger_weekday: 5`); reviewed |
 
-Feeds: `/briefings/rss.xml` (all), `/briefings/release-notes.xml`, `/briefings/daily.xml`. The newsletter is the AI-written morning email described at the end of this page (sent automatically after the checker). The older weekly digest of published briefings is kept as a manual, draft-only option (runbook: "Newsletter").
+Feeds: `/briefings/rss.xml` (all), `/briefings/release-notes.xml`, `/briefings/daily.xml`. The newsletter is the morning email described at the end of this page (written with AI, approved by the maintainer). The older weekly digest of published briefings is kept as a manual, draft-only option (runbook: "Newsletter").
 
 ## The one exception: the daily note is auto-published
 
@@ -56,6 +56,6 @@ Fix the source of the error (data or prompt), not just the text. Add a dated "Co
 
 The model is set in `site.config.yaml → briefings.llm_model`. Before choosing, benchmark at least two models (one cheap) on 10 past releases and compare checker pass rate, reviewer edits and cost. Log the cost per draft in the PR body.
 
-## Morning newsletter (exception approved by the maintainer, 2026-10-29)
+## Morning newsletter
 
-The morning email is written by AI and sent without a person reading it first. It may use only the facts in its ledger (built from the stored series), every number must be a ledger token, and the checker must pass; otherwise the fixed template is sent. No news, causes, forecasts or outside facts. Each email is archived with its ledger in `data/newsletter/morning/`. Details: 06-operations-runbook.md ("Newsletter").
+Written each day with AI by the maintainer from the day's fact pack, and sent only when the maintainer pushes the draft (that push is the approval). It may use only the pack's facts, every number must be a token, and the checker must pass, both locally (`make morning-check`) and again before sending. No news, causes, forecasts or outside facts. Each email is archived with its facts in `data/newsletter/morning/`. An optional fully automatic mode (`writer: "api"`) exists but is off. Details: 06-operations-runbook.md ("Newsletter").

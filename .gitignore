@@ -26,3 +26,6 @@ site/src/data/generated/
 site/public/data/
 site/public/calendar.ics
 site/public/downloads/
+
+# Morning newsletter fact packs and previews (regenerated; drafts in newsletter/drafts are committed)
+newsletter/packs/

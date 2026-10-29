@@ -1,0 +1,39 @@
+name: newsletter-send
+# Sends the morning email when the maintainer pushes today's draft
+# (newsletter/drafts/<date>.md, written with AI from `make morning-pack`). Re-runs the
+# checker on the draft with the facts saved in newsletter/drafts/<date>.facts.json, fills in
+# the values and sends it through Buttondown. Only today's draft (India time) is sent, and
+# data/newsletter/sent.json stops a second send on the same day. Skips quietly until
+# newsletter.enabled is true and BUTTONDOWN_API_KEY exists. Runbook: "Newsletter".
+on:
+  push:
+    branches: [main]
+    paths: ["newsletter/drafts/*.md"]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: newsletter
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+      - run: uv sync
+      - name: Check and send today's draft
+        env:
+          BUTTONDOWN_API_KEY: ${{ secrets.BUTTONDOWN_API_KEY }}
+        run: uv run python -m pipelines.newsletter.morning send --date "$(TZ=Asia/Kolkata date +%F)"
+      - name: Archive the email (and record it as sent)
+        run: |
+          if [ -n "$(git status --porcelain data/newsletter)" ]; then
+            git config user.name "newsletter-bot"; git config user.email "newsletter-bot@users.noreply.github.com"
+            git add data/newsletter
+            git commit -m "newsletter: morning email $(TZ=Asia/Kolkata date +%F)"
+            for i in 1 2 3; do git push && break || git pull --rebase -X theirs origin main; done
+          fi

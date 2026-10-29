@@ -1,7 +1,7 @@
 # See AGENTS.md → Commands.
 PY ?= uv run python
 
-.PHONY: setup check test update update-auto india-update build dev archive-raw briefings
+.PHONY: setup check test update update-auto india-update build dev archive-raw briefings morning-pack morning-check
 
 setup:
 	uv sync
@@ -49,3 +49,12 @@ archive-raw:
 # Draft release notes for today's releases (the briefing workflow does this on GitHub).
 briefings:
 	$(PY) -m pipelines.briefings.draft
+
+# Morning newsletter (runbook "Newsletter"): pull the latest data, write today's fact pack,
+# then check the AI's draft in newsletter/drafts/<date>.md. Pushing the draft sends it.
+morning-pack:
+	git pull --rebase --autostash -q
+	$(PY) -m pipelines.newsletter.morning pack
+
+morning-check:
+	$(PY) -m pipelines.newsletter.morning check

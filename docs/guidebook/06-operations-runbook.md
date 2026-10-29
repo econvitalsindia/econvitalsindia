@@ -49,23 +49,22 @@ Kept in GitHub Actions secrets only: `LLM_API_KEY`, `NEWSLETTER_API_KEY`, `CLOUD
 
 ## Newsletter
 
-**What goes out:** one email every morning at 07:30 IST (`newsletter-morning.yml`, cron `0 2 * * *` UTC): what is new in the data since the day before, markets, the wider picture, and what is due. `pipelines/newsletter/morning.py` writes it with Claude (`site.config.yaml → newsletter.llm_model`) from a ledger of facts built from the stored series (`registry/newsletter/morning.md → views`). The maintainer approved sending it without a person reading it first (2026-10-29), on these conditions:
+**What goes out:** one short email a day on India's economy: what is new in the data, markets, the wider picture, what is due. It is written with AI by the maintainer, so there are **no API costs**: the AI is whatever they already use (Claude Code, claude.ai or any chat). Everything around the writing is automated.
 
-- The model may only use the ledger's facts, and must write every number as a token (`{{cpi_headline_inflation.latest}}`). The briefing checker rejects any digit outside a token and any unknown token, so no number in the email is typed by the model.
-- One retry with the checker's complaints. If that also fails, or the API errors, or `ANTHROPIC_API_KEY` is missing, the fixed template in `registry/newsletter/morning.md` is sent instead. The email always goes out.
-- Every email is archived with its ledger in `data/newsletter/morning/<date>.md` and `.ledger.json`, and `data/newsletter/sent.json` stops a second send on the same day (so rerunning the workflow is safe).
+**The daily routine (about five minutes):**
+1. `make morning-pack`: pulls the latest data and writes `newsletter/packs/<date>.md` (the writing rules plus every fact as a token, e.g. `{{cpi_headline_inflation.latest}} = 5.54%`) and saves those exact facts to `newsletter/drafts/<date>.facts.json`.
+2. Have an AI write the email from the pack. In Claude Code, type `/morning`: it does steps 1-4, shows you the preview, and pushes only after you say yes. Elsewhere, paste the pack into the chat and save the reply as `newsletter/drafts/<date>.md`.
+3. `make morning-check`: the briefing checker rejects any number typed outside a token and any unknown token, and writes a preview (`newsletter/packs/<date>.preview.md`). Fix and repeat until it passes.
+4. Commit and push the draft and its `.facts.json`. The `newsletter-send` workflow re-checks it, fills in the values from the saved facts (so the email matches what you checked, even if the data moved since), sends it through Buttondown, and archives it in `data/newsletter/morning/`. `data/newsletter/sent.json` stops a second send that day; only today's draft (India time) is sent.
 
-**Cost (measured 2026-10-29):** about 12,000 input and 1,800 output tokens per email. On `claude-opus-5-5` ($4 / $20 per million tokens) that is about $0.08 a day, about $2.50 a month. On `claude-haiku-5-5` ($0.10 / $0.50) about $0.002 a day. Change `newsletter.llm_model` to switch.
+No draft that day means no email. Optional subject: front matter `subject: "..."` at the top of the draft (tokens allowed).
 
 **One-time setup (maintainer):**
-1. Create a free Buttondown account (free for the first 100 subscribers; the plan assumes at most one email a day, which is what we send). Note your Buttondown username.
-2. In Buttondown → Settings → API, copy the API key into a GitHub repo secret `BUTTONDOWN_API_KEY` (repo Settings → Secrets and variables → Actions). Never paste it into chat, issues or files.
-3. From the Anthropic Console (console.anthropic.com → API keys), create a key and save it as the repo secret `ANTHROPIC_API_KEY`. Set a monthly spend limit in the Console as a safety net.
-4. In `site.config.yaml`, set `newsletter.buttondown_username` and `newsletter.enabled: true`, then push. The signup box appears on the home and About pages; sign-ups confirm by email (double opt-in).
-5. Subscribe yourself, confirm, then run the workflow by hand (Actions → newsletter-morning → Run workflow) and check the email arrives.
+1. Create a free Buttondown account (free for the first 100 subscribers; the plan assumes at most one email a day). Note your username.
+2. Buttondown → Settings → API: copy the key into the GitHub repo secret `BUTTONDOWN_API_KEY` (repo Settings → Secrets and variables → Actions). Never paste it into chat, issues or files.
+3. In `site.config.yaml`, set `newsletter.buttondown_username` and `newsletter.enabled: true`, then push. The signup box appears on the home and About pages; sign-ups confirm by email (double opt-in).
+4. Subscribe yourself, confirm, and do the routine above once.
 
-**Preview without sending:** `uv run python -m pipelines.newsletter.morning --preview /tmp/morning.md` (uses the AI if `ANTHROPIC_API_KEY` is set locally; add `--no-ai` for the template).
-
-**The email went out as the template:** the workflow log says why ("attempt 1 rejected: ..." or "AI draft failed"). Repeated rejections usually mean the prompt needs a new rule (`SYSTEM` in morning.py), not a looser checker.
+**API mode (optional, paid):** with `newsletter.writer: "api"`, an `ANTHROPIC_API_KEY` secret and the schedule uncommented in `newsletter-morning.yml`, the 07:30 IST workflow writes and sends the email by itself (`morning auto`: one retry on checker failure, then the fixed template in `registry/newsletter/morning.md`). Measured 2026-10-29: about 12,000 input + 1,800 output tokens per email, about $0.08 a day on `claude-opus-5-5`, about $0.002 on `claude-haiku-5-5` (`newsletter.llm_model`).
 
 **The weekly digest** (`digest.py`, `newsletter.yml`) still exists but runs only by hand, as a Buttondown draft, because the morning email uses the free plan's one-email-a-day allowance.

@@ -50,14 +50,15 @@ team:
   note: "This version of the site is built and maintained single-handedly by Bishmay Barik. The team section will be updated as others join."
 
 newsletter:
-  # The MORNING email (every day, 07:30 IST): an AI-written summary of the latest data,
-  # checked so that every number comes from the stored series, then sent automatically
-  # (maintainer-approved, 2026-10-29). pipelines/newsletter/morning.py,
-  # .github/workflows/newsletter-morning.yml. Setup: 06-operations-runbook.md ("Newsletter").
+  # The MORNING email: written each day with AI from a fact pack, checked so every number
+  # comes from the stored series, and sent when the maintainer pushes the draft.
+  # pipelines/newsletter/morning.py; runbook 06-operations-runbook.md ("Newsletter").
   provider: "buttondown"
   enabled: false          # true once the Buttondown account exists and the secrets are set
   buttondown_username: "" # your Buttondown username; the signup box appears once this is set
-  llm_model: "claude-opus-5-5"   # the AI writer; "claude-haiku-5-5" costs about 1/40th as much
+  writer: "manual"        # "manual": you write with any AI from the fact pack (no API cost)
+                          # "api": the 07:30 workflow calls the Anthropic API itself (paid)
+  llm_model: "claude-opus-5-5"   # api mode only; "claude-haiku-5-5" costs about 1/40th as much
   # The old weekly digest (digest.py) is kept but no longer scheduled: Buttondown's free plan
   # allows one email a day, and the morning email uses it.
   products: [weekly-briefing, release-note]
