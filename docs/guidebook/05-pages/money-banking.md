@@ -9,7 +9,7 @@
 - [x] Net liquidity (₹ lakh crore, + = surplus), daily, from WSS table 8 (`liquidity_surplus`; RBI's sign flipped). It covers all RBI operations, not LAF alone
 - [x] CRR and SLR with change dates
 - [x] Scheduled commercial bank credit and deposit growth y/y (fortnightly) (credit–deposit ratio still to add)
-- [ ] Sectoral deployment of credit (monthly): industry, services, personal loans, agriculture
+- [x] Sectoral deployment of credit (monthly): industry, services, personal loans, agriculture (`rbi/sectoral_credit.py`, growth as published)
 - [x] Money supply M3 growth, reserve money (WSS tables 6 and 7, fortnightly)
 - [x] T-bill yields (91d, 182d, 364d) (CP and CD rates still to add)
 - [x] MPC Speak section and link (committee tone chart; member page at /money/mpc-speak/)

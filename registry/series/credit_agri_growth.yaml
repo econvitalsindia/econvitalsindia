@@ -1,0 +1,38 @@
+id: credit_agri_growth
+title: Bank credit to agriculture, growth y/y (sectoral deployment)
+short_title: Agriculture
+area: money
+source:
+  agency: RBI
+  dataset: Sectoral Deployment of Bank Credit (monthly press release, Statement 1)
+  url: https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx
+  module: pipelines/sources/rbi/sectoral_credit.py
+licence: unverified
+downloadable: false
+fetch: auto
+frequency: M
+unit: percent
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+release:
+  calendar: rbi
+  rule: monthly press release, about a month after the month
+  lag_days: 35
+validation:
+  range:
+  - -50
+  - 300
+  revision_alert: 2
+pages:
+- page: money-banking
+  section: sectoral-credit
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: '% change on a year earlier as RBI publishes it (Statement 1), for the last
+  reporting day of the month. Includes the effect of a non-bank merging into a bank
+  where RBI notes it. Each release also gives the rate a year earlier; the newest
+  release wins.'

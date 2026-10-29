@@ -671,6 +671,76 @@
     "last_error": null,
     "last_period": "2026-09-01"
   },
+  "credit_agri_growth": {
+    "last_attempt": "2026-10-29T16:27:43+00:00",
+    "last_success": "2026-10-29T16:27:43+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-08-01"
+  },
+  "credit_cards_growth": {
+    "last_attempt": "2026-10-29T16:27:43+00:00",
+    "last_success": "2026-10-29T16:27:43+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-08-01"
+  },
+  "credit_gold_growth": {
+    "last_attempt": "2026-10-29T16:27:43+00:00",
+    "last_success": "2026-10-29T16:27:43+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-08-01"
+  },
+  "credit_housing_growth": {
+    "last_attempt": "2026-10-29T16:27:43+00:00",
+    "last_success": "2026-10-29T16:27:43+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-08-01"
+  },
+  "credit_industry_growth": {
+    "last_attempt": "2026-10-29T16:27:43+00:00",
+    "last_success": "2026-10-29T16:27:43+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-08-01"
+  },
+  "credit_nbfc_growth": {
+    "last_attempt": "2026-10-29T16:27:43+00:00",
+    "last_success": "2026-10-29T16:27:43+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-08-01"
+  },
+  "credit_nonfood_growth": {
+    "last_attempt": "2026-10-29T16:27:43+00:00",
+    "last_success": "2026-10-29T16:27:43+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-08-01"
+  },
+  "credit_personal_growth": {
+    "last_attempt": "2026-10-29T16:27:43+00:00",
+    "last_success": "2026-10-29T16:27:43+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-08-01"
+  },
+  "credit_services_growth": {
+    "last_attempt": "2026-10-29T16:27:43+00:00",
+    "last_success": "2026-10-29T16:27:43+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-08-01"
+  },
+  "credit_vehicle_growth": {
+    "last_attempt": "2026-10-29T16:27:43+00:00",
+    "last_success": "2026-10-29T16:27:43+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-08-01"
+  },
   "crr": {
     "last_attempt": "2026-10-29T10:59:45+00:00",
     "last_success": "2026-10-29T10:59:45+00:00",

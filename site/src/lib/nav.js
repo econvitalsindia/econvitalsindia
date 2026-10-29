@@ -49,6 +49,7 @@ export const topics = [
     ["MPC decisions and votes", "/money/#decisions"],
     ["Liquidity", "/money/#liquidity"],
     ["Bank credit and deposits", "/money/#credit"],
+    ["Credit by sector", "/money/#sectoral-credit"],
     ["Money supply (M3)", "/money/#money-supply"],
     ["Rates, recent weeks", "/money/#rates-table"],
     ["MPC Speak: hawkish or dovish?", "/money/mpc-speak/"],

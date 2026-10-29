@@ -57,6 +57,22 @@ const move = (bp) => bp === null ? "–" : bp === 0 ? "hold" : `${bp > 0 ? "+" :
   </div>
   <p class="chart-sub">RBI notes that these data include the effect of a non-bank merging into a bank, which lifts year-on-year growth; see the note in the WSS table.</p>
 
+  <h2 id="sectoral-credit">Who is borrowing: credit by sector</h2>
+  <div class="grid2">
+    <LineChart title="Bank credit growth by sector" subtitle="% change on a year earlier, as published"
+      lines={[{ id: "credit_agri_growth", label: "Agriculture" }, { id: "credit_industry_growth", label: "Industry" }, { id: "credit_services_growth", label: "Services" }, { id: "credit_personal_growth", label: "Personal loans" }]} years={2} />
+    <LineChart title="Personal loans by type" subtitle="% change on a year earlier, as published"
+      lines={[{ id: "credit_housing_growth", label: "Housing" }, { id: "credit_vehicle_growth", label: "Vehicle" }, { id: "credit_cards_growth", label: "Credit cards" }]} years={2} />
+  </div>
+  <PeriodTable heading="% y/y, last reporting day of the month" n={6} rows={[
+    { id: "credit_nonfood_growth", label: "Non-food credit" },
+    { id: "credit_agri_growth", indent: true }, { id: "credit_industry_growth", indent: true }, { id: "credit_services_growth", indent: true },
+    { id: "credit_nbfc_growth", label: "  of which NBFCs", indent: true }, { id: "credit_personal_growth", indent: true },
+    { id: "credit_housing_growth", label: "  Housing", indent: true }, { id: "credit_vehicle_growth", label: "  Vehicle", indent: true },
+    { id: "credit_gold_growth", label: "  Gold loans", indent: true }, { id: "credit_cards_growth", label: "  Credit cards", indent: true },
+  ]} freq="M" />
+  <p class="chart-sub">RBI's monthly Sectoral Deployment of Bank Credit (Statement 1), growth rates as published. Gold loans are left out of the chart because their growth is far larger than the rest; they are in the table. Each release also restates the year-earlier rate.</p>
+
   <h2 id="money-supply">Money supply</h2>
   <div class="grid2">
     <LineChart title="Broad money (M3) and reserve money growth" subtitle="% change on a year earlier, as published"
@@ -79,5 +95,5 @@ const move = (bp) => bp === null ? "–" : bp === 0 ? "hold" : `${bp > 0 ? "+" :
   <p class="chart-sub">An original measure on {config.site.name}: phrase counts in each member's statement in the RBI minutes. <a href="/money/mpc-speak/">Member by member, and how the score works →</a></p>
 
   <h2>Still to come on this page</h2>
-  <p class="chart-sub">Sectoral deployment of bank credit (industry, services, personal loans, agriculture). Checklist: docs/guidebook/05-pages/money-banking.md.</p>
+  <p class="chart-sub">The credit–deposit ratio, and commercial paper and certificate of deposit rates. Checklist: docs/guidebook/05-pages/money-banking.md.</p>
 </Base>
