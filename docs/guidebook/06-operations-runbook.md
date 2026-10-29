@@ -65,6 +65,6 @@ No draft that day means no email. Optional subject: front matter `subject: "..."
 3. In `site.config.yaml`, set `newsletter.buttondown_username` and `newsletter.enabled: true`, then push. The signup box appears on the home and About pages; sign-ups confirm by email (double opt-in).
 4. Subscribe yourself, confirm, and do the routine above once.
 
-**API mode (optional, paid):** with `newsletter.writer: "api"`, an `ANTHROPIC_API_KEY` secret and the schedule uncommented in `newsletter-morning.yml`, the 07:30 IST workflow writes and sends the email by itself (`morning auto`: one retry on checker failure, then the fixed template in `registry/newsletter/morning.md`). Measured 2026-10-29: about 12,000 input + 1,800 output tokens per email, about $0.08 a day on `claude-opus-5-5`, about $0.002 on `claude-haiku-5-5` (`newsletter.llm_model`).
+**API mode (in use since 2026-10-29):** with `newsletter.writer: "api"` and an `ANTHROPIC_API_KEY` secret, the 07:30 IST `newsletter-morning` workflow writes and sends the email by itself (`morning auto`: one retry on checker failure, then the fixed template in `registry/newsletter/morning.md`). Measured 2026-10-29: about 12,000 input + 1,800 output tokens per email, about $0.08 a day on `claude-opus-5-5`, about $0.002 on `claude-haiku-5-5` (`newsletter.llm_model`).
 
 **The weekly digest** (`digest.py`, `newsletter.yml`) still exists but runs only by hand, as a Buttondown draft, because the morning email uses the free plan's one-email-a-day allowance.

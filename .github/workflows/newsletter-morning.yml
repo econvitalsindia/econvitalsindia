@@ -1,12 +1,13 @@
 name: newsletter-morning
-# API mode only (newsletter.writer: "api", paid): write the morning email with Claude through
-# the Anthropic API, check it, fall back to the fixed template, and send it. The default is
-# manual mode (newsletter-send.yml sends the maintainer's draft), so this runs only by hand.
-# To automate it, set writer: "api", add the ANTHROPIC_API_KEY secret and uncomment the
-# schedule (07:30 IST). Runbook: "Newsletter".
+# Every day at 07:30 IST (newsletter.writer: "api"): write the morning email with Claude
+# through the Anthropic API, check it, fall back to the fixed template, and send it through
+# Buttondown. Skips quietly unless writer is "api", newsletter.enabled is true and the
+# BUTTONDOWN_API_KEY secret exists. A manual draft pushed the same day (newsletter-send.yml)
+# and this run never both send: data/newsletter/sent.json allows one email a day.
+# Runbook: "Newsletter".
 on:
-  # schedule:
-  #   - cron: "0 2 * * *"
+  schedule:
+    - cron: "0 2 * * *"
   workflow_dispatch:
 permissions:
   contents: write

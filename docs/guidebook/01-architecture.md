@@ -63,7 +63,7 @@ Data is refreshed by **data bots**, modelled on econvitals' data repo: one workf
 | `bot-ministries.yml` (ministries-bot) | Mon–Sat 19:30 | Trade, GST, CGA accounts and tax heads, WPI, core industries, PPAC, SIAM |
 | `briefing.yml` (briefing-bot) | Mon–Sat 20:30 | Drafts release notes (review PR); auto-publishes the daily note |
 | `newsletter-send.yml` (newsletter-bot) | When the maintainer pushes today's draft | Re-checks the morning email, sends it via Buttondown, archives it in `data/newsletter/morning/` |
-| `newsletter-morning.yml` | By hand (API mode only) | Writes and sends the email through the Anthropic API; off by default |
+| `newsletter-morning.yml` (newsletter-bot) | Daily 07:30 (when `writer: "api"`) | Writes the morning email with Claude Opus 5.5 through the Anthropic API, checks it, sends it via Buttondown |
 | `newsletter.yml` | By hand only | Weekly digest as a provider draft |
 | `deploy.yml` | On push to `main`, and when a bot or briefing-bot commits | Build + upload to Cloudflare Pages |
 | `update-data.yml` | By hand only | Every auto source in one run (after an outage or a big fix) |

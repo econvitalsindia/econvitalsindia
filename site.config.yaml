@@ -56,9 +56,9 @@ newsletter:
   provider: "buttondown"
   enabled: false          # true once the Buttondown account exists and the secrets are set
   buttondown_username: "" # your Buttondown username; the signup box appears once this is set
-  writer: "manual"        # "manual": you write with any AI from the fact pack (no API cost)
-                          # "api": the 07:30 workflow calls the Anthropic API itself (paid)
-  llm_model: "claude-opus-5-5"   # api mode only; "claude-haiku-5-5" costs about 1/40th as much
+  writer: "api"           # "api": the 07:30 IST workflow writes and sends it (Anthropic API, paid)
+                          # "manual": you write with any AI from the fact pack (no API cost)
+  llm_model: "claude-opus-5-5"   # ~$2.50/month (measured); "claude-sonnet-5-5" ~half, "claude-haiku-5-5" ~$0.06
   # The old weekly digest (digest.py) is kept but no longer scheduled: Buttondown's free plan
   # allows one email a day, and the morning email uses it.
   products: [weekly-briefing, release-note]
