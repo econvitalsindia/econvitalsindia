@@ -7,7 +7,7 @@
 - [x] Per-series page `/data/<id>`: chart, metadata, revision history (vintages), CSV download, citation, verification record
 - [x] Methods for every Original measure (rendered from `08-original-measures.md` at /methods/)
 - [ ] Base-year bridge: how linked series are spliced, with overlap-period comparisons
-- [ ] Bulk download (zip of all downloadable series), regenerated daily
+- [x] Bulk download (zip of all downloadable series), regenerated with every build (`/downloads/all-data.zip`, written by `write_bulk_zip` in site_data.py)
 - [x] Citation format: "<site name> (<year>). <series title>. Retrieved <date> from <url>. Original source: <agency>."
 
 ## Must NOT include

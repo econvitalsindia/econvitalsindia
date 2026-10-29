@@ -25,6 +25,7 @@ const rows = ids.map((id) => {
 const latestPeriod = rows[0].last.period;
 const published = series("cpi_headline_inflation");
 const contrib = JSON.parse(fs.readFileSync("src/data/generated/cpi_contributions.json", "utf8"));
+const momentum = JSON.parse(fs.readFileSync("src/data/generated/cpi_momentum_base.json", "utf8"));
 const contribTotal = published.data.filter((d) => d[0] >= contrib[0]?.period).map((d) => [d[0], d[1]]);
 const wpiYoy = latest(series("wpi_headline_index"), "yoy");
 const indent = new Set(["cpi_elec_gas_fuels_index", "cpi_vehicle_fuels_index"]);
@@ -48,6 +49,11 @@ const indent = new Set(["cpi_elec_gas_fuels_index", "cpi_vehicle_fuels_index"]);
   </div>
 
   <p class="chart-sub"><a href="/inflation/detail/">All twelve divisions of the CPI basket, with their contributions →</a></p>
+
+  <h2 id="momentum">Momentum or base effect?</h2>
+  <StackedBars title="Why the inflation rate changed this month" subtitle="Change in 12-month CPI inflation (dots), split into this month's price change and last year's (log points, close to percentage points)"
+    rows={momentum.rows} total={momentum.total} source="MoSPI CPI (base 2024, linked back series); site calculation (Original)." />
+  <p class="chart-sub">The 12-month inflation rate rises when prices go up this month (momentum) and when the same month last year saw small or falling price changes, which drop out of the comparison (base effect). In logs the split is exact: change in inflation = this month's price change − the price change in the same month a year earlier. Prices are not seasonally adjusted, so momentum can follow a seasonal pattern; the base effect from the same month carries that pattern too. Method: <a href="/methods/">Methods</a>.</p>
 
   <h2 id="cpi-table">Consumer prices, {period(latestPeriod, "M")}</h2>
   <div class="scroll">

@@ -6,7 +6,7 @@
 - [x] Table: CPI headline, food and beverages, fuel (RBI definition), core (Original), rural, urban (housing still to add). Columns: 1-month, 3-month avg y/y, 12-month y/y, and m/m momentum
 - [x] Chart: CPI headline and core y/y, with the 4% target line and the shaded 2–6% band
 - [x] Chart: contributions to headline CPI by group (weights from the 2024 base)
-- [ ] Chart: momentum vs base effect decomposition of the change in y/y inflation (Original)
+- [x] Chart: momentum vs base effect decomposition of the change in y/y inflation (Original; method in 08-original-measures.md)
 - [x] WPI headline, WPI food, WPI manufactured products
 - [x] CPI-IW (Labour Bureau; history builds from monthly press notes)
 - [x] RBI household inflation expectations (3-month and 1-year ahead, plus current perception)

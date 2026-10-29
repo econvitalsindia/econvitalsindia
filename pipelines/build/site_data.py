@@ -286,6 +286,49 @@ def yield_curve() -> dict:
     return {"curves": curves}
 
 
+def cpi_momentum_base(months: int = 24) -> dict:
+    """Change in headline CPI inflation split into momentum and base effect (Original).
+
+    In log points, ln(I_t/I_t-12) - ln(I_t-1/I_t-13) = ln(I_t/I_t-1) - ln(I_t-12/I_t-13):
+    this month's price change (momentum) minus the price change in the same month a year
+    earlier (base effect, entered with a minus sign). The two bars add up exactly to the
+    dot, the change in the 12-month rate (log points, close to percentage points)."""
+    import numpy as np
+    s = load("cpi_headline_index").set_index("period")["value"]
+    s = s.asfreq("MS")
+    lg = 100 * np.log(s)
+    momentum = lg.diff()
+    base = -momentum.shift(12)
+    total = (lg - lg.shift(12)).diff()
+    frame = pd.DataFrame({"m": momentum, "b": base, "t": total}).dropna().tail(months)
+    rows = []
+    for p, r in frame.iterrows():
+        d = p.strftime("%Y-%m-%d")
+        rows += [{"period": d, "component": "Momentum (this month's price change)", "pp": round(r["m"], 3) + 0.0},
+                 {"period": d, "component": "Base effect (minus last year's change)", "pp": round(r["b"], 3) + 0.0}]
+    return {"rows": rows, "total": [[p.strftime("%Y-%m-%d"), round(v, 2)] for p, v in frame["t"].items()]}
+
+
+def write_bulk_zip(specs: dict) -> None:
+    """site/public/downloads/all-data.zip: every downloadable CSV (as in site/public/data)
+    plus catalogue.csv describing them. Overwritten on every build."""
+    import io
+    import zipfile
+    files = sorted(f for f in PUBLIC.glob("*.csv") if f.stem in specs and specs[f.stem]["downloadable"])
+    cat = pd.DataFrame([{"id": f.stem, "title": specs[f.stem]["title"], "unit": specs[f.stem]["unit"],
+                         "frequency": specs[f.stem]["frequency"], "source": specs[f.stem]["source"]["agency"],
+                         "licence": specs[f.stem]["licence"], "panel": bool(specs[f.stem].get("panel"))}
+                        for f in files])
+    buf = io.BytesIO()
+    with zipfile.ZipFile(buf, "w", zipfile.ZIP_DEFLATED) as z:
+        z.writestr("catalogue.csv", cat.to_csv(index=False))
+        for f in files:
+            z.write(f, f"series/{f.name}")
+    out = PUBLIC.parent / "downloads"
+    out.mkdir(parents=True, exist_ok=True)
+    (out / "all-data.zip").write_bytes(buf.getvalue())
+
+
 def division_label(spec: dict) -> str:
     """'CPI food & beverages' -> 'Food & beverages'."""
     s = spec["short_title"].removeprefix("CPI ")
@@ -449,6 +492,7 @@ def main() -> int:
     write_json(OUT / "mpc_decisions.json", mpc_decisions(cal))
     write_json(OUT / "budget.json", budget_table())
     write_json(OUT / "yield_curve.json", yield_curve())
+    write_json(OUT / "cpi_momentum_base.json", cpi_momentum_base())
     PUBLIC.parent.mkdir(parents=True, exist_ok=True)
     (PUBLIC.parent / "calendar.ics").write_text(calendar.ics(cal, registry.site_config()["site"]["name"]))
 
@@ -474,6 +518,7 @@ def main() -> int:
               f"A maintainer must remove them from site/public/data/.")
         return 1
 
+    write_bulk_zip(specs)
     print(f"built {len(payloads)} series, {len(tiles)} tiles -> {OUT.relative_to(store.ROOT)}")
     return 0
 

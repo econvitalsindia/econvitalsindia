@@ -31,6 +31,15 @@ Every measure we construct, rather than copy from an agency, is listed here and 
 - **What:** `gst_gross_growth`, `gst_net_growth`.
 - **Method:** each month's growth compares that month with the year-earlier column **in the same sheet** of the GST portal's workbook, so both sides use one definition (later sheets exclude the compensation cess). Levels are taken only from each month's own sheet.
 
+### Momentum and base effect in CPI inflation
+- **What:** the month's change in 12-month headline CPI inflation, split into momentum and base effect (Inflation page, `cpi_momentum_base.json`, built in `pipelines/build/site_data.py`).
+- **Formula (log points):** ln(I_t/I_t−12) − ln(I_t−1/I_t−13) = ln(I_t/I_t−1) − ln(I_t−12/I_t−13). Momentum = 100·ln(I_t/I_t−1); base effect = −100·ln(I_t−12/I_t−13). The two add up exactly to the change in the log 12-month rate.
+- **Data:** `cpi_headline_index`, MoSPI's linked back series to 2024 = 100, not seasonally adjusted.
+- **Limitations:** log points differ slightly from percentage-point changes in the published rate (which also rounds); indices are published to two decimals, so a month with an unchanged index shows zero.
+
+### Term spread
+- **What:** `term_spread_10y_repo` = FBIL 10-year par yield minus the policy repo rate in force that day (`pipelines/sources/derived/term_spread.py`).
+
 ## Planned
 
 ### Linked series across base years (Phase 2)

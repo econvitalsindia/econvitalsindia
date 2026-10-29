@@ -25,3 +25,4 @@ data/raw/
 site/src/data/generated/
 site/public/data/
 site/public/calendar.ics
+site/public/downloads/
