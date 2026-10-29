@@ -24,14 +24,18 @@ RECENT_MONTHS, MIN_HISTORY = 3, 12
 # Row label (start, spaces collapsed) -> series prefix
 ROWS = {
     "Revenue Receipts": "cga_revenue_receipts", "Tax Revenue (Net)": "cga_net_tax",
-    "Total Receipts": "cga_total_receipts", "Revenue Expenditure": "cga_revenue_expenditure",
+    "Non-Tax Revenue": "cga_nontax", "Non-Debt Capital Receipts": "cga_nondebt_capital",
+    "Other Receipts": "cga_other_receipts", "Total Receipts": "cga_total_receipts", "Revenue Expenditure": "cga_revenue_expenditure",
     "of which Interest Payments": "cga_interest", "Capital Expenditure": "cga_capex",
     "Total Expenditure": "cga_total_expenditure", "Fiscal Deficit": "cga_fiscal_deficit",
     "Revenue Deficit": "cga_revenue_deficit", "Primary Deficit": "cga_primary_deficit",
 }
 # Rows whose "% of BE" (current and previous year) are also stored.
 PCT_BE = {"Fiscal Deficit": "cga_fiscal_deficit", "Capital Expenditure": "cga_capex",
-          "Tax Revenue (Net)": "cga_net_tax"}
+          "Tax Revenue (Net)": "cga_net_tax", "Revenue Receipts": "cga_revenue_receipts",
+          "Non-Tax Revenue": "cga_nontax", "Other Receipts": "cga_other_receipts",
+          "Total Receipts": "cga_total_receipts", "Revenue Expenditure": "cga_revenue_expenditure",
+          "Total Expenditure": "cga_total_expenditure"}
 
 
 def fy_code(p: pd.Period) -> str:
@@ -90,7 +94,8 @@ class CgaMonthlyAccounts(Source):
 
     def fetch(self) -> list[Raw]:
         now = pd.Period.now(freq="M")
-        backfill = len(load_series("cga_fiscal_deficit_fytd")) < MIN_HISTORY
+        # Backfill when any series is short (e.g. a row added to ROWS or PCT_BE later).
+        backfill = min(len(load_series(sid)) for sid in self.series_ids) < MIN_HISTORY
         start = FIRST_MONTH if backfill else now - RECENT_MONTHS
         raws = []
         for p in pd.period_range(start, now, freq="M"):

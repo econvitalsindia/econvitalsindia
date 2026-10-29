@@ -14,7 +14,7 @@
 - [x] Domestic and international air passengers, air freight (AAI monthly traffic reports, from Jan 2025)
 - [x] Digital pulse: UPI volume and value (y/y) via RBI Payment System Indicators. FASTag still to add (Phase 4)
 - [ ] PMI manufacturing/services headline (cited only; licensed)
-- [ ] Heatmap: each indicator's latest y/y as a z-score vs its own history (Original, Phase 4; the India analogue of econvitals' "relative to past performance")
+- [ ] (Deferred 2026-10-29: most indicators have under three years of growth history in our data, too short for a fair z-score) Heatmap: each indicator's latest y/y as a z-score vs its own history (Original, Phase 4; the India analogue of econvitals' "relative to past performance")
 
 ## Must NOT include
 - PMI time series as a downloadable file (licensed)

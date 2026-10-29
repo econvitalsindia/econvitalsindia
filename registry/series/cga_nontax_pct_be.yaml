@@ -1,0 +1,35 @@
+id: cga_nontax_pct_be
+title: Non-tax revenue, year to date as % of Budget Estimates
+short_title: Non-tax revenue, % of BE
+area: fiscal
+source:
+  agency: Controller General of Accounts, Ministry of Finance
+  dataset: Union Government Accounts at a Glance (monthly)
+  url: https://cga.nic.in/
+  module: pipelines/sources/cga/monthly_accounts.py
+licence: GODL
+downloadable: true
+fetch: auto
+frequency: M
+unit: percent
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+release:
+  calendar: cga
+  rule: last working day of the month, for the previous month
+  lag_days: 40
+validation:
+  range:
+  - -100
+  - 300
+  revision_alert: 5
+pages:
+- page: fiscal
+  section: monthly-accounts
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: As published by CGA.

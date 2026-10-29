@@ -4,7 +4,7 @@
 
 ## Must include
 - [x] Fiscal deficit FYTD as % of Budget Estimate, vs the same point in the previous 3 years
-- [ ] Revenue: gross tax revenue, net tax to Centre, non-tax, disinvestment, FYTD vs BE
+- [x] Revenue: net tax to Centre, non-tax, "other receipts" (CGA and the Budget have no separate disinvestment line in these tables), FYTD vs BE (gross tax is in the tax-heads section)
 - [x] Spending: revenue expenditure, capital expenditure, interest payments, FYTD vs BE
 - [x] GST gross collections (monthly, y/y)
 - [x] Tax collections by head (CGA DTL3, from FY 2015-16): gross, direct (corporate + income), STT, customs, excise

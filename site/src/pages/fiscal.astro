@@ -9,6 +9,13 @@ const fdPrev = latest(series("cga_fiscal_deficit_pct_be_prev"));
 const gst = latest(series("gst_gross_collections"));
 import fs from "node:fs";
 const budget = JSON.parse(fs.readFileSync("src/data/generated/budget.json", "utf8"));
+// Progress against the Budget, as CGA prints it (no calculation here).
+const vsBE = [["Revenue receipts", "cga_revenue_receipts"], ["Tax revenue (net to Centre)", "cga_net_tax"],
+  ["Non-tax revenue", "cga_nontax"], ["Other receipts", "cga_other_receipts"], ["Total receipts", "cga_total_receipts"],
+  ["Revenue expenditure", "cga_revenue_expenditure"], ["Capital expenditure", "cga_capex"],
+  ["Total expenditure", "cga_total_expenditure"], ["Fiscal deficit", "cga_fiscal_deficit"]]
+  .map(([label, p]) => ({ label, fytd: latest(series(`${p}_fytd`)), pct: latest(series(`${p}_pct_be`)), prev: latest(series(`${p}_pct_be_prev`)) }));
+const vsPeriod = vsBE[0].pct.period;
 ---
 <Base current="fiscal" title="Fiscal">
   <h1>Fiscal</h1>
@@ -40,6 +47,11 @@ const budget = JSON.parse(fs.readFileSync("src/data/generated/budget.json", "utf
     { id: "cga_capex_fytd", indent: true },
     { id: "cga_fiscal_deficit_fytd" }, { id: "cga_revenue_deficit_fytd" }, { id: "cga_primary_deficit_fytd" },
   ]} />
+  <h3 id="vs-budget">Against the Budget, April to {period(vsPeriod, "M")}</h3>
+  <div class="scroll"><table class="data">
+    <thead><tr><th></th><th>₹ lakh crore so far</th><th>% of Budget Estimate</th><th>Same point last year</th></tr></thead>
+    <tbody>{vsBE.map((r) => <tr><td>{r.label}</td><td>{num(r.fytd.value, 2)}</td><td>{num(r.pct.value, 1)}%</td><td>{num(r.prev.value, 1)}%</td></tr>)}</tbody>
+  </table></div>
   <p class="chart-sub">Cumulative from April, so values reset each financial year. CGA cautions that the deficit in the monthly accounts during the year is not necessarily an indicator of the deficit for the full year.</p>
 
   <h2 id="gst">GST collections</h2>
