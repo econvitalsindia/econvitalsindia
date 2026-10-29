@@ -12,7 +12,7 @@ bots:
     sources: [rbi_home_rates, yahoo_markets, derived_brent_inr, fbil_gsec_curve, derived_term_spread, nsdl_fpi]
   mospi:
     when: "Mon-Sat 17:00 (MoSPI releases at 16:00)"
-    sources: [mospi_cpi, mospi_iip, mospi_nas, mospi_nas_annual, mospi_nas_annual_sectors, mospi_plfs, mospi_states, labourbureau_cpi_iw, derived_core_cpi]
+    sources: [mospi_cpi, mospi_cpi_food, mospi_iip, mospi_nas, mospi_nas_annual, mospi_nas_annual_sectors, mospi_plfs, mospi_states, labourbureau_cpi_iw, derived_core_cpi]
   rbi:
     when: "Mon-Sat 18:30"
     sources: [rbi_wss, rbi_payments, rbi_bop, rbi_external_debt, rbi_services_trade, rbi_surveys, rbi_iesh, rbi_mpc_minutes, rbi_mpc_decisions, fbil_refrates, derived_mpc_committee, rbi_state_finances, derived_state_fiscal_ratios]

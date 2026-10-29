@@ -17,6 +17,7 @@ export const topics = [
   { key: "inflation", label: "Inflation", href: "/inflation/", items: [
     ["Headline and core CPI", "/inflation/"],
     ["What is driving inflation", "/inflation/#drivers"],
+    ["Food watch: prices by item", "/inflation/#food-watch"],
     ["Momentum or base effect?", "/inflation/#momentum"],
     ["Consumer prices by group", "/inflation/#cpi-table"],
     ["How core CPI is built", "/inflation/#core-cpi"],

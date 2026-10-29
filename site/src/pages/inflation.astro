@@ -2,6 +2,7 @@
 import Base from "../layouts/Base.astro";
 import LineChart from "../components/LineChart.astro";
 import StackedBars from "../components/StackedBars.astro";
+import RankedBars from "../components/RankedBars.astro";
 import PeriodTable from "../components/PeriodTable.astro";
 import { series, latest, valueAt } from "../lib/data.js";
 import { num, period } from "../lib/format.js";
@@ -26,6 +27,10 @@ const latestPeriod = rows[0].last.period;
 const published = series("cpi_headline_inflation");
 const contrib = JSON.parse(fs.readFileSync("src/data/generated/cpi_contributions.json", "utf8"));
 const momentum = JSON.parse(fs.readFileSync("src/data/generated/cpi_momentum_base.json", "utf8"));
+const food = JSON.parse(fs.readFileSync("src/data/generated/panels/cpi_food_inflation.json", "utf8"));
+const foodLast = food.ref_period, foodCols = food.periods.slice(-6);
+const foodBars = food.rows.map((r) => ({ label: r.entity, value: r.values[foodLast] })).filter((r) => r.value !== null && r.value !== undefined);
+const foodRows = [...food.rows].sort((a, b) => (b.values[foodLast] ?? -99) - (a.values[foodLast] ?? -99));
 const contribTotal = published.data.filter((d) => d[0] >= contrib[0]?.period).map((d) => [d[0], d[1]]);
 const wpiYoy = latest(series("wpi_headline_index"), "yoy");
 const indent = new Set(["cpi_elec_gas_fuels_index", "cpi_vehicle_fuels_index"]);
@@ -49,6 +54,15 @@ const indent = new Set(["cpi_elec_gas_fuels_index", "cpi_vehicle_fuels_index"]);
   </div>
 
   <p class="chart-sub"><a href="/inflation/detail/">All twelve divisions of the CPI basket, with their contributions →</a></p>
+
+  <h2 id="food-watch">Food watch</h2>
+  <RankedBars title={`Food prices by item, ${period(foodLast, "M")}`} subtitle="CPI inflation, % on a year earlier, as published; dashed line = CPI food and beverages"
+    rows={foodBars} reference={latest(series("cpi_food_bev_index"), "yoy")?.value ?? null} referenceLabel="Food & beverages" decimals={1} source="MoSPI, CPI (base 2024), all India, rural + urban." />
+  <div class="scroll"><table class="data">
+    <thead><tr><th>% y/y</th>{foodCols.map((c) => <th>{period(c, "M")}</th>)}</tr></thead>
+    <tbody>{foodRows.map((r) => <tr><td>{r.entity}</td>{foodCols.map((c) => <td>{num(r.values[c], 1)}</td>)}</tr>)}</tbody>
+  </table></div>
+  <p class="chart-sub">Classes and sub-classes of the CPI food basket, inflation as MoSPI publishes it; on the 2024 base these rates start in January 2026. Vegetable prices swing widely from month to month. Rainfall and reservoir data, planned for this section, are not yet available in a form we can read (IMD publishes them as images).</p>
 
   <h2 id="momentum">Momentum or base effect?</h2>
   <StackedBars title="Why the inflation rate changed this month" subtitle="Change in 12-month CPI inflation (dots), split into this month's price change and last year's (log points, close to percentage points)"

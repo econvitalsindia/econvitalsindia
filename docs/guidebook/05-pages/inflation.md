@@ -11,7 +11,7 @@
 - [x] CPI-IW (Labour Bureau; history builds from monthly press notes)
 - [x] RBI household inflation expectations (3-month and 1-year ahead, plus current perception)
 - [ ] RBI's CPI projections (latest MPC) vs outturn
-- [ ] Food watch link (monsoon and essential-commodity prices, Phase 4)
+- [x] Food watch: CPI inflation for 15 food classes/items (`cpi_food_inflation`). Monsoon and reservoir data still missing: IMD publishes rainfall as images/PDFs, CWC blocks US runners, DCA daily prices sit behind a captcha
 - [ ] State-wise CPI y/y map (links to States, Phase 4)
 - [x] Clear definition of core: CPI excluding food and beverages, and fuel and light (and the variant also excluding petrol, diesel and gold, if we publish it). Weights and method in `08-original-measures.md`
 - [x] Detail page `/inflation/detail`: all 12 COICOP divisions with weights and contributions (groups and items still to add)

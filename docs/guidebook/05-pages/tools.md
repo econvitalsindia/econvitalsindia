@@ -7,7 +7,7 @@
 - [ ] **Surprise composites**: activity and inflation z-scores vs history (and vs consensus, if a free consensus source appears)
 - [x] (Growth-gap version, `/tools/policy-rule/`; output gap once a linked GDP series exists) **RBI policy rule**: Taylor-type rule with user-chosen neutral rate, inflation gap (headline/core), output gap (HP/production function), vs actual repo
 - [x] (`/tools/budget/`, Expenditure Profile Statement 3, demand-level totals; major heads not yet) **Union Budget explorer**: BE/RE/Actuals by ministry and major heads, over time
-- [ ] **Monsoon and food watch**: rainfall vs LPA by subdivision, reservoir storage, daily prices of key vegetables, vs CPI food
+- [ ] (Food part done as the Inflation page food watch; monsoon/reservoirs blocked, see inflation.md) **Monsoon and food watch**: rainfall vs LPA by subdivision, reservoir storage, daily prices of key vegetables, vs CPI food
 - [ ] **Base-year bridge explorer**: old vs new base series in the overlap period
 - [x] (`/tools/peers/`: BIS policy rates and CPI, World Bank GDP; IMF API returns 403) **India vs peers**: growth, inflation and policy rates vs EM peers (IMF/World Bank data)
 

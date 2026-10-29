@@ -1,0 +1,39 @@
+id: cpi_food_inflation
+title: CPI inflation by food item, all India
+short_title: Food inflation by item
+area: inflation
+source:
+  agency: MoSPI
+  dataset: Consumer Price Index (base 2024), food classes and sub-classes
+  url: https://esankhyiki.mospi.gov.in/
+  module: pipelines/sources/mospi/cpi_food.py
+licence: GODL
+downloadable: true
+fetch: auto
+frequency: M
+unit: percent
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+release:
+  calendar: mospi
+  rule: with the national release
+  lag_days: 45
+validation:
+  range:
+  - -60
+  - 200
+  revision_alert: 2
+pages:
+- page: inflation
+  section: food-watch
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: '% on a year earlier as published by MoSPI, combined rural + urban, all India.
+  Fifteen food classes and sub-classes (see ITEMS in the module). From January 2026,
+  when inflation on the 2024 base begins.'
+panel: true
+entity: food_item
