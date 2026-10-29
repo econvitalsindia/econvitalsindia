@@ -1927,6 +1927,90 @@
     "last_error": null,
     "last_period": "2026-10-29"
   },
+  "vehicle_retail_2w": {
+    "last_attempt": "2026-10-29T17:06:59+00:00",
+    "last_success": "2026-10-29T17:06:59+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-09-01"
+  },
+  "vehicle_retail_2w_growth": {
+    "last_attempt": "2026-10-29T17:06:59+00:00",
+    "last_success": "2026-10-29T17:06:59+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-09-01"
+  },
+  "vehicle_retail_3w": {
+    "last_attempt": "2026-10-29T17:06:59+00:00",
+    "last_success": "2026-10-29T17:06:59+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-09-01"
+  },
+  "vehicle_retail_3w_growth": {
+    "last_attempt": "2026-10-29T17:06:59+00:00",
+    "last_success": "2026-10-29T17:06:59+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-09-01"
+  },
+  "vehicle_retail_cv": {
+    "last_attempt": "2026-10-29T17:06:59+00:00",
+    "last_success": "2026-10-29T17:06:59+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-09-01"
+  },
+  "vehicle_retail_cv_growth": {
+    "last_attempt": "2026-10-29T17:06:59+00:00",
+    "last_success": "2026-10-29T17:06:59+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-09-01"
+  },
+  "vehicle_retail_pv": {
+    "last_attempt": "2026-10-29T17:06:59+00:00",
+    "last_success": "2026-10-29T17:06:59+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-09-01"
+  },
+  "vehicle_retail_pv_growth": {
+    "last_attempt": "2026-10-29T17:06:59+00:00",
+    "last_success": "2026-10-29T17:06:59+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-09-01"
+  },
+  "vehicle_retail_total": {
+    "last_attempt": "2026-10-29T17:06:59+00:00",
+    "last_success": "2026-10-29T17:06:59+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-09-01"
+  },
+  "vehicle_retail_total_growth": {
+    "last_attempt": "2026-10-29T17:06:59+00:00",
+    "last_success": "2026-10-29T17:06:59+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-09-01"
+  },
+  "vehicle_retail_tractor": {
+    "last_attempt": "2026-10-29T17:06:59+00:00",
+    "last_success": "2026-10-29T17:06:59+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-09-01"
+  },
+  "vehicle_retail_tractor_growth": {
+    "last_attempt": "2026-10-29T17:06:59+00:00",
+    "last_success": "2026-10-29T17:06:59+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-09-01"
+  },
   "wacr": {
     "last_attempt": "2026-10-29T16:55:48+00:00",
     "last_success": "2026-10-29T07:14:46+00:00",

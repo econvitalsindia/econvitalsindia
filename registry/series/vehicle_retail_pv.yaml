@@ -1,0 +1,38 @@
+id: vehicle_retail_pv
+title: Vehicle retail sales (registrations), passenger vehicles, thousand units a
+  month
+short_title: 'Passenger vehicles: retail'
+area: activity
+source:
+  agency: Federation of Automobile Dealers Associations (FADA)
+  dataset: Monthly vehicle retail data press release (from Vahan)
+  url: https://fada.in/press-release-list.php
+  module: pipelines/sources/fada/retail.py
+licence: unverified
+downloadable: false
+fetch: auto
+frequency: M
+unit: thousand
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+release:
+  calendar: none
+  rule: FADA release, early in the following month
+  lag_days: 10
+validation:
+  range:
+  - 1
+  - 10000
+  revision_alert: 5
+pages:
+- page: activity
+  section: autos
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: Retail registrations compiled by FADA from the Vahan portal (not all RTOs;
+  Telangana and some others are partly covered). Earlier months come from the previous-month
+  and year-ago columns of later releases until the month's own release is read.

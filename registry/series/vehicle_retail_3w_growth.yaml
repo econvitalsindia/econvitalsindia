@@ -1,0 +1,35 @@
+id: vehicle_retail_3w_growth
+title: Vehicle retail sales (registrations), three-wheelers, % change on a year earlier
+short_title: 'Three-wheelers: retail growth'
+area: activity
+source:
+  agency: Federation of Automobile Dealers Associations (FADA)
+  dataset: Monthly vehicle retail data press release (from Vahan)
+  url: https://fada.in/press-release-list.php
+  module: pipelines/sources/fada/retail.py
+licence: unverified
+downloadable: false
+fetch: auto
+frequency: M
+unit: percent
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+release:
+  calendar: none
+  rule: FADA release, early in the following month
+  lag_days: 10
+validation:
+  range:
+  - -90
+  - 500
+  revision_alert: 5
+pages:
+- page: activity
+  section: autos
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: Year-on-year growth as printed by FADA for the release month.

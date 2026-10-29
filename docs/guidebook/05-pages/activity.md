@@ -8,7 +8,7 @@
 - [x] Power demand (Grid-India daily energy met, 7-day avg y/y; manual source, `make india-update`)
 - [x] GST gross collections (on the Fiscal page) and e-way bills (`ewaybills_count`, `ewaybills_value`, from Jul 2018)
 - [x] Auto: passenger vehicle, two- and three-wheeler sales (SIAM wholesale; PV from Apr 2023)
-- [ ] Auto: Vahan retail registrations (FADA monthly PDF is the easier route)
+- [x] Auto: Vahan retail registrations, from FADA's monthly PDF (pipelines/sources/fada/retail.py; newest release wins)
 - [x] Fuel consumption (PPAC): total, diesel, petrol, ATF, LPG (from Apr 2023)
 - [ ] Rail freight loading
 - [x] Domestic and international air passengers, air freight (AAI monthly traffic reports, from Jan 2025)
