@@ -1,0 +1,41 @@
+id: epfo_net_payroll
+title: EPFO net payroll additions, per month
+short_title: EPFO net payroll
+area: jobs
+source:
+  agency: Employees' Provident Fund Organisation (EPFO)
+  dataset: Net Payroll Data (monthly reports)
+  url: https://www.epfo.gov.in/data-hub/
+  module: pipelines/sources/epfo/payroll.py
+licence: GODL
+downloadable: true
+fetch: manual
+frequency: M
+unit: lakh
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+release:
+  calendar: none
+  rule: monthly report around the 20th, covering two months earlier; none posted after
+    September 2025
+  lag_days: 50
+validation:
+  range:
+  - -10
+  - 40
+  revision_alert: 10
+pages:
+- page: jobs
+  section: epfo
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: 'Lakh members: new subscribers minus exits plus those who rejoined, all ages.
+  Provisional and revised for months afterwards; each month shows the newest report
+  that prints it. It counts people joining the EPF scheme (formal jobs above the wage
+  ceiling, and formalisation of existing jobs), not total employment. EPFO''s Data
+  Hub has posted no report after September 2025 (checked 29 Oct 2026). EPFO refuses
+  requests from GitHub''s US servers, so the fetch is manual.'

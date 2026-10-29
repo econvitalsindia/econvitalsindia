@@ -531,6 +531,13 @@
     "last_error": null,
     "last_period": "2026-09-01"
   },
+  "epfo_net_payroll": {
+    "last_attempt": "2026-10-29T09:45:02+00:00",
+    "last_success": "2026-10-29T09:45:02+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2025-07-01"
+  },
   "ewaybills_count": {
     "last_attempt": "2026-10-29T09:37:32+00:00",
     "stale": false,

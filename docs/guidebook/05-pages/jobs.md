@@ -6,8 +6,8 @@
 - [x] PLFS monthly (CWS, 15+): unemployment rate, LFPR, WPR, for all/rural/urban and male/female
 - [x] Youth (15–29) unemployment
 - [x] PLFS quarterly bulletin (urban) and annual (usual status), with a clear concept label (CWS vs usual status)
-- [ ] EPFO net payroll additions (3mma), with a note that it measures formalisation, not total jobs, and is heavily revised
-- [ ] MGNREGA households demanding work vs a year ago (rural distress signal)
+- [x] EPFO net payroll additions, with a note that it measures formalisation, not total jobs, and is heavily revised (`epfo_net_payroll`, manual; monthly level shown, not 3mma, because the series stopped at Jul 2025)
+- [ ] MGNREGA households demanding work vs a year ago (rural distress signal). Scouted 2026-10-29: nrega.nic.in redirects to nrega.dord.gov.in; national reports at mnregaweb4.dord.gov.in/netnregarep/MISreport4.aspx are ASP.NET forms needing postbacks, and nreganarep.nic.in timed out
 - [x] Chart: female LFPR over time (long annual series, usual status, from 2017-18)
 - [x] Concept box: CWS vs usual status (ps+ss), and why they differ
 

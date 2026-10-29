@@ -26,6 +26,7 @@ export const topics = [
   { key: "jobs", label: "Jobs", href: "/jobs/", items: [
     ["Latest months (PLFS)", "/jobs/#latest"],
     ["Longer run", "/jobs/#longer-run"],
+    ["Formal payroll (EPFO)", "/jobs/#epfo"],
     ["Concepts", "/jobs/#concepts"],
   ] },
   { key: "activity", label: "Activity", href: "/activity/", items: [
