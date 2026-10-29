@@ -34,8 +34,15 @@ export async function onRequestPost({ request, env }) {
       ip_address: request.headers.get("CF-Connecting-IP") || undefined,
     }),
   });
-  if (r.status === 201) return json({ ok: true, status: "created" });
   const text = await r.text();
+  // With "Accept and mark as blocked" in Buttondown's firewall settings, a held address is
+  // created with type "blocked": it gets no confirmation email until the maintainer releases it.
+  const held = { ok: false, blocked: true, error: "Our email provider's spam filter held this sign-up. It will be reviewed; to speed things up, write to us from that address." };
+  if (r.status === 201) {
+    let type = "";
+    try { ({ type = "" } = JSON.parse(text)); } catch {}
+    return type === "blocked" ? json(held, 202) : json({ ok: true, status: "created" });
+  }
   // Buttondown answers 400 when the address is already on the list (pending or confirmed).
   if (r.status === 400 && /already|exist|collision|subscribed/i.test(text)) return json({ ok: true, status: "exists" });
   if (r.status === 429) return json({ ok: false, error: "Too many sign-ups just now; please try again later." }, 429);
@@ -43,9 +50,7 @@ export async function onRequestPost({ request, env }) {
   let code = "", detail = "";
   try { ({ code = "", detail = "" } = JSON.parse(text)); } catch { detail = text.slice(0, 200); }
   // Buttondown's spam filter ("firewall") held the address; the maintainer can release it.
-  if (code === "subscriber_blocked") {
-    return json({ ok: false, blocked: true, error: "Our email provider's spam filter held this sign-up. It will be reviewed; to speed things up, write to us from that address." }, 403);
-  }
+  if (code === "subscriber_blocked") return json(held, 403);
   return json({ ok: false, error: "The sign-up service didn't accept that address.", provider_status: r.status,
                 provider_code: code, provider_detail: String(detail).slice(0, 300) }, 502);
 }
