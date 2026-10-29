@@ -4,7 +4,7 @@
 
 ## Must include
 - [x] "As of" date in the header (latest data date across series, IST)
-- [ ] Key-indicator strip of 12 tiles. Each shows value, period and change, and links to its page:
+- [x] Key-indicator strip (19 tiles as of 2026-10-29). Each shows value, period and change, and links to its page:
   - [x] Real GDP growth (% y/y, latest quarter)
   - [x] CPI headline (% y/y)
   - [x] Core CPI (% y/y, Original, RBI definition)
@@ -24,7 +24,7 @@
   4. Is the external position under strain? (CAD % GDP, reserves in months of imports, INR YTD)
 - [x] "Today / coming up" strip from the calendar (next 5 releases)
 - [ ] Newsletter signup (hidden until Phase 3; behind `newsletter.enabled`)
-- [ ] One summary table per topic (as econvitals does), each linking to its page (Phase 2)
+- [x] One summary table per topic (as econvitals does), each linking to its page
 - [x] Footer credit line from `site.config.yaml → credit.inspired_by_text`
 
 ## Must NOT include

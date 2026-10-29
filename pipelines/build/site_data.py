@@ -131,7 +131,8 @@ def series_payload(series_id: str, spec: dict, df: pd.DataFrame) -> dict:
         "data": [[p.strftime("%Y-%m-%d"), v, n] for p, v, n in
                  zip(df["period"], df["value"], df["note"].fillna(""))],
         "transforms": transforms,
-        "changes": changes(df, spec["unit"], spec["frequency"], bool(spec.get("step"))),
+        # `changes: none` for balances that cross zero (a % change would mean nothing).
+        "changes": None if spec.get("changes") == "none" else changes(df, spec["unit"], spec["frequency"], bool(spec.get("step"))),
     }
 
 

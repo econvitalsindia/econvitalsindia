@@ -36,3 +36,4 @@ notes: Net of all RBI liquidity operations (LAF repo and reverse repo, variable-
   operations, MSF, SDF, standing facilities and outright OMOs). RBI prints net injection
   (+) / absorption (-); we flip the sign so that a positive value is a surplus in
   the banking system. ₹ crore in the source, shown in ₹ lakh crore.
+changes: none

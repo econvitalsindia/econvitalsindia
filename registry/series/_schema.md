@@ -18,5 +18,6 @@
 | validation.range | [min, max] | |
 | pages | list of {page, section} | page must exist in docs/guidebook/05-pages/ |
 | verified_against | list | must be non-empty before a series goes live |
+| changes (optional) | str | `none` to show no 1-day/1-week/YTD changes, for balances that can cross zero (e.g. liquidity, flows) |
 | step (optional) | bool | true for values that hold until changed (policy rates, reserve ratios): charts draw steps and changes carry the last value forward |
 | exclude (optional) | list of {period, reason, added} | published values a person has judged wrong (e.g. an obvious publisher error). They are dropped before publishing and listed on the series page. Never use this to remove inconvenient data; record the evidence in `reason` |

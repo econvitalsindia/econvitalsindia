@@ -50,7 +50,8 @@ const spec = yaml.load(fs.readFileSync("../registry/pages/home.yaml", "utf8"));
       <h3><a href="/activity/">Activity →</a></h3>
       <PeriodTable heading="% y/y" n={4} rows={[
         { id: "iip_general_growth", label: "Industrial production" }, { id: "core_overall_index", how: "yoy", label: "Core industries" },
-        { id: "gst_gross_growth", label: "GST collections" }, { id: "merch_exports", how: "yoy", label: "Merchandise exports" },
+        { id: "gst_gross_growth", label: "GST collections" }, { id: "ewaybills_count", how: "yoy", label: "E-way bills" },
+        { id: "upi_volume", how: "yoy", label: "UPI transactions" }, { id: "merch_exports", how: "yoy", label: "Merchandise exports" },
       ]} />
     </section>
     <section>
@@ -64,14 +65,17 @@ const spec = yaml.load(fs.readFileSync("../registry/pages/home.yaml", "utf8"));
       <h3><a href="/money/">Money & markets →</a></h3>
       <LatestTable heading="" rows={[
         { id: "repo_rate", label: "Repo rate" }, { id: "wacr", label: "Call rate (WACR)" }, { id: "gsec_10y_yield", label: "10-yr G-sec" },
-        { id: "scb_credit_growth", label: "Bank credit growth" }, { id: "nifty50_close", label: "Nifty 50", fmt: "num0" },
+        { id: "scb_credit_growth", label: "Bank credit growth" }, { id: "m3_growth", label: "Money supply (M3) growth" },
+        { id: "liquidity_surplus", label: "Liquidity surplus, ₹ lakh cr", fmt: "num2" },
+        { id: "fpi_total_net", label: "FPI net flows, ₹ cr (month)", fmt: "num0" }, { id: "nifty50_close", label: "Nifty 50", fmt: "num0" },
       ]} />
     </section>
     <section>
       <h3><a href="/external/">External & fiscal →</a></h3>
       <LatestTable heading="" rows={[
         { id: "merch_trade_balance", label: "Trade balance (month)", fmt: "usd_bn1" }, { id: "fx_reserves_total", label: "FX reserves", fmt: "usd_bn1" },
-        { id: "usdinr_ref", label: "USD/INR", fmt: "num2" }, { id: "cga_fiscal_deficit_pct_be", label: "Fiscal deficit, % of BE (FYTD)", fmt: "pct1" },
+        { id: "usdinr_ref", label: "USD/INR", fmt: "num2" }, { id: "bop_remittances", label: "Remittances (quarter)", fmt: "usd_bn1" },
+        { id: "cga_fiscal_deficit_pct_be", label: "Fiscal deficit, % of BE (FYTD)", fmt: "pct1" },
       ]} />
     </section>
   </div>
