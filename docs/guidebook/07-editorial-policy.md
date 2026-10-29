@@ -59,3 +59,15 @@ The model is set in `site.config.yaml → briefings.llm_model`. Before choosing,
 ## Morning newsletter
 
 Written each day with AI from the day's facts. Since 2026-10-29 it is written and sent automatically by Claude Opus 5.5 through the API (`writer: "api"`, approved by the maintainer); the maintainer can still write a day's email by hand with `/morning` (one email a day either way). It may use only the ledger's facts, every number must be a token, and the checker must pass; otherwise the fixed template is sent. No news, causes, forecasts or outside facts. Each email is archived with its facts in `data/newsletter/morning/`. Details: 06-operations-runbook.md ("Newsletter").
+
+## Corrections
+
+When a published briefing carried an error, fix the text and add to its front matter:
+
+```yaml
+corrections:
+  - date: 2026-11-02
+    note: "An earlier version gave the wrong month for the IIP figure."
+```
+
+The page then shows a "Correction" box at the foot of the briefing. Never silently edit a published number. Publishers' own revisions are not corrections: they are recorded in each series' revision history.

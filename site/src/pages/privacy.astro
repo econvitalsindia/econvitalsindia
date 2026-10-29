@@ -1,0 +1,21 @@
+---
+// Terms of use and privacy. Facts here must stay true of the site: no cookies, no analytics,
+// no browser storage (check site/src before adding any), newsletter via Buttondown.
+import Base from "../layouts/Base.astro";
+import { config } from "../lib/config.js";
+const email = config.contact?.feedback_email;
+---
+<Base current="about" title="Terms and privacy">
+  <h1>Terms and privacy</h1>
+
+  <h2 id="terms">Terms of use</h2>
+  <p>{config.site.name} is for information and teaching. Nothing on it is investment, financial or policy advice.</p>
+  <p>The numbers come from official public sources and are shown as their publishers release them; publishers revise their data, and we update the site when they do. We check every series automatically and correct mistakes when we find them (see <a href="/about/#corrections">Corrections</a>), but we cannot guarantee that every figure is free of error. For decisions that matter, check the publisher's own release, linked from each series' page on <a href="/data/">Data</a>.</p>
+  <p>Downloadable data are offered under the original publishers' terms, listed for each series on the Data page (for example, the Government Open Data Licence – India, which asks you to credit the source). Series whose terms do not allow redistribution, such as stock-index levels, are shown but not offered for download. If you use our charts or calculations, please credit {config.site.name}.</p>
+
+  <h2 id="privacy">Privacy</h2>
+  <p><b>Browsing the site.</b> The site sets no cookies, runs no analytics or advertising trackers, and stores nothing in your browser. It is hosted on Cloudflare Pages; like any web host, Cloudflare handles the technical details of each request (such as your IP address) to deliver the pages and protect them from abuse.</p>
+  <p><b>The newsletter.</b> If you subscribe, your email address is held by our newsletter service, Buttondown, not on this site. Buttondown emails you a confirmation link first, sends the morning email, and handles unsubscribing (every email has a link). When you sign up, your IP address is passed to Buttondown for its spam checks. We use your address only to send the newsletter, and never sell or share it.</p>
+  <p><b>Writing to us.</b> If you email {email ? <a href={`mailto:${email}`}>{email}</a> : "us"}, we use your message only to reply and to fix what you report.</p>
+  <p class="chart-sub">This is a private preview; these terms may be revised before public launch.</p>
+</Base>

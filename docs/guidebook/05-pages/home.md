@@ -23,7 +23,7 @@
   3. Are jobs being created? (PLFS unemployment and LFPR now vs a year ago, EPFO net adds 3mma)
   4. Is the external position under strain? (CAD % GDP, reserves in months of imports, INR YTD)
 - [x] "Today / coming up" strip from the calendar (next 5 releases)
-- [ ] Newsletter signup (hidden until Phase 3; behind `newsletter.enabled`)
+- [x] Newsletter signup (Buttondown via /api/subscribe; behind `newsletter.enabled`)
 - [x] One summary table per topic (as econvitals does), each linking to its page
 - [x] Footer credit line from `site.config.yaml → credit.inspired_by_text`
 

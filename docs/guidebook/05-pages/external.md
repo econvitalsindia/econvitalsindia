@@ -10,7 +10,7 @@
 - [x] REER and NEER: BIS broad indices (64 economies, 2020 = 100) as `reer_bis_broad`, `neer_bis_broad`. RBI's 40-currency Bulletin tables have no stable links (the archive form returns unrelated tables); switch if that changes
 - [x] Net FDI, FPI flows (ECB still to add)
 - [x] Remittances: gross personal transfer receipts from the release text (`bop_remittances`, from Q3 2023-24); net secondary income stays in the BoP table
-- [ ] Chart: USD/INR with RBI reserve changes
+- [x] Chart: USD/INR with RBI reserve changes (weekly change bars, `reserves_change.json`)
 - [x] External debt, US$ bn and % of GDP (`external_debt`, `external_debt_pct_gdp`; only the end-March and end-June releases are in RBI's index)
 
 ## Must NOT include

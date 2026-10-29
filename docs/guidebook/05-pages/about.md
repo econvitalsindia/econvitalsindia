@@ -7,7 +7,7 @@
 - [x] The credit to Econvitals (from `site.config.yaml → credit`) with link, stating we are independent
 - [x] Team (maintainer from `site.config.yaml → team`; RAs to be added) and how the site is built (pipelines, AI-drafted, human-approved briefings)
 - [x] Corrections policy and feedback email (`contact.feedback_email`)
-- [ ] Terms and privacy (Phase 5): what we collect (newsletter: name + email via provider), no tracking of opens if the provider allows
+- [x] Terms and privacy (`/privacy/`; keep true: no cookies, analytics or browser storage) (Phase 5): what we collect (newsletter: name + email via provider), no tracking of opens if the provider allows
 
 ## Must NOT include
 - Any suggestion of affiliation with Econvitals, RBI or the Government of India

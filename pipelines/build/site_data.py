@@ -385,6 +385,15 @@ def budget_demands() -> dict:
     return {"year": fy(year), "columns": [c[2] for c in cols], "total": round(total, 3), "rows": rows}
 
 
+def reserves_change(weeks: int = 60) -> dict:
+    """Week-on-week change in total FX reserves (US$ bn), for bars beside USD/INR. Site
+    calculation from the weekly WSS series; includes valuation changes, as RBI's data do."""
+    s = load("fx_reserves_total").set_index("period")["value"]
+    d = s.diff().dropna().tail(weeks)
+    return {"rows": [{"period": p.strftime("%Y-%m-%d"), "component": "Weekly change in reserves", "pp": round(v, 2)}
+                     for p, v in d.items()]}
+
+
 def division_label(spec: dict) -> str:
     """'CPI food & beverages' -> 'Food & beverages'."""
     s = spec["short_title"].removeprefix("CPI ")
@@ -551,6 +560,7 @@ def main() -> int:
     write_json(OUT / "yield_curve.json", yield_curve())
     write_json(OUT / "cpi_momentum_base.json", cpi_momentum_base())
     write_json(OUT / "policy_rule.json", policy_rule_inputs())
+    write_json(OUT / "reserves_change.json", reserves_change())
     PUBLIC.parent.mkdir(parents=True, exist_ok=True)
     (PUBLIC.parent / "calendar.ics").write_text(calendar.ics(cal, registry.site_config()["site"]["name"]))
 

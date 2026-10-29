@@ -11,7 +11,7 @@
 - [x] Each item shows how it was drafted and that a person reviewed it
 - [x] RSS per product (all, release notes, daily note)
 - [x] Archive page (list; search and filter still to add)
-- [ ] Corrections note at the bottom of any corrected item
+- [x] Corrections note at the bottom of any corrected item (front matter `corrections:`)
 
 ## Must NOT include
 - Any number not resolved from the ledger (see `07-editorial-policy.md`)

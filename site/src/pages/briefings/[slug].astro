@@ -13,5 +13,12 @@ const { b } = Astro.props;
   <p class="chart-sub"><a href="/briefings/">← Briefings</a> · {period(b.date, "D")}</p>
   <h1>{b.title}</h1>
   <article class="prose" set:html={marked.parse(b.body)} />
+  {/* Corrections: front matter `corrections: [{date: YYYY-MM-DD, note: "..."}]` (07-editorial-policy.md). */}
+  {(b.corrections ?? []).length > 0 && (
+    <aside class="correction">
+      <p><b>Correction{b.corrections.length > 1 ? "s" : ""}</b></p>
+      <ul>{b.corrections.map((c) => <li>{period(String(c.date), "D")}: {c.note}</li>)}</ul>
+    </aside>
+  )}
   <p class="chart-sub">Drafted from this site's data by {b.drafted_by}; {String(b.reviewed_via).startsWith("auto") ? "published automatically after passing the number checker (no human review)" : "reviewed by a person before publication"}. Every number links back to a stored series; the full record is <code>{b.ledger}</code> in the repository.</p>
 </Base>

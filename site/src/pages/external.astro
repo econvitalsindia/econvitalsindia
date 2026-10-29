@@ -1,10 +1,13 @@
 ---
 import Base from "../layouts/Base.astro";
 import LineChart from "../components/LineChart.astro";
+import StackedBars from "../components/StackedBars.astro";
+import fs from "node:fs";
 import PeriodTable from "../components/PeriodTable.astro";
 import { series, latest } from "../lib/data.js";
 import { num, period } from "../lib/format.js";
 const fx = latest(series("fx_reserves_total"));
+const resChange = JSON.parse(fs.readFileSync("src/data/generated/reserves_change.json", "utf8"));
 ---
 <Base current="external" title="External">
   <h1>External sector</h1>
@@ -18,7 +21,13 @@ const fx = latest(series("fx_reserves_total"));
   <PeriodTable heading="US$ billion, week ended" n={6} rows={[
     { id: "fx_reserves_total", label: "Total reserves" }, { id: "fx_reserves_fca", indent: true }, { id: "fx_reserves_gold", indent: true },
   ]} freq="D" />
-  <p class="chart-sub">RBI Weekly Statistical Supplement. Changes in reserves reflect RBI's market operations and valuation changes in currencies and gold, which the weekly data do not separate.</p>
+  <h3 id="rupee-reserves">The rupee and RBI's reserves</h3>
+  <div class="grid2">
+    <StackedBars title="Weekly change in reserves" subtitle="US$ billion, change on the previous week" rows={resChange.rows}
+      interval="week" yLabel="US$ billion" legend={false} source="RBI Weekly Statistical Supplement; site calculation." />
+    <LineChart title="USD/INR reference rate" subtitle="Rupees per US dollar (a higher rate is a weaker rupee)" lines={[{ id: "usdinr_ref" }]} years={1} />
+  </div>
+  <p class="chart-sub">RBI Weekly Statistical Supplement. Changes in reserves reflect RBI's market operations and valuation changes in currencies and gold, which the weekly data do not separate, so a fall is not the same as RBI selling dollars.</p>
 
   <h2 id="merchandise">Merchandise trade</h2>
   <div class="grid2">
@@ -74,5 +83,5 @@ const fx = latest(series("fx_reserves_total"));
   <p class="chart-sub">From the highlights of RBI's quarterly external debt releases (each gives the latest quarter and the one it is compared with). RBI's press-release index currently lists only the end-March and end-June releases, so other quarters are missing. Changes include valuation effects from exchange-rate moves.</p>
 
   <h2>Still to come on this page</h2>
-  <p class="chart-sub">External commercial borrowing (ECB), and USD/INR alongside RBI&#39;s reserve changes. Checklist: docs/guidebook/05-pages/external.md.</p>
+  <p class="chart-sub">External commercial borrowing (ECB). Checklist: docs/guidebook/05-pages/external.md.</p>
 </Base>

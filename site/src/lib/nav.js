@@ -99,6 +99,7 @@ export const more = [
   { key: "calendar", label: "Calendar", href: "/calendar/", items: null },
   { key: "about", label: "About", href: "/about/", items: [
     ["About this site", "/about/"],
+    ["Terms and privacy", "/privacy/"],
     ["Data and downloads", "/data/"],
     ["Methods and original measures", "/methods/"],
     ["Data status", "/status/"],

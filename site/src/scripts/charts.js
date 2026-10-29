@@ -24,8 +24,8 @@ function drawStacked(el, spec) {
   el.replaceChildren(Plot.plot({
     width, height: Math.max(240, Math.min(340, width * 0.55)),
     style: { fontFamily: "Inter, system-ui, sans-serif", fontSize: "11px", background: "transparent" },
-    x: { type: "utc" }, y: { grid: true, label: "percentage points" },
-    color: { domain: [...new Set(rows.map((r) => r.component))], range: palette, legend: true },
+    x: { type: "utc" }, y: { grid: true, label: spec.yLabel ?? "percentage points" },
+    color: { domain: [...new Set(rows.map((r) => r.component))], range: palette, legend: spec.legend ?? true },
     marks,
   }));
 }
