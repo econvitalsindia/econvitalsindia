@@ -1,17 +1,35 @@
 ---
 import Base from "../layouts/Base.astro";
 import { config } from "../lib/config.js";
+import Signup from "../components/Signup.astro";
+const email = config.contact?.feedback_email;
 ---
 <Base current="about" title="About">
   <h1>About</h1>
   <p class="lede">{config.site.description}</p>
   <p>The site gathers India's macroeconomic, financial and market indicators from official public sources (MoSPI, the Reserve Bank of India, FBIL and others) into one place and updates them as new numbers are released. It is written for economists, students and anyone who wants the numbers with their sources.</p>
+
+  <h2 id="team">Team</h2>
+  <p><b>{config.team.maintainer}</b>, maintainer.</p>
+  <p>{config.team.note}</p>
+
   <h2>Inspiration</h2>
   <p>{config.credit.inspired_by_text} <a href={config.credit.inspired_by_url}>{config.credit.inspired_by_url}</a></p>
+
   <h2>How it works</h2>
-  <p>Automated pipelines download each release, check it against plausible ranges and the previously published values, and only then publish it. If a download fails, the site keeps the last good values and marks the series as stale. Every number on every page is drawn from a stored series; nothing is typed in by hand. Sources, coverage and licences are listed on the <a href="/data/">Data</a> page.</p>
-  <p>Written briefings, when they arrive, will be drafted with AI from these data and reviewed by a person before publication.</p>
+  <p>Automated pipelines ("data bots") download each release, check it against plausible ranges and the previously published values, and only then publish it. If a download fails, the site keeps the last good values and marks the series as stale. Every number on every page is drawn from a stored series; nothing is typed in by hand. Sources, coverage and licences are listed on the <a href="/data/">Data</a> page, and the measures we construct ourselves are explained on the <a href="/methods/">Methods</a> page.</p>
+  <p>Written briefings are drafted automatically from these data. Release notes and the weekly briefing are reviewed by a person before publication; the short daily note and the morning newsletter are generated and checked automatically, and every number in them is checked against the stored series before anything goes out.</p>
+
+  {config.newsletter?.enabled && <>
+  <h2 id="newsletter">Morning newsletter</h2>
+  <p>Every morning at 7:30 IST, subscribers get a short email on India's economy: what is new in the data since the day before, markets, and the wider picture. It is written by AI (Claude) from the numbers on this site only. The AI never types a number itself: it refers to stored values by name, a checker rejects any draft with a number it did not take from the data, and the values are filled in afterwards. If a draft fails the check twice, a fixed template is sent instead. Subscriber addresses are held by the newsletter service (Buttondown), not by this site; every email has an unsubscribe link.</p>
+  <Signup />
+  </>}
+
+  <h2 id="corrections">Corrections and feedback</h2>
+  <p>If you spot a wrong number, a broken chart or a source we have misread, please write{email ? <> to <a href={`mailto:${email}`}>{email}</a></> : null}. Corrections are made in the data or code, the page is rebuilt, and a note is added to any briefing that carried the error. Publishers' own revisions are not corrections: they are recorded in each series' revision history on its data page.</p>
+
   <h2>Independence</h2>
   <p>This is an independent project. It is not affiliated with Econvitals, the Reserve Bank of India, the Government of India or any data provider.</p>
-  <p class="chart-sub">This is a private preview; contact details and the corrections policy will be added before launch.</p>
+  <p class="chart-sub">This is a private preview.</p>
 </Base>

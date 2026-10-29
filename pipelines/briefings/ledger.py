@@ -69,6 +69,16 @@ def fmt_value(v: float, unit: str, decimals: int = 2) -> str:
         return f"{sign}${a:,.1f} billion"
     if unit == "inr_lakh_crore":
         return f"{sign}₹{a:,.2f} lakh crore"
+    if unit == "inr_crore":
+        return f"{sign}₹{a:,.0f} crore"
+    if unit == "usd_per_bbl":
+        return f"{sign}${a:,.2f} a barrel"
+    if unit == "usd_per_oz":
+        return f"{sign}${a:,.0f} an ounce"
+    if unit == "crore":
+        return f"{sign}{a:,.0f} crore"
+    if unit == "million":
+        return f"{sign}{a:,.1f} million"
     if unit == "index":
         return f"{sign}{a:,.2f}"
     return f"{sign}{a:,.2f}"
@@ -82,6 +92,10 @@ def fmt_change(d: float, unit: str, decimals: int = 2) -> str:
         return f"${a:,.1f} billion"
     if unit == "inr_lakh_crore":
         return f"₹{a:,.2f} lakh crore"
+    if unit == "inr_crore":
+        return f"₹{a:,.0f} crore"
+    if unit in ("crore", "million"):
+        return f"{a:,.1f} {unit}"
     return f"{a:,.2f}"
 
 
@@ -125,6 +139,8 @@ class Ledger:
         freq = spec["frequency"]
         put = {
             "latest": fmt_value(last["value"], unit, dec),
+            # Unsigned, for wording such as "an outflow of ..." or "a deficit of ...".
+            "latest_abs": fmt_value(abs(last["value"]), unit, dec),
             "latest_period": fmt_period(last["period"].strftime("%Y-%m-%d"), freq),
         }
         if prev is not None:

@@ -12,6 +12,7 @@ dependencies = [
     "yfinance>=0.2.40",
     "cryptography>=43",
     "python-calamine>=0.3",
+    "anthropic>=2.3.0",
 ]
 
 [dependency-groups]

@@ -1,0 +1,39 @@
+name: newsletter-morning
+# Every day at 07:30 IST: write the morning email with Claude from the stored data, check it
+# (every number must be a ledger token), and send it through Buttondown. Falls back to the
+# fixed template if the AI draft fails the check twice or ANTHROPIC_API_KEY is missing.
+# Skips quietly until newsletter.enabled is true in site.config.yaml and BUTTONDOWN_API_KEY
+# exists. data/newsletter/sent.json prevents a second send on the same day, so a manual
+# rerun is safe. Setup: docs/guidebook/06-operations-runbook.md ("Newsletter").
+on:
+  schedule:
+    - cron: "0 2 * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: newsletter
+jobs:
+  morning:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+      - run: uv sync
+      - name: Write, check and send
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          BUTTONDOWN_API_KEY: ${{ secrets.BUTTONDOWN_API_KEY }}
+        run: uv run python -m pipelines.newsletter.morning --date "$(TZ=Asia/Kolkata date +%F)"
+      - name: Archive the email (and record it as sent)
+        run: |
+          if [ -n "$(git status --porcelain data/newsletter)" ]; then
+            git config user.name "newsletter-bot"; git config user.email "newsletter-bot@users.noreply.github.com"
+            git add data/newsletter
+            git commit -m "newsletter: morning email $(TZ=Asia/Kolkata date +%F)"
+            for i in 1 2 3; do git push && break || git pull --rebase -X theirs origin main; done
+          fi

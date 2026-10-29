@@ -49,17 +49,23 @@ Kept in GitHub Actions secrets only: `LLM_API_KEY`, `NEWSLETTER_API_KEY`, `CLOUD
 
 ## Newsletter
 
-A weekly digest goes out by email: the latest weekly briefing plus links to that week's release and MPC notes. Daily notes are left out. `pipelines/newsletter/digest.py` builds it from briefings already on `main`, so it carries nothing that hasn't been reviewed. The `newsletter.yml` workflow (Sunday 10:00 IST) creates it as a **draft** in Buttondown. A person reads it there and presses send. Nothing in this repo sends email, and subscriber addresses live only with the provider.
+**What goes out:** one email every morning at 07:30 IST (`newsletter-morning.yml`, cron `0 2 * * *` UTC): what is new in the data since the day before, markets, the wider picture, and what is due. `pipelines/newsletter/morning.py` writes it with Claude (`site.config.yaml → newsletter.llm_model`) from a ledger of facts built from the stored series (`registry/newsletter/morning.md → views`). The maintainer approved sending it without a person reading it first (2026-10-29), on these conditions:
 
-**Why not Buttondown's RSS-to-email?** It is a paid add-on (+$9/month, checked 28 Oct 2026). Our workflow does the same job for free through the API.
+- The model may only use the ledger's facts, and must write every number as a token (`{{cpi_headline_inflation.latest}}`). The briefing checker rejects any digit outside a token and any unknown token, so no number in the email is typed by the model.
+- One retry with the checker's complaints. If that also fails, or the API errors, or `ANTHROPIC_API_KEY` is missing, the fixed template in `registry/newsletter/morning.md` is sent instead. The email always goes out.
+- Every email is archived with its ledger in `data/newsletter/morning/<date>.md` and `.ledger.json`, and `data/newsletter/sent.json` stops a second send on the same day (so rerunning the workflow is safe).
+
+**Cost (measured 2026-10-29):** about 12,000 input and 1,800 output tokens per email. On `claude-opus-5-5` ($4 / $20 per million tokens) that is about $0.08 a day, about $2.50 a month. On `claude-haiku-5-5` ($0.10 / $0.50) about $0.002 a day. Change `newsletter.llm_model` to switch.
 
 **One-time setup (maintainer):**
-1. Create a free Buttondown account (free up to 100 subscribers). Under Settings → API, check that the API is available on the free plan; we could not confirm this from their public pages.
-2. Copy the API key into a GitHub repo secret named `BUTTONDOWN_API_KEY` (Settings → Secrets and variables → Actions). Never paste it into chat, issues or files.
-3. From Buttondown's embed-form settings, copy the form's `action` URL into `site.config.yaml` → `newsletter.signup_action`. The form must post a field named `email`; check the embed code.
-4. Set `newsletter.enabled: true` and push. The signup box then appears on the home and briefings pages.
-5. Run the `newsletter` workflow by hand once (Actions → newsletter → Run workflow) and check that the draft appears in Buttondown.
+1. Create a free Buttondown account (free for the first 100 subscribers; the plan assumes at most one email a day, which is what we send). Note your Buttondown username.
+2. In Buttondown → Settings → API, copy the API key into a GitHub repo secret `BUTTONDOWN_API_KEY` (repo Settings → Secrets and variables → Actions). Never paste it into chat, issues or files.
+3. From the Anthropic Console (console.anthropic.com → API keys), create a key and save it as the repo secret `ANTHROPIC_API_KEY`. Set a monthly spend limit in the Console as a safety net.
+4. In `site.config.yaml`, set `newsletter.buttondown_username` and `newsletter.enabled: true`, then push. The signup box appears on the home and About pages; sign-ups confirm by email (double opt-in).
+5. Subscribe yourself, confirm, then run the workflow by hand (Actions → newsletter-morning → Run workflow) and check the email arrives.
 
-**Preview without an account:** `uv run python -m pipelines.newsletter.digest --preview /tmp/digest.md`.
+**Preview without sending:** `uv run python -m pipelines.newsletter.morning --preview /tmp/morning.md` (uses the AI if `ANTHROPIC_API_KEY` is set locally; add `--no-ai` for the template).
 
-**A draft appears twice:** `data/newsletter/drafted.json` records each drafted date, and the workflow commits it. If the commit failed, delete the duplicate in Buttondown.
+**The email went out as the template:** the workflow log says why ("attempt 1 rejected: ..." or "AI draft failed"). Repeated rejections usually mean the prompt needs a new rule (`SYSTEM` in morning.py), not a looser checker.
+
+**The weekly digest** (`digest.py`, `newsletter.yml`) still exists but runs only by hand, as a Buttondown draft, because the morning email uses the free plan's one-email-a-day allowance.

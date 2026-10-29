@@ -62,7 +62,8 @@ Data is refreshed by **data bots**, modelled on econvitals' data repo: one workf
 | `bot-rbi.yml` (rbi-bot) | Mon–Sat 18:30 | WSS, BoP, services trade, surveys, IESH, MPC minutes, FBIL |
 | `bot-ministries.yml` (ministries-bot) | Mon–Sat 19:30 | Trade, GST, CGA accounts and tax heads, WPI, core industries, PPAC, SIAM |
 | `briefing.yml` (briefing-bot) | Mon–Sat 20:30 | Drafts release notes (review PR); auto-publishes the daily note |
-| `newsletter.yml` | Sun 10:00 | Weekly digest as a provider draft (when enabled) |
+| `newsletter-morning.yml` (newsletter-bot) | Daily 07:30 | AI-written morning email, checked, sent via Buttondown; archived in `data/newsletter/morning/` |
+| `newsletter.yml` | By hand only | Weekly digest as a provider draft |
 | `deploy.yml` | On push to `main`, and when a bot or briefing-bot commits | Build + upload to Cloudflare Pages |
 | `update-data.yml` | By hand only | Every auto source in one run (after an outage or a big fix) |
 

@@ -1,13 +1,16 @@
 ---
-// Newsletter signup box. Renders nothing until site.config.yaml newsletter.signup_action is
-// set (the form action from the provider's embed code). Subscribers live with the provider.
+// Newsletter signup box. Renders nothing until site.config.yaml newsletter.enabled is true
+// and newsletter.buttondown_username is set. Subscribers live with Buttondown (double
+// opt-in: they confirm by email before the first send).
 import { config } from "../lib/config.js";
 const n = config.newsletter ?? {};
+const action = n.buttondown_username ? `https://buttondown.com/api/emails/embed-subscribe/${n.buttondown_username}` : "";
 ---
-{n.enabled && n.signup_action && (
-  <form class="signup" action={n.signup_action} method="post" target="_blank">
-    <label for="nl-email">A weekly email: the Saturday briefing and the week's release notes.</label>
+{n.enabled && action && (
+  <form class="signup" action={action} method="post" target="_blank">
+    <label for="nl-email">Every morning: a short email on India's economy, written by AI from the data on this site, with every number checked against the source.</label>
     <input id="nl-email" type="email" name="email" placeholder="you@example.com" required />
+    <input type="hidden" value="1" name="embed" />
     <button type="submit">Subscribe</button>
   </form>
 )}

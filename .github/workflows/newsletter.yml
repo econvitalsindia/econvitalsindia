@@ -1,11 +1,9 @@
 name: newsletter
-# Sunday 10:00 IST: build the weekly digest from briefings already on main and create a
-# DRAFT with the newsletter provider. A person reviews and sends it from the provider's
-# dashboard; nothing is sent from here. Skips quietly until newsletter.enabled is true in
-# site.config.yaml and the BUTTONDOWN_API_KEY secret exists (runbook: "Newsletter").
+# The weekly digest, as a DRAFT with the newsletter provider (a person sends it). Manual only
+# since 2026-10-29: the daily morning email (newsletter-morning.yml) uses Buttondown's
+# one-email-a-day allowance. Skips quietly until newsletter.enabled is true and the
+# BUTTONDOWN_API_KEY secret exists (runbook: "Newsletter").
 on:
-  schedule:
-    - cron: "30 4 * * 0"
   workflow_dispatch:
 permissions:
   contents: write

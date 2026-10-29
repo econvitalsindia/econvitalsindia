@@ -41,18 +41,26 @@ conventions:
   money_unit_external: "usd_bn"       # US$ bn for external sector
 
 contact:
-  feedback_email: ""      # set before launch
+  feedback_email: "bishmaykbarik@gmail.com"
   social: {}
 
+team:
+  # Shown on the About page. Add RAs and contributors here as they join.
+  maintainer: "Bishmay Barik"
+  note: "This version of the site is built and maintained single-handedly by Bishmay Barik. The team section will be updated as others join."
+
 newsletter:
-  # Weekly digest: the Saturday briefing plus links to the week's release and MPC notes.
-  # pipelines/newsletter/digest.py builds it from published briefings and creates a DRAFT
-  # with the provider; a person reviews and sends it from the provider's dashboard.
-  # Setup: docs/guidebook/06-operations-runbook.md ("Newsletter").
-  provider: "buttondown"  # only buttondown is implemented (its API creates drafts by default)
-  enabled: false          # true once the account exists and BUTTONDOWN_API_KEY is a repo secret
-  signup_action: ""       # the form action from the provider's embed code; the signup box shows when set
-  products: [weekly-briefing, release-note]   # briefing products included (MPC notes are release notes); daily notes left out
+  # The MORNING email (every day, 07:30 IST): an AI-written summary of the latest data,
+  # checked so that every number comes from the stored series, then sent automatically
+  # (maintainer-approved, 2026-10-29). pipelines/newsletter/morning.py,
+  # .github/workflows/newsletter-morning.yml. Setup: 06-operations-runbook.md ("Newsletter").
+  provider: "buttondown"
+  enabled: false          # true once the Buttondown account exists and the secrets are set
+  buttondown_username: "" # your Buttondown username; the signup box appears once this is set
+  llm_model: "claude-opus-5-5"   # the AI writer; "claude-haiku-5-5" costs about 1/40th as much
+  # The old weekly digest (digest.py) is kept but no longer scheduled: Buttondown's free plan
+  # allows one email a day, and the morning email uses it.
+  products: [weekly-briefing, release-note]
 
 briefings:
   require_human_approval: true        # AI drafts -> PR -> human merge publishes
