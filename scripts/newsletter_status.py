@@ -58,6 +58,19 @@ def main() -> int:
         for s in sorted(subs, key=lambda s: s.get("creation_date", "")):
             print(f"  {mask(s.get('email_address') or s.get('email', '?'))}  type={s.get('type') or s.get('subscriber_type')}"
                   f"  created={s.get('creation_date', '')[:19]}  source={s.get('source', '')}")
+        # Recent emails: status (e.g. about_to_send, in_flight, sent, ...) and delivery counts.
+        r = c.get(f"{API}/emails", params={"page_size": 5, "ordering": "-creation_date"})
+        if r.status_code == 200:
+            for e in r.json().get("results", [])[:5]:
+                stats = {k: e.get(k) for k in ("status", "publish_date", "creation_date", "email_type")}
+                print(f"email {e.get('id')}: {e.get('subject')!r} {stats}")
+                d = c.get(f"{API}/emails/{e.get('id')}/analytics")
+                if d.status_code == 200:
+                    print(f"  analytics: {d.json()}")
+                else:
+                    print(f"  analytics: HTTP {d.status_code} {d.text[:200]}")
+        else:
+            print(f"emails: HTTP {r.status_code} {r.text[:300]}")
     return 0
 
 
