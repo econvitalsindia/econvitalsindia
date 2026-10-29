@@ -1,0 +1,38 @@
+id: ecb_registrations
+title: External commercial borrowing registered, per month
+short_title: ECB registrations
+area: external
+source:
+  agency: RBI
+  dataset: ECB / FCCB data (monthly, loan registration numbers allotted)
+  url: https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx
+  module: pipelines/sources/rbi/ecb.py
+licence: unverified
+downloadable: false
+fetch: auto
+frequency: M
+unit: usd_bn
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+release:
+  calendar: none
+  rule: monthly, about two months after the month
+  lag_days: 60
+validation:
+  range:
+  - 0
+  - 50
+  revision_alert: 1
+pages:
+- page: external
+  section: ecb
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: 'US$ billion a month: external commercial borrowings and foreign currency convertible
+  bonds that received a loan registration number in the month (all routes). These
+  are planned borrowings registered with RBI, not money received. Rupee-denominated
+  bonds are not included.'

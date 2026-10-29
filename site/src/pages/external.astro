@@ -82,6 +82,11 @@ const resChange = JSON.parse(fs.readFileSync("src/data/generated/reserves_change
   </div>
   <p class="chart-sub">From the highlights of RBI's quarterly external debt releases (each gives the latest quarter and the one it is compared with). RBI's press-release index currently lists only the end-March and end-June releases, so other quarters are missing. Changes include valuation effects from exchange-rate moves.</p>
 
+  <h2 id="ecb">External commercial borrowing</h2>
+  <LineChart title="External commercial borrowing registered" subtitle="US$ billion a month (ECBs and FCCBs given a loan registration number)"
+    lines={[{ id: "ecb_registrations", label: "Registered" }]} years={3} />
+  <p class="chart-sub">Indian companies' borrowing from abroad as registered with RBI each month, all routes. Registration comes before the money is drawn, and some registered loans are never drawn, so this is a gauge of plans rather than of inflows. Source: RBI, monthly ECB/FCCB data; totals as printed.</p>
+
   <h2>Still to come on this page</h2>
-  <p class="chart-sub">External commercial borrowing (ECB). Checklist: docs/guidebook/05-pages/external.md.</p>
+  <p class="chart-sub">ECB drawdowns (money actually received) and NRI deposits. Checklist: docs/guidebook/05-pages/external.md.</p>
 </Base>

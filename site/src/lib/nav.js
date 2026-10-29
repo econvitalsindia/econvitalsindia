@@ -74,6 +74,7 @@ export const topics = [
     ["Remittances", "/external/#remittances"],
     ["Effective exchange rates", "/external/#eer"],
     ["External debt", "/external/#debt"],
+    ["External commercial borrowing", "/external/#ecb"],
   ] },
   { key: "states", label: "States", href: "/states/", items: [
     ["Prices, jobs and growth", "/states/"],
