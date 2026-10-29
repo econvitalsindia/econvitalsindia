@@ -1,0 +1,394 @@
+entity,period,value,vintage,note
+Andhra Pradesh,2011-04-01,39.68,2026-10-29,end-March
+Andhra Pradesh,2012-04-01,42.36,2026-10-29,end-March
+Andhra Pradesh,2013-04-01,42.26,2026-10-29,end-March
+Andhra Pradesh,2015-04-01,24.48,2026-10-29,end-March
+Andhra Pradesh,2016-04-01,37.15,2026-10-29,end-March
+Andhra Pradesh,2017-04-01,29.17,2026-10-29,end-March
+Andhra Pradesh,2018-04-01,30.27,2026-10-29,end-March
+Andhra Pradesh,2019-04-01,33.23,2026-10-29,end-March
+Andhra Pradesh,2020-04-01,36.07,2026-10-29,end-March
+Andhra Pradesh,2021-04-01,33.63,2026-10-29,end-March
+Andhra Pradesh,2022-04-01,32.99,2026-10-29,end-March
+Andhra Pradesh,2023-04-01,34.75,2026-10-29,end-March
+Andhra Pradesh,2024-04-01,35.31,2026-10-29,end-March
+Arunachal Pradesh,2011-04-01,35.7,2026-10-29,end-March
+Arunachal Pradesh,2012-04-01,34.05,2026-10-29,end-March
+Arunachal Pradesh,2013-04-01,32.29,2026-10-29,end-March
+Arunachal Pradesh,2015-04-01,30.89,2026-10-29,end-March
+Arunachal Pradesh,2016-04-01,28.49,2026-10-29,end-March
+Arunachal Pradesh,2017-04-01,31.01,2026-10-29,end-March
+Arunachal Pradesh,2018-04-01,33.28,2026-10-29,end-March
+Arunachal Pradesh,2019-04-01,40.38,2026-10-29,end-March
+Arunachal Pradesh,2020-04-01,46.12,2026-10-29,end-March
+Arunachal Pradesh,2021-04-01,48.69,2026-10-29,end-March
+Arunachal Pradesh,2022-04-01,50.57,2026-10-29,end-March
+Arunachal Pradesh,2023-04-01,56.69,2026-10-29,end-March
+Arunachal Pradesh,2024-04-01,57.57,2026-10-29,end-March
+Assam,2011-04-01,19.51,2026-10-29,end-March
+Assam,2012-04-01,18.9,2026-10-29,end-March
+Assam,2013-04-01,17.42,2026-10-29,end-March
+Assam,2015-04-01,18.41,2026-10-29,end-March
+Assam,2016-04-01,17.31,2026-10-29,end-March
+Assam,2017-04-01,17.41,2026-10-29,end-March
+Assam,2018-04-01,19.33,2026-10-29,end-March
+Assam,2019-04-01,21.2,2026-10-29,end-March
+Assam,2020-04-01,26.4,2026-10-29,end-March
+Assam,2021-04-01,24.92,2026-10-29,end-March
+Assam,2022-04-01,26.64,2026-10-29,end-March
+Assam,2023-04-01,27.09,2026-10-29,end-March
+Assam,2024-04-01,27.65,2026-10-29,end-March
+Bihar,2011-04-01,27.5,2026-10-29,end-March
+Bihar,2012-04-01,27.5,2026-10-29,end-March
+Bihar,2013-04-01,27.95,2026-10-29,end-March
+Bihar,2015-04-01,31.42,2026-10-29,end-March
+Bihar,2016-04-01,33.03,2026-10-29,end-March
+Bihar,2017-04-01,33.49,2026-10-29,end-March
+Bihar,2018-04-01,32.02,2026-10-29,end-March
+Bihar,2019-04-01,33.26,2026-10-29,end-March
+Bihar,2020-04-01,40.05,2026-10-29,end-March
+Bihar,2021-04-01,39.8,2026-10-29,end-March
+Bihar,2022-04-01,38.45,2026-10-29,end-March
+Bihar,2023-04-01,37.87,2026-10-29,end-March
+Bihar,2024-04-01,36.44,2026-10-29,end-March
+Chhattisgarh,2011-04-01,11.35,2026-10-29,end-March
+Chhattisgarh,2012-04-01,12.1,2026-10-29,end-March
+Chhattisgarh,2013-04-01,12.61,2026-10-29,end-March
+Chhattisgarh,2015-04-01,17.44,2026-10-29,end-March
+Chhattisgarh,2016-04-01,16.51,2026-10-29,end-March
+Chhattisgarh,2017-04-01,19.47,2026-10-29,end-March
+Chhattisgarh,2018-04-01,21.09,2026-10-29,end-March
+Chhattisgarh,2019-04-01,24.95,2026-10-29,end-March
+Chhattisgarh,2020-04-01,28.39,2026-10-29,end-March
+Chhattisgarh,2021-04-01,25.86,2026-10-29,end-March
+Chhattisgarh,2022-04-01,23.78,2026-10-29,end-March
+Chhattisgarh,2023-04-01,27.81,2026-10-29,end-March
+Chhattisgarh,2024-04-01,28.75,2026-10-29,end-March
+Delhi,2011-04-01,8.61,2026-10-29,end-March
+Delhi,2012-04-01,7.47,2026-10-29,end-March
+Delhi,2013-04-01,7.33,2026-10-29,end-March
+Delhi,2015-04-01,6.05,2026-10-29,end-March
+Delhi,2016-04-01,5.41,2026-10-29,end-March
+Delhi,2017-04-01,0.49,2026-10-29,end-March
+Delhi,2018-04-01,0.46,2026-10-29,end-March
+Delhi,2019-04-01,0.46,2026-10-29,end-March
+Delhi,2020-04-01,1.28,2026-10-29,end-March
+Delhi,2021-04-01,1.8,2026-10-29,end-March
+Delhi,2022-04-01,1.58,2026-10-29,end-March
+Delhi,2023-04-01,0.97,2026-10-29,end-March
+Delhi,2024-04-01,1.31,2026-10-29,end-March
+Goa,2011-04-01,23.49,2026-10-29,end-March
+Goa,2012-04-01,29.52,2026-10-29,end-March
+Goa,2013-04-01,36.96,2026-10-29,end-March
+Goa,2015-04-01,28.43,2026-10-29,end-March
+Goa,2016-04-01,26.84,2026-10-29,end-March
+Goa,2017-04-01,26.88,2026-10-29,end-March
+Goa,2018-04-01,28.53,2026-10-29,end-March
+Goa,2019-04-01,30.18,2026-10-29,end-March
+Goa,2020-04-01,35.89,2026-10-29,end-March
+Goa,2021-04-01,35.96,2026-10-29,end-March
+Goa,2022-04-01,32.45,2026-10-29,end-March
+Goa,2023-04-01,30.95,2026-10-29,end-March
+Gujarat,2011-04-01,24.58,2026-10-29,end-March
+Gujarat,2012-04-01,23.37,2026-10-29,end-March
+Gujarat,2013-04-01,23.34,2026-10-29,end-March
+Gujarat,2015-04-01,22.5,2026-10-29,end-March
+Gujarat,2016-04-01,20.85,2026-10-29,end-March
+Gujarat,2017-04-01,20.18,2026-10-29,end-March
+Gujarat,2018-04-01,20.02,2026-10-29,end-March
+Gujarat,2019-04-01,20.37,2026-10-29,end-March
+Gujarat,2020-04-01,22.5,2026-10-29,end-March
+Gujarat,2021-04-01,20.23,2026-10-29,end-March
+Gujarat,2022-04-01,19.19,2026-10-29,end-March
+Haryana,2011-04-01,19.05,2026-10-29,end-March
+Haryana,2012-04-01,19.47,2026-10-29,end-March
+Haryana,2013-04-01,19.94,2026-10-29,end-March
+Haryana,2015-04-01,25.0,2026-10-29,end-March
+Haryana,2016-04-01,26.61,2026-10-29,end-March
+Haryana,2017-04-01,26.18,2026-10-29,end-March
+Haryana,2018-04-01,26.85,2026-10-29,end-March
+Haryana,2019-04-01,29.71,2026-10-29,end-March
+Haryana,2020-04-01,33.72,2026-10-29,end-March
+Haryana,2021-04-01,31.85,2026-10-29,end-March
+Haryana,2022-04-01,31.72,2026-10-29,end-March
+Haryana,2023-04-01,30.86,2026-10-29,end-March
+Haryana,2024-04-01,30.42,2026-10-29,end-March
+Himachal Pradesh,2011-04-01,38.82,2026-10-29,end-March
+Himachal Pradesh,2012-04-01,35.54,2026-10-29,end-March
+Himachal Pradesh,2013-04-01,35.75,2026-10-29,end-March
+Himachal Pradesh,2015-04-01,36.06,2026-10-29,end-March
+Himachal Pradesh,2016-04-01,37.6,2026-10-29,end-March
+Himachal Pradesh,2017-04-01,36.83,2026-10-29,end-March
+Himachal Pradesh,2018-04-01,36.6,2026-10-29,end-March
+Himachal Pradesh,2019-04-01,39.09,2026-10-29,end-March
+Himachal Pradesh,2020-04-01,45.35,2026-10-29,end-March
+Himachal Pradesh,2021-04-01,43.16,2026-10-29,end-March
+Himachal Pradesh,2022-04-01,45.1,2026-10-29,end-March
+Himachal Pradesh,2023-04-01,44.22,2026-10-29,end-March
+Himachal Pradesh,2024-04-01,44.28,2026-10-29,end-March
+Jammu and Kashmir,2011-04-01,46.89,2026-10-29,end-March
+Jammu and Kashmir,2012-04-01,46.51,2026-10-29,end-March
+Jammu and Kashmir,2013-04-01,46.87,2026-10-29,end-March
+Jammu and Kashmir,2015-04-01,47.03,2026-10-29,end-March
+Jammu and Kashmir,2016-04-01,49.64,2026-10-29,end-March
+Jammu and Kashmir,2017-04-01,48.59,2026-10-29,end-March
+Jammu and Kashmir,2018-04-01,49.28,2026-10-29,end-March
+Jammu and Kashmir,2019-04-01,54.06,2026-10-29,end-March
+Jammu and Kashmir,2020-04-01,33.23,2026-10-29,end-March
+Jammu and Kashmir,2021-04-01,36.12,2026-10-29,end-March
+Jammu and Kashmir,2022-04-01,34.63,2026-10-29,end-March
+Jammu and Kashmir,2023-04-01,33.53,2026-10-29,end-March
+Jammu and Kashmir,2024-04-01,33.18,2026-10-29,end-March
+Jharkhand,2011-04-01,20.78,2026-10-29,end-March
+Jharkhand,2012-04-01,20.07,2026-10-29,end-March
+Jharkhand,2013-04-01,20.07,2026-10-29,end-March
+Jharkhand,2015-04-01,27.61,2026-10-29,end-March
+Jharkhand,2016-04-01,28.51,2026-10-29,end-March
+Jharkhand,2017-04-01,28.76,2026-10-29,end-March
+Jharkhand,2018-04-01,27.44,2026-10-29,end-March
+Jharkhand,2019-04-01,30.46,2026-10-29,end-March
+Jharkhand,2020-04-01,36.83,2026-10-29,end-March
+Jharkhand,2021-04-01,30.19,2026-10-29,end-March
+Jharkhand,2022-04-01,28.61,2026-10-29,end-March
+Jharkhand,2023-04-01,26.47,2026-10-29,end-March
+Jharkhand,2024-04-01,26.12,2026-10-29,end-March
+Karnataka,2011-04-01,17.51,2026-10-29,end-March
+Karnataka,2012-04-01,16.2,2026-10-29,end-March
+Karnataka,2013-04-01,17.02,2026-10-29,end-March
+Karnataka,2015-04-01,17.77,2026-10-29,end-March
+Karnataka,2016-04-01,17.49,2026-10-29,end-March
+Karnataka,2017-04-01,18.45,2026-10-29,end-March
+Karnataka,2018-04-01,19.35,2026-10-29,end-March
+Karnataka,2019-04-01,20.96,2026-10-29,end-March
+Karnataka,2020-04-01,25.69,2026-10-29,end-March
+Karnataka,2021-04-01,25.3,2026-10-29,end-March
+Karnataka,2022-04-01,24.55,2026-10-29,end-March
+Karnataka,2023-04-01,24.86,2026-10-29,end-March
+Karnataka,2024-04-01,25.16,2026-10-29,end-March
+Kerala,2011-04-01,26.05,2026-10-29,end-March
+Kerala,2012-04-01,26.67,2026-10-29,end-March
+Kerala,2013-04-01,27.03,2026-10-29,end-March
+Kerala,2015-04-01,28.87,2026-10-29,end-March
+Kerala,2016-04-01,30.18,2026-10-29,end-March
+Kerala,2017-04-01,30.86,2026-10-29,end-March
+Kerala,2018-04-01,30.92,2026-10-29,end-March
+Kerala,2019-04-01,32.92,2026-10-29,end-March
+Kerala,2020-04-01,40.28,2026-10-29,end-March
+Kerala,2021-04-01,38.95,2026-10-29,end-March
+Kerala,2022-04-01,37.33,2026-10-29,end-March
+Kerala,2023-04-01,37.52,2026-10-29,end-March
+Kerala,2024-04-01,37.73,2026-10-29,end-March
+Madhya Pradesh,2011-04-01,25.66,2026-10-29,end-March
+Madhya Pradesh,2012-04-01,23.49,2026-10-29,end-March
+Madhya Pradesh,2013-04-01,21.93,2026-10-29,end-March
+Madhya Pradesh,2015-04-01,23.6,2026-10-29,end-March
+Madhya Pradesh,2016-04-01,24.02,2026-10-29,end-March
+Madhya Pradesh,2017-04-01,23.84,2026-10-29,end-March
+Madhya Pradesh,2018-04-01,23.52,2026-10-29,end-March
+Madhya Pradesh,2019-04-01,22.79,2026-10-29,end-March
+Madhya Pradesh,2020-04-01,30.74,2026-10-29,end-March
+Madhya Pradesh,2021-04-01,29.53,2026-10-29,end-March
+Madhya Pradesh,2022-04-01,29.95,2026-10-29,end-March
+Madhya Pradesh,2023-04-01,30.44,2026-10-29,end-March
+Madhya Pradesh,2024-04-01,31.99,2026-10-29,end-March
+Maharashtra,2011-04-01,19.2,2026-10-29,end-March
+Maharashtra,2012-04-01,19.32,2026-10-29,end-March
+Maharashtra,2013-04-01,18.75,2026-10-29,end-March
+Maharashtra,2015-04-01,17.87,2026-10-29,end-March
+Maharashtra,2016-04-01,18.01,2026-10-29,end-March
+Maharashtra,2017-04-01,18.38,2026-10-29,end-March
+Maharashtra,2018-04-01,17.35,2026-10-29,end-March
+Maharashtra,2019-04-01,18.1,2026-10-29,end-March
+Maharashtra,2020-04-01,21.0,2026-10-29,end-March
+Maharashtra,2021-04-01,19.29,2026-10-29,end-March
+Maharashtra,2022-04-01,18.15,2026-10-29,end-March
+Maharashtra,2023-04-01,18.28,2026-10-29,end-March
+Maharashtra,2024-04-01,17.92,2026-10-29,end-March
+Manipur,2011-04-01,50.35,2026-10-29,end-March
+Manipur,2012-04-01,49.63,2026-10-29,end-March
+Manipur,2013-04-01,43.81,2026-10-29,end-March
+Manipur,2015-04-01,41.71,2026-10-29,end-March
+Manipur,2016-04-01,41.47,2026-10-29,end-March
+Manipur,2017-04-01,37.09,2026-10-29,end-March
+Manipur,2018-04-01,38.2,2026-10-29,end-March
+Manipur,2019-04-01,38.26,2026-10-29,end-March
+Manipur,2020-04-01,43.86,2026-10-29,end-March
+Manipur,2021-04-01,43.78,2026-10-29,end-March
+Manipur,2022-04-01,44.46,2026-10-29,end-March
+Manipur,2023-04-01,42.56,2026-10-29,end-March
+Meghalaya,2011-04-01,26.95,2026-10-29,end-March
+Meghalaya,2012-04-01,24.06,2026-10-29,end-March
+Meghalaya,2013-04-01,28.71,2026-10-29,end-March
+Meghalaya,2015-04-01,29.96,2026-10-29,end-March
+Meghalaya,2016-04-01,33.69,2026-10-29,end-March
+Meghalaya,2017-04-01,34.42,2026-10-29,end-March
+Meghalaya,2018-04-01,35.27,2026-10-29,end-March
+Meghalaya,2019-04-01,35.44,2026-10-29,end-March
+Meghalaya,2020-04-01,43.54,2026-10-29,end-March
+Meghalaya,2021-04-01,42.09,2026-10-29,end-March
+Meghalaya,2022-04-01,42.67,2026-10-29,end-March
+Meghalaya,2023-04-01,39.67,2026-10-29,end-March
+Meghalaya,2024-04-01,38.82,2026-10-29,end-March
+Mizoram,2011-04-01,67.72,2026-10-29,end-March
+Mizoram,2012-04-01,66.06,2026-10-29,end-March
+Mizoram,2013-04-01,60.39,2026-10-29,end-March
+Mizoram,2015-04-01,46.74,2026-10-29,end-March
+Mizoram,2016-04-01,38.86,2026-10-29,end-March
+Mizoram,2017-04-01,38.93,2026-10-29,end-March
+Mizoram,2018-04-01,34.86,2026-10-29,end-March
+Mizoram,2019-04-01,36.02,2026-10-29,end-March
+Mizoram,2020-04-01,42.71,2026-10-29,end-March
+Mizoram,2021-04-01,41.03,2026-10-29,end-March
+Mizoram,2022-04-01,37.83,2026-10-29,end-March
+Mizoram,2023-04-01,38.57,2026-10-29,end-March
+Nagaland,2011-04-01,55.43,2026-10-29,end-March
+Nagaland,2012-04-01,52.69,2026-10-29,end-March
+Nagaland,2013-04-01,50.28,2026-10-29,end-March
+Nagaland,2015-04-01,45.7,2026-10-29,end-March
+Nagaland,2016-04-01,44.02,2026-10-29,end-March
+Nagaland,2017-04-01,42.63,2026-10-29,end-March
+Nagaland,2018-04-01,43.88,2026-10-29,end-March
+Nagaland,2019-04-01,46.56,2026-10-29,end-March
+Nagaland,2020-04-01,51.13,2026-10-29,end-March
+Nagaland,2021-04-01,49.08,2026-10-29,end-March
+Nagaland,2022-04-01,47.66,2026-10-29,end-March
+Nagaland,2023-04-01,47.14,2026-10-29,end-March
+Odisha,2011-04-01,20.71,2026-10-29,end-March
+Odisha,2012-04-01,18.79,2026-10-29,end-March
+Odisha,2013-04-01,17.02,2026-10-29,end-March
+Odisha,2015-04-01,19.85,2026-10-29,end-March
+Odisha,2016-04-01,18.33,2026-10-29,end-March
+Odisha,2017-04-01,23.4,2026-10-29,end-March
+Odisha,2018-04-01,21.2,2026-10-29,end-March
+Odisha,2019-04-01,26.75,2026-10-29,end-March
+Odisha,2020-04-01,26.15,2026-10-29,end-March
+Odisha,2021-04-01,19.99,2026-10-29,end-March
+Odisha,2022-04-01,20.72,2026-10-29,end-March
+Odisha,2023-04-01,17.05,2026-10-29,end-March
+Odisha,2024-04-01,17.41,2026-10-29,end-March
+Puducherry,2011-04-01,32.35,2026-10-29,end-March
+Puducherry,2012-04-01,27.4,2026-10-29,end-March
+Puducherry,2013-04-01,30.32,2026-10-29,end-March
+Puducherry,2015-04-01,29.3,2026-10-29,end-March
+Puducherry,2016-04-01,53.62,2026-10-29,end-March
+Puducherry,2017-04-01,22.61,2026-10-29,end-March
+Puducherry,2018-04-01,25.18,2026-10-29,end-March
+Puducherry,2019-04-01,24.37,2026-10-29,end-March
+Puducherry,2020-04-01,29.19,2026-10-29,end-March
+Puducherry,2021-04-01,30.34,2026-10-29,end-March
+Puducherry,2022-04-01,29.04,2026-10-29,end-March
+Puducherry,2023-04-01,27.47,2026-10-29,end-March
+Puducherry,2024-04-01,27.06,2026-10-29,end-March
+Punjab,2011-04-01,31.08,2026-10-29,end-March
+Punjab,2012-04-01,30.99,2026-10-29,end-March
+Punjab,2013-04-01,30.8,2026-10-29,end-March
+Punjab,2015-04-01,34.38,2026-10-29,end-March
+Punjab,2016-04-01,42.76,2026-10-29,end-March
+Punjab,2017-04-01,41.44,2026-10-29,end-March
+Punjab,2018-04-01,41.35,2026-10-29,end-March
+Punjab,2019-04-01,42.76,2026-10-29,end-March
+Punjab,2020-04-01,47.94,2026-10-29,end-March
+Punjab,2021-04-01,45.39,2026-10-29,end-March
+Punjab,2022-04-01,46.29,2026-10-29,end-March
+Punjab,2023-04-01,45.09,2026-10-29,end-March
+Punjab,2024-04-01,45.13,2026-10-29,end-March
+Rajasthan,2011-04-01,24.52,2026-10-29,end-March
+Rajasthan,2012-04-01,24.04,2026-10-29,end-March
+Rajasthan,2013-04-01,23.26,2026-10-29,end-March
+Rajasthan,2015-04-01,30.79,2026-10-29,end-March
+Rajasthan,2016-04-01,33.59,2026-10-29,end-March
+Rajasthan,2017-04-01,33.83,2026-10-29,end-March
+Rajasthan,2018-04-01,34.21,2026-10-29,end-March
+Rajasthan,2019-04-01,35.32,2026-10-29,end-March
+Rajasthan,2020-04-01,40.38,2026-10-29,end-March
+Rajasthan,2021-04-01,38.79,2026-10-29,end-March
+Rajasthan,2022-04-01,37.34,2026-10-29,end-March
+Rajasthan,2023-04-01,37.27,2026-10-29,end-March
+Rajasthan,2024-04-01,37.38,2026-10-29,end-March
+Sikkim,2011-04-01,24.96,2026-10-29,end-March
+Sikkim,2012-04-01,24.23,2026-10-29,end-March
+Sikkim,2013-04-01,24.12,2026-10-29,end-March
+Sikkim,2015-04-01,24.05,2026-10-29,end-March
+Sikkim,2016-04-01,22.67,2026-10-29,end-March
+Sikkim,2017-04-01,22.76,2026-10-29,end-March
+Sikkim,2018-04-01,24.12,2026-10-29,end-March
+Sikkim,2019-04-01,25.3,2026-10-29,end-March
+Sikkim,2020-04-01,29.24,2026-10-29,end-March
+Sikkim,2021-04-01,30.5,2026-10-29,end-March
+Sikkim,2022-04-01,31.27,2026-10-29,end-March
+Sikkim,2023-04-01,33.01,2026-10-29,end-March
+Tamil Nadu,2011-04-01,17.38,2026-10-29,end-March
+Tamil Nadu,2012-04-01,17.88,2026-10-29,end-March
+Tamil Nadu,2013-04-01,18.54,2026-10-29,end-March
+Tamil Nadu,2015-04-01,19.42,2026-10-29,end-March
+Tamil Nadu,2016-04-01,21.77,2026-10-29,end-March
+Tamil Nadu,2017-04-01,22.3,2026-10-29,end-March
+Tamil Nadu,2018-04-01,24.63,2026-10-29,end-March
+Tamil Nadu,2019-04-01,26.52,2026-10-29,end-March
+Tamil Nadu,2020-04-01,31.82,2026-10-29,end-March
+Tamil Nadu,2021-04-01,32.23,2026-10-29,end-March
+Tamil Nadu,2022-04-01,31.99,2026-10-29,end-March
+Tamil Nadu,2023-04-01,31.5,2026-10-29,end-March
+Tamil Nadu,2024-04-01,30.64,2026-10-29,end-March
+Telangana,2015-04-01,15.66,2026-10-29,end-March
+Telangana,2016-04-01,12.43,2026-10-29,end-March
+Telangana,2017-04-01,21.37,2026-10-29,end-March
+Telangana,2018-04-01,22.18,2026-10-29,end-March
+Telangana,2019-04-01,23.73,2026-10-29,end-March
+Telangana,2020-04-01,28.76,2026-10-29,end-March
+Telangana,2021-04-01,28.01,2026-10-29,end-March
+Telangana,2022-04-01,26.68,2026-10-29,end-March
+Telangana,2023-04-01,26.9,2026-10-29,end-March
+Telangana,2024-04-01,26.95,2026-10-29,end-March
+Tripura,2011-04-01,34.15,2026-10-29,end-March
+Tripura,2012-04-01,35.39,2026-10-29,end-March
+Tripura,2013-04-01,34.13,2026-10-29,end-March
+Tripura,2015-04-01,28.81,2026-10-29,end-March
+Tripura,2016-04-01,30.02,2026-10-29,end-March
+Tripura,2017-04-01,30.62,2026-10-29,end-March
+Tripura,2018-04-01,30.28,2026-10-29,end-March
+Tripura,2019-04-01,33.57,2026-10-29,end-March
+Tripura,2020-04-01,40.17,2026-10-29,end-March
+Tripura,2021-04-01,36.02,2026-10-29,end-March
+Tripura,2022-04-01,32.17,2026-10-29,end-March
+Tripura,2023-04-01,29.6,2026-10-29,end-March
+Tripura,2024-04-01,29.67,2026-10-29,end-March
+Uttar Pradesh,2011-04-01,33.15,2026-10-29,end-March
+Uttar Pradesh,2012-04-01,29.13,2026-10-29,end-March
+Uttar Pradesh,2013-04-01,27.69,2026-10-29,end-March
+Uttar Pradesh,2015-04-01,32.87,2026-10-29,end-March
+Uttar Pradesh,2016-04-01,35.59,2026-10-29,end-March
+Uttar Pradesh,2017-04-01,35.06,2026-10-29,end-March
+Uttar Pradesh,2018-04-01,35.01,2026-10-29,end-March
+Uttar Pradesh,2019-04-01,31.49,2026-10-29,end-March
+Uttar Pradesh,2020-04-01,35.66,2026-10-29,end-March
+Uttar Pradesh,2021-04-01,31.87,2026-10-29,end-March
+Uttar Pradesh,2022-04-01,30.22,2026-10-29,end-March
+Uttar Pradesh,2023-04-01,29.83,2026-10-29,end-March
+Uttar Pradesh,2024-04-01,28.8,2026-10-29,end-March
+Uttarakhand,2011-04-01,21.54,2026-10-29,end-March
+Uttarakhand,2012-04-01,20.41,2026-10-29,end-March
+Uttarakhand,2013-04-01,20.33,2026-10-29,end-March
+Uttarakhand,2015-04-01,22.74,2026-10-29,end-March
+Uttarakhand,2016-04-01,22.81,2026-10-29,end-March
+Uttarakhand,2017-04-01,24.1,2026-10-29,end-March
+Uttarakhand,2018-04-01,25.78,2026-10-29,end-March
+Uttarakhand,2019-04-01,28.23,2026-10-29,end-March
+Uttarakhand,2020-04-01,33.35,2026-10-29,end-March
+Uttarakhand,2021-04-01,30.97,2026-10-29,end-March
+Uttarakhand,2022-04-01,27.55,2026-10-29,end-March
+Uttarakhand,2023-04-01,25.72,2026-10-29,end-March
+Uttarakhand,2024-04-01,25.22,2026-10-29,end-March
+West Bengal,2011-04-01,41.04,2026-10-29,end-March
+West Bengal,2012-04-01,39.92,2026-10-29,end-March
+West Bengal,2013-04-01,38.27,2026-10-29,end-March
+West Bengal,2015-04-01,39.48,2026-10-29,end-March
+West Bengal,2016-04-01,38.69,2026-10-29,end-March
+West Bengal,2017-04-01,38.07,2026-10-29,end-March
+West Bengal,2018-04-01,36.73,2026-10-29,end-March
+West Bengal,2019-04-01,37.81,2026-10-29,end-March
+West Bengal,2020-04-01,43.55,2026-10-29,end-March
+West Bengal,2021-04-01,40.91,2026-10-29,end-March
+West Bengal,2022-04-01,39.48,2026-10-29,end-March
+West Bengal,2023-04-01,39.47,2026-10-29,end-March
+West Bengal,2024-04-01,39.35,2026-10-29,end-March

@@ -1,0 +1,38 @@
+id: state_liabilities
+title: Outstanding liabilities, by state, end-March
+short_title: State debt
+area: states
+source:
+  agency: RBI
+  dataset: Handbook of Statistics on Indian States
+  url: https://www.rbi.org.in/Scripts/AnnualPublications.aspx?head=Handbook+of+Statistics+on+Indian+States
+  module: pipelines/sources/rbi/state_finances.py
+licence: unverified
+downloadable: false
+fetch: auto
+frequency: A
+unit: inr_lakh_crore
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+release:
+  calendar: none
+  rule: Handbook published each December
+  lag_days: 270
+validation:
+  range:
+  - 0
+  - 50
+  revision_alert: 5
+pages:
+- page: states
+  section: finances
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: Handbook Table 176, end-March of the financial year (end-March 2025 is shown
+  for 2024-25). Period = 1 April of the financial year.
+panel: true
+entity: state

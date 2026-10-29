@@ -1,0 +1,38 @@
+id: state_gfd
+title: Gross fiscal deficit, by state
+short_title: State fiscal deficit
+area: states
+source:
+  agency: RBI
+  dataset: Handbook of Statistics on Indian States
+  url: https://www.rbi.org.in/Scripts/AnnualPublications.aspx?head=Handbook+of+Statistics+on+Indian+States
+  module: pipelines/sources/rbi/state_finances.py
+licence: unverified
+downloadable: false
+fetch: auto
+frequency: A
+unit: inr_lakh_crore
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+release:
+  calendar: none
+  rule: Handbook published each December
+  lag_days: 270
+validation:
+  range:
+  - -5
+  - 10
+  revision_alert: 5
+pages:
+- page: states
+  section: finances
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: 'Handbook Table 164; minus = surplus. Note: Accounts, Revised or Budget Estimates.
+  Period = 1 April of the financial year.'
+panel: true
+entity: state

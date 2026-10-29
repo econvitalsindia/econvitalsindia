@@ -14,6 +14,11 @@ const prevPeriod = (p) => p.periods[p.periods.indexOf(p.ref_period) - 1];
 const cpiAllIndia = valueAt(series("cpi_headline_inflation"), "level", cpi.ref_period);
 const urAllIndia = valueAt(series("plfs_ur_usual_cy"), "level", ur.ref_period);
 const fyLabel = (iso) => `${iso.slice(0, 4)}-${String(Number(iso.slice(0, 4)) + 1).slice(2)}`;
+const gfd = panel("state_gfd_pct_gsdp"), debt = panel("state_debt_pct_gsdp"), intr = panel("state_interest_pct_gsdp");
+const fin = gfd.ref_period;
+const finYears = gfd.periods.filter((p) => p <= fin).slice(-3);
+const stageOf = (p, per) => Object.values(p.cell_notes ?? {}).map((n) => n[per]).find(Boolean) ?? "";
+const finStates = gfd.rows.map((r) => r.entity).filter((e) => at(gfd, e, fin) !== null).sort();
 const entities = [...new Set([...cpi.rows, ...ur.rows, ...gsdp.rows].map((r) => r.entity))].sort();
 ---
 <Base current="states" title="States">
@@ -29,6 +34,21 @@ const entities = [...new Set([...cpi.rows, ...ur.rows, ...gsdp.rows].map((r) => 
   <RankedBars title={`Real GSDP growth by state, ${fyLabel(gsdp.ref_period)}`} subtitle="% change on the previous year, constant 2011-12 prices (latest year with at least twenty states reporting)"
     rows={bars(gsdp, gsdp.ref_period)} source="MoSPI, state domestic product (base 2011-12)." />
   <p class="chart-sub">Small states and union territories have small survey samples, so their unemployment rates move a lot from year to year. State GDP is still on the 2011-12 base and is reported late by many states; the latest year shown is the most recent one with at least twenty states.</p>
+
+  <h2 id="finances">State government finances</h2>
+  <div class="grid2">
+    <RankedBars title={`Fiscal deficit, ${fyLabel(fin)} (${stageOf(gfd, fin)})`} subtitle="Gross fiscal deficit, % of GSDP; minus = surplus"
+      rows={bars(gfd, fin)} decimals={1} source="RBI, Handbook of Statistics on Indian States; site calculation." />
+    <RankedBars title={`Outstanding liabilities, end-March ${Number(fin.slice(0, 4)) + 1}`} subtitle="% of GSDP"
+      rows={bars(debt, fin)} decimals={1} source="RBI, Handbook of Statistics on Indian States; site calculation." />
+  </div>
+  <div class="scroll"><table class="data">
+    <thead><tr><th>State / UT</th>{finYears.map((p) => <th>Fiscal deficit {fyLabel(p)}<br /><span class="chart-sub">{stageOf(gfd, p)}</span></th>)}
+      <th>Debt, end-March {Number(fin.slice(0, 4)) + 1}</th><th>Interest {fyLabel(fin)}</th></tr></thead>
+    <tbody>{finStates.map((e) => <tr><td>{e}</td>{finYears.map((p) => <td>{num(at(gfd, e, p), 1)}</td>)}
+      <td>{num(at(debt, e, fin), 1)}</td><td>{num(at(intr, e, fin), 1)}</td></tr>)}</tbody>
+  </table></div>
+  <p class="chart-sub">% of GSDP at current prices, site calculations from RBI's Handbook (Tables 164, 170, 176) and the Handbook's GSDP (Table 21, 2011-12 base); ratios can differ from RBI's State Finances report, which may use newer GSDP. Recent years are Revised or Budget Estimates, not accounts. RBI's liabilities table for end-March 2015 has rows out of line (the states do not add up to the printed total), so that year is left out.</p>
 
   <h2>All states and union territories</h2>
   <div class="scroll">

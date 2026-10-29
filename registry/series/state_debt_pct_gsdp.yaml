@@ -1,0 +1,39 @@
+id: state_debt_pct_gsdp
+title: Outstanding liabilities as % of GSDP, by state
+short_title: Debt, % GSDP
+area: states
+source:
+  agency: RBI; site calculation
+  dataset: Handbook of Statistics on Indian States
+  url: https://www.rbi.org.in/Scripts/AnnualPublications.aspx?head=Handbook+of+Statistics+on+Indian+States
+  module: pipelines/sources/derived/state_fiscal_ratios.py
+licence: unverified
+downloadable: false
+fetch: auto
+frequency: A
+unit: percent
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+release:
+  calendar: none
+  rule: with the Handbook
+  lag_days: 270
+validation:
+  range:
+  - 0
+  - 150
+  revision_alert: 2
+pages:
+- page: states
+  section: finances
+original: true
+discontinued: null
+owner: ''
+verified_against: []
+notes: 'Site calculation: Table 176 (end-March) / Table 21 GSDP of that financial
+  year. GSDP on the 2011-12 base as printed in the Handbook; ratios can differ from
+  RBI''s State Finances report.'
+panel: true
+entity: state

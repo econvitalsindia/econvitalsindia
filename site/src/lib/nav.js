@@ -73,7 +73,10 @@ export const topics = [
     ["Effective exchange rates", "/external/#eer"],
     ["External debt", "/external/#debt"],
   ] },
-  { key: "states", label: "States", href: "/states/", items: null },
+  { key: "states", label: "States", href: "/states/", items: [
+    ["Prices, jobs and growth", "/states/"],
+    ["State government finances", "/states/#finances"],
+  ] },
 ];
 
 export const more = [

@@ -9,7 +9,7 @@ states:
   Chandigarh: []
   Chhattisgarh: [Chattisgarh]
   Dadra and Nagar Haveli and Daman and Diu: [The Dadra And Nagar Haveli And Daman And Diu, Dadra & Nagar Haveli and Daman & Diu, DNH & DD, Dadra & Nagar Haveli & Daman & Diu]
-  Delhi: [NCT of Delhi, NCT Of Delhi, Delhi NCT]
+  Delhi: [NCT of Delhi, NCT Of Delhi, Delhi NCT, NCT Delhi]
   Goa: []
   Gujarat: []
   Haryana: []
@@ -37,7 +37,7 @@ states:
   Uttar Pradesh: []
   Uttarakhand: [Uttaranchal]
   West Bengal: []
-aggregates: [All India, All-India, India]
+aggregates: [All India, All-India, India, All States and UTs, All States & UTs, All States]
 # Shorter labels for charts (tables use the full canonical name).
 short:
   Dadra and Nagar Haveli and Daman and Diu: DNH and Daman & Diu
