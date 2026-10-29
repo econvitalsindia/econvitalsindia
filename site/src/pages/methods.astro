@@ -9,9 +9,43 @@ const md = fs.readFileSync("../docs/guidebook/08-original-measures.md", "utf8")
   .replace(/`registry\/[^`]+`|`pipelines\/[^`]+`|`scripts\/[^`]+`|`tests\/[^`]+`/g,
            (m) => `<code>${m.slice(1, -1)}</code>`);
 const body = marked.parse(md);
+import { num, period } from "../lib/format.js";
+const bridge = JSON.parse(fs.readFileSync("src/data/generated/base_bridge.json", "utf8"));
+const chart = (rows, freq) => JSON.stringify({ series: [
+  { label: "Old base", curve: "linear", points: rows.map((r) => [r.period, r.old]) },
+  { label: "New base", curve: "linear", points: rows.map((r) => [r.period, r.new]) }], years: 5 });
+const avgAbs = (rows) => rows.length ? rows.reduce((a, r) => a + Math.abs(r.diff), 0) / rows.length : null;
 ---
 <Base current="data" title="Methods">
   <h1>Methods</h1>
   <p class="lede">How we build the measures marked <span class="badge">Original</span> on this site: what they are, how they are computed, and how we checked them. Everything else is published by the agency named on each series' page.</p>
   <article class="prose" set:html={body} />
+
+  <h2 id="base-year-bridge">Base-year bridge: old and new bases side by side</h2>
+  <p>In 2026 MoSPI moved GDP to a 2022-23 base and CPI to a 2024 base. Where both bases cover the same months or quarters, the comparison below shows how much the change of base moved the readings. On this site, growth rates "as published" use each base where it applies, and the two are not spliced together.</p>
+
+  {bridge.gdp.length > 0 && <>
+  <h3>Real GDP growth, quarterly</h3>
+  <figure class="chart"><p class="chart-title">Real GDP growth on the 2011-12 and 2022-23 bases</p><p class="chart-sub">% change on a year earlier, quarters published on both bases</p>
+    <div class="plot" data-chart={chart(bridge.gdp)}></div><figcaption><span>Source: MoSPI, national accounts on both bases.</span></figcaption></figure>
+  <div class="scroll"><table class="data">
+    <thead><tr><th>Quarter</th><th>Old base (2011-12)</th><th>New base (2022-23)</th><th>New minus old</th></tr></thead>
+    <tbody>{bridge.gdp.map((r) => <tr><td>{period(r.period, "Q")}</td><td>{num(r.old, 1)}%</td><td>{num(r.new, 1)}%</td><td>{r.diff > 0 ? "+" : ""}{num(r.diff, 1)} pp</td></tr>)}</tbody>
+  </table></div>
+  <p class="chart-sub">Across these {bridge.gdp.length} quarters the two bases differ by {num(avgAbs(bridge.gdp), 1)} percentage points on average (either way).</p>
+  </>}
+
+  {bridge.cpi.length > 0 && <>
+  <h3>CPI inflation, monthly</h3>
+  <figure class="chart"><p class="chart-title">CPI inflation in 2025 on the 2012 and 2024 bases</p><p class="chart-sub">% change on a year earlier</p>
+    <div class="plot" data-chart={chart(bridge.cpi)}></div><figcaption><span>Source: MoSPI; new-base rates computed from MoSPI's linked index (site calculation).</span></figcaption></figure>
+  <div class="scroll"><table class="data">
+    <thead><tr><th>Month</th><th>Published (2012 base)</th><th>2024 base, linked index</th><th>New minus old</th></tr></thead>
+    <tbody>{bridge.cpi.map((r) => <tr><td>{period(r.period, "M")}</td><td>{num(r.old, 2)}%</td><td>{num(r.new, 2)}%</td><td>{r.diff > 0 ? "+" : ""}{num(r.diff, 2)} pp</td></tr>)}</tbody>
+  </table></div>
+  <p class="chart-sub">The official 2025 inflation rates were published on the 2012 base. The 2024-base rates for the same months are computed from MoSPI's back series linked to the new base. Across 2025 the two differ by {num(avgAbs(bridge.cpi), 2)} percentage points on average.</p>
+  </>}
 </Base>
+<script>
+  import "../scripts/charts.js";
+</script>

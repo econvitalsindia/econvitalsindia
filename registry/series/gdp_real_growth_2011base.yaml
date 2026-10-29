@@ -1,0 +1,37 @@
+id: gdp_real_growth_2011base
+title: Real GDP growth on the old 2011-12 base, quarterly
+short_title: Real GDP growth (2011-12 base)
+area: growth
+source:
+  agency: MoSPI (NSO)
+  dataset: National accounts, quarterly
+  url: https://esankhyiki.mospi.gov.in/macroindicators?product=nas
+  module: pipelines/sources/mospi/nas_oldbase.py
+licence: GODL
+downloadable: true
+fetch: auto
+frequency: Q
+unit: percent
+base_year: 2011-12
+seasonal_adjustment: none
+transforms:
+- level
+release:
+  calendar: mospi
+  rule: last working day of the second month after the quarter, 16:00 IST
+  lag_days: 70
+validation:
+  range:
+  - -30
+  - 40
+  revision_alert: 20
+pages:
+- page: data-methods
+  section: base-year-bridge
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: '% change on a year earlier, constant 2011-12 prices, as MoSPI published it
+  on the old base. Kept in full so it can be compared with the 2022-23 base where
+  both exist.'

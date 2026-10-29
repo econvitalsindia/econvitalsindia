@@ -428,6 +428,27 @@ def rbi_projections() -> dict:
     return out
 
 
+def base_bridge() -> dict:
+    """Old vs new base where both exist (the 2026 rebasing).
+    CPI: 2025 inflation as officially published on the 2012 base vs the same months computed
+    from MoSPI's linked 2024-base index. GDP: quarterly real growth on the 2011-12 base vs the
+    2022-23 base, in the quarters MoSPI published on both."""
+    pub = store.load_series("cpi_headline_inflation")
+    old_cpi = pub[pub["note"].str.contains("2012", na=False)].set_index("period")["value"].astype(float)
+    new_cpi = transform(load("cpi_headline_index"), "yoy").set_index("period")["value"]
+    cpi = []
+    for p, v in old_cpi.items():
+        n = new_cpi.get(pd.Timestamp(p))
+        if n is not None and not pd.isna(n):
+            cpi.append({"period": p, "old": round(v, 2), "new": round(float(n), 2), "diff": round(float(n) - v, 2)})
+    old_gdp = store.load_series("gdp_real_growth_2011base").set_index("period")["value"].astype(float)
+    new_all = store.load_series("gdp_real_growth")
+    new_gdp = new_all[~new_all["note"].str.contains("2011", na=False)].set_index("period")["value"].astype(float)
+    gdp = [{"period": p, "old": v, "new": float(new_gdp[p]), "diff": round(float(new_gdp[p]) - v, 1)}
+           for p, v in old_gdp.items() if p in new_gdp.index]
+    return {"cpi": cpi, "gdp": gdp}
+
+
 def division_label(spec: dict) -> str:
     """'CPI food & beverages' -> 'Food & beverages'."""
     s = spec["short_title"].removeprefix("CPI ")
@@ -625,6 +646,7 @@ def main() -> int:
     write_json(OUT / "policy_rule.json", policy_rule_inputs())
     write_json(OUT / "reserves_change.json", reserves_change())
     write_json(OUT / "rbi_projections.json", rbi_projections())
+    write_json(OUT / "base_bridge.json", base_bridge())
     PUBLIC.parent.mkdir(parents=True, exist_ok=True)
     (PUBLIC.parent / "calendar.ics").write_text(calendar.ics(cal, registry.site_config()["site"]["name"]))
 

@@ -1,0 +1,27 @@
+{
+  "id": "gdp_real_growth_2011base",
+  "title": "Real GDP growth on the old 2011-12 base, quarterly",
+  "short_title": "Real GDP growth (2011-12 base)",
+  "unit": "percent",
+  "frequency": "Q",
+  "base_year": "2011-12",
+  "source": {
+    "agency": "MoSPI (NSO)",
+    "dataset": "National accounts, quarterly",
+    "url": "https://esankhyiki.mospi.gov.in/macroindicators?product=nas",
+    "module": "pipelines/sources/mospi/nas_oldbase.py"
+  },
+  "licence": "GODL",
+  "downloadable": true,
+  "first_period": "2012-04-01",
+  "last_period": "2025-07-01",
+  "last_value": 8.2,
+  "observations": 54,
+  "updated_at": "2026-10-29T16:41:00+00:00",
+  "fetched_from": [
+    "https://api.mospi.gov.in/api/nas/getNASData?frequency_code=Quarterly&base_year=2011-12&indicator_code=22&limit=100&page=1&Format=JSON"
+  ],
+  "raw_files": [
+    "data/raw/mospi_nas_oldbase/20261029T164100-a2d99ddf6e.json"
+  ]
+}

@@ -9,7 +9,7 @@
 - [x] Chart: nominal vs real GDP growth and the implicit deflator
 - [x] Annual estimates with their stage (`gdp_real_growth_fy` etc.; the API serves only the latest estimate, so revisions accumulate in data/revisions from 2026-10-29)
 - [x] Discrepancies line shown explicitly (as the residual 'Other' bar, with its size in the note)
-- [x] Base year label (2022-23) and a note on the 2026 rebasing (links to Methods until the base-year bridge exists)
+- [x] Base year label (2022-23) and a note on the 2026 rebasing (links to the base-year bridge on Methods)
 - [x] Detail page `/growth/detail`: full sector-by-sector tables, nominal levels in ₹ lakh crore
 
 ## Must NOT include
