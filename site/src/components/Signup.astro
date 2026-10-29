@@ -8,6 +8,7 @@ import { config } from "../lib/config.js";
 const n = config.newsletter ?? {};
 const id = `nl-${Math.random().toString(36).slice(2, 8)}`;
 const email = config.contact?.feedback_email ?? "";
+const maintainer = (config.team?.maintainer ?? "").split(" ")[0] || "We";
 ---
 {n.enabled && n.buttondown_username && (
   <div class="signup-wrap" data-signup={id}>
@@ -23,7 +24,7 @@ const email = config.contact?.feedback_email ?? "";
     </div>
   </div>
 )}
-<script define:vars={{ email }}>
+<script define:vars={{ email, maintainer }}>
   document.querySelectorAll("[data-signup]").forEach((wrap) => {
     if (wrap.dataset.ready) return;
     wrap.dataset.ready = "1";
@@ -47,7 +48,8 @@ const email = config.contact?.feedback_email ?? "";
         const res = await r.json().catch(() => ({}));
         if (res.ok && res.status === "exists") show(true, "✓ You're already signed up. If you haven't confirmed yet, look for the confirmation email from Buttondown (check spam too).");
         else if (res.ok) show(true, "✓ Almost done: check your inbox (and spam folder) for a confirmation email from Buttondown and click the link in it.");
-        else if (res.blocked) show(false, `${res.error}${email ? ` (${email})` : ""}`);
+        // Held by Buttondown's spam filter: reassure the reader; the maintainer releases it.
+        else if (res.blocked) show(false, `There may be an issue with your sign-up: our email provider has flagged it for a quick review. ${maintainer} will take care of it and you'll get the confirmation email once it's cleared. Nothing more is needed from you.`);
         else show(false, res.error || fallback);
       } catch {
         show(false, fallback);

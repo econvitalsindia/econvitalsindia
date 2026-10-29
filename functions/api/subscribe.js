@@ -37,7 +37,7 @@ export async function onRequestPost({ request, env }) {
   const text = await r.text();
   // With "Accept and mark as blocked" in Buttondown's firewall settings, a held address is
   // created with type "blocked": it gets no confirmation email until the maintainer releases it.
-  const held = { ok: false, blocked: true, error: "Our email provider's spam filter held this sign-up. It will be reviewed; to speed things up, write to us from that address." };
+  const held = { ok: false, blocked: true, error: "Your sign-up has been flagged for review by our email provider." };
   if (r.status === 201) {
     let type = "";
     try { ({ type = "" } = JSON.parse(text)); } catch {}

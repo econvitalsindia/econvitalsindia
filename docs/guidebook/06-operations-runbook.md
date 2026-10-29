@@ -67,4 +67,6 @@ No draft that day means no email. Optional subject: front matter `subject: "..."
 
 **API mode (in use since 2026-10-29):** with `newsletter.writer: "api"` and an `ANTHROPIC_API_KEY` secret, the 07:30 IST `newsletter-morning` workflow writes and sends the email by itself (`morning auto`: one retry on checker failure, then the fixed template in `registry/newsletter/morning.md`). Measured 2026-10-29: about 12,000 input + 1,800 output tokens per email, about $0.08 a day on `claude-opus-5-5`, about $0.002 on `claude-haiku-5-5` (`newsletter.llm_model`).
 
+**Held sign-ups:** Buttondown's spam filter ("firewall", buttondown.com/settings/firewall, set to "Accept and mark as blocked") can hold a sign-up. The reader is told it is under review and that the maintainer will take care of it. Check Buttondown → Subscribers for anyone marked **Blocked** every few days and unblock real people; Buttondown then sends their confirmation email. `.github/workflows/newsletter-status.yml` lists subscribers (masked) with their status.
+
 **The weekly digest** (`digest.py`, `newsletter.yml`) still exists but runs only by hand, as a Buttondown draft, because the morning email uses the free plan's one-email-a-day allowance.
