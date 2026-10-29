@@ -240,6 +240,28 @@ def mpc_decisions(cal: list[dict]) -> dict:
                                                   "days": (date.fromisoformat(nxt["date"]) - date.today()).days}}
 
 
+def budget_table() -> dict:
+    """Union Budget at a glance, as the Budget prints it: for the latest Budget year Y,
+    Actuals Y-2, Budget and Revised Estimates Y-1, Budget Estimates Y, plus the change
+    from Y-1 RE to Y BE. Rows in the order of pipelines/sources/budget/glance.py."""
+    from pipelines.sources.budget.glance import ORDER
+    stages = {sid: store.load_panel(sid) for sid in ("budget_actuals", "budget_be", "budget_re")}
+    if stages["budget_be"].empty:
+        return {"columns": [], "rows": []}
+    year = int(stages["budget_be"]["period"].max()[:4])
+    fy = lambda y: f"{y}-{str(y + 1)[2:]}"
+    cols = [("budget_actuals", year - 2, f"{fy(year - 2)} Actuals"), ("budget_be", year - 1, f"{fy(year - 1)} BE"),
+            ("budget_re", year - 1, f"{fy(year - 1)} RE"), ("budget_be", year, f"{fy(year)} BE")]
+    look = {sid: {(r.entity, r.period): float(r.value) for r in df.itertuples()} for sid, df in stages.items()}
+    rows = []
+    for item in ORDER:
+        vals = [look[sid].get((item, f"{y}-04-01")) for sid, y, _ in cols]
+        re_, be = vals[2], vals[3]
+        change = None if "% of GDP" in item or not re_ or be is None else round(100 * (be / re_ - 1), 1)
+        rows.append({"item": item, "ratio": "% of GDP" in item, "values": vals, "change_pct": change})
+    return {"year": fy(year), "columns": [c[2] for c in cols], "rows": rows}
+
+
 def division_label(spec: dict) -> str:
     """'CPI food & beverages' -> 'Food & beverages'."""
     s = spec["short_title"].removeprefix("CPI ")
@@ -401,6 +423,7 @@ def main() -> int:
                            "show": r["show"]}
     write_json(OUT / "calendar.json", cal)
     write_json(OUT / "mpc_decisions.json", mpc_decisions(cal))
+    write_json(OUT / "budget.json", budget_table())
     PUBLIC.parent.mkdir(parents=True, exist_ok=True)
     (PUBLIC.parent / "calendar.ics").write_text(calendar.ics(cal, registry.site_config()["site"]["name"]))
 

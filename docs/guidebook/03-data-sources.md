@@ -112,6 +112,12 @@ Small 200 responses (MoSPI 2.6 KB, eSankhyiki 1.2 KB, NREGA 0.5 KB, FBIL 1.5 KB)
 
 CMIE (paywalled), Bloomberg/Refinitiv/LSEG terminal data, any data behind a login, any source whose terms forbid redistribution.
 
+### Budget
+
+| Publisher | Data | URL | Fetch | Licence | Status | Notes |
+|---|---|---|---|---|---|---|
+| Ministry of Finance | Budget at a Glance (BE, RE, Actuals; deficits with % of GDP) | `indiabudget.gov.in/doc/Budget_at_Glance/budget_at_a_glance.xlsx` | auto | GODL | **live** (`budget/glance.py`) | Replaced each Budget, so history accumulates from 2024-25. Sheets BAAG and Deficit Statistics; % of GDP in brackets on the row below each deficit. The per-table `bag1.xls` links on the home page return 404 |
+
 ### International
 
 | Publisher | Data | URL | Fetch | Licence | Status | Notes |

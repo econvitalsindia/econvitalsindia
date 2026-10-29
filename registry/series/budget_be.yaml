@@ -1,0 +1,40 @@
+id: budget_be
+title: 'Union Budget headline numbers: Budget Estimates'
+short_title: Budget estimates
+area: fiscal
+source:
+  agency: Ministry of Finance
+  dataset: Budget at a Glance
+  url: https://www.indiabudget.gov.in/
+  module: pipelines/sources/budget/glance.py
+licence: GODL
+downloadable: true
+fetch: auto
+frequency: A
+unit: inr_lakh_crore
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+release:
+  calendar: none
+  rule: Union Budget day (usually 1 February)
+  lag_days: 0
+validation:
+  range:
+  - -100
+  - 200
+  revision_alert: 5
+pages:
+- page: fiscal
+  section: budget
+original: true
+discontinued: null
+owner: ''
+verified_against: []
+notes: Budget Estimates for each financial year (period = 1 April of the year), by
+  item. Amounts in ₹ lakh crore (₹ crore in the file); the "% of GDP" items are per
+  cent. Taken from Budget at a Glance, which each Budget replaces, so history builds
+  up one Budget at a time from 2024-25.
+panel: true
+entity: budget_item

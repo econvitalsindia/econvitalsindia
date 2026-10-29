@@ -54,6 +54,7 @@ export const topics = [
   ] },
   { key: "fiscal", label: "Fiscal", href: "/fiscal/", items: [
     ["Fiscal deficit and capex", "/fiscal/"],
+    ["Union Budget at a glance", "/fiscal/#budget"],
     ["Union government accounts", "/fiscal/#accounts"],
     ["GST collections", "/fiscal/#gst"],
     ["Direct taxes and other tax heads", "/fiscal/#taxes"],
