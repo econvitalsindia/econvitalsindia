@@ -42,6 +42,10 @@ export async function onRequestPost({ request, env }) {
   console.log(`buttondown ${r.status}: ${text.slice(0, 300)}`);
   let code = "", detail = "";
   try { ({ code = "", detail = "" } = JSON.parse(text)); } catch { detail = text.slice(0, 200); }
+  // Buttondown's spam filter ("firewall") held the address; the maintainer can release it.
+  if (code === "subscriber_blocked") {
+    return json({ ok: false, blocked: true, error: "Our email provider's spam filter held this sign-up. It will be reviewed; to speed things up, write to us from that address." }, 403);
+  }
   return json({ ok: false, error: "The sign-up service didn't accept that address.", provider_status: r.status,
                 provider_code: code, provider_detail: String(detail).slice(0, 300) }, 502);
 }

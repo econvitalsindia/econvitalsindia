@@ -47,6 +47,7 @@ const email = config.contact?.feedback_email ?? "";
         const res = await r.json().catch(() => ({}));
         if (res.ok && res.status === "exists") show(true, "✓ You're already signed up. If you haven't confirmed yet, look for the confirmation email from Buttondown (check spam too).");
         else if (res.ok) show(true, "✓ Almost done: check your inbox (and spam folder) for a confirmation email from Buttondown and click the link in it.");
+        else if (res.blocked) show(false, `${res.error}${email ? ` (${email})` : ""}`);
         else show(false, res.error || fallback);
       } catch {
         show(false, fallback);
