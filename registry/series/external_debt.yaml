@@ -1,0 +1,37 @@
+id: external_debt
+title: India's external debt, end of quarter
+short_title: External debt
+area: external
+source:
+  agency: RBI
+  dataset: India's External Debt (quarterly press releases)
+  url: https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx
+  module: pipelines/sources/rbi/external_debt.py
+licence: unverified
+downloadable: false
+fetch: auto
+frequency: Q
+unit: usd_bn
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+release:
+  calendar: none
+  rule: quarterly, about three months after the quarter end
+  lag_days: 95
+validation:
+  range:
+  - 100
+  - 3000
+  revision_alert: 2
+pages:
+- page: external
+  section: debt
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: US$ billion at the end of the quarter; period is the first day of that quarter.
+  From the highlights of RBI's quarterly release; the earlier quarter is the latest
+  level minus the stated change. Includes valuation changes from exchange rates.

@@ -1,0 +1,40 @@
+id: bop_remittances
+title: 'Remittances: personal transfer receipts, quarterly'
+short_title: Remittances
+area: external
+source:
+  agency: RBI
+  dataset: Developments in India's Balance of Payments (press releases)
+  url: https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx
+  module: pipelines/sources/rbi/bop.py
+licence: unverified
+downloadable: false
+fetch: auto
+frequency: Q
+unit: usd_bn
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+- yoy
+release:
+  calendar: rbi
+  rule: quarterly, about two to three months after the quarter
+  lag_days: 100
+validation:
+  range:
+  - 5
+  - 100
+  revision_alert: 2
+pages:
+- page: external
+  section: remittances
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: US$ billion a quarter, gross receipts (not net). From the text of RBI's quarterly
+  balance-of-payments release ("Personal transfer receipts ..., mainly representing
+  remittances by Indians employed overseas, rose to US$ X billion in Qn:YYYY-YY from
+  US$ Y billion ..."), printed since Q3 2024-25, so the series starts with the year-earlier
+  quarter, Q3 2023-24. The newest release wins.

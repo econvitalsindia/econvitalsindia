@@ -54,6 +54,25 @@ const fx = latest(series("fx_reserves_total"));
   <LineChart title="Current account, monthly" subtitle="US$ billion (RBI's monthly balance of payments, published since 2026; preliminary)" lines={[{ id: "bop_cab_monthly", label: "Current account" }]} years={2} />
   <p class="chart-sub">RBI's balance-of-payments releases. The latest quarter is preliminary and each release revises the same quarter a year earlier; we keep the latest figure.</p>
 
+  <h2 id="remittances">Remittances</h2>
+  <LineChart title="Remittances" subtitle="US$ billion a quarter: personal transfer receipts, gross"
+    lines={[{ id: "bop_remittances", label: "Personal transfer receipts" }]} years={4} />
+  <p class="chart-sub">RBI describes personal transfer receipts as mainly remittances by Indians employed overseas. Taken from the text of each quarterly balance-of-payments release, which has printed this figure since Q3 2024-25 (with the year-earlier quarter), so the series starts in Q3 2023-24.</p>
+
+  <h2 id="eer">Effective exchange rates</h2>
+  <LineChart title="The rupee against a basket of 64 economies" subtitle="Index, 2020 = 100, monthly average; a rise means a stronger rupee"
+    lines={[{ id: "reer_bis_broad", label: "Real (REER)" }, { id: "neer_bis_broad", label: "Nominal (NEER)" }]} reference={{ target: 100 }} years={10} />
+  <p class="chart-sub">The nominal index weights the rupee's exchange rates by trade; the real index also adjusts for inflation in India relative to its trading partners. Source: Bank for International Settlements, broad indices. RBI publishes its own 40-currency indices in its monthly Bulletin, but those tables have no stable links for us to read; the BIS indices use a different base and weights, so their levels differ from RBI's.</p>
+
+  <h2 id="debt">External debt</h2>
+  <div class="grid2">
+    <LineChart title="External debt" subtitle="US$ billion, end of quarter"
+      lines={[{ id: "external_debt", label: "External debt" }]} years={4} />
+    <LineChart title="External debt to GDP" subtitle="%, end of quarter"
+      lines={[{ id: "external_debt_pct_gdp", label: "Debt / GDP" }]} years={4} />
+  </div>
+  <p class="chart-sub">From the highlights of RBI's quarterly external debt releases (each gives the latest quarter and the one it is compared with). RBI's press-release index currently lists only the end-March and end-June releases, so other quarters are missing. Changes include valuation effects from exchange-rate moves.</p>
+
   <h2>Still to come on this page</h2>
-  <p class="chart-sub">REER and NEER, remittances and external debt. Checklist: docs/guidebook/05-pages/external.md.</p>
+  <p class="chart-sub">External commercial borrowing (ECB), and USD/INR alongside RBI&#39;s reserve changes. Checklist: docs/guidebook/05-pages/external.md.</p>
 </Base>

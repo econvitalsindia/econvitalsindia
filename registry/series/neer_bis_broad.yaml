@@ -1,0 +1,40 @@
+id: neer_bis_broad
+title: Nominal effective exchange rate of the rupee (BIS, broad basket)
+short_title: NEER (BIS)
+area: external
+source:
+  agency: Bank for International Settlements (BIS)
+  dataset: Effective exchange rate indices (WS_EER), broad basket
+  url: https://data.bis.org/topics/EER
+  module: pipelines/sources/bis/eer.py
+licence: 'other:BIS terms of use, reuse with attribution'
+downloadable: true
+fetch: auto
+frequency: M
+unit: index
+base_year: '2020'
+seasonal_adjustment: none
+transforms:
+- level
+- yoy
+release:
+  calendar: none
+  rule: BIS updates mid-month for the previous month
+  lag_days: 20
+validation:
+  range:
+  - 40
+  - 200
+  revision_alert: 1
+pages:
+- page: external
+  section: eer
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: 'Nominal effective exchange rate against 64 economies, monthly average, index
+  2020 = 100; a rise is a stronger rupee. BIS, not RBI: RBI''s own 40-currency indices
+  are in the RBI Bulletin, whose tables have no stable links. Levels
+  differ from RBI''s because the base and weights differ; the direction of moves is
+  comparable.'

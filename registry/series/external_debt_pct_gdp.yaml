@@ -1,0 +1,36 @@
+id: external_debt_pct_gdp
+title: External debt as % of GDP, end of quarter
+short_title: External debt / GDP
+area: external
+source:
+  agency: RBI
+  dataset: India's External Debt (quarterly press releases)
+  url: https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx
+  module: pipelines/sources/rbi/external_debt.py
+licence: unverified
+downloadable: false
+fetch: auto
+frequency: Q
+unit: percent
+base_year: null
+seasonal_adjustment: none
+transforms:
+- level
+release:
+  calendar: none
+  rule: quarterly, about three months after the quarter end
+  lag_days: 95
+validation:
+  range:
+  - 5
+  - 50
+  revision_alert: 2
+pages:
+- page: external
+  section: debt
+original: false
+discontinued: null
+owner: ''
+verified_against: []
+notes: Per cent, as stated in RBI's quarterly release for the latest quarter and the
+  one before.

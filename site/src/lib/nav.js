@@ -62,6 +62,9 @@ export const topics = [
     ["Merchandise trade", "/external/#merchandise"],
     ["Services trade", "/external/#services"],
     ["Balance of payments", "/external/#bop"],
+    ["Remittances", "/external/#remittances"],
+    ["Effective exchange rates", "/external/#eer"],
+    ["External debt", "/external/#debt"],
   ] },
   { key: "states", label: "States", href: "/states/", items: null },
 ];

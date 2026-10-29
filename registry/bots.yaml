@@ -15,7 +15,7 @@ bots:
     sources: [mospi_cpi, mospi_iip, mospi_nas, mospi_plfs, mospi_states, labourbureau_cpi_iw, derived_core_cpi]
   rbi:
     when: "Mon-Sat 18:30"
-    sources: [rbi_wss, rbi_payments, rbi_bop, rbi_services_trade, rbi_surveys, rbi_iesh, rbi_mpc_minutes, rbi_mpc_decisions, fbil_refrates, derived_mpc_committee]
+    sources: [rbi_wss, rbi_payments, rbi_bop, rbi_external_debt, rbi_services_trade, rbi_surveys, rbi_iesh, rbi_mpc_minutes, rbi_mpc_decisions, fbil_refrates, derived_mpc_committee]
   ministries:
     when: "Mon-Sat 19:30"
-    sources: [commerce_trade, gst_collections, cga_monthly_accounts, cga_tax_heads, oea_wpi, oea_core_industries, ppac_consumption, siam_sales, gst_ewaybills, aai_traffic]
+    sources: [commerce_trade, gst_collections, cga_monthly_accounts, cga_tax_heads, oea_wpi, oea_core_industries, ppac_consumption, siam_sales, gst_ewaybills, aai_traffic, bis_eer]

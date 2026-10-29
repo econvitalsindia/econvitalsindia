@@ -72,7 +72,22 @@ def parse_quarterly(text: str) -> list[dict]:
         # sentence says it is the same kind (otherwise the sign is ambiguous).
         if not re.search(r"as compared to (a )?(surplus|deficit)", text[g.start():g.end()]):
             rows += [{"series_id": "bop_cab_pct_gdp", "period": prev_q, "value": sign * float(g.group(3))}]
+    # "Personal transfer receipts ..., mainly representing remittances by Indians employed
+    #  overseas, rose to US$ 42.9 billion in Q1:2026-27 from US$ 33.2 billion in Q1:2025-26"
+    # (printed since Q3 2024-25; absent from older releases, so optional).
+    r = re.search(r"Personal transfer receipts[^|]*?US\$\s*" + NUM + r" billion in Q(\d):\s*(\d{4})-\d{2}"
+                  r"[^|]*?US\$\s*" + NUM + r" billion in Q(\d):\s*(\d{4})-\d{2}", text)
+    if r:
+        for value, q, fy in [(r.group(1), r.group(2), r.group(3)), (r.group(4), r.group(5), r.group(6))]:
+            rows.append({"series_id": "bop_remittances", "period": fy_quarter_start(int(q), int(fy)),
+                         "value": float(value)})
     return rows
+
+
+def fy_quarter_start(q: int, fy_start: int) -> str:
+    """Q1 of 2026-27 -> '2026-04-01'; Q4 of 2025-26 -> '2026-01-01'."""
+    month = 3 * q + 1
+    return f"{fy_start + (month > 12):04d}-{(month - 1) % 12 + 1:02d}-01"
 
 
 def parse_monthly(text: str) -> list[dict]:
@@ -91,7 +106,7 @@ def parse_monthly(text: str) -> list[dict]:
 
 class RbiBoP(Source):
     name = "rbi_bop"
-    series_ids = (*QUARTERLY_ROWS.values(), "bop_cab_pct_gdp", "bop_cab_monthly")
+    series_ids = (*QUARTERLY_ROWS.values(), "bop_cab_pct_gdp", "bop_cab_monthly", "bop_remittances")
 
     def fetch(self) -> list[Raw]:
         months = BACKFILL_MONTHS if len(load_series("bop_current_account")) < MIN_HISTORY else RECENT_MONTHS
