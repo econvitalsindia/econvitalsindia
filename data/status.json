@@ -119,15 +119,15 @@
     "last_period": "2026-04-01"
   },
   "brent_inr": {
-    "last_attempt": "2026-10-29T06:41:59+00:00",
-    "last_success": "2026-10-29T06:41:59+00:00",
+    "last_attempt": "2026-10-29T10:59:56+00:00",
+    "last_success": "2026-10-29T10:59:56+00:00",
     "stale": false,
     "last_error": null,
     "last_period": "2026-10-28"
   },
   "brent_usd": {
-    "last_attempt": "2026-10-29T06:41:59+00:00",
-    "last_success": "2026-10-29T06:41:59+00:00",
+    "last_attempt": "2026-10-29T10:59:47+00:00",
+    "last_success": "2026-10-29T10:59:47+00:00",
     "stale": false,
     "last_error": null,
     "last_period": "2026-10-28"
@@ -665,8 +665,8 @@
     "last_period": "2026-09-01"
   },
   "crr": {
-    "last_attempt": "2026-10-29T07:14:46+00:00",
-    "last_success": "2026-10-29T07:14:46+00:00",
+    "last_attempt": "2026-10-29T10:59:45+00:00",
+    "last_success": "2026-10-29T10:59:45+00:00",
     "stale": false,
     "last_error": null,
     "last_period": "2026-10-29"
@@ -728,22 +728,22 @@
     "last_period": "2026-04-01"
   },
   "fpi_debt_net": {
-    "last_attempt": "2026-10-29T10:21:42+00:00",
-    "last_success": "2026-10-29T10:21:42+00:00",
+    "last_attempt": "2026-10-29T10:59:56+00:00",
+    "last_success": "2026-10-29T10:59:56+00:00",
     "stale": false,
     "last_error": null,
     "last_period": "2026-10-01"
   },
   "fpi_equity_net": {
-    "last_attempt": "2026-10-29T10:21:42+00:00",
-    "last_success": "2026-10-29T10:21:42+00:00",
+    "last_attempt": "2026-10-29T10:59:56+00:00",
+    "last_success": "2026-10-29T10:59:56+00:00",
     "stale": false,
     "last_error": null,
     "last_period": "2026-10-01"
   },
   "fpi_total_net": {
-    "last_attempt": "2026-10-29T10:21:42+00:00",
-    "last_success": "2026-10-29T10:21:42+00:00",
+    "last_attempt": "2026-10-29T10:59:56+00:00",
+    "last_success": "2026-10-29T10:59:56+00:00",
     "stale": false,
     "last_error": null,
     "last_period": "2026-10-01"
@@ -833,8 +833,8 @@
     "last_period": "2026-04-01"
   },
   "gold_usd_oz": {
-    "last_attempt": "2026-10-29T06:41:59+00:00",
-    "last_success": "2026-10-29T06:41:59+00:00",
+    "last_attempt": "2026-10-29T10:59:47+00:00",
+    "last_success": "2026-10-29T10:59:47+00:00",
     "stale": false,
     "last_error": null,
     "last_period": "2026-10-28"
@@ -847,22 +847,22 @@
     "last_period": "2026-10-16"
   },
   "gsec_10y_yield": {
-    "last_attempt": "2026-10-29T06:41:57+00:00",
-    "last_success": "2026-10-29T06:41:57+00:00",
+    "last_attempt": "2026-10-29T10:59:45+00:00",
+    "last_success": "2026-10-29T10:59:45+00:00",
     "stale": false,
     "last_error": null,
     "last_period": "2026-10-28"
   },
   "gsec_par_10y": {
-    "last_attempt": "2026-10-29T10:13:32+00:00",
-    "last_success": "2026-10-29T10:13:32+00:00",
+    "last_attempt": "2026-10-29T10:59:56+00:00",
+    "last_success": "2026-10-29T10:59:56+00:00",
     "stale": false,
     "last_error": null,
     "last_period": "2026-10-22"
   },
   "gsec_par_yield": {
-    "last_attempt": "2026-10-29T10:13:13+00:00",
-    "last_success": "2026-10-29T10:13:13+00:00",
+    "last_attempt": "2026-10-29T10:59:51+00:00",
+    "last_success": "2026-10-29T10:59:51+00:00",
     "stale": false,
     "last_error": null,
     "last_period": "2026-10-22"
@@ -1085,11 +1085,11 @@
     "last_period": "2026-04-01"
   },
   "indiavix_close": {
-    "last_attempt": "2026-10-29T06:41:59+00:00",
-    "last_success": "2026-10-29T06:41:59+00:00",
+    "last_attempt": "2026-10-29T10:59:47+00:00",
+    "last_success": "2026-10-29T10:59:47+00:00",
     "stale": false,
     "last_error": null,
-    "last_period": "2026-10-28"
+    "last_period": "2026-10-29"
   },
   "liquidity_surplus": {
     "last_attempt": "2026-10-29T07:14:46+00:00",
@@ -1204,8 +1204,8 @@
     "last_period": "2026-10-01"
   },
   "msf_rate": {
-    "last_attempt": "2026-10-29T07:14:46+00:00",
-    "last_success": "2026-10-29T07:14:46+00:00",
+    "last_attempt": "2026-10-29T10:59:45+00:00",
+    "last_success": "2026-10-29T10:59:45+00:00",
     "stale": false,
     "last_error": null,
     "last_period": "2026-10-29"
@@ -1218,11 +1218,11 @@
     "last_period": "2026-09-01"
   },
   "nifty50_close": {
-    "last_attempt": "2026-10-29T06:41:59+00:00",
-    "last_success": "2026-10-29T06:41:59+00:00",
+    "last_attempt": "2026-10-29T10:59:47+00:00",
+    "last_success": "2026-10-29T10:59:47+00:00",
     "stale": false,
     "last_error": null,
-    "last_period": "2026-10-28"
+    "last_period": "2026-10-29"
   },
   "peer_cpi_inflation": {
     "last_attempt": "2026-10-29T10:46:14+00:00",
@@ -1422,8 +1422,8 @@
     "last_period": "2026-09-01"
   },
   "repo_rate": {
-    "last_attempt": "2026-10-29T07:14:46+00:00",
-    "last_success": "2026-10-29T07:14:46+00:00",
+    "last_attempt": "2026-10-29T10:59:45+00:00",
+    "last_success": "2026-10-29T10:59:45+00:00",
     "stale": false,
     "last_error": null,
     "last_period": "2026-10-29"
@@ -1478,18 +1478,18 @@
     "last_period": "2026-10-15"
   },
   "sdf_rate": {
-    "last_attempt": "2026-10-29T07:14:46+00:00",
-    "last_success": "2026-10-29T07:14:46+00:00",
+    "last_attempt": "2026-10-29T10:59:45+00:00",
+    "last_success": "2026-10-29T10:59:45+00:00",
     "stale": false,
     "last_error": null,
     "last_period": "2026-10-29"
   },
   "sensex_close": {
-    "last_attempt": "2026-10-29T06:41:59+00:00",
-    "last_success": "2026-10-29T06:41:59+00:00",
+    "last_attempt": "2026-10-29T10:59:47+00:00",
+    "last_success": "2026-10-29T10:59:47+00:00",
     "stale": false,
     "last_error": null,
-    "last_period": "2026-10-28"
+    "last_period": "2026-10-29"
   },
   "services_exports": {
     "last_attempt": "2026-10-28T14:21:39+00:00",
@@ -1520,8 +1520,8 @@
     "last_period": "2026-08-01"
   },
   "slr": {
-    "last_attempt": "2026-10-29T07:14:46+00:00",
-    "last_success": "2026-10-29T07:14:46+00:00",
+    "last_attempt": "2026-10-29T10:59:45+00:00",
+    "last_success": "2026-10-29T10:59:45+00:00",
     "stale": false,
     "last_error": null,
     "last_period": "2026-10-29"
@@ -1632,8 +1632,8 @@
     "last_period": "2026-10-16"
   },
   "tbill_91d": {
-    "last_attempt": "2026-10-29T06:41:57+00:00",
-    "last_success": "2026-10-29T06:41:57+00:00",
+    "last_attempt": "2026-10-29T10:59:45+00:00",
+    "last_success": "2026-10-29T10:59:45+00:00",
     "stale": false,
     "last_error": null,
     "last_period": "2026-10-29"
@@ -1646,8 +1646,8 @@
     "last_period": "2026-10-16"
   },
   "term_spread_10y_repo": {
-    "last_attempt": "2026-10-29T10:13:32+00:00",
-    "last_success": "2026-10-29T10:13:32+00:00",
+    "last_attempt": "2026-10-29T10:59:56+00:00",
+    "last_success": "2026-10-29T10:59:56+00:00",
     "stale": false,
     "last_error": null,
     "last_period": "2026-10-22"
@@ -1681,11 +1681,11 @@
     "last_period": "2026-09-01"
   },
   "usdinr_ref": {
-    "last_attempt": "2026-10-29T06:41:57+00:00",
-    "last_success": "2026-10-29T06:41:57+00:00",
+    "last_attempt": "2026-10-29T10:59:45+00:00",
+    "last_success": "2026-10-29T10:59:45+00:00",
     "stale": false,
     "last_error": null,
-    "last_period": "2026-10-28"
+    "last_period": "2026-10-29"
   },
   "wacr": {
     "last_attempt": "2026-10-29T07:14:46+00:00",

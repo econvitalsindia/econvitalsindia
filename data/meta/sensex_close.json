@@ -14,10 +14,10 @@
   "licence": "show-only",
   "downloadable": false,
   "first_period": "2016-10-28",
-  "last_period": "2026-10-28",
-  "last_value": 73246.03,
-  "observations": 2463,
-  "updated_at": "2026-10-29T06:41:59+00:00",
+  "last_period": "2026-10-29",
+  "last_value": 74151.04,
+  "observations": 2464,
+  "updated_at": "2026-10-29T10:59:47+00:00",
   "fetched_from": [
     "yfinance:BZ=F?period=1mo",
     "yfinance:GC=F?period=1mo",
@@ -26,10 +26,10 @@
     "yfinance:^NSEI?period=1mo"
   ],
   "raw_files": [
-    "data/raw/yahoo_markets/20261029T064158-12388d8133.json",
-    "data/raw/yahoo_markets/20261029T064159-35590c9ed7.json",
-    "data/raw/yahoo_markets/20261029T064159-3689103c50.json",
-    "data/raw/yahoo_markets/20261029T064159-0e6b238ecb.json",
-    "data/raw/yahoo_markets/20261029T064159-30ac04d2d7.json"
+    "data/raw/yahoo_markets/20261029T105947-83e0baaaca.json",
+    "data/raw/yahoo_markets/20261029T105947-d33aec9bf2.json",
+    "data/raw/yahoo_markets/20261029T105947-071101d676.json",
+    "data/raw/yahoo_markets/20261029T105947-9524be22f2.json",
+    "data/raw/yahoo_markets/20261029T105947-c06c1137cf.json"
   ]
 }
