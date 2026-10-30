@@ -86,10 +86,9 @@ When an `auto` source starts failing with 403s or timeouts from Actions but work
 ## What makes us different from econvitals
 
 1. **States**: a state dashboard with choropleths (GSDP, state CPI, PLFS unemployment, state finances).
-2. **MPC Speak**: hawk–dove scoring of *each MPC member's* statement in the RBI minutes.
-3. **Base-year bridge**: properly linked long series across the 2026 rebasing (GDP 2022-23, CPI 2024, IIP 2022-23).
-4. **Monsoon and food watch**: IMD rainfall vs normal, reservoir storage, vegetable prices next to CPI food.
-5. **Digital pulse**: UPI, FASTag and e-way bills as high-frequency activity indicators.
-6. **Indian conventions**: FY quarters, ₹ lakh crore, crore ↔ billion toggle.
-7. **Citable and downloadable**: every chart has CSV download and a "cite this" line (.dta later).
-8. **Built for more than one language**: no hard-coded UI strings, so a Hindi version is possible later.
+2. **Base-year bridge**: properly linked long series across the 2026 rebasing (GDP 2022-23, CPI 2024, IIP 2022-23).
+3. **Monsoon and food watch**: IMD rainfall vs normal, reservoir storage, vegetable prices next to CPI food.
+4. **Digital pulse**: UPI, FASTag and e-way bills as high-frequency activity indicators.
+5. **Indian conventions**: FY quarters, ₹ lakh crore, crore ↔ billion toggle.
+6. **Citable and downloadable**: every chart has CSV download and a "cite this" line (.dta later).
+7. **Built for more than one language**: no hard-coded UI strings, so a Hindi version is possible later.

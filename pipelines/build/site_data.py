@@ -222,17 +222,16 @@ def mpc_decisions(cal: list[dict]) -> dict:
         return {"rows": [], "next": None}
     df["value"] = df["value"].astype(float)
     df["change_bp"] = (df["value"].diff() * 100).round()
-    against = store.load_panel("mpc_member_dissent").astype({"value": float})
-    votes = against.groupby("period")["value"].agg(["size", "sum"])
     rows = []
     for _, r in df.iterrows():
-        dates, _, rest = r["note"].partition("; stance: ")
+        rest, _, votes = r["note"].partition("; votes: ")
+        dates, _, rest = rest.partition("; stance: ")
         stance, _, size = rest.partition("; size: ")
-        n, no = votes.loc[r["period"]] if r["period"] in votes.index else (None, None)
+        yes, _, no = votes.partition("-")
         rows.append({"period": r["period"], "dates": dates, "rate": r["value"],
                      "change_bp": None if pd.isna(r["change_bp"]) else int(r["change_bp"]),
-                     "stance": stance, "size_split": size, "votes_for": None if n is None else int(n - no),
-                     "votes_against": None if n is None else int(no)})
+                     "stance": stance, "size_split": size, "votes_for": int(yes) if votes else None,
+                     "votes_against": int(no) if votes else None})
     today = date.today().isoformat()
     upcoming = [c for c in cal if c["date"] > today and "repo_rate" in c["series"]
                 and "MPC" in c["title"]]

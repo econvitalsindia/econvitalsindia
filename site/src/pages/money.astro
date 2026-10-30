@@ -18,7 +18,6 @@ const move = (bp) => bp === null ? "–" : bp === 0 ? "hold" : `${bp > 0 ? "+" :
   <h1>Money &amp; banking</h1>
   <p class="lede">What is RBI's policy stance, where are money-market rates, and how fast are bank credit and deposits growing? The policy repo rate is {num(repo.value, 2)}% ({period(repo.period, "D")}); bank credit grew {num(credit.value, 1)}% on a year earlier in the fortnight to {period(credit.period, "D")}. The banking system's liquidity was in {liquidity.value >= 0 ? "surplus" : "deficit"} by ₹{num(Math.abs(liquidity.value), 2)} lakh crore on {period(liquidity.period, "D")}, and broad money (M3) grew {num(m3.value, 1)}% on a year earlier.</p>
   {mpc.next && <p class="chart-sub"><strong>Next MPC decision:</strong> {period(mpc.next.date, "D")} ({mpc.next.days} days). Last decision ({lastMpc.dates}): {move(lastMpc.change_bp)} to {num(lastMpc.rate, 2)}%, stance {lastMpc.stance}. <a href="/calendar/">Calendar →</a></p>}
-  <p class="chart-sub"><strong>New:</strong> <a href="/money/mpc-speak/">MPC Speak</a>, a hawk–dove reading of each MPC member's statement in the minutes.</p>
 
   <LineChart title="Policy corridor and the call rate" subtitle="Per cent; the call rate (WACR) normally trades between the SDF floor and the MSF ceiling"
     lines={[{ id: "msf_rate", label: "MSF (ceiling)", step: true }, { id: "repo_rate", label: "Repo", step: true }, { id: "sdf_rate", label: "SDF (floor)", step: true }, { id: "wacr", label: "Call rate (WACR)" }]} years={1} />
@@ -90,11 +89,6 @@ const move = (bp) => bp === null ? "–" : bp === 0 ? "hold" : `${bp > 0 ? "+" :
     { id: "crr" }, { id: "slr" }, { id: "wacr" },
     { id: "tbill_91d_weekly" }, { id: "tbill_182d_weekly" }, { id: "tbill_364d_weekly" }, { id: "gsec_10y_par_fbil" },
   ]} freq="D" />
-
-  <h2 id="mpc-speak">MPC Speak</h2>
-  <LineChart title="How hawkish is the MPC?" subtitle="Average tone of the six members' statements in the minutes; above zero leans hawkish, below zero dovish"
-    lines={[{ id: "mpc_committee_tone", label: "Committee average" }]} reference={{ target: 0 }} years={11} />
-  <p class="chart-sub">An original measure on {config.site.name}: phrase counts in each member's statement in the RBI minutes. <a href="/money/mpc-speak/">Member by member, and how the score works →</a></p>
 
   <h2>Still to come on this page</h2>
   <p class="chart-sub">Commercial paper and certificate of deposit rates (the parser is ready; the data will appear once the next download succeeds). Checklist: docs/guidebook/05-pages/money-banking.md.</p>

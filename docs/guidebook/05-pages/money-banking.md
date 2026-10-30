@@ -12,7 +12,6 @@
 - [x] Sectoral deployment of credit (monthly): industry, services, personal loans, agriculture (`rbi/sectoral_credit.py`, growth as published)
 - [x] Money supply M3 growth, reserve money (WSS tables 6 and 7, fortnightly)
 - [x] T-bill yields (91d, 182d, 364d) (CP and CD rates: parser in rbi/wss.py tables 10–11, waiting on first successful download)
-- [x] MPC Speak section and link (committee tone chart; member page at /money/mpc-speak/)
 
 ## Must NOT include
 - Fed-style "market-implied path" unless we have a free, redistributable OIS source (we probably don't; leave it out)

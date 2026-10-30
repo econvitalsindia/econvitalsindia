@@ -1,6 +1,6 @@
 """MPC decisions: the policy repo rate after each meeting, the stance, and the meeting dates.
 
-Read from the same RBI minutes as MPC Speak (mpc_minutes.py). The resolution near the top
+Read from the RBI minutes of each meeting (helpers in _minutes.py). The resolution near the top
 says what the committee decided:
   "... decided to: • reduce the policy repo rate under the liquidity adjustment facility (LAF)
    by 25 basis points from 6.50 per cent to 6.25 per cent"
@@ -17,8 +17,9 @@ Also RBI's projections for the financial year, from the same resolution text:
   mpc_cpi_projection, mpc_gdp_projection   value = % for the year; note: "for 2026-27"
 
 One series, period = month of the meeting, value = repo rate after the decision:
-  mpc_repo_decision   note: "<meeting dates>; stance: <stance>[; size: <who wanted what>]"
-The vote split comes from mpc_member_dissent; the change from the previous meeting's rate.
+  mpc_repo_decision   note: "<meeting dates>; stance: <stance>[; size: <who wanted what>][; votes: 5-1]"
+The vote is the tally for and against the rate resolution (no member names are kept); the
+change is from the previous meeting's rate.
 """
 from __future__ import annotations
 
@@ -30,7 +31,7 @@ from pipelines.core import Raw, Source
 from pipelines.core.http import fetch_raw
 from pipelines.core.store import load_series
 from pipelines.sources.rbi._press import RELEASE, releases
-from pipelines.sources.rbi.mpc_minutes import FIRST_MEETING, TITLE, meeting_period, text_of
+from pipelines.sources.rbi._minutes import FIRST_MEETING, TITLE, meeting_period, text_of, vote_count
 
 DECISION = re.compile(r"(?:decided|voted)[^•]{0,40}?to:?\s*•?\s*(reduce|cut|increase|raise|keep|maintain|retain)"
                       r"\s+the policy repo rate", re.I)
@@ -140,8 +141,9 @@ class MpcDecisions(Source):
                 if found:
                     proj.append({"series_id": sid, "period": period, "value": found[1], "note": f"for {found[0]}"})
             rate, stance = decision(text)
-            rows.append({"period": meeting_period(text), "value": rate,
-                         "dates": meeting_dates(text), "stance": stance, "size": size_split(text)})
+            votes = vote_count(text)
+            rows.append({"period": meeting_period(text), "value": rate, "dates": meeting_dates(text),
+                         "stance": stance, "size": size_split(text), "votes": f"{votes[0]}-{votes[1]}" if votes else ""})
         df = pd.DataFrame(rows).drop_duplicates("period", keep="last").sort_values("period")
         # Minutes that don't restate the stance keep the previous one. A partial fetch (the
         # last four months) starts from the stance already stored.
@@ -149,7 +151,8 @@ class MpcDecisions(Source):
         before = stored[stored["period"] < df["period"].min()]
         start = before["note"].iloc[-1].split("stance: ")[-1].split(";")[0] if len(before) else None
         df["stance"] = df["stance"].ffill().fillna(start).fillna("not stated")
-        df["note"] = df["dates"] + "; stance: " + df["stance"] + df["size"].map(lambda x: f"; size: {x}" if x else "")
+        df["note"] = (df["dates"] + "; stance: " + df["stance"] + df["size"].map(lambda x: f"; size: {x}" if x else "")
+                      + df["votes"].map(lambda x: f"; votes: {x}" if x else ""))
         df["series_id"] = "mpc_repo_decision"
         out = df[["series_id", "period", "value", "note"]]
         if proj:

@@ -54,7 +54,6 @@ export const topics = [
     ["Credit by sector", "/money/#sectoral-credit"],
     ["Money supply (M3)", "/money/#money-supply"],
     ["Rates, recent weeks", "/money/#rates-table"],
-    ["MPC Speak: hawkish or dovish?", "/money/mpc-speak/"],
   ] },
   { key: "markets", label: "Markets", href: "/markets/", items: [
     ["Stocks, rupee, bonds, oil, gold", "/markets/"],
@@ -86,8 +85,7 @@ export const topics = [
 ];
 
 export const more = [
-  { key: "tools", label: "Tools", href: "/money/mpc-speak/", items: [
-    ["MPC Speak", "/money/mpc-speak/"],
+  { key: "tools", label: "Tools", href: "/tools/policy-rule/", items: [
     ["Policy rule for RBI", "/tools/policy-rule/"],
     ["India and its peers", "/tools/peers/"],
     ["Budget explorer", "/tools/budget/"],

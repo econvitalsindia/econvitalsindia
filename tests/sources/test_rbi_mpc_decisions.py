@@ -1,6 +1,6 @@
 """MPC decisions from the minutes' resolution: rate, stance and size splits."""
 from pipelines.sources.rbi.mpc_decisions import decision, size_split
-from pipelines.sources.rbi.mpc_minutes import text_of
+from pipelines.sources.rbi._minutes import text_of, vote_count
 
 
 def text(raw_from, month):
@@ -33,3 +33,10 @@ def test_projections_skip_quarters(raw_from):
     head = t[:t.find("Statement by")]
     assert projection(head, "CPI inflation") == ("2025-26", 3.7)
     assert projection(head, "GDP growth") == ("2025-26", 6.5)
+
+
+def test_vote_count(raw_from):
+    # The tally only; no member names are kept.
+    for month in ("2016-10", "2022-06", "2025-06"):
+        yes, no = vote_count(text(raw_from, month))
+        assert yes + no == 6
