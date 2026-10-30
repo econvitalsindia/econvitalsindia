@@ -15,9 +15,9 @@
   "downloadable": false,
   "first_period": "2025-10-23",
   "last_period": "2026-10-29",
-  "last_value": 10543.97,
-  "observations": 254,
-  "updated_at": "2026-10-29T18:35:22+00:00",
+  "last_value": 10955.97,
+  "observations": 256,
+  "updated_at": "2026-10-30T10:57:41+00:00",
   "fetched_from": [
     "derived: derived_brent_inr"
   ],

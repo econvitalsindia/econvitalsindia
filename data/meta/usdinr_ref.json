@@ -14,14 +14,14 @@
   "licence": "unverified",
   "downloadable": false,
   "first_period": "2025-10-23",
-  "last_period": "2026-10-29",
-  "last_value": 95.3688,
-  "observations": 244,
-  "updated_at": "2026-10-29T18:59:52+00:00",
+  "last_period": "2026-10-30",
+  "last_value": 95.2492,
+  "observations": 245,
+  "updated_at": "2026-10-30T10:57:34+00:00",
   "fetched_from": [
-    "https://www.fbil.org.in/wasdm/refrates/fetchcommongraph/12M"
+    "https://www.rbi.org.in/"
   ],
   "raw_files": [
-    "data/raw/fbil_refrates/20261029T185952-d64a631d57.json"
+    "data/raw/rbi_home_rates/20261030T105733-cdff8d0184.html"
   ]
 }
