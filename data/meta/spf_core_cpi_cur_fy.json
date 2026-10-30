@@ -17,7 +17,7 @@
   "last_period": "2026-10-01",
   "last_value": 4.3,
   "observations": 3,
-  "updated_at": "2026-10-29T18:59:07+00:00",
+  "updated_at": "2026-10-30T18:33:01+00:00",
   "fetched_from": [
     "https://rbidocs.rbi.org.in/rdocs/Publications/PDFs/RCCS05082026C31DF25173624B5AAB5CE37A91F7EF74.PDF#RCCS#2026-08-01",
     "https://rbidocs.rbi.org.in/rdocs/Publications/PDFs/RCCS071020264B428D82C1C242AC8CBD903EA4EC0838.PDF#RCCS#2026-10-01",
@@ -27,11 +27,11 @@
     "https://rbidocs.rbi.org.in/rdocs/Publications/PDFs/UCCS07102026_EE923A054EEC146889D904D07F2DB5B43.PDF#UCCS#2026-10-01"
   ],
   "raw_files": [
-    "data/raw/rbi_surveys/20261029T185828-b7efa92049.pdf",
-    "data/raw/rbi_surveys/20261029T185831-c155fe8723.pdf",
-    "data/raw/rbi_surveys/20261029T185834-b35e9177fc.pdf",
-    "data/raw/rbi_surveys/20261029T185857-5d9b6d64ed.pdf",
-    "data/raw/rbi_surveys/20261029T185900-0f43e39c81.pdf",
-    "data/raw/rbi_surveys/20261029T185903-8455ac7315.pdf"
+    "data/raw/rbi_surveys/20261030T183223-b7efa92049.pdf",
+    "data/raw/rbi_surveys/20261030T183226-c155fe8723.pdf",
+    "data/raw/rbi_surveys/20261030T183229-b35e9177fc.pdf",
+    "data/raw/rbi_surveys/20261030T183252-5d9b6d64ed.pdf",
+    "data/raw/rbi_surveys/20261030T183254-0f43e39c81.pdf",
+    "data/raw/rbi_surveys/20261030T183257-8455ac7315.pdf"
   ]
 }

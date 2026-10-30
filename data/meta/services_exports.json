@@ -14,12 +14,11 @@
   "licence": "unverified",
   "downloadable": false,
   "first_period": "2025-07-01",
-  "last_period": "2026-08-01",
-  "last_value": 35.471,
-  "observations": 14,
-  "updated_at": "2026-10-29T18:58:01+00:00",
+  "last_period": "2026-09-01",
+  "last_value": 39.305,
+  "observations": 15,
+  "updated_at": "2026-10-30T18:31:56+00:00",
   "fetched_from": [
-    "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=61930",
     "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=62138",
     "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=62307",
     "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=62470",
@@ -28,18 +27,19 @@
     "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63054",
     "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63270",
     "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63480",
-    "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63699"
+    "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63699",
+    "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63893"
   ],
   "raw_files": [
-    "data/raw/rbi_services_trade/20261029T185738-fe118a61a4.html",
-    "data/raw/rbi_services_trade/20261029T185741-6b326908d0.html",
-    "data/raw/rbi_services_trade/20261029T185743-626c0773bc.html",
-    "data/raw/rbi_services_trade/20261029T185746-e650dd8784.html",
-    "data/raw/rbi_services_trade/20261029T185748-5eeaccd8ca.html",
-    "data/raw/rbi_services_trade/20261029T185751-15f9bc7754.html",
-    "data/raw/rbi_services_trade/20261029T185754-e6b6f9c478.html",
-    "data/raw/rbi_services_trade/20261029T185756-48fb2f99b5.html",
-    "data/raw/rbi_services_trade/20261029T185758-8b48456173.html",
-    "data/raw/rbi_services_trade/20261029T185801-839501efc1.html"
+    "data/raw/rbi_services_trade/20261030T183136-2dbfb0765e.html",
+    "data/raw/rbi_services_trade/20261030T183138-b7cc56024f.html",
+    "data/raw/rbi_services_trade/20261030T183140-d34fab5607.html",
+    "data/raw/rbi_services_trade/20261030T183142-550c0348c7.html",
+    "data/raw/rbi_services_trade/20261030T183144-e6e9a3b3d7.html",
+    "data/raw/rbi_services_trade/20261030T183147-97175895a3.html",
+    "data/raw/rbi_services_trade/20261030T183149-247599ec23.html",
+    "data/raw/rbi_services_trade/20261030T183151-bf12a90a41.html",
+    "data/raw/rbi_services_trade/20261030T183153-2ec8757995.html",
+    "data/raw/rbi_services_trade/20261030T183156-5ba3c3ae38.html"
   ]
 }
