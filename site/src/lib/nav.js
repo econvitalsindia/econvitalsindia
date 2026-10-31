@@ -53,6 +53,7 @@ export const topics = [
     ["Bank credit and deposits", "/money/#credit"],
     ["Credit by sector", "/money/#sectoral-credit"],
     ["Money supply (M3)", "/money/#money-supply"],
+    ["Commercial paper and CDs", "/money/#paper"],
     ["Rates, recent weeks", "/money/#rates-table"],
   ] },
   { key: "markets", label: "Markets", href: "/markets/", items: [

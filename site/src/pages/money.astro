@@ -83,6 +83,15 @@ const move = (bp) => bp === null ? "–" : bp === 0 ? "hold" : `${bp > 0 ? "+" :
   </div>
   <p class="chart-sub">Fortnightly. M3 includes the effect of a non-bank merging into a bank from July 2023 (RBI's note). Source: RBI, Weekly Statistical Supplement, tables 6 and 7.</p>
 
+  <h2 id="paper">Commercial paper and certificates of deposit</h2>
+  <div class="grid2">
+    <LineChart title="Rates on new issues" subtitle="Per cent; the low and high ends of the range at which paper was issued in each fortnight"
+      lines={[{ id: "cd_rate_low", label: "CDs, low" }, { id: "cd_rate_high", label: "CDs, high" }, { id: "cp_rate_low", label: "CP, low" }, { id: "cp_rate_high", label: "CP, high" }]} years={2} />
+    <LineChart title="Outstanding" subtitle="₹ lakh crore"
+      lines={[{ id: "cp_outstanding", label: "Commercial paper" }, { id: "cd_outstanding", label: "Certificates of deposit" }]} years={2} />
+  </div>
+  <p class="chart-sub">Certificates of deposit are short-term borrowing by banks; commercial paper is short-term borrowing by companies and non-banks. RBI prints a range of rates for each fortnight, not an average, so the high end can jump with a single small issue by a weaker borrower. Source: RBI, Weekly Statistical Supplement, tables 10 and 11.</p>
+
   <h2 id="rates-table">Rates, recent weeks</h2>
   <PeriodTable heading="Per cent, week ended" n={6} digits={2} rows={[
     { id: "repo_rate" }, { id: "sdf_rate", indent: true }, { id: "msf_rate", indent: true },
@@ -90,6 +99,4 @@ const move = (bp) => bp === null ? "–" : bp === 0 ? "hold" : `${bp > 0 ? "+" :
     { id: "tbill_91d_weekly" }, { id: "tbill_182d_weekly" }, { id: "tbill_364d_weekly" }, { id: "gsec_10y_par_fbil" },
   ]} freq="D" />
 
-  <h2>Still to come on this page</h2>
-  <p class="chart-sub">Commercial paper and certificate of deposit rates (the parser is ready; the data will appear once the next download succeeds). Checklist: docs/guidebook/05-pages/money-banking.md.</p>
 </Base>
