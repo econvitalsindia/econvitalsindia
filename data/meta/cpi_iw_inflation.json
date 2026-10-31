@@ -14,14 +14,14 @@
   "licence": "GODL",
   "downloadable": true,
   "first_period": "2025-08-01",
-  "last_period": "2026-08-01",
-  "last_value": 4.96,
-  "observations": 2,
-  "updated_at": "2026-10-28T14:14:41+00:00",
+  "last_period": "2026-09-01",
+  "last_value": 5.57,
+  "observations": 4,
+  "updated_at": "2026-10-31T07:54:56+00:00",
   "fetched_from": [
-    "https://labourbureau.gov.in/uploads/public/notice/Press-Release-CPI-IW-August2026Epdf-7814c1556da667188465b41cb4aee755.pdf"
+    "https://labourbureau.gov.in/uploads/public/notice/Press-ReleaseCPIIWSept-2026Epdf-daddd6a2961843720deae3c2b5f0a71d.pdf"
   ],
   "raw_files": [
-    "data/raw/labourbureau_cpi_iw/20261028T141441-ac8fc9e0b7.pdf"
+    "data/raw/labourbureau_cpi_iw/20261031T075456-24240c3e0d.pdf"
   ]
 }

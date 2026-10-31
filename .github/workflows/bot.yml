@@ -24,8 +24,8 @@ jobs:
         id: run
         run: uv run python -m pipelines.run --bot "${{ inputs.bot }}"
         continue-on-error: true
-      - name: Report failures as issues
-        if: steps.run.outcome == 'failure'
+      - name: Report failures as issues (and close recovered ones)
+        if: always() && steps.run.outcome != 'skipped'
         env:
           GH_TOKEN: ${{ github.token }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}

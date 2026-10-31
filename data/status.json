@@ -1,23 +1,23 @@
 {
   "air_freight_total": {
-    "last_attempt": "2026-10-30T19:05:21+00:00",
-    "last_success": "2026-10-30T14:29:40+00:00",
-    "stale": true,
-    "last_error": "RuntimeError: GET https://www.aai.aero/en/business-opportunities/aai-traffic-news failed: timed out",
+    "last_attempt": "2026-10-31T07:57:20+00:00",
+    "last_success": "2026-10-31T07:57:20+00:00",
+    "stale": false,
+    "last_error": null,
     "last_period": "2026-09-01"
   },
   "air_passengers_domestic": {
-    "last_attempt": "2026-10-30T19:05:21+00:00",
-    "last_success": "2026-10-30T14:29:40+00:00",
-    "stale": true,
-    "last_error": "RuntimeError: GET https://www.aai.aero/en/business-opportunities/aai-traffic-news failed: timed out",
+    "last_attempt": "2026-10-31T07:57:20+00:00",
+    "last_success": "2026-10-31T07:57:20+00:00",
+    "stale": false,
+    "last_error": null,
     "last_period": "2026-09-01"
   },
   "air_passengers_international": {
-    "last_attempt": "2026-10-30T19:05:21+00:00",
-    "last_success": "2026-10-30T14:29:40+00:00",
-    "stale": true,
-    "last_error": "RuntimeError: GET https://www.aai.aero/en/business-opportunities/aai-traffic-news failed: timed out",
+    "last_attempt": "2026-10-31T07:57:20+00:00",
+    "last_success": "2026-10-31T07:57:20+00:00",
+    "stale": false,
+    "last_error": null,
     "last_period": "2026-09-01"
   },
   "atf_consumption": {
@@ -651,18 +651,18 @@
     "last_period": "2026-09-01"
   },
   "cpi_iw_index": {
-    "last_attempt": "2026-10-30T19:42:59+00:00",
-    "last_success": "2026-10-28T14:14:41+00:00",
-    "stale": true,
-    "last_error": "RuntimeError: no CPI-IW press note linked on the Labour Bureau home page",
-    "last_period": "2026-08-01"
+    "last_attempt": "2026-10-31T07:54:56+00:00",
+    "last_success": "2026-10-31T07:54:56+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-09-01"
   },
   "cpi_iw_inflation": {
-    "last_attempt": "2026-10-30T19:42:59+00:00",
-    "last_success": "2026-10-28T14:14:41+00:00",
-    "stale": true,
-    "last_error": "RuntimeError: no CPI-IW press note linked on the Labour Bureau home page",
-    "last_period": "2026-08-01"
+    "last_attempt": "2026-10-31T07:54:56+00:00",
+    "last_success": "2026-10-31T07:54:56+00:00",
+    "stale": false,
+    "last_error": null,
+    "last_period": "2026-09-01"
   },
   "cpi_paan_tobacco_index": {
     "last_attempt": "2026-10-30T19:36:28+00:00",
@@ -1316,29 +1316,29 @@
     "last_period": "2026-09-01"
   },
   "mf_aum_total": {
-    "last_attempt": "2026-10-30T19:05:38+00:00",
-    "last_success": "2026-10-30T19:05:38+00:00",
+    "last_attempt": "2026-10-31T07:55:30+00:00",
+    "last_success": "2026-10-31T07:55:30+00:00",
     "stale": false,
     "last_error": null,
     "last_period": "2026-09-01"
   },
   "mf_net_inflow_debt": {
-    "last_attempt": "2026-10-30T19:05:38+00:00",
-    "last_success": "2026-10-30T19:05:38+00:00",
+    "last_attempt": "2026-10-31T07:55:30+00:00",
+    "last_success": "2026-10-31T07:55:30+00:00",
     "stale": false,
     "last_error": null,
     "last_period": "2026-09-01"
   },
   "mf_net_inflow_equity": {
-    "last_attempt": "2026-10-30T19:05:38+00:00",
-    "last_success": "2026-10-30T19:05:38+00:00",
+    "last_attempt": "2026-10-31T07:55:30+00:00",
+    "last_success": "2026-10-31T07:55:30+00:00",
     "stale": false,
     "last_error": null,
     "last_period": "2026-09-01"
   },
   "mf_net_inflow_total": {
-    "last_attempt": "2026-10-30T19:05:38+00:00",
-    "last_success": "2026-10-30T19:05:38+00:00",
+    "last_attempt": "2026-10-31T07:55:30+00:00",
+    "last_success": "2026-10-31T07:55:30+00:00",
     "stale": false,
     "last_error": null,
     "last_period": "2026-09-01"
@@ -1434,11 +1434,6 @@
     "last_error": null,
     "last_period": "2023-07-01"
   },
-  "plfs_lfpr_female_usual_fy": {
-    "last_attempt": "2026-10-28T13:19:58+00:00",
-    "stale": true,
-    "last_error": "plfs_lfpr_female_usual_fy: parser returned no rows"
-  },
   "plfs_lfpr_monthly": {
     "last_attempt": "2026-10-30T19:42:12+00:00",
     "last_success": "2026-10-30T19:42:12+00:00",
@@ -1459,11 +1454,6 @@
     "stale": false,
     "last_error": null,
     "last_period": "2023-07-01"
-  },
-  "plfs_lfpr_usual_fy": {
-    "last_attempt": "2026-10-28T13:19:58+00:00",
-    "stale": true,
-    "last_error": "plfs_lfpr_usual_fy: parser returned no rows"
   },
   "plfs_ur_female_monthly": {
     "last_attempt": "2026-10-30T19:42:12+00:00",
@@ -1513,11 +1503,6 @@
     "stale": false,
     "last_error": null,
     "last_period": "2025-01-01"
-  },
-  "plfs_ur_usual_fy": {
-    "last_attempt": "2026-10-28T13:19:58+00:00",
-    "stale": true,
-    "last_error": "plfs_ur_usual_fy: parser returned no rows"
   },
   "plfs_ur_youth_monthly": {
     "last_attempt": "2026-10-30T19:42:12+00:00",

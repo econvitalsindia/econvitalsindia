@@ -42,16 +42,21 @@ def parse_note(text: str) -> list[dict]:
             {"series_id": "cpi_iw_inflation", "period": ya, "value": float(infl.group(2))}]
 
 
+def press_link(page: str) -> str | None:
+    """The English CPI-IW press note: "Press-Release-CPI-IW-August-2026...pdf" until Aug 2026,
+    "Press-ReleaseCPIIWSept-2026E...pdf" from Sep 2026."""
+    m = re.search(r'href="(https://labourbureau\.gov\.in/uploads/public/notice/Press-?Release-?CPI-?IW[^"]+\.pdf)"', page, re.I)
+    return m.group(1) if m else None
+
 class LabourBureauCpiIw(Source):
     name = "labourbureau_cpi_iw"
     series_ids = ("cpi_iw_index", "cpi_iw_inflation")
 
     def fetch(self) -> list[Raw]:
-        page = get(HOME).text
-        m = re.search(r'href="(https://labourbureau\.gov\.in/uploads/public/notice/Press-Release-CPI-IW-[^"]+\.pdf)"', page)
-        if not m:
+        link = press_link(get(HOME).text)
+        if not link:
             raise RuntimeError("no CPI-IW press note linked on the Labour Bureau home page")
-        return [fetch_raw(m.group(1), suffix=".pdf")]
+        return [fetch_raw(link, suffix=".pdf")]
 
     def parse(self, raws: list[Raw]) -> pd.DataFrame:
         with pdfplumber.open(io.BytesIO(raws[0].content)) as pdf:
